@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMP21: Participant Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+
+  <style>
+    /* ── Page-specific tokens ── */
+    :root {
+      --navy:  #14104a;
+      --rose:  #e23c74;
+      --gold:  #c8952c;
+      --cream: #fff8ef;
+    }
+
+    /* ── Hero ── */
+    .p-hero {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 3.5rem 0 3rem;
+    }
+    .p-hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 35%;
+      opacity: 0.18;
+    }
+    .p-hero-inner { position: relative; z-index: 1; }
+    .p-hero-badge {
+      display: inline-block;
+      background: var(--gold); color: var(--navy);
+      font-size: 0.72rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.3rem 1rem; border-radius: 999px; margin-bottom: 1.2rem;
+    }
+    .p-hero h1 { font-family: var(--font-serif, 'Cormorant Garamond', serif); font-size: clamp(2.2rem,5vw,3.5rem); font-weight: 700; color: #fff8ef; margin: 0 0 0.75rem; }
+    .p-hero-sub { color: #b39ddb; font-size: 1.05rem; max-width: 520px; line-height: 1.65; margin: 0 0 1.8rem; }
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 2rem; }
+    .hero-stat-val { font-size: 2rem; font-weight: 900; color: var(--gold); line-height: 1; }
+    .hero-stat-lbl { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #b39ddb; margin-top: 0.3rem; }
+
+    /* ── Stage cards ── */
+    .stages-section { padding: 2.5rem 0 3rem; background: #fff; }
+    .stages-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; }
+    @media(max-width:900px){ .stages-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:560px){ .stages-grid { grid-template-columns: 1fr; } }
+    .stage-card { border-radius: 1.2rem; padding: 1.8rem 1.5rem; position: relative; overflow: hidden; }
+    .stage-card-num { font-family: var(--font-serif,'Cormorant Garamond',serif); font-size: 3rem; font-weight: 700; opacity: 0.22; display: block; margin-bottom: 0.6rem; line-height: 1; }
+    .stage-card h3 { font-family: var(--font-serif,'Cormorant Garamond',serif); font-size: 1.4rem; font-weight: 700; margin: 0 0 0.7rem; }
+    .stage-card p { font-size: 0.88rem; line-height: 1.65; opacity: 0.88; margin: 0; }
+
+    /* ── Progress tracker ── */
+    .tracker-section { padding: 4rem 0; background: var(--cream); }
+    .tracker-header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.8rem; }
+    .tracker-header h2 { font-family: var(--font-serif,'Cormorant Garamond',serif); font-size: clamp(1.8rem,3.5vw,2.6rem); font-weight: 700; margin: 0 0 0.3rem; color: var(--navy); }
+    .tracker-header p { font-size: 0.88rem; color: #555; max-width: 480px; margin: 0; }
+    .team-select-wrap { display: flex; align-items: center; gap: 0.75rem; }
+    .team-select-label { font-size: 0.72rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; color: #888; }
+    .team-select {
+      border: 1.5px solid #ddd; border-radius: 0.8rem;
+      padding: 0.5rem 1rem; font-size: 0.9rem; font-weight: 700; color: var(--navy);
+      background: #fff; cursor: pointer;
+    }
+
+    /* Overall progress bar card */
+    .progress-card { background: #fff; border: 1px solid #e5e5ea; border-radius: 1.2rem; padding: 1.5rem 1.8rem; margin-bottom: 1.5rem; box-shadow: 0 2px 12px rgba(20,16,74,0.05); }
+    .progress-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.9rem; }
+    .progress-count { font-size: 1.6rem; font-weight: 900; color: var(--navy); }
+    .progress-count span { font-size: 0.9rem; font-weight: 500; color: #888; }
+    .progress-pct { font-size: 1.2rem; font-weight: 900; color: var(--gold); }
+    .progress-bar-track { width: 100%; height: 10px; background: #eee; border-radius: 999px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; border-radius: 999px; transition: width 0.4s ease; background: var(--gold); }
+    .progress-done-msg { margin-top: 0.7rem; font-size: 0.88rem; font-weight: 700; color: #2e7d32; display: none; }
+
+    /* Phase checklist grid */
+    .phases-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
+    @media(max-width:960px){ .phases-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:580px){ .phases-grid { grid-template-columns: 1fr; } }
+    .phase-card { background: #fff; border: 1.5px solid #e5e5ea; border-radius: 1.2rem; overflow: hidden; box-shadow: 0 2px 10px rgba(20,16,74,0.04); }
+    .phase-card.complete { border-color: #66bb6a; }
+    .phase-card-header { padding: 1rem 1.2rem; display: flex; align-items: center; justify-content: space-between; }
+    .phase-day { font-size: 0.68rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); }
+    .phase-label { font-family: var(--font-serif,'Cormorant Garamond',serif); font-size: 1.3rem; font-weight: 700; color: #fff; }
+    .phase-count { font-size: 1.4rem; font-weight: 900; color: #fff; line-height: 1; text-align: right; }
+    .phase-done-badge { font-size: 0.65rem; font-weight: 900; color: #a5d6a7; text-transform: uppercase; letter-spacing: 0.08em; }
+    .phase-progress-bar { height: 4px; background: rgba(255,255,255,0.2); }
+    .phase-progress-fill { height: 100%; transition: width 0.4s ease; }
+    .phase-items { list-style: none; margin: 0; padding: 0; }
+    .phase-item { border-top: 1px solid #f0f0f5; }
+    .phase-item button {
+      width: 100%; display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.85rem 1.2rem; background: none; border: none; cursor: pointer;
+      text-align: left; transition: background 0.15s;
+    }
+    .phase-item button:hover { background: #f8f6ff; }
+    .check-box {
+      width: 20px; height: 20px; border-radius: 5px; border: 2px solid #ccc;
+      background: #fff; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: all 0.2s;
+    }
+    .check-box.checked { border-color: #4caf50; background: #4caf50; }
+    .check-box svg { display: none; }
+    .check-box.checked svg { display: block; }
+    .item-code { font-size: 0.72rem; font-weight: 900; color: var(--navy); min-width: 28px; letter-spacing: 0.04em; }
+    .item-name { font-size: 0.88rem; font-weight: 500; color: #222; line-height: 1.4; transition: all 0.2s; }
+    .item-name.done { text-decoration: line-through; color: #aaa; }
+
+    /* ── Scoring section ── */
+    .scoring-section { padding: 4rem 0; background: #f3f0fb; }
+    .scoring-eyebrow { font-size: 0.72rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; color: var(--rose); display: block; margin-bottom: 0.4rem; }
+    .scoring-section h2 { font-family: var(--font-serif,'Cormorant Garamond',serif); font-size: clamp(1.8rem,3.5vw,2.6rem); font-weight: 700; color: var(--navy); margin: 0 0 0.5rem; }
+    .scoring-section > .wide > p { font-size: 0.92rem; color: #555; max-width: 620px; margin: 0 0 2rem; }
+    .scoring-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    @media(max-width:680px){ .scoring-grid { grid-template-columns: 1fr; } }
+    .score-card { border-radius: 1.2rem; padding: 1.8rem; color: #fff; }
+    .score-pct { font-size: 2.8rem; font-weight: 900; line-height: 1; margin-bottom: 0.3rem; }
+    .score-title { font-family: var(--font-serif,'Cormorant Garamond',serif); font-size: 1.4rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .score-sub { font-size: 0.78rem; margin-bottom: 1.2rem; }
+    .score-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .score-list li { display: flex; gap: 0.6rem; font-size: 0.82rem; }
+    .score-list li .sid { font-weight: 900; min-width: 32px; flex-shrink: 0; }
+    .best-speaker-card { background: #fff; border: 1px solid #e5e5ea; border-radius: 1.2rem; padding: 1.2rem 1.5rem; }
+    .best-speaker-card p { font-size: 0.9rem; margin: 0; color: #555; }
+    .best-speaker-card strong { color: var(--navy); }
+
+    /* ── Smart DT CTA ── */
+    .smartdt-cta { background: var(--navy); color: #fff; padding: 3.5rem 0; }
+    .smartdt-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .smartdt-eyebrow { font-size: 0.72rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; color: #f3dfae; display: block; margin-bottom: 0.6rem; }
+    .smartdt-cta h2 { font-family: var(--font-serif,'Cormorant Garamond',serif); font-size: 2rem; font-weight: 700; margin: 0 0 0.5rem; }
+    .smartdt-cta p { color: rgba(255,255,255,0.65); max-width: 420px; font-size: 0.92rem; margin: 0; }
+    .btn-smartdt {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--gold); color: #fff; font-weight: 900; font-size: 0.9rem;
+      border-radius: 999px; padding: 0.85rem 2rem; white-space: nowrap;
+      text-decoration: none; transition: opacity 0.2s; box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+    }
+    .btn-smartdt:hover { opacity: 0.88; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wide nav-wrap">
+      <a href="../index.html" class="brand">
+        <img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">
+        CAMP<span>21</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="programme.html">Programme</a>
+        <a href="resources.html">Resources</a>
+        <a href="contacts.html">Help</a>
+        <a href="registration.html" class="btn-nav">Register now &rarr;</a>
+      </nav>
+      <button class="menu-btn" aria-label="Toggle menu">&#9776;</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="p-hero">
+    <img src="../assets/images/participants-corner.png" alt="Participants at CAMP21" class="p-hero-img">
+    <div class="wide p-hero-inner">
+      <span class="p-hero-badge">Innovator Hub</span>
+      <h1>Participant Hub</h1>
+      <p class="p-hero-sub">Your central launching pad. Track your active milestones, review your team's assigned roles, and access the digital workspace.</p>
+      <div class="hero-stats">
+        <div><div class="hero-stat-val">10</div><div class="hero-stat-lbl">Teams</div></div>
+        <div><div class="hero-stat-val">12</div><div class="hero-stat-lbl">Templates</div></div>
+        <div><div class="hero-stat-val">5</div><div class="hero-stat-lbl">DT Phases</div></div>
+        <div><div class="hero-stat-val">4</div><div class="hero-stat-lbl">Days</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAGE CARDS -->
+  <section class="stages-section">
+    <div class="wide">
+      <div class="stages-grid">
+        <div class="stage-card" style="background:var(--navy);color:#fff;">
+          <span class="stage-card-num">01</span>
+          <h3>Before Camp</h3>
+          <p>Complete your registration, draw your team assignment, and secure your digital briefing documentation.</p>
+        </div>
+        <div class="stage-card" style="background:var(--rose);color:#fff;">
+          <span class="stage-card-num">02</span>
+          <h3>During Camp</h3>
+          <p>Complete 12 guided templates across five Design Thinking phases — Empathise, Define, Ideate, Prototype and Testing — and log all outputs in the Smart DT App.</p>
+        </div>
+        <div class="stage-card" style="background:var(--gold);color:#fff;">
+          <span class="stage-card-num">03</span>
+          <h3>The Final Day</h3>
+          <p>Deliver your final pitch using the 8-Slide Pitch Framework during the Gallery Walk and live evaluation session.</p>
+        </div>
+        <div class="stage-card" style="background:#1a1060;color:#fff;">
+          <span class="stage-card-num">WS</span>
+          <h3>Smart DT Project</h3>
+          <p>Your main digital workspace. Templates T01–T10 and T12 are submitted here. T13 Pitch Deck Template is submitted separately as a PDF by Day 3, 9 PM.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM PROGRESS TRACKER -->
+  <section class="tracker-section">
+    <div class="wide">
+      <div class="tracker-header">
+        <div>
+          <h2>My Team Progress</h2>
+          <p>Tick off each template as your team completes it in the Smart DT App. Progress saves automatically in this browser.</p>
+        </div>
+        <div class="team-select-wrap">
+          <span class="team-select-label">Your Team</span>
+          <select class="team-select" id="teamSelect">
+            <option>Team 1</option><option>Team 2</option><option>Team 3</option>
+            <option>Team 4</option><option>Team 5</option><option>Team 6</option>
+            <option>Team 7</option><option>Team 8</option><option>Team 9</option>
+            <option>Team 10</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Overall progress bar -->
+      <div class="progress-card">
+        <div class="progress-top">
+          <div class="progress-count" id="progressCount">0 <span>/ 12 templates complete</span></div>
+          <div class="progress-pct" id="progressPct">0%</div>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+        </div>
+        <p class="progress-done-msg" id="progressDoneMsg">All templates complete — ready for the final pitch!</p>
+      </div>
+
+      <!-- Phase cards -->
+      <div class="phases-grid" id="phasesGrid">
+
+        <!-- Phase 1: Empathise -->
+        <div class="phase-card" id="phase-empathise">
+          <div class="phase-card-header" style="background:#1a1060;">
+            <div>
+              <div class="phase-day">Day 1 AM</div>
+              <div class="phase-label">Empathise</div>
+            </div>
+            <div class="phase-count">
+              <div id="count-empathise">0/4</div>
+              <div class="phase-done-badge" id="done-empathise" style="visibility:hidden">Done ✓</div>
+            </div>
+          </div>
+          <div class="phase-progress-bar">
+            <div class="phase-progress-fill" id="fill-empathise" style="width:0%;background:#c8952c;"></div>
+          </div>
+          <ul class="phase-items">
+            <li class="phase-item"><button onclick="toggleItem('T01')" id="btn-T01"><span class="check-box" id="chk-T01"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="item-code">T01</span><span class="item-name" id="name-T01">POEMS Observation Framework</span></button></li>
+            <li class="phase-item"><button onclick="toggleItem('T02')" id="btn-T02"><span class="check-box" id="chk-T02"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="item-code">T02</span><span class="item-name" id="name-T02">AI Interview Question Generator</span></button></li>
+            <li class="phase-item"><button onclick="toggleItem('T03')" id="btn-T03"><span class="check-box" id="chk-T03"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="item-code">T03</span><span class="item-name" id="name-T03">Interview Audio-to-Text Transcription</span></button></li>
+            <li class="phase-item"><button onclick="toggleItem('T04')" id="btn-T04"><span class="check-box" id="chk-T04"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="item-code">T04</span><span class="item-name" id="name-T04">Empathy Map</span></button></li>
+          </ul>
+        </div>
+
+        <!-- Phase 2: Define -->
+        <div class="phase-card" id="phase-define">
+          <div class="phase-card-header" style="background:#7b1fa2;">
+            <div>
+              <div class="phase-day">Day 1 PM</div>
+              <div class="phase-label">Define</div>
+            </div>
+            <div class="phase-count">
+              <div id="count-define">0/2</div>
+              <div class="phase-done-badge" id="done-define" style="visibility:hidden">Done ✓</div>
+            </div>
+          </div>
+          <div class="phase-progress-bar">
+            <div class="phase-progress-fill" id="fill-define" style="width:0%;background:#c8952c;"></div>
+          </div>
+          <ul class="phase-items">
+            <li class="phase-item"><button onclick="toggleItem('T05')" id="btn-T05"><span class="check-box" id="chk-T05"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="item-code">T05</span><span class="item-name" id="name-T05">User Persona Template</span></button></li>
+            <li class="phase-item"><button onclick="toggleItem('T06')" id="btn-T06"><span class="check-box" id="chk-T06"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="item-code">T06</span><span class="item-name" id="name-T06">Identifying Insights, User Needs &amp; Design Challenge</span></button></li>
+          </ul>
+        </div>
+
+        <!-- Phase 3: Ideate -->
+        <div class="phase-card" id="phase-ideate">
+          <div class="phase-card-header" style="background:#2e7d32;">
+            <div>
+              <div class="phase-day">Day 2</div>
+              <div class="phase-label">Ideate</div>
+            </div>
+            <div class="phase-count">
+              <div id="count-ideate">0/4</div>
+              <div class="phase-done-badge" id="done-ideate" style="visibility:hidden">Done ✓</div>
+            </div>
+          </div>
+          <div class="phase-progress-bar">
+            <div class="phase-progress-fill" id="fill-ideate" style="width:0%;background:#c8952c;"></div>
+          </div>
+          <ul class="phase-items">
+            <li class="phase-item"><button onclick="toggleItem('T07')" id="btn-T07"><span class="check-box" id="chk-T07"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="item-code">T07</span><span class="item-name" id="name-T07">Mind Mapping Framework</span></button></li>
+            <li class="phase-item"><button onclick="toggleItem('T08')" id="btn-T08"><span class="check-box" id="chk-T08"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="item-code">T08</span><span class="item-name" id="name-T08">SCAMPER Activity Template</span></button></li>
+            <li class="phase-item"><button onclick="toggleItem('T09')" id="btn-T09"><span class="check-box" id="chk-T09"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="item-code">T09</span><span class="item-name" id="name-T09">Concept Sketching Template</span></button></li>
+            <li class="phase-item"><button onclick="toggleItem('T10')" id="btn-T10"><span class="check-box" id="chk-T10"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="item-code">T10</span><span class="item-name" id="name-T10">Idea Prioritisation Matrix</span></button></li>
+          </ul>
+        </div>
+
+        <!-- Phase 4: Prototype -->
+        <div class="phase-card" id="phase-prototype">
+          <div class="phase-card-header" style="background:#e65100;">
+            <div>
+              <div class="phase-day">Day 2–3</div>
+              <div class="phase-label">Prototype</div>
+            </div>
+            <div class="phase-count">
+              <div id="count-prototype">0/1</div>
+              <div class="phase-done-badge" id="done-prototype" style="visibility:hidden">Done ✓</div>
+            </div>
+          </div>
+          <div class="phase-progress-bar">
+            <div class="phase-progress-fill" id="fill-prototype" style="width:0%;background:#c8952c;"></div>
+          </div>
+          <ul class="phase-items">
+            <li class="phase-item"><button onclick="toggleItem('T12')" id="btn-T12"><span class="check-box" id="chk-T12"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="item-code">T12</span><span class="item-name" id="name-T12">Prototype Direction Plan</span></button></li>
+          </ul>
+        </div>
+
+        <!-- Phase 5: Testing -->
+        <div class="phase-card" id="phase-testing">
+          <div class="phase-card-header" style="background:#c62828;">
+            <div>
+              <div class="phase-day">Day 3</div>
+              <div class="phase-label">Testing / Pitch</div>
+            </div>
+            <div class="phase-count">
+              <div id="count-testing">0/1</div>
+              <div class="phase-done-badge" id="done-testing" style="visibility:hidden">Done ✓</div>
+            </div>
+          </div>
+          <div class="phase-progress-bar">
+            <div class="phase-progress-fill" id="fill-testing" style="width:0%;background:#c8952c;"></div>
+          </div>
+          <ul class="phase-items">
+            <li class="phase-item"><button onclick="toggleItem('T13')" id="btn-T13"><span class="check-box" id="chk-T13"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="item-code">T13</span><span class="item-name" id="name-T13">Pitch Deck Template (PDF — submit by Day 3, 9 PM)</span></button></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SCORING SECTION -->
+  <section class="scoring-section">
+    <div class="wide">
+      <span class="scoring-eyebrow">Evaluation Criteria</span>
+      <h2>How Your Team Will Be Scored</h2>
+      <p>Final score = <strong>Pitching &amp; Prototype (80%)</strong> + <strong>TikTok Reflection (20%)</strong> = 100 marks total. Know what judges are looking for so you can focus your effort in the right places.</p>
+
+      <div class="scoring-grid">
+        <!-- Pitching 80% -->
+        <div class="score-card" style="background:var(--navy);">
+          <div class="score-pct" style="color:#f3dfae;">80%</div>
+          <div class="score-title">Pitching &amp; Prototype</div>
+          <div class="score-sub" style="color:rgba(255,255,255,0.5);">8 criteria &times; 5 pts = 40 raw &rarr; /80</div>
+          <ul class="score-list">
+            <li><span class="sid" style="color:#f3dfae;">PT1</span> Clear problem statement and user need</li>
+            <li><span class="sid" style="color:#f3dfae;">PT2</span> Evidence of Design Thinking process across the 5 phases</li>
+            <li><span class="sid" style="color:#f3dfae;">PT3</span> Cultural heritage integration</li>
+            <li><span class="sid" style="color:#f3dfae;">PT4</span> Innovation and creativity of the solution</li>
+            <li><span class="sid" style="color:#f3dfae;">PT5</span> Prototype clarity, function and relevance</li>
+            <li><span class="sid" style="color:#f3dfae;">PT6</span> Testing feedback and improvement actions</li>
+            <li><span class="sid" style="color:#f3dfae;">PT7</span> Presentation flow, storytelling and teamwork</li>
+            <li><span class="sid" style="color:#f3dfae;">PT8</span> Response during Q&amp;A</li>
+          </ul>
+        </div>
+
+        <!-- TikTok 20% -->
+        <div class="score-card" style="background:var(--rose);">
+          <div class="score-pct">20%</div>
+          <div class="score-title">TikTok Reflection</div>
+          <div class="score-sub" style="color:rgba(255,255,255,0.6);">5 criteria &times; 5 pts = 25 raw &rarr; /20</div>
+          <ul class="score-list">
+            <li><span class="sid">TT1</span> Shows clear learning journey from Day 1 to Day 4</li>
+            <li><span class="sid">TT2</span> Demonstrates teamwork and group involvement</li>
+            <li><span class="sid">TT3</span> Explains Design Thinking process, problem, idea or prototype clearly</li>
+            <li><span class="sid">TT4</span> Connects with cultural heritage / CAMP21 theme</li>
+            <li><span class="sid">TT5</span> Creativity, clarity and audience engagement</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Best Speaker card -->
+      <div class="best-speaker-card">
+        <p><strong>🏆 Best Speaker — Separate Nomination</strong><br>
+        Judged independently by each judge team. <strong>Does not affect your group's final score.</strong> Each judge team (A &amp; B) nominates 1 Best Speaker from their 5 groups. Scored on clarity, confidence, explanation, Q&amp;A response, and overall impact.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SMART DT CTA -->
+  <section class="smartdt-cta">
+    <div class="wide smartdt-cta-inner">
+      <div>
+        <span class="smartdt-eyebrow">Your digital workspace</span>
+        <h2>Smart DT Project App</h2>
+        <p>Complete 12 guided templates across five DT phases. All submissions, task checklists and milestone records are managed inside the companion app.</p>
+      </div>
+      <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener" class="btn-smartdt">
+        Launch App Workspace &#8599;
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wide">
+      <div class="footer-grid">
+        <div class="footer-brand footer-col">
+          <a href="../index.html" class="brand">CAMP<span>21</span></a>
+          <p>AI-powered Design Thinking for sustainable cultural heritage. Jointly organised by JPPKK &amp; METrO KL.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="../index.html#portals">Access hubs</a></li>
+            <li><a href="programme.html">Full programme</a></li>
+            <li><a href="resources.html">Resources &amp; templates</a></li>
+            <li><a href="updates.html">Live updates</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contacts.html">Help desk</a></li>
+            <li><a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener">Telegram community</a></li>
+            <li><a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App</a></li>
+            <li><a href="pitching.html">Pitching guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Venue</h4>
+          <p>Kompleks Kraf Kuala Lumpur<br>Jalan Conlay, 50450<br>Kuala Lumpur</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="copy">&copy; 2026 CAMP21: Synergising Literacies. All rights reserved.</span>
+        <span class="dates">13&ndash;16 July 2026 &middot; Kompleks Kraf Kuala Lumpur</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const STORAGE_KEY = 'camp21_progress';
+    const PHASES_MAP = {
+      empathise: { templates: ['T01','T02','T03','T04'], total: 4 },
+      define:    { templates: ['T05','T06'],             total: 2 },
+      ideate:    { templates: ['T07','T08','T09','T10'], total: 4 },
+      prototype: { templates: ['T12'],                  total: 1 },
+      testing:   { templates: ['T13'],                  total: 1 },
+    };
+    const ALL_TEMPLATES = ['T01','T02','T03','T04','T05','T06','T07','T08','T09','T10','T12','T13'];
+
+    let selectedTeam = 'Team 1';
+    let progress = {};
+
+    function loadProgress() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch { return {}; }
+    }
+    function saveProgress() {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); } catch {}
+    }
+
+    function renderAll() {
+      const teamData = progress[selectedTeam] || {};
+      const totalDone = ALL_TEMPLATES.filter(t => teamData[t]).length;
+      const pct = Math.round((totalDone / 12) * 100);
+
+      document.getElementById('progressCount').innerHTML = `${totalDone} <span>/ 12 templates complete</span>`;
+      document.getElementById('progressPct').textContent = `${pct}%`;
+      const fill = document.getElementById('progressFill');
+      fill.style.width = `${pct}%`;
+      fill.style.background = pct === 100 ? '#2e7d32' : '#c8952c';
+      document.getElementById('progressDoneMsg').style.display = pct === 100 ? 'block' : 'none';
+
+      ALL_TEMPLATES.forEach(code => {
+        const checked = !!teamData[code];
+        const chk = document.getElementById('chk-' + code);
+        const name = document.getElementById('name-' + code);
+        if (chk) chk.classList.toggle('checked', checked);
+        if (name) name.classList.toggle('done', checked);
+      });
+
+      Object.entries(PHASES_MAP).forEach(([phase, cfg]) => {
+        const done = cfg.templates.filter(t => teamData[t]).length;
+        const complete = done === cfg.total;
+        const phasePct = Math.round((done / cfg.total) * 100);
+        document.getElementById('count-' + phase).textContent = `${done}/${cfg.total}`;
+        const doneBadge = document.getElementById('done-' + phase);
+        if (doneBadge) doneBadge.style.visibility = complete ? 'visible' : 'hidden';
+        const phaseFill = document.getElementById('fill-' + phase);
+        if (phaseFill) {
+          phaseFill.style.width = `${phasePct}%`;
+          phaseFill.style.background = complete ? '#4caf50' : '#c8952c';
+        }
+        const card = document.getElementById('phase-' + phase);
+        if (card) card.classList.toggle('complete', complete);
+      });
+    }
+
+    function toggleItem(code) {
+      if (!progress[selectedTeam]) progress[selectedTeam] = {};
+      progress[selectedTeam][code] = !progress[selectedTeam][code];
+      saveProgress();
+      renderAll();
+    }
+
+    document.getElementById('teamSelect').addEventListener('change', function() {
+      selectedTeam = this.value;
+      renderAll();
+    });
+
+    // Init
+    progress = loadProgress();
+    renderAll();
+
+    // Mobile menu
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuBtn) menuBtn.addEventListener('click', () => {
+      const open = navLinks.style.display === 'flex';
+      navLinks.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:var(--cream);padding:1.5rem 2rem;gap:1rem;z-index:99;box-shadow:0 12px 30px rgba(20,16,74,0.12);';
+    });
+  </script>
+
+</body>
+</html>

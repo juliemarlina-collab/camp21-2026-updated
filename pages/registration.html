@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAMP21: Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&family=Cormorant+Garamond:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" defer></script>
+  <style>
+    :root {
+      --navy: #14104a;
+      --rose: #e23c74;
+      --gold: #c8952c;
+      --cream: #fff8ef;
+    }
+
+    /* ── PAGE LAYOUT ── */
+    .reg-hero {
+      background: var(--navy);
+      padding: 3.5rem 0 2.5rem;
+      color: #fff;
+    }
+    .reg-hero .wide { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    .reg-eyebrow { font-size: 0.72rem; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+    .reg-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; line-height: 1.05; margin-bottom: 0.8rem; }
+    .reg-sub { font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 520px; font-weight: 500; line-height: 1.6; }
+
+    /* ── ROLE TABS ── */
+    .role-tabs-wrap { background: var(--cream); border-bottom: 1px solid rgba(20,16,74,0.1); position: sticky; top: 64px; z-index: 50; }
+    .role-tabs { display: flex; gap: 0; max-width: 900px; margin: 0 auto; padding: 0 1.5rem; overflow-x: auto; }
+    .role-tab {
+      padding: 1rem 1.4rem;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(20,16,74,0.45);
+      border-bottom: 3px solid transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .role-tab:hover { color: var(--navy); }
+    .role-tab.active { color: var(--rose); border-bottom-color: var(--rose); }
+
+    /* ── FORM AREA ── */
+    .reg-body { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .role-form { display: none; }
+    .role-form.active { display: block; }
+
+    .form-card {
+      background: #fff;
+      border-radius: 1.25rem;
+      border: 1px solid rgba(20,16,74,0.09);
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(20,16,74,0.05);
+    }
+    .form-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+    .form-card-desc {
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(20,16,74,0.08);
+    }
+
+    .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .field-grid .full { grid-column: 1 / -1; }
+    @media (max-width: 600px) { .field-grid { grid-template-columns: 1fr; } .field-grid .full { grid-column: 1; } }
+
+    .field-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .field-group label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--navy);
+    }
+    .field-group label .req { color: var(--rose); }
+    .reg-input, .reg-select {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      border-radius: 0.7rem;
+      border: 1.5px solid rgba(20,16,74,0.15);
+      background: #fafafa;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+    }
+    .reg-input:focus, .reg-select:focus {
+      outline: none;
+      border-color: var(--rose);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(226,60,116,0.1);
+    }
+    .reg-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2314104a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+
+    .field-hint { font-size: 0.75rem; color: #999; font-weight: 500; }
+
+    .form-divider { margin: 2rem 0 1.5rem; font-size: 0.72rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(20,16,74,0.35); display: flex; align-items: center; gap: 0.8rem; }
+    .form-divider::after { content: ''; flex: 1; height: 1px; background: rgba(20,16,74,0.1); }
+
+    .submit-row { margin-top: 2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-register {
+      background: var(--rose);
+      color: #fff;
+      font-weight: 900;
+      font-size: 0.9rem;
+      padding: 0.9rem 2rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-register:hover { background: #c4205a; transform: translateY(-1px); }
+    .btn-register:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+    .submit-note { font-size: 0.78rem; color: #999; font-weight: 500; }
+
+    /* ── SUCCESS PANEL ── */
+    .success-panel {
+      display: none;
+      background: var(--navy);
+      border-radius: 1.25rem;
+      padding: 3rem;
+      text-align: center;
+      color: #fff;
+      margin-top: 1.5rem;
+    }
+    .success-panel.show { display: block; }
+    .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .success-panel h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 0.5rem; color: #fff; }
+    .success-panel p { color: rgba(255,255,255,0.7); font-size: 0.95rem; max-width: 480px; margin: 0 auto 1.5rem; }
+    .success-badge { display: inline-block; background: var(--gold); color: var(--navy); font-weight: 900; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.4rem 1.2rem; border-radius: 999px; margin-bottom: 1.2rem; }
+    .success-detail { background: rgba(255,255,255,0.08); border-radius: 1rem; padding: 1.2rem 1.5rem; text-align: left; margin-top: 1.2rem; font-size: 0.9rem; line-height: 1.8; }
+    .success-detail strong { color: var(--gold); }
+
+    /* ── INFO SIDEBAR ── */
+    .reg-layout { display: grid; grid-template-columns: 1fr 280px; gap: 2rem; align-items: start; }
+    @media (max-width: 768px) { .reg-layout { grid-template-columns: 1fr; } }
+    .info-card { background: var(--navy); border-radius: 1.25rem; padding: 1.8rem; color: #fff; }
+    .info-card h4 { font-size: 0.78rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 1rem; }
+    .info-list { list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.7; color: rgba(255,255,255,0.75); }
+    .info-list li { padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .info-list li:last-child { border: none; }
+    .info-list li strong { color: #fff; display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .contact-card { background: rgba(226,60,116,0.08); border: 1px solid rgba(226,60,116,0.2); border-radius: 1rem; padding: 1.2rem 1.4rem; margin-top: 1rem; font-size: 0.85rem; color: var(--navy); font-weight: 600; }
+    .contact-card a { color: var(--rose); font-weight: 800; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wide nav-wrap">
+      <a href="../index.html" class="brand">CAMP<span>21</span></a>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="programme.html">Programme</a>
+        <a href="resources.html">Resources</a>
+        <a href="contacts.html">Help</a>
+        <a href="registration.html" class="btn-nav" style="background:var(--rose);color:#fff!important;font-weight:900;padding:0.55rem 1.2rem;border-radius:999px;font-size:0.88rem;">Register now &rarr;</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="reg-hero">
+    <div class="wide">
+      <p class="reg-eyebrow">CAMP21 · 13–16 July 2026</p>
+      <h1 class="reg-title">Registration</h1>
+      <p class="reg-sub">Select your role below and complete the form. All submissions are recorded in the CAMP21 master registry.</p>
+    </div>
+  </div>
+
+  <!-- ROLE TABS -->
+  <div class="role-tabs-wrap">
+    <div class="role-tabs">
+      <button class="role-tab active" onclick="switchRole('participant', this)">Participant</button>
+      <button class="role-tab" onclick="switchRole('facilitator', this)">Facilitator</button>
+      <button class="role-tab" onclick="switchRole('trainer', this)">Trainer</button>
+      <button class="role-tab" onclick="switchRole('organiser', this)">Organiser</button>
+      <button class="role-tab" onclick="switchRole('judge', this)">Judge</button>
+    </div>
+  </div>
+
+  <div class="reg-body">
+    <div class="reg-layout">
+
+      <!-- FORMS COLUMN -->
+      <div>
+
+        <!-- ── PARTICIPANT FORM ── -->
+        <div id="form-participant" class="role-form active">
+          <div class="form-card">
+            <h2 class="form-card-title">Participant Registration</h2>
+            <p class="form-card-desc">For Politeknik Malaysia students attending CAMP21 as design thinking participants. Complete all fields — your team assignment will be generated after submission.</p>
+            <form onsubmit="submitForm(event, 'participant')">
+              <div class="field-grid">
+                <div class="field-group full">
+                  <label>Full Name <span class="req">*</span></label>
+                  <input type="text" name="fullName" class="reg-input" placeholder="As per IC / MyKad" required>
+                </div>
+                <div class="field-group">
+                  <label>IC Number <span class="req">*</span></label>
+                  <input type="text" name="ic" class="reg-input" placeholder="e.g. 050101101234" maxlength="12" required>
+                  <span class="field-hint">12 digits, no dashes</span>
+                </div>
+                <div class="field-group">
+                  <label>Email Address <span class="req">*</span></label>
+                  <input type="email" name="email" class="reg-input" placeholder="student@politeknik.edu.my" required>
+                </div>
+                <div class="field-group">
+                  <label>Phone Number <span class="req">*</span></label>
+                  <input type="tel" name="phone" class="reg-input" placeholder="e.g. 0123456789" required>
+                </div>
+                <div class="field-group">
+                  <label>Polytechnic Institution <span class="req">*</span></label>
+                  <select name="polytechnic" class="reg-select" required>
+                    <option value="">— Select your Polytechnic —</option>
+                    <option>Politeknik Metro Kuala Lumpur (PMKL)</option>
+                    <option>Politeknik Port Dickson (PPD)</option>
+                    <option>Politeknik Shah Alam (PSA)</option>
+                    <option>Politeknik Seberang Perai (PSP)</option>
+                    <option>Politeknik Ungku Omar (PUO)</option>
+                    <option>Politeknik Johor Bahru (PJB)</option>
+                    <option>Politeknik Kuchin Sarawak (PKS)</option>
+                    <option>Politeknik Kuching (PKU)</option>
+                    <option>Politeknik Mukah (PMU)</option>
+                    <option>Politeknik Merlimau (PMM)</option>
+                    <option>Politeknik Kota Bharu (PKB)</option>
+                    <option>Politeknik Sultan Azlan Shah (PSAS)</option>
+                    <option>Politeknik Tuanku Sultanah Bahiyah (PTSB)</option>
+                    <option>Politeknik Nilai (PNS)</option>
+                    <option>Politeknik Sandakan (PSandakan)</option>
+                    <option>Politeknik Kota Kinabalu (PKK)</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label>Programme / Diploma <span class="req">*</span></label>
+                  <input type="text" name="programme" class="reg-input" placeholder="e.g. Diploma in Computer Science" required>
+                </div>
+                <div class="field-group">
+                  <label>Semester</label>
+                  <select name="semester" class="reg-select">
+                    <option value="">— Select —</option>
+                    <option>Semester 1</option>
+                    <option>Semester 2</option>
+                    <option>Semester 3</option>
+                    <option>Semester 4</option>
+                    <option>Semester 5</option>
+                    <option>Semester 6</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label>Dietary Requirement</label>
+                  <select name="dietary" class="reg-select">
+                    <option value="None">None / Regular</option>
+                    <option>Vegetarian</option>
+                    <option>Vegan</option>
+                    <option>Halal only</option>
+                    <option>No seafood</option>
+                    <option>No beef</option>
+                    <option>Other (state in special notes)</option>
+                  </select>
+                </div>
+                <div class="field-group full">
+                  <label>Special Notes / Medical Conditions</label>
+                  <input type="text" name="notes" class="reg-input" placeholder="Optional — allergies, accessibility needs, etc.">
+                </div>
+              </div>
+              <div class="submit-row">
+                <button type="submit" class="btn-register">Submit Registration &rarr;</button>
+                <span class="submit-note">Your team assignment will be sent to your email after processing.</span>
+              </div>
+            </form>
+          </div>
+          <div id="success-participant" class="success-panel">
+            <div class="success-icon">✅</div>
+            <span class="success-badge">Registration Confirmed</span>
+            <h3>You're registered!</h3>
+            <p>Your participant record has been logged in the CAMP21 master registry. Check your email for your team assignment details.</p>
+            <div class="success-detail" id="success-detail-participant"></div>
+          </div>
+        </div>
+
+        <!-- ── FACILITATOR FORM ── -->
+        <div id="form-facilitator" class="role-form">
+          <div class="form-card">
+            <h2 class="form-card-title">Facilitator Registration</h2>
+            <p class="form-card-desc">For Pensyarah Pengiring (accompanying lecturers) who will facilitate teams on-site, guide checkpoints, and support smooth phase movement throughout the camp.</p>
+            <form onsubmit="submitForm(event, 'facilitator')">
+              <div class="field-grid">
+                <div class="field-group full">
+                  <label>Full Name <span class="req">*</span></label>
+                  <input type="text" name="fullName" class="reg-input" placeholder="As per staff card" required>
+                </div>
+                <div class="field-group">
+                  <label>IC Number <span class="req">*</span></label>
+                  <input type="text" name="ic" class="reg-input" placeholder="12 digits, no dashes" maxlength="12" required>
+                </div>
+                <div class="field-group">
+                  <label>Email Address <span class="req">*</span></label>
+                  <input type="email" name="email" class="reg-input" placeholder="name@politeknik.edu.my" required>
+                </div>
+                <div class="field-group">
+                  <label>Phone Number <span class="req">*</span></label>
+                  <input type="tel" name="phone" class="reg-input" placeholder="e.g. 0123456789" required>
+                </div>
+                <div class="field-group">
+                  <label>Polytechnic Institution <span class="req">*</span></label>
+                  <select name="polytechnic" class="reg-select" required>
+                    <option value="">— Select —</option>
+                    <option>Politeknik Metro Kuala Lumpur (PMKL)</option>
+                    <option>Politeknik Port Dickson (PPD)</option>
+                    <option>Politeknik Shah Alam (PSA)</option>
+                    <option>Politeknik Seberang Perai (PSP)</option>
+                    <option>Politeknik Ungku Omar (PUO)</option>
+                    <option>Politeknik Johor Bahru (PJB)</option>
+                    <option>Politeknik Kuchin Sarawak (PKS)</option>
+                    <option>Politeknik Merlimau (PMM)</option>
+                    <option>Politeknik Kota Bharu (PKB)</option>
+                    <option>Politeknik Sultan Azlan Shah (PSAS)</option>
+                    <option>Politeknik Tuanku Sultanah Bahiyah (PTSB)</option>
+                    <option>Politeknik Nilai (PNS)</option>
+                    <option>Politeknik Kota Kinabalu (PKK)</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label>Department / Faculty</label>
+                  <input type="text" name="department" class="reg-input" placeholder="e.g. Jabatan Teknologi Maklumat">
+                </div>
+                <div class="field-group">
+                  <label>Dietary Requirement</label>
+                  <select name="dietary" class="reg-select">
+                    <option value="None">None / Regular</option>
+                    <option>Vegetarian</option>
+                    <option>Vegan</option>
+                    <option>Halal only</option>
+                    <option>No seafood</option>
+                    <option>No beef</option>
+                  </select>
+                </div>
+                <div class="field-group full">
+                  <label>Days of Attendance <span class="req">*</span></label>
+                  <select name="attendance" class="reg-select" required>
+                    <option value="">— Select —</option>
+                    <option>All 4 days (13–16 July)</option>
+                    <option>Day 1 only (13 Jul)</option>
+                    <option>Day 2 only (14 Jul)</option>
+                    <option>Day 3 only (15 Jul)</option>
+                    <option>Day 4 only (16 Jul)</option>
+                    <option>Day 1–2 (13–14 Jul)</option>
+                    <option>Day 3–4 (15–16 Jul)</option>
+                  </select>
+                </div>
+                <div class="field-group full">
+                  <label>Special Notes</label>
+                  <input type="text" name="notes" class="reg-input" placeholder="Optional">
+                </div>
+              </div>
+              <div class="submit-row">
+                <button type="submit" class="btn-register">Submit Registration &rarr;</button>
+                <span class="submit-note">Your record will be logged in the Facilitator Registry.</span>
+              </div>
+            </form>
+          </div>
+          <div id="success-facilitator" class="success-panel">
+            <div class="success-icon">✅</div>
+            <span class="success-badge">Registration Confirmed</span>
+            <h3>Welcome, Facilitator!</h3>
+            <p>Your record has been logged in the CAMP21 Facilitator Registry. The secretariat will contact you with your checkpoint assignment schedule.</p>
+            <div class="success-detail" id="success-detail-facilitator"></div>
+          </div>
+        </div>
+
+        <!-- ── TRAINER FORM ── -->
+        <div id="form-trainer" class="role-form">
+          <div class="form-card">
+            <h2 class="form-card-title">Trainer Registration</h2>
+            <p class="form-card-desc">For lead trainers who will deliver AI input sessions, phase briefings, and learning direction throughout the 4-day programme.</p>
+            <form onsubmit="submitForm(event, 'trainer')">
+              <div class="field-grid">
+                <div class="field-group full">
+                  <label>Full Name <span class="req">*</span></label>
+                  <input type="text" name="fullName" class="reg-input" placeholder="As per staff card" required>
+                </div>
+                <div class="field-group">
+                  <label>IC Number <span class="req">*</span></label>
+                  <input type="text" name="ic" class="reg-input" placeholder="12 digits, no dashes" maxlength="12" required>
+                </div>
+                <div class="field-group">
+                  <label>Email Address <span class="req">*</span></label>
+                  <input type="email" name="email" class="reg-input" placeholder="name@politeknik.edu.my" required>
+                </div>
+                <div class="field-group">
+                  <label>Phone Number <span class="req">*</span></label>
+                  <input type="tel" name="phone" class="reg-input" placeholder="e.g. 0123456789" required>
+                </div>
+                <div class="field-group">
+                  <label>Institution / Organization <span class="req">*</span></label>
+                  <input type="text" name="institution" class="reg-input" placeholder="e.g. Politeknik Metro KL" required>
+                </div>
+                <div class="field-group full">
+                  <label>Assigned Training Session / Expertise Area <span class="req">*</span></label>
+                  <select name="session" class="reg-select" required>
+                    <option value="">— Select session —</option>
+                    <option>AI Input 1 — Baseline & Prompts Overview (Day 1 AM)</option>
+                    <option>AI Input 2 — ChatGPT & Canva AI Hands-on (Day 1 PM)</option>
+                    <option>AI Input 3 — SCAMPER Prompting Matrix (Day 2 AM)</option>
+                    <option>AI Input 4 — Concept Poster Mockup Sprint (Day 3 AM)</option>
+                    <option>Guest Speaker — Pitch Framework (Day 3 AM)</option>
+                    <option>Phase 01 & 02 Lead — Empathise & Define</option>
+                    <option>Phase 03 Lead — Ideate</option>
+                    <option>Phase 04 Lead — Prototype</option>
+                    <option>Phase 05 Lead — Test & Refine</option>
+                    <option>Overall Master Trainer</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label>Dietary Requirement</label>
+                  <select name="dietary" class="reg-select">
+                    <option value="None">None / Regular</option>
+                    <option>Vegetarian</option>
+                    <option>Vegan</option>
+                    <option>Halal only</option>
+                    <option>No seafood</option>
+                    <option>No beef</option>
+                  </select>
+                </div>
+                <div class="field-group full">
+                  <label>Special Notes</label>
+                  <input type="text" name="notes" class="reg-input" placeholder="AV/equipment needs, special requirements, etc.">
+                </div>
+              </div>
+              <div class="submit-row">
+                <button type="submit" class="btn-register">Submit Registration &rarr;</button>
+                <span class="submit-note">Your record will be logged in the Trainer Registry.</span>
+              </div>
+            </form>
+          </div>
+          <div id="success-trainer" class="success-panel">
+            <div class="success-icon">✅</div>
+            <span class="success-badge">Registration Confirmed</span>
+            <h3>Welcome, Trainer!</h3>
+            <p>Your record has been logged in the CAMP21 Trainer Registry. The secretariat will be in touch with your session briefing pack.</p>
+            <div class="success-detail" id="success-detail-trainer"></div>
+          </div>
+        </div>
+
+        <!-- ── ORGANISER FORM ── -->
+        <div id="form-organiser" class="role-form">
+          <div class="form-card">
+            <h2 class="form-card-title">Organiser Registration</h2>
+            <p class="form-card-desc">For secretariat members and committee coordinators managing camp logistics, updates, and administration.</p>
+            <form onsubmit="submitForm(event, 'organiser')">
+              <div class="field-grid">
+                <div class="field-group full">
+                  <label>Full Name <span class="req">*</span></label>
+                  <input type="text" name="fullName" class="reg-input" placeholder="As per staff card" required>
+                </div>
+                <div class="field-group">
+                  <label>IC Number <span class="req">*</span></label>
+                  <input type="text" name="ic" class="reg-input" placeholder="12 digits, no dashes" maxlength="12" required>
+                </div>
+                <div class="field-group">
+                  <label>Email Address <span class="req">*</span></label>
+                  <input type="email" name="email" class="reg-input" placeholder="name@politeknik.edu.my" required>
+                </div>
+                <div class="field-group">
+                  <label>Phone Number <span class="req">*</span></label>
+                  <input type="tel" name="phone" class="reg-input" placeholder="e.g. 0123456789" required>
+                </div>
+                <div class="field-group">
+                  <label>Institution / Department <span class="req">*</span></label>
+                  <input type="text" name="institution" class="reg-input" placeholder="e.g. JPPKK / Politeknik Metro KL" required>
+                </div>
+                <div class="field-group full">
+                  <label>Designation / Role in Committee <span class="req">*</span></label>
+                  <select name="designation" class="reg-select" required>
+                    <option value="">— Select role —</option>
+                    <option>Programme Director</option>
+                    <option>Secretariat / Admin</option>
+                    <option>Logistics Coordinator</option>
+                    <option>Media & Documentation</option>
+                    <option>Technical Support</option>
+                    <option>Registration & Front Desk</option>
+                    <option>Finance & Procurement</option>
+                    <option>Protocol & VIP Liaison</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label>Dietary Requirement</label>
+                  <select name="dietary" class="reg-select">
+                    <option value="None">None / Regular</option>
+                    <option>Vegetarian</option>
+                    <option>Vegan</option>
+                    <option>Halal only</option>
+                    <option>No seafood</option>
+                    <option>No beef</option>
+                  </select>
+                </div>
+                <div class="field-group full">
+                  <label>Days of Attendance</label>
+                  <select name="attendance" class="reg-select">
+                    <option value="All 4 days (13–16 July)">All 4 days (13–16 July)</option>
+                    <option>Day 1 only (13 Jul)</option>
+                    <option>Day 2 only (14 Jul)</option>
+                    <option>Day 3 only (15 Jul)</option>
+                    <option>Day 4 only (16 Jul)</option>
+                    <option>Day 1–2 (13–14 Jul)</option>
+                    <option>Day 3–4 (15–16 Jul)</option>
+                  </select>
+                </div>
+                <div class="field-group full">
+                  <label>Special Notes</label>
+                  <input type="text" name="notes" class="reg-input" placeholder="Optional">
+                </div>
+              </div>
+              <div class="submit-row">
+                <button type="submit" class="btn-register">Submit Registration &rarr;</button>
+                <span class="submit-note">Your record will be logged in the Organiser Registry.</span>
+              </div>
+            </form>
+          </div>
+          <div id="success-organiser" class="success-panel">
+            <div class="success-icon">✅</div>
+            <span class="success-badge">Registration Confirmed</span>
+            <h3>Welcome, Organiser!</h3>
+            <p>Your record has been logged in the CAMP21 Organiser Registry. You'll receive your committee briefing pack via email.</p>
+            <div class="success-detail" id="success-detail-organiser"></div>
+          </div>
+        </div>
+
+        <!-- ── JUDGE FORM ── -->
+        <div id="form-judge" class="role-form">
+          <div class="form-card">
+            <h2 class="form-card-title">Judge Registration</h2>
+            <p class="form-card-desc">For panel judges who will evaluate team pitches on Day 4 (16 July 2026) using the official CAMP21 rubric framework.</p>
+            <form onsubmit="submitForm(event, 'judge')">
+              <div class="field-grid">
+                <div class="field-group full">
+                  <label>Full Name <span class="req">*</span></label>
+                  <input type="text" name="fullName" class="reg-input" placeholder="As per ID / official title" required>
+                </div>
+                <div class="field-group">
+                  <label>IC Number / Passport <span class="req">*</span></label>
+                  <input type="text" name="ic" class="reg-input" placeholder="e.g. 700101101234" required>
+                </div>
+                <div class="field-group">
+                  <label>Email Address <span class="req">*</span></label>
+                  <input type="email" name="email" class="reg-input" placeholder="name@organization.com" required>
+                </div>
+                <div class="field-group">
+                  <label>Phone Number <span class="req">*</span></label>
+                  <input type="tel" name="phone" class="reg-input" placeholder="e.g. 0123456789" required>
+                </div>
+                <div class="field-group full">
+                  <label>Organization / Institution <span class="req">*</span></label>
+                  <input type="text" name="institution" class="reg-input" placeholder="e.g. Ministry of Higher Education / Industry partner" required>
+                </div>
+                <div class="field-group full">
+                  <label>Designation / Title <span class="req">*</span></label>
+                  <input type="text" name="designation" class="reg-input" placeholder="e.g. Professor Dr. / Senior Director / CEO" required>
+                </div>
+                <div class="field-group full">
+                  <label>Area of Expertise <span class="req">*</span></label>
+                  <select name="expertise" class="reg-select" required>
+                    <option value="">— Select primary expertise —</option>
+                    <option>Artificial Intelligence / Technology</option>
+                    <option>Design Thinking / Innovation</option>
+                    <option>Entrepreneurship / Business</option>
+                    <option>Creative Arts / Heritage & Craft</option>
+                    <option>Education & Pedagogy</option>
+                    <option>Engineering & Technical</option>
+                    <option>Social Impact / Sustainability</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label>Dietary Requirement</label>
+                  <select name="dietary" class="reg-select">
+                    <option value="None">None / Regular</option>
+                    <option>Vegetarian</option>
+                    <option>Vegan</option>
+                    <option>Halal only</option>
+                    <option>No seafood</option>
+                    <option>No beef</option>
+                  </select>
+                </div>
+                <div class="field-group full">
+                  <label>Special Notes / Requirements</label>
+                  <input type="text" name="notes" class="reg-input" placeholder="Optional — parking, accessibility, etc.">
+                </div>
+              </div>
+              <div class="submit-row">
+                <button type="submit" class="btn-register">Submit Registration &rarr;</button>
+                <span class="submit-note">Your record will be logged in the Panel Judge Registry.</span>
+              </div>
+            </form>
+          </div>
+          <div id="success-judge" class="success-panel">
+            <div class="success-icon">✅</div>
+            <span class="success-badge">Registration Confirmed</span>
+            <h3>Thank you, Judge!</h3>
+            <p>Your record has been logged in the CAMP21 Panel Judge Registry. The secretariat will send you the judging rubric and Day 4 briefing schedule.</p>
+            <div class="success-detail" id="success-detail-judge"></div>
+          </div>
+        </div>
+
+      </div><!-- end forms column -->
+
+      <!-- INFO SIDEBAR -->
+      <aside>
+        <div class="info-card">
+          <h4>Camp Details</h4>
+          <ul class="info-list">
+            <li><strong>Dates</strong>13–16 July 2026</li>
+            <li><strong>Venue</strong>Kompleks Kraf Kuala Lumpur, Jalan Conlay, KL</li>
+            <li><strong>Format</strong>4-day residential programme</li>
+            <li><strong>Teams</strong>10 teams, Politeknik Malaysia</li>
+            <li><strong>Theme</strong>Synergising Literacies 2026</li>
+          </ul>
+        </div>
+        <div class="contact-card" style="margin-top:1rem;">
+          <strong style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:0.4rem;">Need help?</strong>
+          Contact the secretariat:<br>
+          <a href="mailto:juliemarlina@polipd.edu.my">juliemarlina@polipd.edu.my</a>
+        </div>
+        <div class="info-card" style="margin-top:1rem; background: rgba(20,16,74,0.05); color: var(--navy);">
+          <h4 style="color: var(--rose);">Registration closes</h4>
+          <ul class="info-list" style="color: var(--navy);">
+            <li style="border-color: rgba(20,16,74,0.08);"><strong style="color: var(--navy);">Participants</strong>5 July 2026</li>
+            <li style="border-color: rgba(20,16,74,0.08);"><strong style="color: var(--navy);">Facilitators & Trainers</strong>1 July 2026</li>
+            <li><strong style="color: var(--navy);">Judges & Organisers</strong>8 July 2026</li>
+          </ul>
+        </div>
+      </aside>
+
+    </div><!-- end reg-layout -->
+  </div><!-- end reg-body -->
+
+  <footer>
+    <div class="wide" style="text-align: center; font-weight: 700; color: rgba(255,255,255,0.4); font-size: 0.9rem;">
+      © 2026 CAMP21: Synergising Literacies. Jointly organised by JPPKK &amp; Politeknik Metro KL.
+    </div>
+  </footer>
+
+  <script>
+    // ── GOOGLE APPS SCRIPT ENDPOINT ──
+    // Replace this URL with your deployed Apps Script Web App URL
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzEz02OBBVcGCqjaa6Wk6mHcGt5FnSGVEJJUDKDqjTbVzGDVxN9-FXoe9GT7s7LOMo/exec";
+
+    function switchRole(role, tabEl) {
+      // Update tabs
+      document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+      tabEl.classList.add('active');
+      // Switch forms
+      document.querySelectorAll('.role-form').forEach(f => f.classList.remove('active'));
+      document.getElementById('form-' + role).classList.add('active');
+    }
+
+    function submitForm(event, role) {
+      event.preventDefault();
+      const form = event.target;
+      const btn = form.querySelector('.btn-register');
+
+      // Collect all form fields
+      const data = { role: role, timestamp: new Date().toISOString() };
+      new FormData(form).forEach((val, key) => { data[key] = val; });
+
+      btn.textContent = 'Submitting…';
+      btn.disabled = true;
+
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(data)
+      })
+      .then(() => {
+        // no-cors returns opaque response — treat as success
+        showSuccess(role, data);
+        btn.textContent = 'Submitted ✓';
+      })
+      .catch(err => {
+        console.error(err);
+        btn.textContent = 'Submit Registration →';
+        btn.disabled = false;
+        alert('Connection error. Please check your internet and try again.');
+      });
+    }
+
+    function showSuccess(role, data) {
+      const panel = document.getElementById('success-' + role);
+      const detail = document.getElementById('success-detail-' + role);
+      detail.innerHTML = `
+        <strong>Name:</strong> ${data.fullName || '—'}<br>
+        <strong>Email:</strong> ${data.email || '—'}<br>
+        <strong>Role:</strong> ${role.charAt(0).toUpperCase() + role.slice(1)}<br>
+        ${data.polytechnic ? '<strong>Polytechnic:</strong> ' + data.polytechnic + '<br>' : ''}
+        ${data.institution ? '<strong>Institution:</strong> ' + data.institution + '<br>' : ''}
+        <strong>Submitted:</strong> ${new Date().toLocaleString('en-MY')}
+      `;
+      panel.classList.add('show');
+      panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  </script>
+
+</body>
+</html>
