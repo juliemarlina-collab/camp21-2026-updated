@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAMP21: Trainers Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    :root{--navy:#1b123f;--ink:#151235;--cream:#fff8ef;--gold:#d8ad33;--rose:#e83f7d;--violet:#5f37d5;--olive:#86851a;--orange:#ef8f1f;--teal:#138778;--line:#eadfce;--muted:#6e6a80;--white:#fff;--radius:24px;--shadow:0 16px 40px rgba(27,18,63,.10);--font-serif:'Cormorant Garamond',serif;--font-sans:'Plus Jakarta Sans',sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font-family:var(--font-sans)}a{text-decoration:none;color:inherit}.wide{width:min(1180px,92vw);margin:auto}
+    header{position:sticky;top:0;z-index:30;background:rgba(255,248,239,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav-wrap{height:74px;display:flex;align-items:center;justify-content:space-between;gap:1rem}.brand{font-family:var(--font-serif);font-size:1.7rem;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:.6rem}.brand span{color:var(--gold)}.brand-icon{width:34px;height:34px;object-fit:contain}.nav-links{display:flex;align-items:center;gap:1.5rem;color:#5e5873;font-weight:700}.btn-nav{padding:.75rem 1.2rem;border-radius:999px;background:var(--rose);color:#fff!important}.menu-btn{display:none;background:transparent;border:0;font-size:1.5rem}
+    .hero{margin:3rem auto 4rem;min-height:480px;overflow:hidden;position:relative;background:linear-gradient(135deg,rgba(27,18,63,.95),rgba(43,21,81,.82)),url('../assets/images/trainers-hero.jpg') center/cover;display:flex;align-items:center;border-radius:0}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 20%,rgba(216,173,51,.20),transparent 36%),linear-gradient(90deg,rgba(27,18,63,.95),rgba(27,18,63,.65),rgba(27,18,63,.72))}.hero-content{position:relative;z-index:1;padding:4.5rem 4.8rem;color:#fff}.eyebrow{display:inline-flex;background:var(--gold);color:var(--navy);font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;font-weight:900;border-radius:999px;padding:.45rem 1rem}.hero h1{font-family:var(--font-serif);font-size:clamp(3rem,6vw,5.3rem);line-height:.95;margin:1.3rem 0 1rem}.hero p{font-size:1.28rem;line-height:1.65;max-width:780px;color:rgba(255,255,255,.78)}.stats{display:flex;flex-wrap:wrap;gap:1.75rem;margin:2.1rem 0}.stat b{font-size:2.3rem;color:var(--gold);display:block;line-height:1}.stat span{font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.64);font-size:.76rem}.hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.4rem}.btn{border:0;border-radius:999px;padding:.95rem 1.35rem;font-weight:900;display:inline-flex;align-items:center;gap:.5rem;cursor:pointer}.btn.gold{background:var(--gold);color:var(--navy)}.btn.ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);color:#fff}.btn.dark{background:var(--navy);color:#fff}
+    .section{padding:4rem 0}.section.cream{background:var(--cream)}.section.dark{background:var(--navy);color:#fff}.section h2{font-family:var(--font-serif);font-size:clamp(2.2rem,4vw,3.5rem);margin:0 0 .5rem}.section-sub{color:var(--muted);max-width:780px;font-size:1.05rem;line-height:1.55}.dark .section-sub{color:rgba(255,255,255,.65)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:1rem;margin-bottom:2rem}.grid{display:grid;gap:1.2rem}.grid.two{grid-template-columns:repeat(2,1fr)}.grid.three{grid-template-columns:repeat(3,1fr)}.grid.five{grid-template-columns:repeat(5,1fr)}
+    .phase-table{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:var(--shadow)}table{width:100%;border-collapse:collapse}th{background:var(--navy);color:#fff;text-align:left;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;padding:1rem}td{vertical-align:top;border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:1rem;font-size:.92rem;line-height:1.45}.phase-cell{display:flex;align-items:center;gap:.75rem}.phase-icon{width:54px;height:54px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:1.35rem;flex:0 0 auto}.phase-no{font-size:1.75rem;font-weight:900;color:var(--rose);line-height:1}.phase-name{font-weight:900}.lead{font-weight:900;color:var(--navy)}.supported ul,.outputs ul{margin:.25rem 0 0 1rem;padding:0}.supported li,.outputs li{margin:.25rem 0}.duration{font-weight:900;color:var(--orange);white-space:nowrap}.focus{color:#38344d}.outputs li::marker,.supported li::marker{color:var(--rose)}
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:1.55rem}.card h3{font-size:1.25rem;margin:.2rem 0 .6rem}.card p{color:#5d596f;line-height:1.55}.solid{color:#fff;border:0}.solid p{color:rgba(255,255,255,.82)}.purple{background:var(--navy)}.violet{background:var(--violet)}.olive{background:var(--olive)}.gold{background:var(--gold);color:var(--navy)}.rose{background:var(--rose)}.teal{background:var(--teal)}.orange{background:var(--orange);color:var(--navy)}.tag{display:inline-flex;border-radius:999px;padding:.35rem .72rem;font-size:.72rem;font-weight:900;letter-spacing:.05em;text-transform:uppercase;background:rgba(255,255,255,.20);color:inherit}.pill{display:inline-flex;border-radius:999px;padding:.28rem .65rem;font-weight:900;font-size:.75rem;background:#f0e6d6;color:var(--navy);margin:.18rem}.sop-list{display:grid;gap:.85rem}.sop{display:flex;gap:.85rem;background:#fff9f0;border:1px solid var(--line);border-radius:18px;padding:1rem}.sop b{background:var(--navy);color:#fff;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto}.checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.check{background:#fff;border:1px solid var(--line);border-radius:18px;padding:1rem;display:flex;gap:.8rem;align-items:flex-start}.check input{width:22px;height:22px;accent-color:var(--gold);flex:0 0 auto}.quicklinks{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}.quick{background:rgba(255,255,255,.08);border-radius:20px;padding:1.1rem 1.2rem;color:#fff;display:flex;justify-content:space-between;align-items:center}.quick span{color:rgba(255,255,255,.60);font-size:.85rem}
+    footer{background:#210f3b;color:#fff;padding:4rem 0 1.5rem}.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:2rem}.footer-grid p,.footer-grid a{color:rgba(255,255,255,.68);line-height:1.7}.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1.2rem;color:rgba(255,255,255,.55);font-size:.9rem}
+    @media(max-width:980px){.phase-table{overflow-x:auto}.grid.three,.grid.five,.quicklinks,.footer-grid{grid-template-columns:1fr 1fr}.checklist{grid-template-columns:1fr}.nav-links{display:none}.menu-btn{display:block}.hero-content{padding:3rem 2rem}.hero{margin:0;min-height:600px}}@media(max-width:600px){.grid.three,.grid.five,.quicklinks,.footer-grid{grid-template-columns:1fr}.hero h1{font-size:3rem}.hero p{font-size:1.05rem}.hero-actions{flex-direction:column}.btn{justify-content:center;width:100%}.section-head{display:block}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wide nav-wrap">
+    <a href="../index.html" class="brand"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
+    <nav class="nav-links" aria-label="Primary"><a href="../index.html">Home</a><a href="programme.html">Programme</a><a href="participants.html">Participants</a><a href="facilitators.html">Facilitators</a><a href="judges.html">Judges</a><a href="registration.html" class="btn-nav">Register now →</a></nav>
+    <button class="menu-btn" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero wide">
+    <div class="hero-content">
+      <span class="eyebrow">Phase-by-Phase Trainer Guide</span>
+      <h1>Trainers Hub</h1>
+      <p>30-minute guided input for each Design Thinking phase. Trainers lead the learning direction, verify template quality, and support teams in producing complete outputs.</p>
+      <div class="stats"><div class="stat"><b>5</b><span>DT Phases</span></div><div class="stat"><b>14</b><span>Templates</span></div><div class="stat"><b>30 min</b><span>Each Input</span></div><div class="stat"><b>10</b><span>Groups</span></div></div>
+      <div class="hero-actions"><a class="btn gold" href="programme.html">View Programme</a><a class="btn ghost" href="participants.html">Participant Progress</a><a class="btn ghost" href="https://smart-dt-project.netlify.app/welcome.html" target="_blank">Smart DT App ↗</a></div>
+    </div>
+  </section>
+
+  <section class="section wide">
+    <div class="section-head"><div><h2>Phase Trainer Input Guide</h2><p class="section-sub">Updated to the latest CAMP21 SMART DT structure. Each phase is supported by two trainers and produces clear group outputs in the Smart DT App.</p></div></div>
+    <div class="phase-table">
+      <table>
+        <thead><tr><th>Phase</th><th>Lead Trainer</th><th>Supported By</th><th>Input</th><th>Focus</th><th>Group Output</th></tr></thead>
+        <tbody>
+          <tr><td><div class="phase-cell"><div class="phase-icon">♡</div><div><div class="phase-no">01</div><div class="phase-name">Empathise</div></div></div></td><td class="lead">Julie Marlina<br>binti Hasan</td><td class="supported"><ul><li>Mohd Zulkafli bin Mohamed</li><li>Muzimah Aida binti Md Mustafa</li></ul></td><td class="duration">⏱ 30 min</td><td class="focus">POEMS observation, interview techniques, AI-assisted interview questions, transcription and empathy mapping.</td><td class="outputs"><ul><li>T01 POEMS Observation Framework</li><li>T02 Interview Guide & Worksheet</li><li>T03 Audio-to-Text Transcription</li><li>T04 Empathy Map</li></ul></td></tr>
+          <tr><td><div class="phase-cell"><div class="phase-icon">⌖</div><div><div class="phase-no">02</div><div class="phase-name">Define</div></div></div></td><td class="lead">Nor Haniza binti<br>Mustafar Kamar</td><td class="supported"><ul><li>Mohd Ridhuan bin Ismail</li><li>Siti Hani-Syazana binti Mohamad</li></ul></td><td class="duration">⏱ 30 min</td><td class="focus">Persona building, user needs, insight statement and clear problem direction.</td><td class="outputs"><ul><li>T05 User Persona Template</li><li>T06 User Insight & Needs Statement</li></ul></td></tr>
+          <tr><td><div class="phase-cell"><div class="phase-icon">💡</div><div><div class="phase-no">03</div><div class="phase-name">Ideate</div></div></div></td><td class="lead">Nurfarhanah<br>binti Omar</td><td class="supported"><ul><li>Katherine Livan Khing binti Abdullah</li><li>Nur Salina binti Saywalludin</li></ul></td><td class="duration">⏱ 30 min</td><td class="focus">Idea generation, mind mapping, SCAMPER thinking and idea prioritisation.</td><td class="outputs"><ul><li>T07 Ideation Techniques & Mind Map</li><li>T08 SCAMPER Template</li><li>T09 Idea Prioritisation Matrix</li></ul></td></tr>
+          <tr><td><div class="phase-cell"><div class="phase-icon">◇</div><div><div class="phase-no">04</div><div class="phase-name">Prototype</div></div></div></td><td class="lead">Ts. Mohammed<br>Farid bin Ishak</td><td class="supported"><ul><li>Muhammad Zaki bin Yahya</li><li>Muhammad Syrazi bin Suhaimi</li></ul></td><td class="duration">⏱ 30 min</td><td class="focus">Prototype direction, format, materials, tools, team task division and sketching before build.</td><td class="outputs"><ul><li>T10 Prototype Direction Plan</li><li>T11 Sketching Your Prototype</li><li><strong>Trainer sign-off required before build</strong></li></ul></td></tr>
+          <tr><td><div class="phase-cell"><div class="phase-icon">▣</div><div><div class="phase-no">05</div><div class="phase-name">Test & Pitch</div></div></div></td><td class="lead">Noor Darliza binti<br>Mohamad Zamri</td><td class="supported"><ul><li>Sara Ruran Fabian</li><li>Mohd Ridhuan bin Ismail</li></ul></td><td class="duration">⏱ 30 min</td><td class="focus">User feedback, improvement actions, pitching structure and final presentation readiness.</td><td class="outputs"><ul><li>T12 User Feedback Form</li><li>T13 Improvement Plan</li><li>T14 8-Slide Pitch Framework</li></ul></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section cream">
+    <div class="wide">
+      <div class="section-head"><div><h2>Special Trainer Inputs</h2><p class="section-sub">Cross-phase specialist input that supports AI use and pitch readiness during the camp.</p></div></div>
+      <div class="grid two">
+        <article class="card"><span class="pill">AI Input Trainer</span><h3>Ts. Sathya a/p Manoharan</h3><p>Supports responsible AI use across the journey: interview question generation, transcript support, idea expansion, concept refinement and pitch preparation.</p><p><span class="pill">T02</span><span class="pill">T03</span><span class="pill">T07</span><span class="pill">T14</span></p></article>
+        <article class="card"><span class="pill">Pitching Input Trainer</span><h3>Prabagaran Bala Krisnan</h3><p>Guides teams in building a clear and persuasive pitch using the 8-slide pitch framework: hook, problem, solution, prototype, heritage value, sustainability, team and call to action.</p><p><span class="pill">Day 3 AM</span><span class="pill">Pitch Practice</span><span class="pill">Day 4 Readiness</span></p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wide">
+    <div class="section-head"><div><h2>Trainer SOP</h2><p class="section-sub">Simple operating procedure to keep all trainer support consistent across 10 groups.</p></div></div>
+    <div class="grid three">
+      <article class="card solid purple"><span class="tag">Before Input</span><h3>Prepare the phase</h3><p>Confirm the phase objective, required templates, timing, lead/support roles and Smart DT App links before the session starts.</p></article>
+      <article class="card solid violet"><span class="tag">During Input</span><h3>Teach, guide, question</h3><p>Deliver concise instructions, model one example, then circulate to support teams with guiding questions instead of giving direct solutions.</p></article>
+      <article class="card solid olive"><span class="tag">After Input</span><h3>Verify output</h3><p>Check that the minimum template outputs are completed and flag any team needing facilitator follow-up or extra support.</p></article>
+    </div>
+  </section>
+
+  <section class="section cream">
+    <div class="wide">
+      <div class="section-head"><div><h2>Phase Checkpoint Guide</h2><p class="section-sub">Minimum items trainers should verify before groups move to the next phase.</p></div></div>
+      <div class="checklist">
+        <label class="check"><input type="checkbox"><span><b>Phase 01 Empathise:</b> T01–T04 completed with POEMS notes, interview evidence, transcript and empathy map.</span></label>
+        <label class="check"><input type="checkbox"><span><b>Phase 02 Define:</b> T05–T06 show a clear persona, user insight and needs statement.</span></label>
+        <label class="check"><input type="checkbox"><span><b>Phase 03 Ideate:</b> T07–T09 show many ideas, SCAMPER improvement and final idea selection.</span></label>
+        <label class="check"><input type="checkbox"><span><b>Phase 04 Prototype:</b> T10–T11 completed and approved before prototype build begins.</span></label>
+        <label class="check"><input type="checkbox"><span><b>Phase 05 Test:</b> T12–T13 include user feedback and specific improvement actions.</span></label>
+        <label class="check"><input type="checkbox"><span><b>Pitching:</b> T14 8-slide framework is complete and ready for Day 4 presentation.</span></label>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wide">
+      <div class="section-head"><div><h2>Trainer Quick Links</h2><p class="section-sub">Use these shortcuts during programme delivery.</p></div></div>
+      <div class="quicklinks"><a class="quick" href="programme.html"><div><b>Programme</b><br><span>4-day tentative</span></div>↗</a><a class="quick" href="participants.html"><div><b>Participants</b><br><span>Submissions</span></div>↗</a><a class="quick" href="facilitators.html"><div><b>Facilitators</b><br><span>Rotation support</span></div>↗</a><a class="quick" href="https://smart-dt-project.netlify.app/welcome.html" target="_blank"><div><b>Smart DT</b><br><span>Open app</span></div>↗</a></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wide"><div class="footer-grid"><div><a href="../index.html" class="brand" style="color:#fff">CAMP<span>21</span></a><p>AI-powered Design Thinking for sustainable cultural heritage.<br>13–16 July 2026 · Kompleks Kraf Kuala Lumpur</p></div><div><h4>Explore</h4><p><a href="programme.html">Programme</a><br><a href="resources.html">Resources</a><br><a href="participants.html">Participants</a></p></div><div><h4>Support</h4><p><a href="contacts.html">Help Desk</a><br><a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank">Telegram Community ↗</a><br><a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank">Smart DT App ↗</a></p></div><div><h4>Venue</h4><p>Kompleks Kraf Kuala Lumpur<br>Jalan Conlay, 50450<br>Kuala Lumpur</p></div></div><div class="footer-bottom">© 2026 CAMP21 Digital Hub. Created and developed by Julie Marlina binti Hasan, Politeknik Port Dickson.</div></div></footer>
+<script>
+const menuBtn=document.querySelector('.menu-btn'),navLinks=document.querySelector('.nav-links');if(menuBtn)menuBtn.addEventListener('click',()=>{const open=navLinks.style.display==='flex';navLinks.style.cssText=open?'':'display:flex;flex-direction:column;position:absolute;top:74px;left:0;right:0;background:var(--cream);padding:1.5rem 2rem;gap:1rem;z-index:99;box-shadow:0 12px 30px rgba(20,16,74,.12);'});
+</script>
+</body>
+</html>
