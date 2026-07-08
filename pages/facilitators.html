@@ -1,403 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAMP21: Facilitators Hub — Rotation Monitoring</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --navy:#14104a;
-      --indigo:#24115d;
-      --purple:#6638d8;
-      --rose:#e23c74;
-      --gold:#c8952c;
-      --cream:#fff8ef;
-      --ink:#171437;
-      --muted:#6f6a82;
-      --line:#e8e1d7;
-      --teal:#19c6b4;
-      --green:#2f8a3a;
-      --orange:#ef5b00;
-      --red:#c62828;
-      --white:#ffffff;
-      --shadow:0 18px 45px rgba(20,16,74,.10);
-      --radius:24px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:#fff;color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif}
-    a{text-decoration:none;color:inherit}
-    .wide{width:min(1180px,92vw);margin:auto}
-    header{position:sticky;top:0;z-index:50;background:rgba(255,248,239,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(20,16,74,.08)}
-    .nav-wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .brand{display:flex;align-items:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.7rem;color:var(--navy);gap:.5rem}
-    .brand span{color:var(--gold)}
-    .nav-links{display:flex;align-items:center;gap:1.4rem;font-weight:700;color:#5f5a72}
-    .btn-nav{background:var(--rose);color:#fff;padding:.85rem 1.25rem;border-radius:999px;box-shadow:0 8px 20px rgba(226,60,116,.22)}
-    .menu-btn{display:none;background:none;border:0;font-size:1.8rem;color:var(--navy)}
-    .hero{background:var(--navy);color:#fff;position:relative;overflow:hidden}
-    .hero::before{content:"";position:absolute;inset:0;background:
-      linear-gradient(90deg,rgba(20,16,74,.92),rgba(20,16,74,.76)),
-      radial-gradient(circle at 70% 20%,rgba(226,60,116,.25),transparent 35%),
-      radial-gradient(circle at 20% 80%,rgba(200,149,44,.18),transparent 35%);
-    }
-    .hero-inner{position:relative;padding:6rem 0 4.5rem}
-    .eyebrow{display:inline-block;background:var(--gold);color:var(--navy);font-weight:900;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:.45rem 1.05rem;font-size:.75rem;margin-bottom:1.2rem}
-    h1,h2,h3{margin:0;font-family:'Cormorant Garamond',serif}
-    .hero h1{font-size:clamp(3rem,7vw,5.4rem);line-height:.96;color:var(--cream)}
-    .hero p{font-size:1.1rem;line-height:1.75;color:#c9c0e3;max-width:720px;margin:1.2rem 0 2rem}
-    .hero-stats{display:flex;gap:2.4rem;flex-wrap:wrap}
-    .stat-val{font-weight:900;font-size:2.2rem;color:var(--gold)}
-    .stat-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.13em;color:#c9c0e3;font-weight:800}
-    section{padding:4.2rem 0}
-    .section-title{font-size:clamp(2.1rem,4vw,3.2rem);color:var(--navy);margin-bottom:.5rem}
-    .section-sub{color:var(--muted);font-size:1rem;max-width:760px;line-height:1.7;margin:0 0 2rem}
-    .cream{background:var(--cream)}
-    .role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-    .role-card{border-radius:var(--radius);padding:2rem;color:#fff;min-height:240px;box-shadow:var(--shadow)}
-    .role-card h3{font-size:2rem;margin-bottom:1rem;color:#fff}
-    .role-card p{line-height:1.7;margin:0;color:rgba(255,255,255,.86)}
-    .panel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .panel-head{padding:1.5rem 1.7rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap}
-    .panel-head h3{font-size:1.8rem;color:var(--navy)}
-    .toolbar{display:flex;gap:.7rem;flex-wrap:wrap;align-items:center}
-    .select,.input{border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--navy);font-weight:800;padding:.75rem .9rem;font-family:inherit}
-    .btn{border:0;border-radius:14px;padding:.78rem 1rem;font-weight:900;cursor:pointer;font-family:inherit}
-    .btn-gold{background:var(--gold);color:#fff}
-    .btn-purple{background:var(--purple);color:#fff}
-    .btn-outline{background:#fff;border:1.5px solid var(--line);color:var(--navy)}
-    .facilitator-editor{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem;padding:1.5rem;background:#fbf8f1;border-bottom:1px solid var(--line)}
-    textarea{width:100%;min-height:120px;border:1.5px solid var(--line);border-radius:18px;padding:1rem;font-family:inherit;font-size:.95rem;line-height:1.6;resize:vertical}
-    .note{font-size:.86rem;line-height:1.6;color:var(--muted)}
-    .matrix-wrap{overflow:auto}
-    table{width:100%;border-collapse:collapse;min-width:980px}
-    th,td{border-bottom:1px solid #eee7de;padding:1rem;text-align:left;vertical-align:top}
-    th{background:#fffaf3;color:var(--navy);font-size:.72rem;text-transform:uppercase;letter-spacing:.09em}
-    td{font-size:.9rem;color:#2c2944}
-    .team{font-weight:900;color:var(--navy)}
-    .phase-pill{display:inline-flex;align-items:center;border-radius:999px;padding:.35rem .7rem;font-size:.72rem;font-weight:900;color:#fff}
-    .assigned{font-weight:900;color:var(--indigo)}
-    .small{font-size:.78rem;color:var(--muted);line-height:1.45;margin-top:.25rem}
-    .status{display:inline-flex;align-items:center;gap:.4rem;border-radius:999px;padding:.38rem .7rem;font-size:.72rem;font-weight:900;background:#f3efe8;color:#6c6175}
-    .status.done{background:#e7f6ea;color:#2f8a3a}
-    .status.attn{background:#fff1d5;color:#a26c00}
-    .phase-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
-    .phase-card{background:#fff;border-radius:22px;border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow)}
-    .phase-card .top{padding:1.1rem 1.2rem;color:#fff}
-    .phase-card .num{font-weight:900;opacity:.72;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
-    .phase-card h3{font-size:1.55rem;color:#fff}
-    .phase-card .body{padding:1.1rem 1.2rem}
-    .phase-card ul{padding-left:1rem;margin:.5rem 0 0;color:#4c485d;line-height:1.6;font-size:.85rem}
-    .sop-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
-    .sop-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-    .sop-title{padding:1.2rem 1.4rem;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:.8rem}
-    .sop-title h3{font-size:1.6rem;color:#fff}
-    .sop-title span{background:rgba(255,255,255,.18);border-radius:999px;padding:.35rem .7rem;font-size:.78rem;font-weight:900}
-    .sop-list{padding:1.3rem 1.4rem 1.5rem;display:grid;gap:.9rem}
-    .check{display:grid;grid-template-columns:auto 1fr;gap:.8rem;line-height:1.55;color:#38344d}
-    .box{width:22px;height:22px;border:2px solid currentColor;border-radius:7px;margin-top:.1rem;opacity:.65}
-    .reminders{background:var(--navy);color:#fff;border-radius:var(--radius);padding:2.2rem;box-shadow:var(--shadow)}
-    .reminders h2{color:#fff;margin-bottom:.8rem}
-    .reminders ol{display:grid;gap:.8rem;margin:1.4rem 0 0;padding-left:1.4rem;line-height:1.7;color:#e9e2f7}
-    .footer{background:#21103f;color:#d9cdea;padding:3rem 0 2rem}
-    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2rem}
-    .footer h4{color:var(--gold);margin:.4rem 0 .8rem}
-    .footer p,.footer a{color:#d9cdea;line-height:1.7}
-    .copy{border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1rem;color:#b5a8d2;font-size:.85rem}
-    @media(max-width:900px){
-      .nav-links{display:none}.menu-btn{display:block}
-      .role-grid,.phase-grid,.sop-grid,.facilitator-editor,.footer-grid{grid-template-columns:1fr}
-      .hero-inner{padding:4rem 0 3rem}
-      table{min-width:820px}
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CAMP21 Facilitators Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#151044;--indigo:#251052;--cream:#fff8ef;--paper:#fffdf9;--muted:#726b82;--line:#e9dfd0;
+  --gold:#FFC83D;--pink:#FF4FCB;--teal:#21D4C2;--violet:#6B4DFF;--green:#8DFF3F;--blue:#3D63FF;--rose:#e23c74;--olive:#8a7a2a;--brown:#7a3d1e;--orange:#f2943a;
+  --shadow:0 18px 45px rgba(21,16,68,.08);--radius:24px;
+  --font-serif:'Cormorant Garamond',serif;--font-sans:'Plus Jakarta Sans',sans-serif;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font-sans)}a{text-decoration:none;color:inherit}
+
+/* HEADER */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,248,239,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(21,16,68,.08)}
+.topbar-inner{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px}.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-serif);font-weight:700;font-size:1.5rem;color:var(--ink);letter-spacing:-.01em}.brand span{color:var(--pink)}.brand-icon{width:46px;height:46px;border-radius:50%;object-fit:contain}
+.nav-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.nav-pill{border:1px solid #ddd5c9;background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(21,16,68,.04);font-size:.92rem}.nav-pill:hover{border-color:var(--violet)}.nav-pill.primary{background:var(--violet);color:#fff;border-color:var(--violet)}.app-pill{border-color:var(--teal);color:var(--ink)}.app-pill:hover{background:var(--teal);color:#fff}
+.quick-access{position:relative}.qa-trigger{cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px}.qa-chev{transition:.25s;display:inline-block;font-size:.7em}.quick-access[open] .qa-chev{transform:rotate(180deg)}.qa-dropdown{position:absolute;top:calc(100% + 10px);left:0;min-width:260px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 56px rgba(21,16,68,.14);padding:8px 0;z-index:60;animation:qaIn .18s ease}.qa-group{padding:10px 8px}.qa-label{display:block;font-size:.68rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;padding:6px 16px 8px}.qa-link{display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:var(--ink);transition:background .15s}.qa-link:hover{background:rgba(109,70,238,.07);color:var(--violet)}@keyframes qaIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+
+/* HERO */
+.hero{background:radial-gradient(circle at 82% 10%,rgba(33,212,194,.15),transparent 34%),linear-gradient(120deg,#183d70 0%,#251052 45%,#3b124c 100%);color:#fff;padding:58px 28px 50px}.hero-inner{max-width:1440px;margin:auto}.eyebrow{display:inline-flex;border:1px solid rgba(241,191,50,.6);background:rgba(241,191,50,.13);color:#ffe18a;border-radius:999px;padding:9px 18px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}.hero h1{font-family:var(--font-serif);font-size:clamp(3.6rem,7vw,6rem);line-height:.88;margin:30px 0 18px;letter-spacing:-.055em}.hero p{font-size:clamp(1.05rem,2vw,1.25rem);line-height:1.65;color:rgba(255,255,255,.78);max-width:780px}.stats{display:flex;flex-wrap:wrap;gap:2rem;margin-top:2rem}.stat b{font-size:2.3rem;color:var(--gold);display:block;line-height:1}.stat span{font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.64);font-size:.76rem}
+
+/* MAIN */
+.wrap{max-width:1440px;margin:auto;padding:48px 28px 80px}
+.section-head{margin-bottom:2rem}.section-head h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);margin:0 0 .5rem}.section-head p{color:var(--muted);font-size:1.05rem;line-height:1.55;max-width:720px}
+.s-gap{margin-bottom:4rem}
+
+/* ROLE CARDS */
+.role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;border-radius:22px;overflow:hidden;margin-bottom:2rem}.role-card{padding:32px 28px;color:#fff;display:flex;flex-direction:column;gap:12px}.role-card h3{font-family:var(--font-serif);font-size:1.6rem;margin:0;line-height:1.15}.role-card p{font-size:.95rem;line-height:1.55;opacity:.88;margin:0}.r-navy{background:var(--indigo)}.r-pink{background:var(--pink)}.r-gold{background:var(--gold);color:var(--ink)}
+
+/* TEAM TRACKER */
+.tracker-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:24px}.tracker-stat{background:var(--paper);border:1px solid var(--line);border-radius:18px;text-align:center;padding:20px 12px}.tracker-stat b{font-size:2rem;display:block}.tracker-stat span{font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:.7rem;display:block;margin-top:4px}.tracker-stat small{color:var(--muted);font-weight:700;font-size:.8rem}
+.tracker-table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden}.tracker-table th{background:var(--cream);font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;padding:14px 10px;border-bottom:1px solid var(--line);text-align:center}.tracker-table th:first-child{text-align:left;padding-left:22px}.tracker-table td{padding:14px 10px;text-align:center;border-bottom:1px solid var(--line);font-weight:700}.tracker-table td:first-child{text-align:left;padding-left:22px;font-weight:900}.tracker-table td:last-child{font-size:1.1rem;font-weight:900;color:var(--violet)}.tracker-table .ph-color{font-size:.65rem;font-weight:900;text-transform:uppercase;display:block;letter-spacing:.06em}
+.tracker-legend{display:flex;gap:24px;margin-top:14px;flex-wrap:wrap;color:var(--muted);font-weight:700;font-size:.88rem}.legend-dot{width:20px;height:20px;border-radius:50%;display:inline-grid;place-items:center;font-size:.6rem;font-weight:900;margin-right:6px;vertical-align:middle}
+
+/* CHECKPOINT */
+.check-list{display:grid;gap:12px;margin-bottom:2rem}.check-row{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px 24px;display:flex;align-items:center;gap:18px}.check-num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#fff;font-size:1rem;flex-shrink:0}.check-row-info{flex:1}.check-row-info h3{margin:0;font-size:1.1rem;font-weight:900}.check-row-info p{margin:4px 0 0;color:var(--muted);font-weight:700;font-size:.92rem}.check-ready{font-weight:900;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+
+/* RULES */
+.rule-list{display:grid;gap:10px;margin-bottom:2rem}.rule{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 20px}.rule .rnum{width:30px;height:30px;border-radius:50%;background:var(--violet);color:#fff;display:grid;place-items:center;font-weight:900;font-size:.82rem;flex-shrink:0}.rule p{margin:0;font-weight:700;line-height:1.5;color:#333}
+
+/* CTA */
+.app-cta{background:var(--ink);border-radius:22px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;color:#fff;margin-bottom:3rem}.app-cta h3{font-family:var(--font-serif);font-size:1.8rem;margin:0 0 6px}.app-cta p{color:rgba(255,255,255,.7);margin:0;font-weight:600}.app-cta a{background:var(--gold);color:var(--ink);border-radius:999px;padding:14px 28px;font-weight:900;white-space:nowrap}
+
+/* FOOTER */
+.camp-footer{background:#251052;color:#fff;margin-top:48px;padding:56px 28px 26px}.footer-inner{max-width:1440px;margin:auto}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}.footer-brand{display:flex;align-items:center;gap:14px;font-family:var(--font-serif);font-size:2.2rem;font-weight:700}.footer-brand span{color:var(--pink)}.footer-col h4{color:var(--gold);margin:0 0 14px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em}.footer-col p,.footer-col a{display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px}.footer-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:34px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:rgba(255,255,255,.65);font-weight:700}
+
+/* RESPONSIVE */
+@media(max-width:980px){.role-grid{grid-template-columns:1fr}.tracker-bar{grid-template-columns:repeat(3,1fr)}.nav-actions{width:100%;justify-content:flex-start;gap:8px}.topbar-inner{align-items:flex-start;flex-direction:column;gap:14px}.footer-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:4rem}.qa-dropdown{left:-8px;right:-8px;min-width:auto}.stats{gap:1.2rem}}
+@media(max-width:560px){.tracker-bar{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}.hero,.wrap{padding-left:18px;padding-right:18px}.brand-icon{width:38px;height:38px}.hero h1{font-size:3.2rem}.topbar-inner{padding:14px 18px}.nav-pill{padding:10px 16px;font-size:.82rem}.qa-dropdown{position:fixed;left:12px;right:12px;top:auto;border-radius:18px}.app-cta{flex-direction:column;text-align:center}.check-row{flex-wrap:wrap}.check-ready{width:100%}}
+@media print{.topbar,.nav-actions,.quick-access{display:none}.hero{background:#fff!important;color:#111!important}.hero p{color:#333}.camp-footer{display:none}body{background:#fff}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="wide nav-wrap">
-      <a href="../index.html" class="brand">CAMP<span>21</span></a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="programme.html">Programme</a>
-        <a href="resources.html">Resources</a>
-        <a href="contacts.html">Help</a>
-        <a href="registration.html" class="btn-nav">Register now →</a>
-      </nav>
-      <button class="menu-btn" aria-label="Toggle menu">☰</button>
-    </div>
-  </header>
 
-  <section class="hero">
-    <div class="wide hero-inner">
-      <span class="eyebrow">On-ground View · Rotation Monitoring</span>
-      <h1>Facilitators Hub</h1>
-      <p>Names of facilitators can be updated from registration data. The hub then rotates facilitators across 10 groups for every DT phase so students receive fair, structured support for Design Thinking and innovation project matters.</p>
-      <div class="hero-stats">
-        <div><div class="stat-val">10</div><div class="stat-lbl">Groups</div></div>
-        <div><div class="stat-val">5</div><div class="stat-lbl">DT Phases</div></div>
-        <div><div class="stat-val">14</div><div class="stat-lbl">Templates</div></div>
-        <div><div class="stat-val">Rotating</div><div class="stat-lbl">Facilitator Duty</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wide">
-      <h2 class="section-title">Your Role at CAMP21</h2>
-      <p class="section-sub">Facilitators are on-ground support, not evaluators. They rotate across groups, monitor work progress, guide checkpoints and support logistics.</p>
-      <div class="role-grid">
-        <article class="role-card" style="background:var(--navy)">
-          <h3>Monitor Team Progress</h3>
-          <p>Walk between team clusters, identify which phase each group is executing, and flag teams that appear stuck or off-track.</p>
-        </article>
-        <article class="role-card" style="background:var(--rose)">
-          <h3>Guide Checkpoint Sign-offs</h3>
-          <p>At each phase transition, confirm minimum template outputs before groups move to the next phase.</p>
-        </article>
-        <article class="role-card" style="background:var(--gold)">
-          <h3>Support Logistics</h3>
-          <p>Assist with material distribution, room movement, printing requests and urgent venue needs through the secretariat table.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="cream">
-    <div class="wide">
-      <h2 class="section-title">Facilitator Registration Pool</h2>
-      <p class="section-sub">Paste or edit facilitator names here. In the live version, this list can be populated from registration records. The rotation matrix below updates automatically.</p>
-      <div class="panel">
-        <div class="panel-head">
-          <h3>Update Facilitators</h3>
-          <div class="toolbar">
-            <button class="btn btn-purple" onclick="saveFacilitators()">Save Names</button>
-            <button class="btn btn-outline" onclick="resetFacilitators()">Reset</button>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
+    <nav class="nav-actions">
+      <details class="quick-access">
+        <summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
+        <div class="qa-dropdown">
+          <div class="qa-group">
+            <span class="qa-label">CAMP21 Pages</span>
+            <a class="qa-link" href="../index.html">🏠 Home</a>
+            <a class="qa-link" href="programme.html">📅 Programme</a>
+            <a class="qa-link" href="participants.html">👥 Participants</a>
+            <a class="qa-link" href="trainers.html">🧑‍🏫 Trainers</a>
+            <a class="qa-link" href="judges.html">⚖️ Judges</a>
+            <a class="qa-link" href="resources.html">📚 Resources</a>
+            <a class="qa-link" href="contacts.html">📞 Help Desk</a>
           </div>
         </div>
-        <div class="facilitator-editor">
-          <textarea id="facilitatorInput" aria-label="Facilitator names"></textarea>
-          <div class="note">
-            <strong>How it works:</strong><br>
-            1. One facilitator name per line.<br>
-            2. Select a phase below.<br>
-            3. The system assigns facilitators to Team 1–10 using a rotation pattern.<br>
-            4. Every phase shifts the assignment to avoid the same facilitator staying with the same group.
-          </div>
-        </div>
-      </div>
+      </details>
+      <a class="nav-pill app-pill" href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App ↗</a>
+      <a class="nav-pill primary" href="participants.html">Participants Hub</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">On-Ground View</span>
+    <h1>Facilitators Hub</h1>
+    <p>Assist teams on-site, guide phase checkpoints, and support smooth team movement throughout the camp.</p>
+    <div class="stats">
+      <div class="stat"><b>10</b><span>Groups</span></div>
+      <div class="stat"><b>5</b><span>DT Phases</span></div>
+      <div class="stat"><b>3</b><span>Core Duties</span></div>
+      <div class="stat"><b>4</b><span>Days</span></div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <!-- YOUR ROLE -->
+  <section class="s-gap">
+    <div class="section-head"><h2>Your Role at CAMP21</h2><p>Three core duties across all four days.</p></div>
+    <div class="role-grid">
+      <div class="role-card r-navy"><h3>Monitor Team Progress</h3><p>Walk between team clusters during active work sessions. Note which phase each group is currently executing and flag any groups that appear stuck or off-track.</p></div>
+      <div class="role-card r-pink"><h3>Guide Checkpoint Sign-offs</h3><p>At each phase transition (Empathise → Define → Ideate → Prototype → Test), confirm team outputs meet the minimum template requirements before advancing.</p></div>
+      <div class="role-card r-gold"><h3>Support Logistics</h3><p>Assist with material distribution, room transitions, printing requests, and any venue-related needs. Coordinate with the secretariat table for urgent matters.</p></div>
     </div>
   </section>
 
-  <section>
-    <div class="wide">
-      <div class="panel">
-        <div class="panel-head">
-          <div>
-            <h3>Rotation-Based Group Monitoring</h3>
-            <p class="section-sub" style="margin:0">Assigned facilitators monitor the 10 groups per phase and assist with DT and innovation project matters.</p>
-          </div>
-          <div class="toolbar">
-            <select class="select" id="phaseSelect" onchange="renderMatrix()">
-              <option value="empathise">Phase 01 · Empathise</option>
-              <option value="define">Phase 02 · Define</option>
-              <option value="ideate">Phase 03 · Ideate</option>
-              <option value="prototype">Phase 04 · Prototype</option>
-              <option value="test">Phase 05 · Test</option>
-            </select>
-            <button class="btn btn-gold" onclick="print()">Print Duty Sheet</button>
-          </div>
-        </div>
-        <div class="matrix-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Group</th>
-                <th>Assigned Facilitator</th>
-                <th>Monitoring Duty</th>
-                <th>Phase SOP Focus</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody id="rotationBody"></tbody>
-          </table>
-        </div>
-      </div>
+  <!-- ALL TEAMS OVERVIEW -->
+  <section class="s-gap">
+    <div class="section-head" style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div><h2>All Teams Overview</h2><p>Phase completion status for all 10 teams — based on participant self-reporting from the Participant Hub. Refresh to see the latest.</p></div>
+      <button class="nav-pill" onclick="this.querySelector('span').textContent=new Date().toLocaleTimeString()" style="cursor:pointer">↻ Refresh · <span id="refreshTime">--:--:--</span></button>
+    </div>
+    <div class="tracker-bar" id="trackerBar"></div>
+    <div style="overflow-x:auto;border-radius:18px">
+      <table class="tracker-table"><thead id="trackerHead"></thead><tbody id="trackerBody"></tbody></table>
+    </div>
+    <div class="tracker-legend">
+      <span><span class="legend-dot" style="background:var(--teal);color:#fff">✓</span> All templates in phase complete</span>
+      <span><span class="legend-dot" style="background:var(--gold);color:var(--ink)">2</span> Partially done (number = completed)</span>
+      <span><span class="legend-dot" style="background:var(--line)"></span> Not started</span>
     </div>
   </section>
 
-  <section class="cream">
-    <div class="wide">
-      <h2 class="section-title">Phase SOP & Minimum Outputs</h2>
-      <p class="section-sub">Facilitators should use this SOP during group monitoring before allowing groups to proceed.</p>
-      <div class="phase-grid">
-        <article class="phase-card">
-          <div class="top" style="background:var(--navy)"><div class="num">Phase 01</div><h3>Empathise</h3></div>
-          <div class="body"><strong>T01–T04</strong><ul><li>POEMS completed</li><li>Interview questions approved</li><li>Transcript saved</li><li>Empathy map completed</li></ul></div>
-        </article>
-        <article class="phase-card">
-          <div class="top" style="background:var(--purple)"><div class="num">Phase 02</div><h3>Define</h3></div>
-          <div class="body"><strong>T05–T06</strong><ul><li>Persona includes needs and pain points</li><li>User insight is clear</li><li>Needs statement is focused</li></ul></div>
-        </article>
-        <article class="phase-card">
-          <div class="top" style="background:#818512"><div class="num">Phase 03</div><h3>Ideate</h3></div>
-          <div class="body"><strong>T07–T09</strong><ul><li>Mind map has idea branches</li><li>SCAMPER completed</li><li>Prioritisation matrix used</li></ul></div>
-        </article>
-        <article class="phase-card">
-          <div class="top" style="background:var(--gold)"><div class="num">Phase 04</div><h3>Prototype</h3></div>
-          <div class="body"><strong>T10–T11</strong><ul><li>Prototype direction plan clear</li><li>Sketch completed</li><li>Trainer sign-off before build</li></ul></div>
-        </article>
-        <article class="phase-card">
-          <div class="top" style="background:var(--rose)"><div class="num">Phase 05</div><h3>Test</h3></div>
-          <div class="body"><strong>T12–T13</strong><ul><li>User feedback collected</li><li>Improvement plan completed</li><li>Evidence ready for pitch</li></ul></div>
-        </article>
-      </div>
-    </div>
+  <!-- PHASE CHECKPOINT GUIDE -->
+  <section class="s-gap">
+    <div class="section-head"><h2>Phase Checkpoint Guide</h2><p>Watch for these minimum outputs at each phase transition before signing off.</p></div>
+    <div class="check-list" id="checkList"></div>
   </section>
 
-  <section>
-    <div class="wide">
-      <h2 class="section-title">Facilitator Checkpoint Checklist</h2>
-      <p class="section-sub">Use these checks while monitoring assigned groups. These are support checks, not judging marks.</p>
-      <div class="sop-grid">
-        <article class="sop-card">
-          <div class="sop-title" style="background:var(--navy)"><h3>Before Moving Phase</h3><span>Core</span></div>
-          <div class="sop-list">
-            <div class="check"><span class="box"></span><span>Confirm all required templates for the current phase are submitted or saved.</span></div>
-            <div class="check"><span class="box"></span><span>Check that students understand their problem, idea or prototype direction.</span></div>
-            <div class="check"><span class="box"></span><span>Ask guiding questions instead of giving direct solutions.</span></div>
-            <div class="check"><span class="box"></span><span>Update monitoring status for the assigned group.</span></div>
-          </div>
-        </article>
-        <article class="sop-card">
-          <div class="sop-title" style="background:var(--rose)"><h3>Rotation Rule</h3><span>Fairness</span></div>
-          <div class="sop-list">
-            <div class="check"><span class="box"></span><span>Do not stay with the same group for all phases.</span></div>
-            <div class="check"><span class="box"></span><span>Do not support your own institution's team if avoidable.</span></div>
-            <div class="check"><span class="box"></span><span>Escalate urgent academic or welfare concerns to the secretariat.</span></div>
-            <div class="check"><span class="box"></span><span>Keep judging-related information confidential.</span></div>
-          </div>
-        </article>
-      </div>
-    </div>
+  <!-- IMPORTANT RULES -->
+  <section class="s-gap">
+    <div class="section-head"><h2>Important Rules</h2><p>Core conduct guidelines for all facilitators throughout the programme.</p></div>
+    <div class="rule-list" id="ruleList"></div>
   </section>
 
-  <section class="cream">
-    <div class="wide">
-      <div class="reminders">
-        <h2 class="section-title">Important Rules</h2>
-        <p class="section-sub" style="color:#cfc4e8;margin-bottom:0">Core conduct guidelines for all facilitators throughout the programme.</p>
-        <ol>
-          <li>You are on-ground support, not evaluators. Assessment is handled by the formal judging panel.</li>
-          <li>Rotate across teams and avoid remaining with one group throughout the camp.</li>
-          <li>Do not coach teams toward a specific solution; use prompting questions.</li>
-          <li>Use the Smart DT App / companion dashboard to monitor phase milestone completions.</li>
-          <li>Any participant welfare concern must be escalated immediately to the secretariat table.</li>
-        </ol>
+  <!-- CTA -->
+  <div class="app-cta">
+    <div><h3>Open Smart DT App</h3><p>Monitor group progress, review templates, and log phase completions in real-time.</p></div>
+    <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank">Open App ↗</a>
+  </div>
+
+</main>
+
+<footer class="camp-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">CAMP<span>21</span></div>
+        <p>CAMP21 Digital Hub 2026<br>13–16 July 2026<br>Kompleks Kraf Kuala Lumpur</p>
+        <p>AI-Powered Design Thinking for Sustainable Cultural Heritage</p>
       </div>
+      <div class="footer-col"><h4>Explore</h4><a href="programme.html">Programme</a><a href="resources.html">Resources</a><a href="updates.html">Live Updates</a><a href="contacts.html">Help</a></div>
+      <div class="footer-col"><h4>Stakeholders</h4><a href="participants.html">Participants Hub</a><a href="trainers.html">Trainers</a><a href="judges.html">Judges</a></div>
+      <div class="footer-col"><h4>Support</h4><a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App ↗</a><a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener">Telegram Community ↗</a><a href="contacts.html">Help Desk</a></div>
     </div>
-  </section>
+    <div class="footer-bottom"><span>© 2026 CAMP21 Digital Hub.</span><span>Created and developed by Julie Marlina binti Hasan, Politeknik Port Dickson.</span></div>
+  </div>
+</footer>
 
-  <footer class="footer">
-    <div class="wide footer-grid">
-      <div><a href="../index.html" class="brand" style="color:#fff">CAMP<span>21</span></a><p>CAMP21 Digital Hub 2026<br>13–16 July 2026<br>Kompleks Kraf Kuala Lumpur</p></div>
-      <div><h4>Explore</h4><p><a href="programme.html">Programme</a><br><a href="resources.html">Resources</a><br><a href="participants.html">Participants Hub</a></p></div>
-      <div><h4>Support</h4><p><a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App ↗</a><br><a href="contacts.html">Help Desk</a></p></div>
-    </div>
-    <div class="wide copy">© 2026 CAMP21 Digital Hub. Created and developed by Julie Marlina binti Hasan, Politeknik Port Dickson.</div>
-  </footer>
+<script>
+const phases=[
+  {name:'Empathise',count:4,color:'var(--indigo)',tcolor:'#5a3ad4'},
+  {name:'Define',count:2,color:'var(--violet)',tcolor:'#6B4DFF'},
+  {name:'Ideate',count:3,color:'#8a7a2a',tcolor:'#8a7a2a'},
+  {name:'Prototype',count:2,color:'var(--orange)',tcolor:'#d97706'},
+  {name:'Testing',count:2,color:'var(--pink)',tcolor:'#e23c74'}
+];
+const totalTpl=phases.reduce((a,p)=>a+p.count,0); // should be 13 (T01-T13), T14 is pitch resource
 
-  <script>
-    const phases = {
-      empathise:{label:'Phase 01 · Empathise', color:'#14104a', templates:'T01–T04', duty:'Support observation, interview questions, transcript evidence and empathy map clarity.', sop:'POEMS, Interview, Transcript, Empathy Map'},
-      define:{label:'Phase 02 · Define', color:'#6638d8', templates:'T05–T06', duty:'Support persona clarity, user insight and needs statement refinement.', sop:'Persona, Insights, Needs Statement'},
-      ideate:{label:'Phase 03 · Ideate', color:'#818512', templates:'T07–T09', duty:'Support idea branching, SCAMPER thinking and idea prioritisation.', sop:'Mind Map, SCAMPER, Prioritisation Matrix'},
-      prototype:{label:'Phase 04 · Prototype', color:'#c8952c', templates:'T10–T11', duty:'Check prototype direction plan and sketch before build begins.', sop:'Prototype Plan, Prototype Sketch'},
-      test:{label:'Phase 05 · Test', color:'#e23c74', templates:'T12–T13', duty:'Support user testing, feedback analysis and improvement action planning.', sop:'User Feedback, Improvement Plan'}
-    };
-    const defaultFacilitators = [
-      'Facilitator 01',
-      'Facilitator 02',
-      'Facilitator 03',
-      'Facilitator 04',
-      'Facilitator 05',
-      'Facilitator 06',
-      'Facilitator 07',
-      'Facilitator 08',
-      'Facilitator 09',
-      'Facilitator 10'
-    ];
-    const phaseIndex = {empathise:0, define:1, ideate:2, prototype:3, test:4};
-    const storageNames = 'camp21_facilitator_names';
-    const storageStatus = 'camp21_facilitator_monitor_status';
+// Tracker bar stats
+document.getElementById('trackerBar').innerHTML=phases.map(p=>`<div class="tracker-stat"><b style="color:${p.tcolor}">0<span style="font-size:1rem;color:var(--muted)">/10</span></b><span style="color:${p.tcolor}">${p.name}</span><small>teams done</small></div>`).join('');
 
-    function getNames(){
-      try { return JSON.parse(localStorage.getItem(storageNames)) || defaultFacilitators; }
-      catch { return defaultFacilitators; }
-    }
-    function getStatus(){
-      try { return JSON.parse(localStorage.getItem(storageStatus)) || {}; }
-      catch { return {}; }
-    }
-    function saveStatus(status){ localStorage.setItem(storageStatus, JSON.stringify(status)); }
+// Tracker table
+document.getElementById('trackerHead').innerHTML=`<tr><th>Team</th>${phases.map(p=>`<th><span class="ph-color" style="color:${p.tcolor}">${p.name}</span>${p.count} tmpl</th>`).join('')}<th>Total</th></tr>`;
+const teams=Array.from({length:10},(_,i)=>`Team ${i+1}`);
+document.getElementById('trackerBody').innerHTML=teams.map(t=>`<tr><td>${t}</td>${phases.map(p=>`<td><span class="legend-dot" style="background:var(--line)"></span><br>0/${p.count}</td>`).join('')}<td>0/${totalTpl}</td></tr>`).join('');
 
-    function initNames(){
-      document.getElementById('facilitatorInput').value = getNames().join('\n');
-    }
-    function saveFacilitators(){
-      const names = document.getElementById('facilitatorInput').value.split('\n').map(x=>x.trim()).filter(Boolean);
-      localStorage.setItem(storageNames, JSON.stringify(names.length ? names : defaultFacilitators));
-      renderMatrix();
-    }
-    function resetFacilitators(){
-      localStorage.removeItem(storageNames);
-      initNames();
-      renderMatrix();
-    }
-    function assignedFacilitator(teamNo, phaseKey){
-      const names = getNames();
-      if(!names.length) return 'Not assigned';
-      const offset = phaseIndex[phaseKey] || 0;
-      return names[(teamNo - 1 + offset) % names.length];
-    }
-    function toggleMonitor(teamNo, phaseKey){
-      const status = getStatus();
-      const key = phaseKey + '_team_' + teamNo;
-      status[key] = !status[key];
-      saveStatus(status);
-      renderMatrix();
-    }
-    function renderMatrix(){
-      const phaseKey = document.getElementById('phaseSelect').value;
-      const phase = phases[phaseKey];
-      const status = getStatus();
-      const body = document.getElementById('rotationBody');
-      body.innerHTML = '';
-      for(let i=1;i<=10;i++){
-        const key = phaseKey + '_team_' + i;
-        const done = !!status[key];
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td><span class="team">Team ${i}</span><div class="small">Group monitoring slot</div></td>
-          <td><span class="assigned">${assignedFacilitator(i, phaseKey)}</span><div class="small">Rotated assignment for this phase</div></td>
-          <td>${phase.duty}<div class="small">${phase.templates} · Assist only, do not evaluate.</div></td>
-          <td><span class="phase-pill" style="background:${phase.color}">${phase.label}</span><div class="small">${phase.sop}</div></td>
-          <td><span class="status ${done ? 'done' : 'attn'}">${done ? '✓ Checked' : 'Needs monitor'}</span></td>
-          <td><button class="btn ${done ? 'btn-outline' : 'btn-gold'}" onclick="toggleMonitor(${i}, '${phaseKey}')">${done ? 'Undo' : 'Mark checked'}</button></td>
-        `;
-        body.appendChild(tr);
-      }
-    }
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    if(menuBtn) menuBtn.addEventListener('click', () => {
-      const open = navLinks.style.display === 'flex';
-      navLinks.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--cream);padding:1.5rem 2rem;gap:1rem;z-index:99;box-shadow:0 12px 30px rgba(20,16,74,0.12);';
-    });
-    initNames();
-    renderMatrix();
-  </script>
+// Checkpoints
+const checkpoints=[
+  {num:'1',name:'Empathise',tpl:'T01 · T02 · T03 · T04',req:'4 templates must be complete before advancing.',color:'var(--indigo)'},
+  {num:'2',name:'Define',tpl:'T05 · T06',req:'2 templates must be complete before advancing.',color:'var(--violet)'},
+  {num:'3',name:'Ideate',tpl:'T07 · T08 · T09',req:'3 templates must be complete before advancing.',color:'#8a7a2a'},
+  {num:'4',name:'Prototype',tpl:'T10 · T11',req:'2 templates must be complete before advancing. T10 requires trainer sign-off.',color:'var(--orange)'},
+  {num:'5',name:'Testing',tpl:'T12 · T13',req:'2 templates must be complete before advancing.',color:'var(--rose)'}
+];
+document.getElementById('checkList').innerHTML=checkpoints.map(c=>`<div class="check-row"><div class="check-num" style="background:${c.color}">${c.num}</div><div class="check-row-info"><h3>${c.name}</h3><p>${c.tpl} — ${c.req}</p></div><div class="check-ready" style="color:${c.color}">0/10 Teams Ready</div></div>`).join('');
+
+// Rules
+const rules=[
+  'You are on-the-ground support — not evaluators. Assessment is handled by the formal judging panel.',
+  'Rotate across teams. Do not remain stationed with groups from your home institution.',
+  'Do not coach teams toward specific solutions. Ask questions that prompt their own thinking.',
+  'Use the Smart DT App companion dashboard to log phase milestone completions in real-time.',
+  'Any participant welfare concerns must be escalated to the secretariat table immediately.'
+];
+document.getElementById('ruleList').innerHTML=rules.map((r,i)=>`<div class="rule"><span class="rnum">${i+1}</span><p>${r}</p></div>`).join('');
+
+// Refresh time
+document.getElementById('refreshTime').textContent=new Date().toLocaleTimeString();
+
+// Dropdown close
+document.addEventListener('click',e=>{const qa=document.querySelector('.quick-access');if(qa&&!qa.contains(e.target))qa.removeAttribute('open')});
+document.querySelectorAll('.qa-link').forEach(a=>a.addEventListener('click',()=>{document.querySelector('.quick-access').removeAttribute('open')}));
+</script>
 </body>
 </html>
