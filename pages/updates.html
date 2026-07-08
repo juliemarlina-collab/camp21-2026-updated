@@ -6,7 +6,7 @@
   <title>CAMP21: Live Broadcasts</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/main.js" defer></script>
@@ -54,27 +54,68 @@
       50% { opacity: 1; transform: scale(1.1); }
       100% { opacity: 0.3; transform: scale(0.9); }
     }
+
+    /* ===== CAMP21 Neo-Heritage header/footer (approved palette + type) ===== */
+    :root{
+      --brand-indigo:var(--neo-ink,#20103E);
+      --brand-purple:var(--neo-ultraviolet,#5A36C9);
+      --brand-pink:var(--neo-pink,#F05AA6);
+      --brand-gold:var(--neo-gold,#D9AF37);
+      --brand-lavender:var(--neo-lavender,#B39DDB);
+      --brand-cream:var(--neo-cream,#F8F2EA);
+      --brand-charcoal:var(--neo-charcoal,#2B2733);
+      --brand-line:#e3d9c6;
+      --brand-muted:#726b82;
+    }
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(248,242,234,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(32,16,62,.08)}
+    .topbar-inner{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px}
+    .topbar .brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-serif,'Playfair Display',serif);font-weight:700;font-size:1.5rem;color:var(--brand-indigo);letter-spacing:-.01em}
+    .topbar .brand span{color:var(--brand-pink)}
+    .topbar .brand-icon{width:46px;height:46px;border-radius:50%;object-fit:contain}
+    .nav-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav-pill{border:1px solid var(--brand-line);background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(32,16,62,.05);font-size:.92rem;cursor:pointer;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif);color:var(--brand-indigo)}
+    .nav-pill:hover{border-color:var(--brand-purple);color:var(--brand-purple)}
+    .app-pill{border-color:var(--brand-purple);background:var(--brand-purple);color:#fff}
+    .app-pill:hover{background:var(--brand-indigo);border-color:var(--brand-indigo);color:#fff}
+    .quick-access{position:relative}
+    .qa-trigger{cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px}
+    .qa-chev{transition:.25s;display:inline-block;font-size:.7em}
+    .quick-access[open] .qa-chev{transform:rotate(180deg)}
+    .qa-dropdown{position:absolute;top:calc(100% + 10px);left:0;min-width:260px;background:#fff;border:1px solid var(--brand-line);border-radius:20px;box-shadow:0 24px 56px rgba(32,16,62,.16);padding:8px 0;z-index:60;animation:qaIn .18s ease}
+    .qa-group{padding:10px 8px}
+    .qa-label{display:block;font-size:.68rem;font-weight:900;color:var(--brand-muted);text-transform:uppercase;letter-spacing:.12em;padding:6px 16px 8px;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
+    .qa-link{display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:var(--brand-indigo);transition:background .15s;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
+    .qa-link:hover{background:rgba(90,54,201,.08);color:var(--brand-purple)}
+    @keyframes qaIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    .camp-footer{background:var(--brand-indigo);color:#fff;margin-top:48px;padding:56px 28px 26px}
+    .camp-footer .footer-inner{max-width:1440px;margin:auto}
+    .camp-footer .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+    .camp-footer .footer-brand{display:flex;align-items:center;gap:14px;font-family:var(--font-serif,'Playfair Display',serif);font-size:2.2rem;font-weight:700}
+    .camp-footer .footer-brand span{color:var(--brand-pink)}
+    .camp-footer .footer-col h4{color:var(--brand-gold);margin:0 0 14px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
+    .camp-footer .footer-col p,.camp-footer .footer-col a{display:block;color:rgba(255,255,255,.74);line-height:1.7;font-weight:600;margin:0 0 7px;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
+    .camp-footer .footer-col a:hover{color:var(--brand-lavender)}
+    .camp-footer .footer-bottom{border-top:1px solid rgba(255,255,255,.16);margin-top:34px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:rgba(255,255,255,.65);font-weight:700;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
+    @media(max-width:980px){.nav-actions{width:100%;justify-content:flex-start;gap:8px}.topbar-inner{align-items:flex-start;flex-direction:column;gap:14px}.camp-footer .footer-grid{grid-template-columns:1fr 1fr}.qa-dropdown{left:-8px;right:-8px;min-width:auto}}
+    @media(max-width:560px){.camp-footer .footer-grid{grid-template-columns:1fr}.topbar .brand-icon{width:38px;height:38px}.topbar-inner{padding:14px 18px}.nav-pill{padding:10px 16px;font-size:.82rem}.qa-dropdown{position:fixed;left:12px;right:12px;top:auto;border-radius:18px}}
+    @media print{.topbar,.nav-actions,.quick-access{display:none}.camp-footer{display:none}}
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
-  <header>
-    <div class="wide nav-wrap">
-      <a href="../index.html" class="brand">
-        <img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">
-        CAMP<span>21</span>
-      </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="../index.html">Home</a>
-        <a href="programme.html">Programme</a>
-        <a href="resources.html">Resources</a>
-        <a href="contacts.html">Help</a>
-        <a href="registration.html" class="btn-nav">Register now &rarr;</a>
-      </nav>
-      <button class="menu-btn" aria-label="Toggle menu">&#9776;</button>
-    </div>
-  </header>
+  <header class="topbar"><div class="topbar-inner">
+    <a class="brand" href="../index.html"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
+    <nav class="nav-actions">
+      <details class="quick-access"><summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
+        <div class="qa-dropdown"><div class="qa-group"><span class="qa-label">CAMP21 Pages</span>
+          <a class="qa-link" href="../index.html">🏠 Home</a><a class="qa-link" href="programme.html">📅 Programme</a><a class="qa-link" href="participants.html">👥 Participants</a><a class="qa-link" href="trainers.html">🧑‍🏫 Trainers</a><a class="qa-link" href="facilitators.html">🤝 Facilitators</a><a class="qa-link" href="resources.html">📚 Resources</a><a class="qa-link" href="contacts.html">📞 Help Desk</a>
+        </div></div>
+      </details>
+      <a class="nav-pill" href="registration.html">Register now →</a>
+      <a class="nav-pill app-pill" href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App ↗</a>
+    </nav>
+  </div></header>
   <!-- PAGE HERO -->
   <div class="page-hero">
     <div class="wide">
@@ -135,50 +176,16 @@
   </main>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="wide">
-      <div class="footer-grid">
-        <div class="footer-brand footer-col">
-          <a href="../index.html" class="brand">CAMP<span>21</span></a>
-          <p>AI-powered Design Thinking for sustainable cultural heritage. Jointly organised by JPPKK &amp; METrO KL.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="../index.html#portals">Access hubs</a></li>
-            <li><a href="programme.html">Full programme</a></li>
-            <li><a href="resources.html">Resources &amp; templates</a></li>
-            <li><a href="updates.html">Live updates</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Support</h4>
-          <ul>
-            <li><a href="contacts.html">Help desk</a></li>
-            <li><a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener">Telegram community</a></li>
-            <li><a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App</a></li>
-            <li><a href="pitching.html">Pitching guide</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Venue</h4>
-          <p>Kompleks Kraf Kuala Lumpur<br>Jalan Conlay, 50450<br>Kuala Lumpur</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="copy">&copy; 2026 CAMP21: Synergising Literacies. All rights reserved.</span>
-        <span class="dates">13&ndash;16 July 2026 &middot; Kompleks Kraf Kuala Lumpur</span>
-      </div>
-    </div>
-  </footer>
+  <footer class="camp-footer"><div class="footer-inner"><div class="footer-grid">
+    <div class="footer-col"><div class="footer-brand">CAMP<span>21</span></div><p>CAMP21 Digital Hub 2026<br>13–16 July 2026<br>Kompleks Kraf Kuala Lumpur</p><p>AI-Powered Design Thinking for Sustainable Cultural Heritage</p></div>
+    <div class="footer-col"><h4>Explore</h4><a href="programme.html">Programme</a><a href="resources.html">Resources</a><a href="updates.html">Live Updates</a><a href="contacts.html">Help</a></div>
+    <div class="footer-col"><h4>Stakeholders</h4><a href="participants.html">Participants Hub</a><a href="trainers.html">Trainers</a><a href="facilitators.html">Facilitators</a></div>
+    <div class="footer-col"><h4>Support</h4><a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App ↗</a><a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener">Telegram Community ↗</a><a href="contacts.html">Help Desk</a></div>
+  </div><div class="footer-bottom"><span>© 2026 CAMP21 Digital Hub.</span><span>Created and developed by Julie Marlina binti Hasan, Politeknik Port Dickson.</span></div></div></footer>
 
   <script>
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    if (menuBtn) menuBtn.addEventListener('click', () => {
-      const open = navLinks.style.display === 'flex';
-      navLinks.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:var(--cream);padding:1.5rem 2rem;gap:1rem;z-index:99;box-shadow:0 12px 30px rgba(20,16,74,0.12);';
-    });
+    document.addEventListener('click',e=>{const qa=document.querySelector('.quick-access');if(qa&&!qa.contains(e.target))qa.removeAttribute('open')});
+    document.querySelectorAll('.qa-link').forEach(a=>a.addEventListener('click',()=>{document.querySelector('.quick-access').removeAttribute('open')}));
   </script>
 
   <script>
