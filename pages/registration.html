@@ -29,7 +29,7 @@
     .reg-sub { font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 520px; font-weight: 500; line-height: 1.6; }
 
     /* ── ROLE TABS ── */
-    .role-tabs-wrap { background: var(--cream); border-bottom: 1px solid rgba(20,16,74,0.1); position: sticky; top: 64px; z-index: 50; }
+    .role-tabs-wrap { background: var(--cream); border-bottom: 1px solid rgba(20,16,74,0.1); position: sticky; top: 74px; z-index: 40; }
     .role-tabs { display: flex; gap: 0; max-width: 900px; margin: 0 auto; padding: 0 1.5rem; overflow-x: auto; }
     .role-tab {
       padding: 1rem 1.4rem;
@@ -169,15 +169,16 @@
 </head>
 <body>
 
-  <header>
-    <div class="wide nav-wrap">
-      <a href="../index.html" class="brand">CAMP<span>21</span></a>
-      <nav class="nav-links">
-        <a href="../index.html">Home</a>
-        <a href="programme.html">Programme</a>
-        <a href="resources.html">Resources</a>
-        <a href="contacts.html">Help</a>
-        <a href="registration.html" class="btn-nav" style="background:var(--rose);color:#fff!important;font-weight:900;padding:0.55rem 1.2rem;border-radius:999px;font-size:0.88rem;">Register now &rarr;</a>
+  <header class="topbar" style="position:sticky;top:0;z-index:50;background:rgba(255,248,239,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(21,16,68,.08)">
+    <div style="max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px">
+      <a href="../index.html" class="brand"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" style="width:46px;height:46px;border-radius:50%;object-fit:contain" onerror="this.style.display='none'">CAMP<span>21</span></a>
+      <nav style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
+        <details class="quick-access" style="position:relative"><summary style="border:1px solid #ddd5c9;background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(21,16,68,.04);font-size:.92rem;cursor:pointer;display:flex;align-items:center;gap:6px;list-style:none">⚡ Quick Access <span style="transition:.25s;display:inline-block;font-size:.7em">▾</span></summary>
+          <div style="position:absolute;top:calc(100% + 10px);left:0;min-width:260px;background:#fff;border:1px solid #e9dfd0;border-radius:20px;box-shadow:0 24px 56px rgba(21,16,68,.14);padding:8px 0;z-index:60"><div style="padding:10px 8px"><span style="display:block;font-size:.68rem;font-weight:900;color:#726b82;text-transform:uppercase;letter-spacing:.12em;padding:6px 16px 8px">CAMP21 Pages</span>
+            <a href="../index.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">🏠 Home</a><a href="programme.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">📅 Programme</a><a href="participants.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">👥 Participants</a><a href="trainers.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">🧑‍🏫 Trainers</a><a href="facilitators.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">🤝 Facilitators</a><a href="judges.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">⚖️ Judges</a><a href="resources.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">📚 Resources</a><a href="contacts.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">📞 Help Desk</a>
+          </div></div>
+        </details>
+        <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener" style="border:1px solid #21D4C2;background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;font-size:.92rem;text-decoration:none;color:#151044">Smart DT App ↗</a>
       </nav>
     </div>
   </header>
@@ -226,34 +227,33 @@
                 </div>
                 <div class="field-group">
                   <label>Email Address <span class="req">*</span></label>
-                  <input type="email" name="email" class="reg-input" placeholder="student@politeknik.edu.my" required>
+                  <input type="email" name="email" class="reg-input" placeholder="e.g. name@gmail.com" required>
                 </div>
                 <div class="field-group">
                   <label>Phone Number <span class="req">*</span></label>
                   <input type="tel" name="phone" class="reg-input" placeholder="e.g. 0123456789" required>
                 </div>
                 <div class="field-group">
-                  <label>Polytechnic Institution <span class="req">*</span></label>
-                  <select name="polytechnic" class="reg-select" required>
-                    <option value="">— Select your Polytechnic —</option>
-                    <option>Politeknik Metro Kuala Lumpur (PMKL)</option>
-                    <option>Politeknik Port Dickson (PPD)</option>
-                    <option>Politeknik Shah Alam (PSA)</option>
-                    <option>Politeknik Seberang Perai (PSP)</option>
-                    <option>Politeknik Ungku Omar (PUO)</option>
-                    <option>Politeknik Johor Bahru (PJB)</option>
-                    <option>Politeknik Kuchin Sarawak (PKS)</option>
-                    <option>Politeknik Kuching (PKU)</option>
-                    <option>Politeknik Mukah (PMU)</option>
-                    <option>Politeknik Merlimau (PMM)</option>
-                    <option>Politeknik Kota Bharu (PKB)</option>
-                    <option>Politeknik Sultan Azlan Shah (PSAS)</option>
-                    <option>Politeknik Tuanku Sultanah Bahiyah (PTSB)</option>
-                    <option>Politeknik Nilai (PNS)</option>
-                    <option>Politeknik Sandakan (PSandakan)</option>
-                    <option>Politeknik Kota Kinabalu (PKK)</option>
-                    <option>Other</option>
-                  </select>
+                  <label>Polytechnic / Institution <span class="req">*</span></label>
+                  <input type="text" name="polytechnic" class="reg-input" list="polyList" placeholder="Type or select your institution" required>
+                  <datalist id="polyList">
+                    <option value="Politeknik Metro Kuala Lumpur (PMKL)">
+                    <option value="Politeknik Port Dickson (PPD)">
+                    <option value="Politeknik Shah Alam (PSA)">
+                    <option value="Politeknik Seberang Perai (PSP)">
+                    <option value="Politeknik Ungku Omar (PUO)">
+                    <option value="Politeknik Johor Bahru (PJB)">
+                    <option value="Politeknik Kuchin Sarawak (PKS)">
+                    <option value="Politeknik Kuching (PKU)">
+                    <option value="Politeknik Mukah (PMU)">
+                    <option value="Politeknik Merlimau (PMM)">
+                    <option value="Politeknik Kota Bharu (PKB)">
+                    <option value="Politeknik Sultan Azlan Shah (PSAS)">
+                    <option value="Politeknik Tuanku Sultanah Bahiyah (PTSB)">
+                    <option value="Politeknik Nilai (PNS)">
+                    <option value="Politeknik Sandakan (PSandakan)">
+                    <option value="Politeknik Kota Kinabalu (PKK)">
+                  </datalist>
                 </div>
                 <div class="field-group">
                   <label>Programme / Diploma <span class="req">*</span></label>
@@ -320,31 +320,30 @@
                 </div>
                 <div class="field-group">
                   <label>Email Address <span class="req">*</span></label>
-                  <input type="email" name="email" class="reg-input" placeholder="name@politeknik.edu.my" required>
+                  <input type="email" name="email" class="reg-input" placeholder="e.g. name@gmail.com" required>
                 </div>
                 <div class="field-group">
                   <label>Phone Number <span class="req">*</span></label>
                   <input type="tel" name="phone" class="reg-input" placeholder="e.g. 0123456789" required>
                 </div>
                 <div class="field-group">
-                  <label>Polytechnic Institution <span class="req">*</span></label>
-                  <select name="polytechnic" class="reg-select" required>
-                    <option value="">— Select —</option>
-                    <option>Politeknik Metro Kuala Lumpur (PMKL)</option>
-                    <option>Politeknik Port Dickson (PPD)</option>
-                    <option>Politeknik Shah Alam (PSA)</option>
-                    <option>Politeknik Seberang Perai (PSP)</option>
-                    <option>Politeknik Ungku Omar (PUO)</option>
-                    <option>Politeknik Johor Bahru (PJB)</option>
-                    <option>Politeknik Kuchin Sarawak (PKS)</option>
-                    <option>Politeknik Merlimau (PMM)</option>
-                    <option>Politeknik Kota Bharu (PKB)</option>
-                    <option>Politeknik Sultan Azlan Shah (PSAS)</option>
-                    <option>Politeknik Tuanku Sultanah Bahiyah (PTSB)</option>
-                    <option>Politeknik Nilai (PNS)</option>
-                    <option>Politeknik Kota Kinabalu (PKK)</option>
-                    <option>Other</option>
-                  </select>
+                  <label>Polytechnic / Institution <span class="req">*</span></label>
+                  <input type="text" name="polytechnic" class="reg-input" list="polyListFaci" placeholder="Type or select your institution" required>
+                  <datalist id="polyListFaci">
+                    <option value="Politeknik Metro Kuala Lumpur (PMKL)">
+                    <option value="Politeknik Port Dickson (PPD)">
+                    <option value="Politeknik Shah Alam (PSA)">
+                    <option value="Politeknik Seberang Perai (PSP)">
+                    <option value="Politeknik Ungku Omar (PUO)">
+                    <option value="Politeknik Johor Bahru (PJB)">
+                    <option value="Politeknik Kuchin Sarawak (PKS)">
+                    <option value="Politeknik Merlimau (PMM)">
+                    <option value="Politeknik Kota Bharu (PKB)">
+                    <option value="Politeknik Sultan Azlan Shah (PSAS)">
+                    <option value="Politeknik Tuanku Sultanah Bahiyah (PTSB)">
+                    <option value="Politeknik Nilai (PNS)">
+                    <option value="Politeknik Kota Kinabalu (PKK)">
+                  </datalist>
                 </div>
                 <div class="field-group">
                   <label>Department / Faculty</label>
@@ -411,7 +410,7 @@
                 </div>
                 <div class="field-group">
                   <label>Email Address <span class="req">*</span></label>
-                  <input type="email" name="email" class="reg-input" placeholder="name@politeknik.edu.my" required>
+                  <input type="email" name="email" class="reg-input" placeholder="e.g. name@gmail.com" required>
                 </div>
                 <div class="field-group">
                   <label>Phone Number <span class="req">*</span></label>
@@ -485,7 +484,7 @@
                 </div>
                 <div class="field-group">
                   <label>Email Address <span class="req">*</span></label>
-                  <input type="email" name="email" class="reg-input" placeholder="name@politeknik.edu.my" required>
+                  <input type="email" name="email" class="reg-input" placeholder="e.g. name@gmail.com" required>
                 </div>
                 <div class="field-group">
                   <label>Phone Number <span class="req">*</span></label>
@@ -570,7 +569,7 @@
                 </div>
                 <div class="field-group">
                   <label>Email Address <span class="req">*</span></label>
-                  <input type="email" name="email" class="reg-input" placeholder="name@organization.com" required>
+                  <input type="email" name="email" class="reg-input" placeholder="e.g. name@gmail.com" required>
                 </div>
                 <div class="field-group">
                   <label>Phone Number <span class="req">*</span></label>
@@ -644,9 +643,8 @@
           </ul>
         </div>
         <div class="contact-card" style="margin-top:1rem;">
-          <strong style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:0.4rem;">Need help?</strong>
-          Contact the secretariat:<br>
-          <a href="mailto:juliemarlina@polipd.edu.my">juliemarlina@polipd.edu.my</a>
+          <strong style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:0.4rem;">Attendance</strong>
+          After registration, select your name from the attendance list during camp check-in each day.
         </div>
         <div class="info-card" style="margin-top:1rem; background: rgba(20,16,74,0.05); color: var(--navy);">
           <h4 style="color: var(--rose);">Registration closes</h4>
@@ -661,11 +659,22 @@
     </div><!-- end reg-layout -->
   </div><!-- end reg-body -->
 
-  <footer>
-    <div class="wide" style="text-align: center; font-weight: 700; color: rgba(255,255,255,0.4); font-size: 0.9rem;">
-      © 2026 CAMP21: Synergising Literacies. Jointly organised by JPPKK &amp; Politeknik Metro KL.
+  <footer style="background:#251052;color:#fff;margin-top:48px;padding:56px 28px 26px">
+    <div style="max-width:1440px;margin:auto">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px">
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700">CAMP<span style="color:#FF4FCB">21</span></div><p style="color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:12px 0 0">CAMP21 Digital Hub 2026<br>13–16 July 2026<br>Kompleks Kraf Kuala Lumpur</p><p style="color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:8px 0 0">AI-Powered Design Thinking for Sustainable Cultural Heritage</p></div>
+        <div><h4 style="color:#FFC83D;margin:0 0 14px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em">Explore</h4><a href="programme.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Programme</a><a href="resources.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Resources</a><a href="updates.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Live Updates</a><a href="contacts.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Help</a></div>
+        <div><h4 style="color:#FFC83D;margin:0 0 14px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em">Stakeholders</h4><a href="participants.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Participants Hub</a><a href="trainers.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Trainers</a><a href="facilitators.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Facilitators</a></div>
+        <div><h4 style="color:#FFC83D;margin:0 0 14px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em">Support</h4><a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Smart DT App ↗</a><a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Telegram Community ↗</a><a href="contacts.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Help Desk</a></div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.14);margin-top:34px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:rgba(255,255,255,.65);font-weight:700"><span>© 2026 CAMP21 Digital Hub.</span><span>Created and developed by Julie Marlina binti Hasan, Politeknik Port Dickson.</span></div>
     </div>
   </footer>
+
+  <script>
+    // Quick Access dropdown close
+    document.addEventListener('click',e=>{const qa=document.querySelector('.quick-access');if(qa&&!qa.contains(e.target))qa.removeAttribute('open')});
+  </script>
 
   <script>
     // ── GOOGLE APPS SCRIPT ENDPOINT ──
