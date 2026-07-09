@@ -12,7 +12,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font-sans)}a{text-decoration:none;color:inherit}
 .topbar{position:sticky;top:0;z-index:50;background:rgba(255,248,239,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(21,16,68,.08)}.topbar-inner{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px}.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-serif);font-weight:700;font-size:1.5rem;color:var(--ink);letter-spacing:-.01em}.brand span{color:var(--pink)}.brand-icon{width:46px;height:46px;border-radius:50%;object-fit:contain}.nav-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.nav-pill{border:1px solid #ddd5c9;background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(21,16,68,.04);font-size:.92rem;cursor:pointer}.nav-pill:hover{border-color:var(--violet)}.nav-pill.primary{background:var(--violet);color:#fff;border-color:var(--violet)}.app-pill{border-color:var(--teal);color:var(--ink)}.app-pill:hover{background:var(--teal);color:#fff}
 .quick-access{position:relative}.qa-trigger{cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px}.qa-chev{transition:.25s;display:inline-block;font-size:.7em}.quick-access[open] .qa-chev{transform:rotate(180deg)}.qa-dropdown{position:absolute;top:calc(100% + 10px);left:0;min-width:260px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 56px rgba(21,16,68,.14);padding:8px 0;z-index:60;animation:qaIn .18s ease}.qa-group{padding:10px 8px}.qa-label{display:block;font-size:.68rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;padding:6px 16px 8px}.qa-link{display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:var(--ink);transition:background .15s}.qa-link:hover{background:rgba(109,70,238,.07);color:var(--violet)}@keyframes qaIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-.hero{background:radial-gradient(circle at 82% 10%,rgba(255,199,61,.15),transparent 34%),linear-gradient(120deg,rgba(24,61,112,.95),rgba(37,16,82,.92) 45%,rgba(59,18,76,.90)),url('../assets/images/hero-programme.jpg') center/cover;color:#fff;padding:58px 28px 50px}.hero-inner{max-width:1440px;margin:auto}.eyebrow{display:inline-flex;border:1px solid rgba(241,191,50,.6);background:rgba(241,191,50,.13);color:#ffe18a;border-radius:999px;padding:9px 18px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}.hero h1{font-family:var(--font-serif);font-size:clamp(3.6rem,7vw,6rem);line-height:.88;margin:30px 0 18px;letter-spacing:-.055em;font-style:italic}.hero p{font-size:1.15rem;line-height:1.65;color:rgba(255,255,255,.78);max-width:780px}
+.hero{background:radial-gradient(circle at 82% 10%,rgba(255,199,61,.15),transparent 34%),linear-gradient(120deg,rgba(24,61,112,.72),rgba(37,16,82,.68) 45%,rgba(59,18,76,.65)),url('../assets/images/hero-programme.jpg') center/cover;color:#fff;padding:58px 28px 50px}.hero-inner{max-width:1440px;margin:auto}.eyebrow{display:inline-flex;border:1px solid rgba(241,191,50,.6);background:rgba(241,191,50,.13);color:#ffe18a;border-radius:999px;padding:9px 18px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}.hero h1{font-family:var(--font-serif);font-size:clamp(3.6rem,7vw,6rem);line-height:.88;margin:30px 0 18px;letter-spacing:-.055em;font-style:italic}.hero p{font-size:1.15rem;line-height:1.65;color:rgba(255,255,255,.78);max-width:780px}
 .wrap{max-width:1440px;margin:auto;padding:48px 28px 80px}.section-head{margin-bottom:2rem}.section-head h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);margin:0 0 .5rem}.section-head p{color:var(--muted);font-size:1.05rem;line-height:1.55;max-width:720px}.s-gap{margin-bottom:4rem}
 .overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;border-radius:22px;overflow:hidden;margin-bottom:3rem}.ov-card{padding:32px 28px;color:#fff;position:relative;overflow:hidden}.ov-card .day-label{font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;opacity:.8}.ov-card .day-theme{font-family:var(--font-serif);font-size:1.6rem;margin:8px 0 0}.ov-card .day-num{position:absolute;bottom:-10px;right:14px;font-family:var(--font-serif);font-size:5rem;font-weight:700;opacity:.12}.ov1{background:var(--indigo)}.ov2{background:var(--pink)}.ov3{background:var(--olive)}.ov4{background:var(--rose)}
 .day-tabs{display:flex;gap:0;border-bottom:2px solid var(--line);margin-bottom:28px;flex-wrap:wrap}.day-tab{padding:14px 24px;font-weight:900;font-size:.95rem;cursor:pointer;border-bottom:3px solid transparent;transition:.2s}.day-tab:hover{color:var(--violet)}.day-tab.active{color:var(--violet);border-bottom-color:var(--violet)}
@@ -78,81 +78,74 @@ const days=[
 {num:1,date:'13',month:'July 2026',title:'Heritage Immersion',sub:'Empathise & Define · KL Exploration',focus:'Phase 1 — Empathise & Phase 2 — Define',overview:'Day 1 launches the CAMP21 journey through heritage immersion, Design Thinking orientation, and group exploration. Participants begin with briefing and ice-breaking, then move directly into the Design Thinking process. Guided craft gallery tours, motif exploration, and artisan interviews anchor the empathy stage. By afternoon, groups frame their initial problem statements. The day closes with KL Exploration and a short group video reflection.',color:'var(--indigo)',tags:['Design Thinking','Kompleks Kraf KL','Hop-On Hop-Off','TikTok Challenge'],
 sessions:[
 {label:'Morning — Orientation',items:[
-{time:'7:00 am',title:'Pick-up of participants',venue:'Pick-up points',tag:''},
+{time:'7:00 am',title:'Pick-up of participants',venue:'Pick Up 1: PMKL · Pick Up 2: Avenue K · Pick Up 3: Pavilion',tag:''},
 {time:'8:30–9:00',title:'Registration & breakfast',venue:'Main Seminar Hall',tag:''},
-{time:'9:00–9:30',title:'Programme Briefing · Smart Green & AI Briefing',venue:'Main Seminar Hall',tag:''},
-{time:'9:30–10:00',title:'Ice breaking & group formation',venue:'Main Seminar Hall',tag:''}]},
+{time:'9:30–10:30',title:'Programme Briefing & Ice Breaking',venue:'Main Seminar Hall',tag:''}]},
 {label:'Mid-Morning — Empathise (DT Phase 1)',pic:'Julie Marlina binti Hasan',assist:'Mohd Alfi bin Mohamed, Muzimah Aida binti Md Mustafa',items:[
-{time:'10:00–12:30',title:'Design Thinking Workshop — introduction & Phase 1 Empathy preparation',venue:'Main Seminar Hall',tag:'dt',details:['POEMS — structured observation framework (People, Objects, Environments, Messages, Services)','Constructing Interview Questions — preparing empathy-based interview questions for artisan engagement']},
-{time:'10:00–12:30',title:'Guided craft gallery tour · motif exploration · artisan interview',venue:'Kompleks Kraf area',tag:'field',details:['Empathy Map — capturing what users Say, Think, Do & Feel through gallery observation and artisan engagement']}]},
+{time:'10:00–12:30',title:'Guided Craft Gallery Tour / Motif Exploration & Artisan Interview',venue:'Main Seminar Hall & Kompleks Kraf area',tag:'field',details:['POEMS — structured observation framework (People, Objects, Environments, Messages, Services)','Empathy Map — capturing what users Say, Think, Do & Feel through gallery observation and artisan engagement']}]},
 {label:'Lunch',items:[{time:'12:30–2:00',title:'Lunch & Zohor prayer',venue:'Hall & Surau',tag:'prayer'}]},
 {label:'Afternoon — Define (DT Phase 2)',pic:'Nor Haniza binti Mustafar Kamar',assist:'Mohd Ridhuan Ismail, Siti Hani-Syazana binti Mohamad',items:[
-{time:'2:00–3:30',title:'Empathy insights sharing & Define phase preparation',venue:'Main Seminar Hall',tag:'dt'},
-{time:'3:30–5:00',title:'Phase 2: Define — problem framing & design challenge development',venue:'Main Seminar Hall',tag:'dt',details:['Persona Creation — building a representative user profile from interview and empathy data','Unpacking interview data — Share → Unpack → Synthesize: identifying users\' pain points from raw field data','Identifying insights & needs — drawing meaningful conclusions to frame the core design challenge']}]},
+{time:'2:00 pm',title:'AI Tools Exploration (Ts. Sathya a/p Manoharan)',venue:'Main Seminar Hall',tag:'dt'},
+{time:'3:30 pm',title:'Design Thinking Workshop: Empathise & Define',venue:'Main Seminar Hall',tag:'dt',details:['Persona Creation — building a representative user profile from interview and empathy data','Unpacking interview data — Share → Unpack → Synthesize','Identifying insights & needs — drawing meaningful conclusions to frame the core design challenge']}]},
 {label:'Evening — KL Exploration',items:[
 {time:'5:00–5:30',title:'Day 1 reflection & Asar prayer',venue:'Hall & Surau',tag:'prayer'},
-{time:'5:30–7:00',title:'Dinner & Maghrib prayer',venue:'Main Seminar Hall',tag:'prayer'},
-{time:'8:30–10:30',title:'KL Exploration — Hop-On Hop-Off Bus & group reflection',venue:'Around Kuala Lumpur',tag:'city'},
-{time:'10:30 pm',title:'Sending off participants',venue:'Kompleks Kraf Kuala Lumpur',tag:''}]}],
+{time:'6:00–7:00',title:'Dinner & Maghrib prayer',venue:'KLCC',tag:'prayer'},
+{time:'8:00–10:30',title:'KL Exploration — Hop-On Hop-Off Bus & group reflection',venue:'KLCC',tag:'city'},
+{time:'10:30 pm',title:'Sending off participants',venue:'KLCC / Kompleks Kraf',tag:''}]}],
 outputs:['Group formation & role assignment','POEMS observation notes from craft gallery & motif exploration','Interview questions for artisan engagement','Completed Empathy Map from gallery & artisan engagement','User Persona built from interview & empathy data','Identified insights & needs — draft design challenge','Group video reflection — Day 1 close'],
 reflection:{title:'Day 1 Video Reflection',sub:'Exploration · Empathy · Define Phase',qs:['What cultural heritage element did you discover today?','What issue or challenge did your group observe?','What did you learn from the artisan or gallery exploration?','How did your group work together today?','What is one insight that can help define your Design Thinking challenge?']}},
 
-{num:2,date:'14',month:'July 2026',title:'Creative Sprint',sub:'Ideate & Build',focus:'Phase 3 — Ideate & Phase 4 — Prototype (Direction)',overview:'Day 2 shifts into idea generation and creative problem-solving. Teams warm up with the 30 Circle Challenge, then explore SCAMPER techniques and concept sketching. By afternoon, the focus moves to the Ideation Matrix for idea selection and the Prototype Direction Plan that requires trainer sign-off before any build work begins.',color:'var(--olive)',tags:['30 Circle Challenge','SCAMPER','Mahjong Paper','Prototype Planning'],
+{num:2,date:'14',month:'July 2026',title:'Creative Sprint',sub:'Ideate & Validate',focus:'Phase 3 — Ideate & Phase 4 — Prototype (Direction)',overview:'Day 2 shifts into idea generation and creative problem-solving. Teams begin with ideation workshops, then explore motif exploration and artisan interviews. Afternoon focuses on mind mapping, concept sketching, and group reflection. The Mentor Sprint and Peer Concept Review using PMI technique round out the day.',color:'var(--olive)',tags:['Design Thinking','Ideate','Mind Mapping','Mentor Sprint'],
 sessions:[
 {label:'Morning — Ideate (DT Phase 3)',pic:'Nurfarhanah binti Omar',assist:'Katherine Livan Khing binti Abdullah, Nur Salina binti Saywalludin',items:[
-{time:'7:00 am',title:'Pick-up of participants',venue:'Pick-up points',tag:''},
-{time:'8:30–9:00',title:'Morning briefing with Phase 03 lead (Nurfarhanah Omar)',venue:'Main Seminar Hall',tag:''},
-{time:'9:00–9:30',title:'AI Input 3 (Ts. Sathya): T07 30 Circle Challenge',venue:'Main Seminar Hall',tag:'dt'},
-{time:'9:30–12:30',title:'T08 SCAMPER Activity & T09 Ideation Matrix Prioritisation',venue:'Main Seminar Hall',tag:'dt',details:['Mahjong Paper — large-format SCAMPER and sticky-note sorting activity','T09 Ideation Matrix Prioritisation — team consensus on selected idea']}]},
-{label:'Lunch',items:[{time:'12:30–2:00',title:'Lunch & Zohor prayer',venue:'Hall & Surau',tag:'prayer'}]},
+{time:'7:00 am',title:'Pick-up of participants',venue:'Pick Up 1: PMKL · Pick Up 2: Avenue K · Pick Up 3: Pavilion',tag:''},
+{time:'8:30–9:00',title:'Breakfast',venue:'Main Seminar Hall',tag:''},
+{time:'9:00–10:30',title:'Design Thinking Workshop: Ideate',venue:'Main Seminar Hall',tag:'dt'},
+{time:'10:30–12:00',title:'Motif Exploration & Artisan Interview',venue:'Main Seminar Hall',tag:'field'}]},
+{label:'Lunch',items:[{time:'12:00–1:30',title:'Lunch & Zohor prayer',venue:'Hall & Surau',tag:'prayer'}]},
 {label:'Afternoon — Prototype Direction (DT Phase 4)',pic:'Ts. Mohammed Farid bin Ishak',assist:'Sara Ruran Fabian, Muhammad Zaki bin Yahya',items:[
-{time:'2:00–3:30',title:'T10 Prototype Direction Plan',venue:'Main Seminar Hall',tag:'dt',details:['Format, materials, features, task distribution and development direction','Trainer sign-off required before any build begins']},
-{time:'3:30–5:00',title:'Begin prototype build work',venue:'Workshop area',tag:'dt'}]},
+{time:'1:30–2:30',title:'Mind Mapping & Concept Sketching',venue:'Main Seminar Hall',tag:'dt'},
+{time:'2:30–3:30',title:'Group Reflection',venue:'Main Seminar Hall',tag:'dt'},
+{time:'3:30–7:30',title:'The Mentor Sprint',venue:'Peer Concept Review',tag:'dt'}]},
 {label:'Evening',items:[
-{time:'5:00–5:30',title:'Day 2 reflection & Asar prayer',venue:'Hall & Surau',tag:'prayer'},
-{time:'5:30–7:00',title:'Dinner & Maghrib prayer',venue:'Main Seminar Hall',tag:'prayer'},
-{time:'7:30–10:00',title:'Continue prototype build & upload T07–T11 to Smart DT App',venue:'Workshop area',tag:'dt'},
-{time:'10:30 pm',title:'Sending off participants',venue:'Kompleks Kraf Kuala Lumpur',tag:''}]}],
+{time:'7:30–8:30',title:'Dinner & Maghrib prayer',venue:'Main Seminar Hall',tag:'prayer'},
+{time:'8:30–10:30',title:'Peer Concept Review (PMI technique)',venue:'Main Seminar Hall',tag:'dt'},
+{time:'10:30 pm',title:'Sending off participants',venue:'Kompleks Kraf',tag:''}]}],
 outputs:['T07 30 Circle Challenge completed','T08 SCAMPER Activity — all 7 lenses','T09 Ideation Matrix Prioritisation — team consensus','T10 Prototype Direction Plan — trainer signed','T11 Full Prototype Outcome (in progress)','Group video reflection — Day 2 close'],
 reflection:{title:'Day 2 Video Reflection',sub:'Ideate & Prototype Phase',qs:['What creative technique worked best for your team today?','How did your team narrow down from many ideas to one?','What is your prototype concept and how does it connect to heritage?','What was the biggest challenge in planning your prototype?','What will your team focus on building tomorrow?']}},
 
-{num:3,date:'15',month:'July 2026',title:'Test & Polish',sub:'Test & Refine',focus:'Phase 4 — Prototype (Build) & Phase 5 — Testing',overview:'Day 3 opens with the Pitching Input session by Prabagaran Bala Krisnan, followed by pitch deck refinement support. Prototype build continues with T11 completion. The afternoon shifts to Phase 05 Testing — structured peer feedback using T12 Feedback Capture Grid and T13 Improvement Plan. The day closes with completed pitch decks ready for Day 4.',color:'var(--brown)',tags:['Pitching Input','Slide Refinement','Feedback Grid','Pitch Deck'],
+{num:3,date:'15',month:'July 2026',title:'Prototype & Refine',sub:'Prototype & Refine',focus:'Phase 4 — Prototype (Build) & Phase 5 — Testing',overview:'Day 3 features the Prototyping Workshop followed by a Tie Dye Workshop at the Craft Area. Afternoon brings Peer Testing and Pitch Storytelling Preparation led by Prabagaran Bala Krisnan. The evening focuses on full pitch dry run and Q&A practice.',color:'var(--brown)',tags:['Prototyping','Tie Dye Workshop','Peer Testing','Pitch Dry Run'],
 sessions:[
-{label:'Morning — Pitching & Prototype',items:[
-{time:'7:00 am',title:'Pick-up of participants',venue:'Pick-up points',tag:''},
-{time:'8:30–9:00',title:'Morning briefing',venue:'Main Seminar Hall',tag:''},
-{time:'9:00–10:00',title:'Guest Slot: Prabagaran Bala Krisnan — 8-Slide Pitch Framework',venue:'Main Seminar Hall',tag:'pitch'},
-{time:'10:00–10:30',title:'AI Input 4 (Ts. Sathya): pitch deck refinement support',venue:'Main Seminar Hall',tag:'dt'}]},
-{label:'Mid-Morning — Prototype Build (DT Phase 4)',pic:'Ts. Mohammed Farid bin Ishak',assist:'Sara Ruran Fabian, Muhammad Zaki bin Yahya',items:[
-{time:'10:30–12:30',title:'Prototype build continues — T11 Full Prototype Outcome completion',venue:'Workshop area',tag:'dt',details:['T10 must already be trainer-signed before this session','Complete physical prototype or presentation materials']}]},
-{label:'Lunch',items:[{time:'12:30–2:00',title:'Lunch & Zohor prayer',venue:'Hall & Surau',tag:'prayer'}]},
+{label:'Morning — Prototype Build (DT Phase 4)',pic:'Ts. Mohammed Farid bin Ishak',assist:'Sara Ruran Fabian, Muhammad Zaki bin Yahya',items:[
+{time:'7:00 am',title:'Pick-up of participants',venue:'Pick Up Points',tag:''},
+{time:'8:30–9:00',title:'Breakfast',venue:'Main Seminar Hall',tag:''},
+{time:'9:00–11:00',title:'Prototyping Workshop',venue:'Main Seminar Hall',tag:'dt'},
+{time:'11:00–12:30',title:'Tie Dye Workshop',venue:'Craft Area',tag:'field'}]},
+{label:'Lunch',items:[{time:'12:30–1:30',title:'Lunch & Zohor prayer',venue:'Surau',tag:'prayer'}]},
 {label:'Afternoon — Testing (DT Phase 5)',pic:'Noor Darliza binti Mohamad Zamri',assist:'Muhammad Syrazi bin Suhaimi, Mohd Ridhuan bin Ismail',items:[
-{time:'2:00–3:30',title:'Continue prototype refinement',venue:'Workshop area',tag:'dt'},
-{time:'3:30–5:00',title:'Phase 05: T12 Feedback Capture Grid — structured peer and user testing',venue:'Main Seminar Hall',tag:'dt',details:['At least 5 structured feedback entries required','Each T12 row must have a completed Action Item / Refinement Action','T13 Improvement Plan — action items based on T12 feedback']}]},
+{time:'1:30–3:30',title:'Peer Testing & Pitch Storytelling Preparation (Mr. Prabagaran Bala Krisnan)',venue:'Main Seminar Hall',tag:'pitch'},
+{time:'3:30–5:00',title:'Closing Rehearsal (Committees Only)',venue:'Laman Wau',tag:''}]},
 {label:'Evening',items:[
-{time:'5:00–5:30',title:'Day 3 reflection & Asar prayer',venue:'Hall & Surau',tag:'prayer'},
-{time:'5:30–7:00',title:'Dinner & Maghrib prayer',venue:'Main Seminar Hall',tag:'prayer'},
-{time:'7:30–10:00',title:'8-Slide Pitch Framework — final deck completion & trainer review by 7:00 PM',venue:'Workshop area',tag:'pitch'},
-{time:'10:30 pm',title:'Sending off participants',venue:'Kompleks Kraf Kuala Lumpur',tag:''}]}],
+{time:'5:30–8:30',title:'Dinner & Maghrib prayer',venue:'Main Seminar Hall & Surau',tag:'prayer'},
+{time:'8:30–10:30',title:'Full Pitch Dry Run & Q&A Practice',venue:'Main Seminar Hall',tag:'pitch'},
+{time:'10:30 pm',title:'Sending off participants',venue:'Kompleks Kraf',tag:''}]}],
 outputs:['T11 Full Prototype Outcome completed','T12 Feedback Capture Grid — 5+ entries','T13 Improvement Plan completed','8-Slide Pitch deck drafted & trainer-reviewed','Physical prototype ready for display','Group video reflection — Day 3 close'],
 reflection:{title:'Day 3 Video Reflection',sub:'Test & Refine Phase',qs:['What feedback did your team receive during testing?','How did you improve your prototype based on feedback?','What is the strongest part of your pitch?','How does your solution preserve or promote cultural heritage?','What final preparation does your team need for tomorrow?']}},
 
-{num:4,date:'16',month:'July 2026',title:'Pitch Day',sub:'Pitch & Impact',focus:'Final Presentations & Closing Celebration',overview:'Day 4 is the culmination of CAMP21. Teams deliver their 8-Slide Pitch presentations to the judging panel (8 minutes + 5 minutes Q&A). Trainers are on standby only — no further assistance to groups. Rubrics are distributed confidentially to judges. The day closes with the awards ceremony and closing celebration.',color:'var(--rose)',tags:['Gallery Walk','8-Slide Pitch','Q&A','Awards Ceremony'],
+{num:4,date:'16',month:'July 2026',title:'Pitch Day',sub:'Pitching & Closing Ceremony',focus:'Final Presentations & Closing Celebration',overview:'Day 4 is the culmination of CAMP21. Teams deliver their pitch presentations to the judging panel (8-10 minutes + 3 minutes Q&A, 2 questions max). Panel feedback follows the sessions. The day closes with the Closing Ceremony and Prize Giving at Laman Wau.',color:'var(--rose)',tags:['Pitching','Evaluation','Panel Feedback','Awards Ceremony'],
 sessions:[
 {label:'Morning — Preparation',items:[
-{time:'7:00 am',title:'Pick-up of participants',venue:'Pick-up points',tag:''},
-{time:'8:00–8:30',title:'T14 8-Slide Pitch deck PDF submission check',venue:'Main Seminar Hall',tag:'pitch'},
-{time:'8:30–9:00',title:'Final briefing & rubrics distributed to judges (confidential)',venue:'Main Seminar Hall',tag:''}]},
-{label:'Morning — Gallery Walk & Pitching',items:[
-{time:'9:00–10:00',title:'Gallery Walk — teams display prototypes and evidence boards',venue:'Exhibition Hall',tag:'pitch'},
-{time:'10:00–12:30',title:'Pitching sessions — 8 minutes + 5 minutes Q&A per group',venue:'Two venues simultaneously',tag:'pitch',details:['Venue 1: Judge Team A (Groups 1–5) — Dr. Siti Zubaidah & Encik Prabagaran','Venue 2: Judge Team B (Groups 6–10) — Dr. Hajah Noreen & Encik Richie Arvind','T12 Feedback Capture Grid available as evidence of testing process for judges']}]},
-{label:'Lunch',items:[{time:'12:30–2:00',title:'Lunch & Zohor prayer',venue:'Hall & Surau',tag:'prayer'}]},
-{label:'Afternoon — Results & Closing',items:[
-{time:'2:00–3:30',title:'Judges deliberation & score compilation',venue:'Judges room (confidential)',tag:''},
-{time:'3:30–4:00',title:'Awards ceremony — Best Group, Best Speaker, Special Awards',venue:'Main Seminar Hall',tag:'pitch'},
-{time:'4:00–5:00',title:'Closing ceremony & group photos',venue:'Main Seminar Hall',tag:''},
-{time:'5:00 pm',title:'Collect all physical templates & send-off',venue:'Main entrance',tag:''}]}],
-outputs:['T14 8-Slide Pitch deck PDF submitted','Gallery Walk display completed','All pitching sessions delivered','Awards announced','Physical templates collected'],
+{time:'7:00 am',title:'Pick-up of participants',venue:'Pick Up 1: PMKL · Pick Up 2: Avenue K · Pick Up 3: Pavilion',tag:''},
+{time:'8:30–9:00',title:'Breakfast',venue:'Main Seminar Hall',tag:''}]},
+{label:'Morning — Pitching & Evaluation',items:[
+{time:'9:00–11:30',title:'Pitching & Evaluation Session',venue:'Venue 1: Laman Wau · Venue 2: Main Seminar Hall',tag:'pitch',details:['Venue 1: Judge Team A (Groups 1–5) — Dr. Siti Zubaidah & Encik Prabagaran','Venue 2: Judge Team B (Groups 6–10) — Dr. Hajah Noreen & Encik Richie Arvind','8-10 minutes per group + 3 minutes Q&A (2 questions max)']},
+{time:'11:30–12:30',title:'Panel Feedback',venue:'Laman Wau & Main Seminar Hall',tag:'pitch'}]},
+{label:'Lunch',items:[
+{time:'12:30–1:30',title:'Lunch break',venue:'Laman Wau',tag:'prayer'},
+{time:'1:30–2:30',title:'Zohor prayer',venue:'Surau',tag:'prayer'}]},
+{label:'Afternoon — Closing',items:[
+{time:'2:30–4:00',title:'Closing Ceremony & Prize Giving',venue:'Laman Wau',tag:'pitch'}]}],
+outputs:['All pitching sessions delivered','Panel feedback completed','Awards — Best Group, Best Speaker, Special Awards','Closing Ceremony at Laman Wau'],
 reflection:null}
 ];
 

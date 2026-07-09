@@ -8,11 +8,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
+.lock-gate{position:fixed;inset:0;z-index:9999;background:var(--indigo);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-sans)}.lock-gate.hidden{display:none}
+.lock-box{text-align:center;max-width:400px;padding:40px}.lock-box .lock-icon{font-size:4rem;margin-bottom:20px}.lock-box h2{font-family:var(--font-serif);font-size:2.4rem;margin:0 0 10px}.lock-box p{color:rgba(255,255,255,.65);font-weight:600;margin:0 0 30px;line-height:1.5}
+.pin-inputs{display:flex;gap:12px;justify-content:center;margin-bottom:20px}.pin-input{width:52px;height:60px;border-radius:14px;border:2px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:1.8rem;font-weight:900;text-align:center;font-family:var(--font-sans)}.pin-input:focus{outline:none;border-color:var(--gold)}
+.lock-btn{background:var(--gold);color:var(--ink);border:none;border-radius:999px;padding:14px 40px;font-weight:900;font-size:1rem;cursor:pointer;width:100%;margin-top:10px}.lock-btn:hover{background:#e6b435}
+.lock-error{color:var(--rose);font-weight:800;font-size:.88rem;margin-top:12px;min-height:20px}
+.lock-footer{color:rgba(255,255,255,.35);font-weight:700;font-size:.78rem;margin-top:30px}
 :root{--ink:#151044;--indigo:#251052;--cream:#fff8ef;--paper:#fffdf9;--muted:#726b82;--line:#e9dfd0;--gold:#FFC83D;--pink:#FF4FCB;--teal:#21D4C2;--violet:#6B4DFF;--green:#8DFF3F;--blue:#3D63FF;--rose:#e23c74;--olive:#8a7a2a;--font-serif:'Cormorant Garamond',serif;--font-sans:'Plus Jakarta Sans',sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font-sans)}a{text-decoration:none;color:inherit}
 .topbar{position:sticky;top:0;z-index:50;background:rgba(255,248,239,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(21,16,68,.08)}.topbar-inner{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px}.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-serif);font-weight:700;font-size:1.5rem;color:var(--ink);letter-spacing:-.01em}.brand span{color:var(--pink)}.brand-icon{width:46px;height:46px;border-radius:50%;object-fit:contain}.nav-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.nav-pill{border:1px solid #ddd5c9;background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(21,16,68,.04);font-size:.92rem;cursor:pointer}.nav-pill:hover{border-color:var(--violet)}.nav-pill.primary{background:var(--violet);color:#fff;border-color:var(--violet)}.app-pill{border-color:var(--teal);color:var(--ink)}.app-pill:hover{background:var(--teal);color:#fff}
 .quick-access{position:relative}.qa-trigger{cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px}.qa-chev{transition:.25s;display:inline-block;font-size:.7em}.quick-access[open] .qa-chev{transform:rotate(180deg)}.qa-dropdown{position:absolute;top:calc(100% + 10px);left:0;min-width:260px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 56px rgba(21,16,68,.14);padding:8px 0;z-index:60;animation:qaIn .18s ease}.qa-group{padding:10px 8px}.qa-label{display:block;font-size:.68rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;padding:6px 16px 8px}.qa-link{display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:var(--ink);transition:background .15s}.qa-link:hover{background:rgba(109,70,238,.07);color:var(--violet)}@keyframes qaIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-.hero{background:radial-gradient(circle at 82% 10%,rgba(242,79,180,.18),transparent 34%),linear-gradient(120deg,rgba(24,61,112,.95),rgba(37,16,82,.92) 45%,rgba(59,18,76,.90)),url('../assets/images/hero-judges.jpg') center/cover;color:#fff;padding:58px 28px 0}.hero-inner{max-width:1440px;margin:auto;padding-bottom:50px}.eyebrow{display:inline-flex;border:1px solid rgba(241,191,50,.6);background:rgba(241,191,50,.13);color:#ffe18a;border-radius:999px;padding:9px 18px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}.hero h1{font-family:var(--font-serif);font-size:clamp(3.6rem,7vw,6rem);line-height:.88;margin:30px 0 18px;letter-spacing:-.055em}.hero p{font-size:1.1rem;line-height:1.65;color:rgba(255,255,255,.78);max-width:780px}.stats{display:flex;flex-wrap:wrap;gap:2rem;margin-top:2rem}.stat b{font-size:2.3rem;color:var(--gold);display:block;line-height:1}.stat span{font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.64);font-size:.76rem}
+.hero{background:radial-gradient(circle at 82% 10%,rgba(242,79,180,.18),transparent 34%),linear-gradient(120deg,rgba(24,61,112,.72),rgba(37,16,82,.68) 45%,rgba(59,18,76,.65)),url('../assets/images/hero-judges.jpg') center/cover;color:#fff;padding:58px 28px 0}.hero-inner{max-width:1440px;margin:auto;padding-bottom:50px}.eyebrow{display:inline-flex;border:1px solid rgba(241,191,50,.6);background:rgba(241,191,50,.13);color:#ffe18a;border-radius:999px;padding:9px 18px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}.hero h1{font-family:var(--font-serif);font-size:clamp(3.6rem,7vw,6rem);line-height:.88;margin:30px 0 18px;letter-spacing:-.055em}.hero p{font-size:1.1rem;line-height:1.65;color:rgba(255,255,255,.78);max-width:780px}.stats{display:flex;flex-wrap:wrap;gap:2rem;margin-top:2rem}.stat b{font-size:2.3rem;color:var(--gold);display:block;line-height:1}.stat span{font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.64);font-size:.76rem}
 .rating-bar{background:var(--paper);padding:16px 28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;border-bottom:1px solid var(--line)}.rating-bar h4{font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0}.scale-pill{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:.92rem}.scale-num{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:.78rem}
 .lock-bar{background:var(--cream);padding:12px 28px;text-align:right;border-bottom:1px solid var(--line)}.lock-bar button{background:none;border:1px solid var(--line);border-radius:999px;padding:10px 22px;font-weight:900;font-size:.82rem;cursor:pointer;text-transform:uppercase;letter-spacing:.06em}.lock-bar button:hover{border-color:var(--violet)}
 .wrap{max-width:1440px;margin:auto;padding:48px 28px 80px}.section-head{margin-bottom:2rem}.section-head h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);margin:0 0 .5rem}.section-head p{color:var(--muted);font-size:1.05rem;line-height:1.55;max-width:720px}.s-gap{margin-bottom:4rem}
@@ -31,8 +37,26 @@
 </style>
 </head>
 <body>
+<div class="lock-gate" id="lockGate">
+  <div class="lock-box">
+    <div class="lock-icon">🔒</div>
+    <h2>Judges Panel</h2>
+    <p>This workspace is restricted to authorized judges only. Enter the access PIN to continue.</p>
+    <div class="pin-inputs">
+      <input class="pin-input" type="password" maxlength="1" inputmode="numeric" autofocus>
+      <input class="pin-input" type="password" maxlength="1" inputmode="numeric">
+      <input class="pin-input" type="password" maxlength="1" inputmode="numeric">
+      <input class="pin-input" type="password" maxlength="1" inputmode="numeric">
+      <input class="pin-input" type="password" maxlength="1" inputmode="numeric">
+      <input class="pin-input" type="password" maxlength="1" inputmode="numeric">
+    </div>
+    <button class="lock-btn" onclick="verifyPin()">Unlock Workspace</button>
+    <div class="lock-error" id="lockError"></div>
+    <div class="lock-footer">CAMP21 2026 · Confidential Evaluation Workspace</div>
+  </div>
+</div>
 
-<header class="topbar"><div class="topbar-inner">
+<header class="topbar" style="display:none" id="mainHeader"><div class="topbar-inner">
   <a class="brand" href="../index.html"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
   <nav class="nav-actions">
     <details class="quick-access"><summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
@@ -44,22 +68,27 @@
   </nav>
 </div></header>
 
-<section class="hero"><div class="hero-inner">
+<section class="hero" style="display:none" id="mainHero"><div class="hero-inner">
   <span class="eyebrow">Evaluation Workspace</span>
   <h1>Judges Panel</h1>
   <p>Chief Judge: Dr. Siti Zubaidah binti Ibrahim · Official evaluation workspace for CAMP21 2026. All scores are confidential.</p>
-  <div class="stats"><div class="stat"><b>4</b><span>Judges</span></div><div class="stat"><b>10</b><span>Groups</span></div><div class="stat"><b>100%</b><span>Final Score</span></div><div class="stat"><b>8 min</b><span>Each Pitch</span></div></div>
+  <div class="stats" style="margin-top:2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+    <div style="background:rgba(255,255,255,.12);border-radius:18px;padding:22px 18px"><b style="font-size:2.3rem;color:var(--gold);display:block;line-height:1">4</b><span style="font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.64);font-size:.76rem">Judges</span></div>
+    <div style="background:rgba(255,255,255,.12);border-radius:18px;padding:22px 18px"><b style="font-size:2.3rem;color:var(--gold);display:block;line-height:1">10</b><span style="font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.64);font-size:.76rem">Groups</span></div>
+    <div style="background:rgba(255,255,255,.12);border-radius:18px;padding:22px 18px"><b style="font-size:2.3rem;color:var(--gold);display:block;line-height:1">/100</b><span style="font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.64);font-size:.76rem">Pitching Score</span></div>
+    <div style="background:rgba(255,255,255,.12);border-radius:18px;padding:22px 18px"><b style="font-size:2.3rem;color:var(--gold);display:block;line-height:1">8–10 min</b><span style="font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.64);font-size:.76rem">Each Pitch</span></div>
+  </div>
 </div></section>
-<div class="rating-bar"><h4>Rating Scale — All Criteria</h4>
+<div class="rating-bar" style="display:none" id="mainRating"><h4>Rating Scale — All Criteria</h4>
   <span class="scale-pill"><span class="scale-num" style="background:#b91c1c">1</span>Very Weak</span>
   <span class="scale-pill"><span class="scale-num" style="background:#d97706">2</span>Weak</span>
   <span class="scale-pill"><span class="scale-num" style="background:var(--olive)">3</span>Satisfactory</span>
   <span class="scale-pill"><span class="scale-num" style="background:#2d7d2d">4</span>Good</span>
   <span class="scale-pill"><span class="scale-num" style="background:var(--teal)">5</span>Excellent</span>
 </div>
-<div class="lock-bar"><button onclick="this.textContent=this.textContent==='LOCK WORKSPACE'?'🔒 LOCKED':'LOCK WORKSPACE'">LOCK WORKSPACE</button></div>
+<div class="lock-bar" style="display:none" id="mainLockBar"><button onclick="this.textContent=this.textContent==='LOCK WORKSPACE'?'🔒 LOCKED':'LOCK WORKSPACE'">LOCK WORKSPACE</button></div>
 
-<main class="wrap">
+<main class="wrap" style="display:none" id="mainContent">
 
 <section class="s-gap">
   <div class="section-head"><h2>Judging Panel</h2><p>Four appointed evaluators for CAMP21: Synergising Literacies 2026.</p></div>
@@ -87,24 +116,22 @@
 <section class="s-gap">
   <div class="section-head"><h2>Evaluation Workspace</h2><p>Select the group, then score using the Pitching and TikTok tabs. Final score calculates automatically.</p></div>
   <div class="grp-tabs" id="grpTabs"></div>
-  <div class="score-summary"><div class="score-card"><h4>TikTok Video Reflection (20%)</h4><div class="big" style="color:var(--teal)" id="tiktokScore">0.0</div><div class="sub">/ 20<br>Raw: <span id="tiktokRaw">0</span>/25 · Formula: (<span id="tiktokRawF">0</span>/25) × 20</div></div><div class="score-card"><h4>Pitching & Prototype (80%)</h4><div class="big" style="color:var(--violet)" id="pitchScore">0.0</div><div class="sub">/ 80<br>Raw: <span id="pitchRaw">0</span>/40 · Formula: (<span id="pitchRawF">0</span>/40) × 80</div></div><div class="score-card final"><h4>Final Total Score</h4><div class="big" style="color:var(--gold)" id="finalScore">0.0</div><div class="sub">/ 100<br>TikTok + Pitching = Total</div></div></div>
+  <div class="score-summary" style="grid-template-columns:1fr 1fr"><div class="score-card"><h4>Pitching Presentation (Judges)</h4><div class="big" style="color:var(--violet)" id="pitchScore">0.0</div><div class="sub">/ 100<br>Raw: <span id="pitchRaw">0</span>/50 · Formula: (<span id="pitchRawF">0</span>/50) × 100</div></div><div class="score-card final"><h4>Final Judges Score</h4><div class="big" style="color:var(--gold)" id="finalScore">0.0</div><div class="sub">/ 100<br>Pitching Presentation Total</div></div></div>
   <div class="eval-tabs" id="evalTabs">
-    <div class="eval-tab active" data-tab="pitch" onclick="switchTab('pitch',this)">Pitching & Prototype <span class="pct">80%</span></div>
-    <div class="eval-tab" data-tab="tiktok" onclick="switchTab('tiktok',this)">TikTok Reflection <span class="pct">20%</span></div>
+    <div class="eval-tab active" data-tab="pitch" onclick="switchTab('pitch',this)">Pitching Rubric <span class="pct">100%</span></div>
     <div class="eval-tab" data-tab="speaker" onclick="switchTab('speaker',this)">Best Speaker <span class="pct">Separate</span></div>
     <div class="eval-tab" data-tab="evidence" onclick="switchTab('evidence',this)">DT Evidence Guide</div>
   </div>
   <div id="tabPitch"></div>
-  <div id="tabTiktok" style="display:none"></div>
   <div id="tabSpeaker" style="display:none"></div>
   <div id="tabEvidence" style="display:none"></div>
 </section>
 
-<div class="authority"><h4>Chief Judge Authority</h4><p>Dr. Siti Zubaidah binti Ibrahim holds final authority on all judging decisions, tie-breaker resolutions, and Best Speaker selection across both venues.</p></div>
+<div class="authority" style="display:none" id="mainAuthority"><h4>Chief Judge Authority</h4><p>Dr. Siti Zubaidah binti Ibrahim holds final authority on all judging decisions, tie-breaker resolutions, and Best Speaker selection across both venues.</p></div>
 
 </main>
 
-<footer class="camp-footer"><div class="footer-inner"><div class="footer-grid">
+<footer class="camp-footer" style="display:none" id="mainFooter"><div class="footer-inner"><div class="footer-grid">
   <div class="footer-col"><div class="footer-brand">CAMP<span>21</span></div><p>CAMP21 Digital Hub 2026<br>13–16 July 2026<br>Kompleks Kraf Kuala Lumpur</p><p>AI-Powered Design Thinking for Sustainable Cultural Heritage</p></div>
   <div class="footer-col"><h4>Explore</h4><a href="programme.html">Programme</a><a href="resources.html">Resources</a><a href="updates.html">Live Updates</a><a href="contacts.html">Help</a></div>
   <div class="footer-col"><h4>Stakeholders</h4><a href="participants.html">Participants Hub</a><a href="trainers.html">Trainers</a><a href="facilitators.html">Facilitators</a></div>
@@ -112,11 +139,65 @@
 </div><div class="footer-bottom"><span>© 2026 CAMP21 Digital Hub.</span><span>Created and developed by Julie Marlina binti Hasan, Politeknik Port Dickson.</span></div></div></footer>
 
 <script>
-const pitchCriteria=['Clear problem statement and user need','Evidence of Design Thinking process across the 5 phases','Cultural heritage integration','Innovation and creativity of the solution','Prototype clarity, function and relevance','Testing feedback and improvement actions','Presentation flow, storytelling and teamwork','Response during Q&A'];
-const tiktokCriteria=['Creativity and visual storytelling','Evidence of DT phase reflection','Team collaboration and engagement','Cultural heritage connection','Video quality and presentation'];
+// PIN Lock Gate
+const ACCESS_PIN = '212026'; // CAMP21 + Year 2026
+const pinInputs = document.querySelectorAll('.pin-input');
+
+// Auto-focus next input on entry
+pinInputs.forEach((input, i) => {
+  input.addEventListener('input', () => {
+    if (input.value.length === 1 && i < pinInputs.length - 1) pinInputs[i + 1].focus();
+  });
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace' && !input.value && i > 0) pinInputs[i - 1].focus();
+    if (e.key === 'Enter') verifyPin();
+  });
+});
+
+function verifyPin() {
+  const pin = Array.from(pinInputs).map(i => i.value).join('');
+  if (pin === ACCESS_PIN) {
+    document.getElementById('lockGate').classList.add('hidden');
+    document.getElementById('mainHeader').style.display = '';
+    document.getElementById('mainHero').style.display = '';
+    document.getElementById('mainRating').style.display = '';
+    document.getElementById('mainLockBar').style.display = '';
+    document.getElementById('mainContent').style.display = '';
+    document.getElementById('mainAuthority').style.display = '';
+    document.getElementById('mainFooter').style.display = '';
+    sessionStorage.setItem('judgesUnlocked', 'true');
+  } else {
+    document.getElementById('lockError').textContent = 'Incorrect PIN. Please try again.';
+    pinInputs.forEach(i => { i.value = ''; });
+    pinInputs[0].focus();
+  }
+}
+
+// Remember unlock for current session
+if (sessionStorage.getItem('judgesUnlocked') === 'true') {
+  document.getElementById('lockGate').classList.add('hidden');
+  document.getElementById('mainHeader').style.display = '';
+  document.getElementById('mainHero').style.display = '';
+  document.getElementById('mainRating').style.display = '';
+  document.getElementById('mainLockBar').style.display = '';
+  document.getElementById('mainContent').style.display = '';
+  document.getElementById('mainAuthority').style.display = '';
+  document.getElementById('mainFooter').style.display = '';
+}
+</script>
+
+<script>
+const pitchCriteria=[
+{section:'I. Presentation & Communication (15%)',items:['Clear, confident, engaging delivery with strong visual design and well-structured pitch']},
+{section:'II. Content & Innovative Thinking (45%)',items:['Empathy — in-depth interviews and empathy mapping, deep understanding of users','Define — comprehensive persona representing users\' needs, behaviours and goals','Ideate — outstanding variety of creative, innovative and feasible ideas','Prototype — highly effective, well-developed prototype representing the solution','Testing — comprehensive user feedback, effective prototype refinement']},
+{section:'III. Feasibility & Impact (20%)',items:['Realistic, scalable implementation with measurable heritage impact and SDG alignment']},
+{section:'IV. Team Collaboration (10%)',items:['Balanced participation, seamless teamwork with strong synergy']},
+{section:'V. Q&A Handling (10%)',items:['Clear, confident answers that directly address judges\' questions']}
+];
+const allItems=pitchCriteria.flatMap(c=>c.items);
 const groups=Array.from({length:10},(_,i)=>i+1);
 let currentGroup=1;
-const scores={};groups.forEach(g=>{scores[g]={pitch:Array(8).fill(0),tiktok:Array(5).fill(0),speaker:false}});
+const scores={};groups.forEach(g=>{scores[g]={pitch:Array(allItems.length).fill(0),speaker:false}});
 
 // Allocation table
 document.getElementById('allocBody').innerHTML=groups.map(g=>{const isA=g<=5;return`<tr><td style="font-weight:900">Group ${g}</td><td>Venue ${isA?1:2}</td><td><span class="team-tag${isA?'':' tb'}">Judge Team ${isA?'A':'B'}</span></td><td>${isA?'Dr. Siti Zubaidah binti Ibrahim · Encik Prabagaran Bala Krisnan':'Dr. Hajah Noreen binti Kamarudin · Encik Richie Arvind bin Pavalani'}</td></tr>`}).join('');
@@ -129,10 +210,20 @@ function switchTab(tab,el){document.querySelectorAll('.eval-tab').forEach(t=>t.c
 
 function renderRubrics(){
   const s=scores[currentGroup];
-  document.getElementById('tabPitch').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px"><h3 style="font-family:var(--font-serif);font-size:1.6rem;margin:0">Group ${currentGroup} — Pitching & Prototype</h3><div style="text-align:right"><div style="font-size:1.8rem;font-weight:900;color:var(--violet)" id="pitchSubScore">0.0<span style="font-size:.9rem;color:var(--muted)">/80</span></div><div style="font-size:.82rem;color:var(--muted);font-weight:700">Raw: <span id="pitchSubRaw">0</span>/40</div></div></div><p style="color:var(--muted);font-weight:700;margin:0 0 20px">8 criteria × 5 pts = 40 raw → converted to /80</p>`+pitchCriteria.map((c,i)=>`<div class="rubric-item"><span class="rubric-num">${i+1}</span><p>${c}</p><div class="rubric-scores">${[1,2,3,4,5].map(v=>`<button onclick="setScore('pitch',${i},${v},this)" ${s.pitch[i]===v?'class="selected"':''}>${v}</button>`).join('')}</div></div>`).join('')+`<div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin-top:20px"><h4 style="margin:0;font-size:.78rem;font-weight:900;text-transform:uppercase;color:var(--muted);letter-spacing:.06em">Formula</h4><p style="margin:6px 0 0;font-weight:700;font-family:monospace;font-size:1rem" id="pitchFormula">Pitching Score = (0 ÷ 40) × 80 = 0.00</p></div>`;
-  document.getElementById('tabTiktok').innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px"><h3 style="font-family:var(--font-serif);font-size:1.6rem;margin:0">Group ${currentGroup} — TikTok Reflection</h3><div style="text-align:right"><div style="font-size:1.8rem;font-weight:900;color:var(--teal)" id="tiktokSubScore">0.0<span style="font-size:.9rem;color:var(--muted)">/20</span></div><div style="font-size:.82rem;color:var(--muted);font-weight:700">Raw: <span id="tiktokSubRaw">0</span>/25</div></div></div><p style="color:var(--muted);font-weight:700;margin:0 0 20px">5 criteria × 5 pts = 25 raw → converted to /20</p>`+tiktokCriteria.map((c,i)=>`<div class="rubric-item"><span class="rubric-num" style="background:var(--teal)">${i+1}</span><p>${c}</p><div class="rubric-scores">${[1,2,3,4,5].map(v=>`<button onclick="setScore('tiktok',${i},${v},this)" ${s.tiktok[i]===v?'class="selected"':''}>${v}</button>`).join('')}</div></div>`).join('')+`<div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin-top:20px"><h4 style="margin:0;font-size:.78rem;font-weight:900;text-transform:uppercase;color:var(--muted);letter-spacing:.06em">Formula</h4><p style="margin:6px 0 0;font-weight:700;font-family:monospace;font-size:1rem" id="tiktokFormula">TikTok Score = (0 ÷ 25) × 20 = 0.00</p></div>`;
-  document.getElementById('tabSpeaker').innerHTML=`<div style="padding:40px;text-align:center;background:var(--paper);border:1px solid var(--line);border-radius:22px"><h3 style="font-family:var(--font-serif);font-size:1.8rem;margin:0 0 10px">Best Speaker Selection</h3><p style="color:var(--muted);font-weight:700;margin:0 0 20px">Select one outstanding speaker from your assigned groups.</p><p style="color:var(--muted);font-weight:700">Team A: Best Speaker from Groups 1–5<br>Team B: Best Speaker from Groups 6–10</p><p style="margin-top:20px;font-weight:800;color:var(--rose)">This is a separate award — not part of the 100% score.</p></div>`;
-  document.getElementById('tabEvidence').innerHTML=`<div style="padding:40px;background:var(--paper);border:1px solid var(--line);border-radius:22px"><h3 style="font-family:var(--font-serif);font-size:1.8rem;margin:0 0 16px">DT Evidence Guide</h3><p style="color:#444;font-weight:700;line-height:1.6;margin:0 0 16px">Use the Smart DT App to review each team's template submissions as supporting evidence during evaluation. Key items to check:</p><div style="display:grid;gap:8px">${['T01–T04: Empathy phase evidence (POEMS, interview, transcription, empathy map)','T05–T06: Define phase evidence (user persona, insight & needs statement)','T07–T09: Ideate phase evidence (30 circle challenge, SCAMPER, ideation matrix)','T10–T11: Prototype evidence (direction plan with trainer sign-off, full outcome)','T12–T13: Testing evidence (feedback capture grid, improvement plan)','T14: 8-Slide Pitch Framework (final presentation deck)','TikTok Reflection Videos: Day 1, Day 2, Day 3'].map(t=>`<p style="padding:12px 16px;background:#fff;border-radius:12px;font-weight:700;margin:0;border:1px solid var(--line)">✓ ${t}</p>`).join('')}</div></div>`;
+  let idx=0;
+  let rubricHtml=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px"><h3 style="font-family:var(--font-serif);font-size:1.6rem;margin:0">Group ${currentGroup} — Pitching Presentation</h3><div style="text-align:right"><div style="font-size:1.8rem;font-weight:900;color:var(--violet)" id="pitchSubScore">0.0<span style="font-size:.9rem;color:var(--muted)">/100</span></div><div style="font-size:.82rem;color:var(--muted);font-weight:700">Raw: <span id="pitchSubRaw">0</span>/50</div></div></div>`;
+  rubricHtml+=`<p style="color:var(--muted);font-weight:700;margin:0 0 20px">10 scoring items × 5 pts = 50 raw → (raw/50) × 100 = /100</p>`;
+  pitchCriteria.forEach(cat=>{
+    rubricHtml+=`<div style="background:var(--indigo);color:#fff;padding:12px 18px;border-radius:12px;margin:18px 0 8px;font-weight:900;font-size:.88rem">${cat.section}</div>`;
+    cat.items.forEach(item=>{
+      const i=idx++;
+      rubricHtml+=`<div class="rubric-item"><span class="rubric-num">${i+1}</span><p>${item}</p><div class="rubric-scores">${[1,2,3,4,5].map(v=>`<button onclick="setScore('pitch',${i},${v},this)" ${s.pitch[i]===v?'class="selected"':''}>${v}</button>`).join('')}</div></div>`;
+    });
+  });
+  rubricHtml+=`<div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin-top:20px"><h4 style="margin:0;font-size:.78rem;font-weight:900;text-transform:uppercase;color:var(--muted);letter-spacing:.06em">Formula</h4><p style="margin:6px 0 0;font-weight:700;font-family:monospace;font-size:1rem" id="pitchFormula">Pitching Score = (0 ÷ 50) × 100 = 0.00</p></div>`;
+  document.getElementById('tabPitch').innerHTML=rubricHtml;
+  document.getElementById('tabSpeaker').innerHTML=`<div style="padding:40px;text-align:center;background:var(--paper);border:1px solid var(--line);border-radius:22px"><h3 style="font-family:var(--font-serif);font-size:1.8rem;margin:0 0 10px">Best Speaker Selection</h3><p style="color:var(--muted);font-weight:700;margin:0 0 20px">Select one outstanding speaker from your assigned groups.</p><p style="color:var(--muted);font-weight:700">Team A: Best Speaker from Groups 1–5<br>Team B: Best Speaker from Groups 6–10</p><p style="margin-top:20px;font-weight:800;color:var(--rose)">This is a separate award — not part of the scoring.</p></div>`;
+  document.getElementById('tabEvidence').innerHTML=`<div style="padding:40px;background:var(--paper);border:1px solid var(--line);border-radius:22px"><h3 style="font-family:var(--font-serif);font-size:1.8rem;margin:0 0 16px">DT Evidence Guide</h3><p style="color:#444;font-weight:700;line-height:1.6;margin:0 0 16px">Use the Smart DT App to review each team's template submissions as supporting evidence during evaluation.</p><div style="display:grid;gap:8px">${['T01–T04: Empathy phase evidence (POEMS, interview, transcription, empathy map)','T05–T06: Define phase evidence (user persona, insight & needs statement)','T07–T09: Ideate phase evidence (30 circle challenge, SCAMPER, ideation matrix)','T10–T11: Prototype evidence (direction plan with trainer sign-off, full outcome)','T12–T13: Testing evidence (feedback capture grid, improvement plan)','T14: Pitch Framework (final presentation deck)','TikTok Reflection Video: 2–3 min DT journey reflection (evaluated separately by trainers)'].map(t=>`<p style="padding:12px 16px;background:#fff;border-radius:12px;font-weight:700;margin:0;border:1px solid var(--line)">✓ ${t}</p>`).join('')}</div></div>`;
 }
 
 function setScore(type,idx,val,btn){
@@ -146,15 +237,10 @@ function setScore(type,idx,val,btn){
 function calcScores(){
   const s=scores[currentGroup];
   const pRaw=s.pitch.reduce((a,v)=>a+v,0);
-  const tRaw=s.tiktok.reduce((a,v)=>a+v,0);
-  const pScore=(pRaw/40)*80;
-  const tScore=(tRaw/25)*20;
-  const total=pScore+tScore;
+  const pScore=(pRaw/50)*100;
   document.getElementById('pitchScore').textContent=pScore.toFixed(1);
   document.getElementById('pitchRaw').textContent=pRaw;document.getElementById('pitchRawF').textContent=pRaw;
-  document.getElementById('tiktokScore').textContent=tScore.toFixed(1);
-  document.getElementById('tiktokRaw').textContent=tRaw;document.getElementById('tiktokRawF').textContent=tRaw;
-  document.getElementById('finalScore').textContent=total.toFixed(1);
+  document.getElementById('finalScore').textContent=pScore.toFixed(1);
 }
 
 renderRubrics();

@@ -183,8 +183,19 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <div class="reg-hero">
+  <!-- TIME GATE -->
+  <div id="regGate" style="display:none;min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 28px;background:linear-gradient(135deg,#251052,#3b124c)">
+    <div style="max-width:500px">
+      <div style="font-size:4rem;margin-bottom:20px">🔒</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:#fff;margin:0 0 16px">Registration Opens Soon</h1>
+      <p style="color:rgba(255,255,255,.7);font-weight:600;line-height:1.6;margin:0 0 30px">On-site registration opens on <strong style="color:#FFC83D">13 July 2026 at 9:00 AM</strong> at Kompleks Kraf Kuala Lumpur.</p>
+      <div id="countdown" style="display:flex;gap:12px;justify-content:center;margin-bottom:30px"></div>
+      <p style="color:rgba(255,255,255,.5);font-weight:700;font-size:.85rem">📍 Kompleks Kraf Kuala Lumpur · Jalan Conlay, 50450 KL</p>
+    </div>
+  </div>
+
+  <!-- HERO (hidden until gate opens) -->
+  <div class="reg-hero" id="regHero" style="display:none">
     <div class="wide">
       <p class="reg-eyebrow">CAMP21 · 13–16 July 2026</p>
       <h1 class="reg-title">Registration</h1>
@@ -192,8 +203,8 @@
     </div>
   </div>
 
-  <!-- ROLE TABS -->
-  <div class="role-tabs-wrap">
+  <!-- ROLE TABS (hidden until gate opens) -->
+  <div class="role-tabs-wrap" id="regTabs" style="display:none">
     <div class="role-tabs">
       <button class="role-tab active" onclick="switchRole('participant', this)">Participant</button>
       <button class="role-tab" onclick="switchRole('facilitator', this)">Facilitator</button>
@@ -203,7 +214,7 @@
     </div>
   </div>
 
-  <div class="reg-body">
+  <div class="reg-body" id="regBody" style="display:none">
     <div class="reg-layout">
 
       <!-- FORMS COLUMN -->
@@ -670,6 +681,44 @@
       <div style="border-top:1px solid rgba(255,255,255,.14);margin-top:34px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:rgba(255,255,255,.65);font-weight:700"><span>© 2026 CAMP21 Digital Hub.</span><span>Created and developed by Julie Marlina binti Hasan, Politeknik Port Dickson.</span></div>
     </div>
   </footer>
+
+  <script>
+    // Registration time gate — opens 13 July 2026 at 9:00 AM MYT
+    const REG_OPEN = new Date('2026-07-13T09:00:00+08:00').getTime();
+
+    function checkRegGate() {
+      const now = Date.now();
+      const gate = document.getElementById('regGate');
+      const hero = document.getElementById('regHero');
+      const tabs = document.getElementById('regTabs');
+      const body = document.getElementById('regBody');
+
+      if (now >= REG_OPEN) {
+        gate.style.display = 'none';
+        hero.style.display = '';
+        tabs.style.display = '';
+        body.style.display = '';
+      } else {
+        gate.style.display = 'flex';
+        hero.style.display = 'none';
+        tabs.style.display = 'none';
+        body.style.display = 'none';
+        updateCountdown(REG_OPEN - now);
+      }
+    }
+
+    function updateCountdown(diff) {
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      const box = (val, label) => `<div style="background:rgba(255,255,255,.1);border-radius:14px;padding:16px 20px;min-width:70px"><div style="font-size:2rem;font-weight:900;color:#FFC83D">${val}</div><div style="font-size:.7rem;font-weight:900;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">${label}</div></div>`;
+      document.getElementById('countdown').innerHTML = box(d,'Days') + box(h,'Hours') + box(m,'Min') + box(s,'Sec');
+    }
+
+    checkRegGate();
+    setInterval(checkRegGate, 1000);
+  </script>
 
   <script>
     // Quick Access dropdown close
