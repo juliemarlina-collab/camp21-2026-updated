@@ -593,6 +593,54 @@ body::before{
   }
 }
 
+
+/* === CAMP21 HOMEPAGE HERO GOLDEN HERITAGE BACKGROUND === */
+.hero{
+  position:relative !important;
+  overflow:hidden !important;
+  background:
+    linear-gradient(90deg,rgba(255,248,239,.96) 0%,rgba(255,244,224,.90) 43%,rgba(255,230,176,.78) 100%),
+    url('assets/images/hero-golden-heritage-bg.png') center/cover no-repeat !important;
+}
+.hero::before{
+  content:'' !important;
+  position:absolute !important;
+  inset:0 !important;
+  background:
+    radial-gradient(circle at 18% 18%,rgba(255,200,61,.26),transparent 28%),
+    radial-gradient(circle at 84% 26%,rgba(226,60,116,.14),transparent 26%),
+    linear-gradient(90deg,rgba(255,248,239,.38),rgba(255,232,185,.12)) !important;
+  opacity:1 !important;
+  pointer-events:none !important;
+  z-index:0 !important;
+}
+.hero::after{
+  content:'' !important;
+  position:absolute !important;
+  inset:0 !important;
+  background:url('assets/decors/songket-pattern.png') center/310px repeat !important;
+  opacity:.045 !important;
+  pointer-events:none !important;
+  z-index:0 !important;
+}
+.hero > *,
+.hero .wide,
+.hero .hero-grid,
+.hero .hero-content,
+.hero .hero-visual{
+  position:relative !important;
+  z-index:1 !important;
+}
+.hero h1,
+.hero .hero-title{
+  text-shadow:0 6px 28px rgba(255,255,255,.72) !important;
+}
+.hero p,
+.hero .hero-subtitle,
+.hero .hero-desc{
+  color:rgba(21,16,68,.78) !important;
+}
+
 </style>
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
