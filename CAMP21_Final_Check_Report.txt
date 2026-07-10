@@ -1,0 +1,36 @@
+CAMP21 Final Check & Updates Applied
+
+Files prepared:
+- index.html
+- pages/facilitators.html
+- pages/judges.html
+- pages/participants.html
+- pages/programme.html
+- pages/resources.html
+- pages/trainers.html
+- pages/updates.html
+- pages/scan.html
+- pages/registration.html
+- pages/contacts.html
+- pages/organiser.html
+
+Updates applied:
+1. Replaced wrong registration page with the corrected on-site check-in/registration form.
+2. Standardised T05/T06 wording across Participants, Programme, Trainers, Resources and Organiser.
+   Final standard:
+   - T05 User Persona Template
+   - T06 User Insight & Needs Statement / Design Statement
+3. Confirmed assessment/rubric wording:
+   - Final Pitch = 100% by Judges
+   - TikTok Reflection Challenge = 100% by Trainers
+   - Scores are separate, not combined.
+4. Neutralised Live Updates sample content so it no longer looks like Day 3 has already happened.
+5. Fixed homepage brand href from # to index.html and removed duplicate quick fact text.
+6. Kept Smart DT App out of the header and retained it only in footer/support links.
+7. Kept Organiser page midnight purple gradient dropdown headers.
+8. Preserved existing Google Drive links, trainer locked resources, QR scan script and Apps Script functions.
+
+Upload instructions:
+- Upload index.html to repo root.
+- Upload all files inside pages/ to the pages folder.
+- Do not delete the assets, css, or js folders.
