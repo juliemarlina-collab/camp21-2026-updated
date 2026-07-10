@@ -76,17 +76,32 @@
 </head>
 <body>
 
-<header class="topbar"><div class="topbar-inner">
-  <a class="brand" href="../index.html"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
-  <nav class="nav-actions">
-    <details class="quick-access"><summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
-      <div class="qa-dropdown"><div class="qa-group"><span class="qa-label">CAMP21 Pages</span>
-        <a class="qa-link" href="../index.html">🏠 Home</a><a class="qa-link" href="participants.html">👥 Participants</a><a class="qa-link" href="trainers.html">🧑‍🏫 Trainers</a><a class="qa-link" href="facilitators.html">🤝 Facilitators</a><a class="qa-link" href="judges.html">⚖️ Judges</a><a class="qa-link" href="resources.html">📚 Resources</a><a class="qa-link" href="contacts.html">📞 Help Desk</a>
-    </div></div></details>
-    <a class="nav-pill app-pill" href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App ↗</a>
-    <button class="nav-pill primary" onclick="window.print()">🖨️ Print PDF</button>
-  </nav>
-</div></header>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
+    <nav class="nav-actions" aria-label="Primary">
+      <a class="nav-pill" href="programme.html">📅 Programme</a>
+      <a class="nav-pill" href="resources.html">📚 Resources</a>
+      <a class="nav-pill" href="updates.html">📢 Live Updates</a>
+      <details class="quick-access">
+        <summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
+        <div class="qa-dropdown">
+          <div class="qa-group">
+            <span class="qa-label">Role & Operations</span>
+            <a class="qa-link" href="participants.html">👥 Participants</a>
+            <a class="qa-link" href="trainers.html">🧑‍🏫 Trainers</a>
+            <a class="qa-link" href="facilitators.html">🤝 Facilitators</a>
+            <a class="qa-link" href="judges.html">⚖️ Judges</a>
+            <a class="qa-link" href="organiser.html">🗂️ Organiser</a>
+            <a class="qa-link" href="registration.html">📋 Registration</a>
+            <a class="qa-link" href="scan.html">🎥 Scan / QR</a>
+            <a class="qa-link" href="contacts.html">📞 Help Desk</a>
+          </div>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
 
 <section class="hero"><div class="hero-inner">
   <div class="programme-hero-copy">
@@ -121,7 +136,7 @@
       <ul>
         <li>Complete T01–T06 evidence</li>
         <li>Prepare Day 1 TikTok Reflection</li>
-        <li>Produce T04 and T06 mahjong outcomes</li>
+        <li>Produce T04 and T05/T06 mahjong outcomes</li>
       </ul>
     </article>
     <article class="programme-action-card" data-day="2">
@@ -137,9 +152,9 @@
       <span class="programme-action-pill">Day 3 · 15 Jul</span>
       <h3>Prototype, Test &amp; Pitch Prep</h3>
       <ul>
-        <li>Complete T11–T14</li>
+        <li>Complete T11–T13 and draft T14</li>
         <li>Prepare Day 3 TikTok Reflection</li>
-        <li>Complete T12 Feedback Capture Grid</li>
+        <li>Complete T12 User Feedback Form</li>
       </ul>
     </article>
     <article class="programme-action-card" data-day="4">
@@ -174,8 +189,8 @@
   <div class="ov-card ov3">
     <span class="day-label">Day 3 · 15 Jul</span>
     <div class="day-theme">Prototype, Test &amp; Pitch Prep</div>
-    <p class="day-desc">Complete prototype evidence, collect feedback, plan improvements and prepare the 8-slide pitch framework.</p>
-    <div class="day-checks"><span>T11–T14</span><span>T12 Feedback Grid</span><span>Pitch Prep</span><span>Day 3 TikTok</span></div>
+    <p class="day-desc">Complete prototype evidence, collect feedback, plan improvements and prepare the Final Pitching Template.</p>
+    <div class="day-checks"><span>T11–T13 + T14 Draft</span><span>T12 User Feedback Form</span><span>Pitch Prep</span><span>Day 3 TikTok</span></div>
     <span class="day-num">3</span>
   </div>
   <div class="ov-card ov4">
@@ -210,7 +225,7 @@
 
 <script>
 const days=[
-{num:1,date:'13',month:'July 2026',title:'Heritage Immersion',sub:'Empathise & Define · KL Exploration',focus:'Phase 1 — Empathise & Phase 2 — Define',overview:'Day 1 launches the CAMP21 journey through heritage immersion, Design Thinking orientation, and group exploration. Participants begin with briefing and ice-breaking, then move directly into the Design Thinking process. Guided craft gallery tours, motif exploration, and artisan interviews anchor the empathy stage. By afternoon, groups frame their initial problem statements. The day closes with KL Exploration and a short group video reflection.',color:'var(--indigo)',tags:['Design Thinking','Kompleks Kraf KL','Hop-On Hop-Off','TikTok Challenge'],
+{num:1,date:'13',month:'July 2026',title:'Heritage Immersion',sub:'Empathise & Define · KL Exploration',focus:'Phase 1 — Empathise & Phase 2 — Define',overview:'Day 1 launches the CAMP21 journey through heritage immersion, Design Thinking orientation, and group exploration. Participants begin with briefing and ice-breaking, then move directly into the Design Thinking process. Guided craft gallery tours, motif exploration, and artisan interviews anchor the empathy stage. By afternoon, groups frame their initial problem statements. The day closes with KL Exploration and a short group video reflection.',color:'var(--indigo)',tags:['Design Thinking','Kompleks Kraf KL','Hop-On Hop-Off','TikTok Reflection Challenge'],
 sessions:[
 {label:'Morning — Orientation',items:[
 {time:'7:00 am',title:'Pick-up of participants',venue:'Pick Up 1: PMKL · Pick Up 2: Avenue K · Pick Up 3: Pavilion',tag:''},
@@ -227,7 +242,7 @@ sessions:[
 {time:'6:00–7:00',title:'Dinner & Maghrib prayer',venue:'KLCC',tag:'prayer'},
 {time:'8:00–10:30',title:'KL Exploration — Hop-On Hop-Off Bus & group reflection',venue:'KLCC',tag:'city'},
 {time:'10:30 pm',title:'Sending off participants',venue:'KLCC / Kompleks Kraf',tag:''}]}],
-outputs:['Group formation & role assignment','POEMS observation notes from craft gallery & motif exploration','Interview questions for artisan engagement','T04 Empathy Map — Mahjong Paper outcome','T06 Persona, Need & Design Statement — Mahjong Paper outcome','Identified insights & needs — draft design challenge','Group video reflection — Day 1 close'],
+outputs:['Group formation & role assignment','POEMS observation notes from craft gallery & motif exploration','Interview questions for artisan engagement','T04 Empathy Map — Mahjong Paper outcome','T05 User Persona + T06 User Insight & Needs Statement / Design Statement — Mahjong Paper outcome','Identified insights & needs — draft design challenge','Group video reflection — Day 1 close'],
 reflection:{title:'Day 1 Video Reflection',sub:'Exploration · Empathy · Define Phase',qs:['What cultural heritage element did you discover today?','What issue or challenge did your group observe?','What did you learn from the artisan or gallery exploration?','How did your group work together today?','What is one insight that can help define your Design Thinking challenge?']}},
 
 {num:2,date:'14',month:'July 2026',title:'Creative Sprint',sub:'Ideate & Prototype Plan',focus:'Phase 3 — Ideate & Phase 4 — Prototype Plan',overview:'Day 2 shifts into idea generation and prototype planning. Teams complete ideation activities, expand ideas through SCAMPER, prioritise the strongest idea and prepare the prototype direction before the full build.',color:'var(--olive)',tags:['Design Thinking','Ideate','Mind Mapping','Mentor Sprint'],
@@ -246,7 +261,7 @@ sessions:[
 {time:'7:30–8:30',title:'Dinner & Maghrib prayer',venue:'Main Seminar Hall',tag:'prayer'},
 {time:'8:30–10:30',title:'Peer Concept Review (PMI technique)',venue:'Main Seminar Hall',tag:'dt'},
 {time:'10:30 pm',title:'Sending off participants',venue:'Kompleks Kraf',tag:''}]}],
-outputs:['T07 30 Circle Challenge completed','T08 SCAMPER — Mahjong Paper outcome','T09 Ideation Matrix Prioritisation — Mahjong Paper outcome','T10 Prototype Direction Plan — trainer signed','T11 Full Prototype Outcome (optional format: Mahjong Paper / Canva / PPT / Storyboard)','Group video reflection — Day 2 close'],
+outputs:['T07 3D Circle Challenge completed','T08 SCAMPER — Mahjong Paper outcome','T09 Idea Prioritisation Matrix — Mahjong Paper outcome','T10 Prototype Direction Plan — trainer signed','T11 Full Prototype Outcome (optional format: Mahjong Paper / Canva / PPT / Storyboard)','Group video reflection — Day 2 close'],
 reflection:{title:'Day 2 Video Reflection',sub:'Ideate & Prototype Phase',qs:['What creative technique worked best for your team today?','How did your team narrow down from many ideas to one?','What is your prototype concept and how does it connect to heritage?','What was the biggest challenge in planning your prototype?','What will your team focus on building tomorrow?']}},
 
 {num:3,date:'15',month:'July 2026',title:'Prototype & Refine',sub:'Prototype, Test & Pitch Prep',focus:'Phase 4 — Prototype, Phase 5 — Testing & Pitch Prep',overview:'Day 3 focuses on prototype outcome, testing, improvement and pitch preparation. Teams complete prototype evidence, gather feedback, plan improvements and prepare for the Day 4 final pitch.',color:'var(--brown)',tags:['Prototyping','Tie Dye Workshop','Peer Testing','Pitch Dry Run'],
@@ -264,7 +279,7 @@ sessions:[
 {time:'5:30–8:30',title:'Dinner & Maghrib prayer',venue:'Main Seminar Hall & Surau',tag:'prayer'},
 {time:'8:30–10:30',title:'Full Pitch Dry Run & Q&A Practice',venue:'Main Seminar Hall',tag:'pitch'},
 {time:'10:30 pm',title:'Sending off participants',venue:'Kompleks Kraf',tag:''}]}],
-outputs:['T11 Full Prototype Outcome completed','T12 Feedback Capture Grid — Mahjong Paper outcome','T13 Improvement Plan completed','T14 8-Slide Pitch Framework drafted & trainer-reviewed','Physical prototype ready for display','Group video reflection — Day 3 close'],
+outputs:['T11 Full Prototype Outcome completed','T12 User Feedback Form — Mahjong Paper outcome','T13 Improvement Plan completed','T14 Final Pitching Template drafted & trainer-reviewed','Physical prototype ready for display','Group TikTok reflection — Day 3: Prototype Outcome + Testing + Pitch Preparation'],
 reflection:{title:'Day 3 Video Reflection',sub:'Test & Refine Phase',qs:['What feedback did your team receive during testing?','How did you improve your prototype based on feedback?','What is the strongest part of your pitch?','How does your solution preserve or promote cultural heritage?','What final preparation does your team need for tomorrow?']}},
 
 {num:4,date:'16',month:'July 2026',title:'Pitch Day',sub:'Pitching & Closing Ceremony',focus:'Final Presentations & Closing Celebration',overview:'Day 4 is the culmination of CAMP21. Teams deliver their pitch presentations to the judging panel (8-10 minutes + 3 minutes Q&A, 2 questions max). Panel feedback follows the sessions. The day closes with the Closing Ceremony and Prize Giving at Laman Wau.',color:'var(--rose)',tags:['Pitching','Evaluation','Panel Feedback','Awards Ceremony'],
@@ -305,9 +320,9 @@ document.getElementById('dayPanels').innerHTML=days.map(d=>{
     html+=`</div>`;
   });
   html+=`<div class="session-label" id="day${d.num}-outputs">Expected Outputs</div><div class="outputs-grid">${d.outputs.map(o=>`<div class="output-card"><p>${o}</p></div>`).join('')}</div>`;
-  if(d.num===1)html+=`<div class="visual-outcome-note"><strong>Visual outcome reminder:</strong> T04 Empathy Map and T06 Persona, Need & Design Statement should be prepared as mahjong paper outcomes.</div>`;
-  if(d.num===2)html+=`<div class="visual-outcome-note"><strong>Visual outcome reminder:</strong> T08 SCAMPER and T09 Ideation Matrix Prioritisation should be prepared as mahjong paper outcomes.</div>`;
-  if(d.num===3)html+=`<div class="visual-outcome-note"><strong>Visual outcome reminder:</strong> T11 Full Prototype Outcome may use Mahjong Paper / Canva / PPT / Storyboard format. T12 Feedback Capture Grid should be prepared as a mahjong paper outcome.</div>`;
+  if(d.num===1)html+=`<div class="visual-outcome-note"><strong>Visual outcome reminder:</strong> T04 Empathy Map and T05 User Persona + T06 User Insight & Needs Statement / Design Statement should be prepared as mahjong paper outcomes.</div>`;
+  if(d.num===2)html+=`<div class="visual-outcome-note"><strong>Visual outcome reminder:</strong> T08 SCAMPER and T09 Idea Prioritisation Matrix should be prepared as mahjong paper outcomes.</div>`;
+  if(d.num===3)html+=`<div class="visual-outcome-note"><strong>Visual outcome reminder:</strong> T11 Full Prototype Outcome may use Mahjong Paper / Canva / PPT / Storyboard format. T12 User Feedback Form should be prepared as a mahjong paper outcome.</div>`;
   if(d.num===4)html+=`<div class="final-pitch-programme-alert" id="day4-final-pitch"><div><h4>Final Pitch Evaluation Reminder</h4><p>Final Pitch = 100%. Evaluated by Judges. Presentation is 8–10 minutes with 3 minutes Q&A and maximum 2 questions. Teams should bring prototype evidence and all completed Smart DT materials.</p></div><div class="score"><b>100%</b><span>Final Pitch</span></div></div>`;
   if(d.reflection){
     html+=`<div class="session-label" id="day${d.num}-tiktok">Day ${d.num} Close — TikTok Reflection Challenge</div><div class="reflection-box"><div class="reflection-header"><h4>${d.reflection.title}</h4><span class="dur">1–3 min · vertical</span></div><div class="reflection-body"><p class="intro">${d.reflection.sub} — Each group records a short TikTok-style video together reflecting on the day's journey.</p>${d.reflection.qs.map((q,i)=>`<div class="ref-q"><span class="ref-num">${i+1}</span><p>${q}</p></div>`).join('')}</div></div>`;

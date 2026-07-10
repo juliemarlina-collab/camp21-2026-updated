@@ -56,17 +56,32 @@
   </div>
 </div>
 
-<header class="topbar" style="display:none" id="mainHeader"><div class="topbar-inner">
-  <a class="brand" href="../index.html"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
-  <nav class="nav-actions">
-    <details class="quick-access"><summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
-      <div class="qa-dropdown"><div class="qa-group"><span class="qa-label">CAMP21 Pages</span>
-        <a class="qa-link" href="../index.html">🏠 Home</a><a class="qa-link" href="programme.html">📅 Programme</a><a class="qa-link" href="participants.html">👥 Participants</a><a class="qa-link" href="trainers.html">🧑‍🏫 Trainers</a><a class="qa-link" href="facilitators.html">🤝 Facilitators</a><a class="qa-link" href="resources.html">📚 Resources</a><a class="qa-link" href="contacts.html">📞 Help Desk</a>
-      </div></div>
-    </details>
-    <a class="nav-pill app-pill" href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App ↗</a>
-  </nav>
-</div></header>
+<header class="topbar" style="display:none" id="mainHeader">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
+    <nav class="nav-actions" aria-label="Primary">
+      <a class="nav-pill" href="programme.html">📅 Programme</a>
+      <a class="nav-pill" href="resources.html">📚 Resources</a>
+      <a class="nav-pill" href="updates.html">📢 Live Updates</a>
+      <details class="quick-access">
+        <summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
+        <div class="qa-dropdown">
+          <div class="qa-group">
+            <span class="qa-label">Role & Operations</span>
+            <a class="qa-link" href="participants.html">👥 Participants</a>
+            <a class="qa-link" href="trainers.html">🧑‍🏫 Trainers</a>
+            <a class="qa-link" href="facilitators.html">🤝 Facilitators</a>
+            <a class="qa-link" href="judges.html">⚖️ Judges</a>
+            <a class="qa-link" href="organiser.html">🗂️ Organiser</a>
+            <a class="qa-link" href="registration.html">📋 Registration</a>
+            <a class="qa-link" href="scan.html">🎥 Scan / QR</a>
+            <a class="qa-link" href="contacts.html">📞 Help Desk</a>
+          </div>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
 
 <section class="hero" style="display:none" id="mainHero"><div class="hero-inner">
   <span class="eyebrow">Evaluation Workspace</span>
@@ -116,7 +131,7 @@
 </section>
 
 <section class="s-gap">
-  <div class="section-head"><h2>Evaluation Workspace</h2><p>Select the group, then score using the Pitching and TikTok tabs. Final score calculates automatically.</p></div>
+  <div class="section-head"><h2>Evaluation Workspace</h2><p>Judges evaluate Final Pitch 100% only. TikTok Reflection Challenge is evaluated separately as 100% by Trainers. Select the group, then score using the Final Pitch rubric. TikTok Reflection Challenge is evaluated separately by Trainers.</p></div>
   <div class="grp-tabs" id="grpTabs"></div>
   <div class="score-summary" style="grid-template-columns:1fr 1fr"><div class="score-card"><h4>Pitching Presentation (Judges)</h4><div class="big" style="color:var(--violet)" id="pitchScore">0.0</div><div class="sub">/ 100<br>Raw: <span id="pitchRaw">0</span>/50 · Formula: (<span id="pitchRawF">0</span>/50) × 100</div></div><div class="score-card final"><h4>Final Judges Score</h4><div class="big" style="color:var(--gold)" id="finalScore">0.0</div><div class="sub">/ 100<br>Pitching Presentation Total</div></div></div>
   <div class="eval-tabs" id="evalTabs">
@@ -129,7 +144,7 @@
   <div id="tabEvidence" style="display:none"></div>
 </section>
 
-<div class="authority" style="display:none" id="mainAuthority"><h4>Chief Judge Authority</h4><p>Dr. Siti Zubaidah binti Ibrahim holds final authority on all judging decisions, tie-breaker resolutions, and Best Speaker selection across both venues.</p></div>
+<div class="authority" style="display:none" id="mainAuthority"><h4>Chief Judge Authority</h4><p>Dr. Siti Zubaidah binti Ibrahim holds final authority on all judging decisions, tie-breaker resolutions, and Best Speaker selection across both venues. Judges evaluate the Final Pitch 100% only. TikTok Reflection Challenge is evaluated separately by Trainers.</p></div>
 
 </main>
 
@@ -225,7 +240,7 @@ function renderRubrics(){
   rubricHtml+=`<div style="background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin-top:20px"><h4 style="margin:0;font-size:.78rem;font-weight:900;text-transform:uppercase;color:var(--muted);letter-spacing:.06em">Formula</h4><p style="margin:6px 0 0;font-weight:700;font-family:monospace;font-size:1rem" id="pitchFormula">Pitching Score = (0 ÷ 50) × 100 = 0.00</p></div>`;
   document.getElementById('tabPitch').innerHTML=rubricHtml;
   document.getElementById('tabSpeaker').innerHTML=`<div style="padding:40px;text-align:center;background:var(--paper);border:1px solid var(--line);border-radius:22px"><h3 style="font-family:var(--font-serif);font-size:1.8rem;margin:0 0 10px">Best Speaker Selection</h3><p style="color:var(--muted);font-weight:700;margin:0 0 20px">Select one outstanding speaker from your assigned groups.</p><p style="color:var(--muted);font-weight:700">Team A: Best Speaker from Groups 1–5<br>Team B: Best Speaker from Groups 6–10</p><p style="margin-top:20px;font-weight:800;color:var(--rose)">This is a separate award — not part of the scoring.</p></div>`;
-  document.getElementById('tabEvidence').innerHTML=`<div style="padding:40px;background:var(--paper);border:1px solid var(--line);border-radius:22px"><h3 style="font-family:var(--font-serif);font-size:1.8rem;margin:0 0 16px">DT Evidence Guide</h3><p style="color:#444;font-weight:700;line-height:1.6;margin:0 0 16px">Use the Smart DT App to review each team's template submissions as supporting evidence during evaluation.</p><div style="display:grid;gap:8px">${['T01–T04: Empathy phase evidence (POEMS, interview, transcription, empathy map)','T05–T06: Define phase evidence (user persona, insight & needs statement)','T07–T09: Ideate phase evidence (30 circle challenge, SCAMPER, ideation matrix)','T10–T11: Prototype evidence (direction plan with trainer sign-off, full outcome)','T12–T13: Testing evidence (feedback capture grid, improvement plan)','T14: Pitch Framework (final presentation deck)','TikTok Reflection Video: 2–3 min DT journey reflection (evaluated separately by trainers)'].map(t=>`<p style="padding:12px 16px;background:#fff;border-radius:12px;font-weight:700;margin:0;border:1px solid var(--line)">✓ ${t}</p>`).join('')}</div></div>`;
+  document.getElementById('tabEvidence').innerHTML=`<div style="padding:40px;background:var(--paper);border:1px solid var(--line);border-radius:22px"><h3 style="font-family:var(--font-serif);font-size:1.8rem;margin:0 0 16px">DT Evidence Guide</h3><p style="color:#444;font-weight:700;line-height:1.6;margin:0 0 16px">Use the Smart DT App to review each team's template submissions as supporting evidence during evaluation.</p><div style="display:grid;gap:8px">${['T01–T04: Empathy phase evidence (POEMS, interview, transcription, empathy map)','T05–T06: Define phase evidence (user persona, insight & needs statement)','T07–T09: Ideate phase evidence (3D Circle Challenge, SCAMPER, Idea Prioritisation Matrix)','T10–T11: Prototype evidence (direction plan with trainer sign-off, full outcome)','T12–T13: Testing evidence (User Feedback Form, improvement plan)','T14: Final Pitching Template','TikTok Reflection Challenge: Daily videos Day 1, 2, 3 (evaluated separately as 100% by Trainers; not scored by Judges)'].map(t=>`<p style="padding:12px 16px;background:#fff;border-radius:12px;font-weight:700;margin:0;border:1px solid var(--line)">✓ ${t}</p>`).join('')}</div></div>`;
 }
 
 function setScore(type,idx,val,btn){

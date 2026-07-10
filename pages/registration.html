@@ -169,26 +169,39 @@
 </head>
 <body>
 
-  <header class="topbar" style="position:sticky;top:0;z-index:50;background:rgba(255,248,239,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(21,16,68,.08)">
-    <div style="max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px">
-      <a href="../index.html" class="brand"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" style="width:46px;height:46px;border-radius:50%;object-fit:contain" onerror="this.style.display='none'">CAMP<span>21</span></a>
-      <nav style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
-        <details class="quick-access" style="position:relative"><summary style="border:1px solid #ddd5c9;background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(21,16,68,.04);font-size:.92rem;cursor:pointer;display:flex;align-items:center;gap:6px;list-style:none">⚡ Quick Access <span style="transition:.25s;display:inline-block;font-size:.7em">▾</span></summary>
-          <div style="position:absolute;top:calc(100% + 10px);left:0;min-width:260px;background:#fff;border:1px solid #e9dfd0;border-radius:20px;box-shadow:0 24px 56px rgba(21,16,68,.14);padding:8px 0;z-index:60"><div style="padding:10px 8px"><span style="display:block;font-size:.68rem;font-weight:900;color:#726b82;text-transform:uppercase;letter-spacing:.12em;padding:6px 16px 8px">CAMP21 Pages</span>
-            <a href="../index.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">🏠 Home</a><a href="programme.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">📅 Programme</a><a href="participants.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">👥 Participants</a><a href="trainers.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">🧑‍🏫 Trainers</a><a href="facilitators.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">🤝 Facilitators</a><a href="judges.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">⚖️ Judges</a><a href="resources.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">📚 Resources</a><a href="contacts.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">📞 Help Desk</a>
-          </div></div>
-        </details>
-        <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener" style="border:1px solid #21D4C2;background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;font-size:.92rem;text-decoration:none;color:#151044">Smart DT App ↗</a>
-      </nav>
-    </div>
-  </header>
+  <header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
+    <nav class="nav-actions" aria-label="Primary">
+      <a class="nav-pill" href="programme.html">📅 Programme</a>
+      <a class="nav-pill" href="resources.html">📚 Resources</a>
+      <a class="nav-pill" href="updates.html">📢 Live Updates</a>
+      <details class="quick-access">
+        <summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
+        <div class="qa-dropdown">
+          <div class="qa-group">
+            <span class="qa-label">Role & Operations</span>
+            <a class="qa-link" href="participants.html">👥 Participants</a>
+            <a class="qa-link" href="trainers.html">🧑‍🏫 Trainers</a>
+            <a class="qa-link" href="facilitators.html">🤝 Facilitators</a>
+            <a class="qa-link" href="judges.html">⚖️ Judges</a>
+            <a class="qa-link" href="organiser.html">🗂️ Organiser</a>
+            <a class="qa-link" href="registration.html">📋 Registration</a>
+            <a class="qa-link" href="scan.html">🎥 Scan / QR</a>
+            <a class="qa-link" href="contacts.html">📞 Help Desk</a>
+          </div>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
 
   <!-- TIME GATE -->
   <div id="regGate" style="display:none;min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 28px;background:linear-gradient(135deg,#251052,#3b124c)">
     <div style="max-width:500px">
       <div style="font-size:4rem;margin-bottom:20px">🔒</div>
-      <h1 style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:#fff;margin:0 0 16px">Registration Opens Soon</h1>
-      <p style="color:rgba(255,255,255,.7);font-weight:600;line-height:1.6;margin:0 0 30px">On-site registration opens on <strong style="color:#FFC83D">13 July 2026 at 8:00 AM</strong> at Kompleks Kraf Kuala Lumpur.</p>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:#fff;margin:0 0 16px">On-site Check-In Opens Soon</h1>
+      <p style="color:rgba(255,255,255,.7);font-weight:600;line-height:1.6;margin:0 0 30px">On-site check-in opens on <strong style="color:#FFC83D">13 July 2026 at 8:00 AM</strong> at Kompleks Kraf Kuala Lumpur.</p>
       <div id="countdown" style="display:flex;gap:12px;justify-content:center;margin-bottom:30px"></div>
       <p style="color:rgba(255,255,255,.5);font-weight:700;font-size:.85rem">📍 Kompleks Kraf Kuala Lumpur · Jalan Conlay, 50450 KL</p>
     </div>
@@ -198,8 +211,8 @@
   <div class="reg-hero" id="regHero" style="display:none">
     <div class="wide">
       <p class="reg-eyebrow">CAMP21 · 13–16 July 2026</p>
-      <h1 class="reg-title">Registration</h1>
-      <p class="reg-sub">Select your role below and complete the form. All submissions are recorded in the CAMP21 master registry.</p>
+      <h1 class="reg-title">On-site Check-In</h1>
+      <p class="reg-sub">Select your role below and complete the on-site check-in form. All submissions are recorded in the CAMP21 master registry.</p>
     </div>
   </div>
 
@@ -223,7 +236,7 @@
         <!-- ── PARTICIPANT FORM ── -->
         <div id="form-participant" class="role-form active">
           <div class="form-card">
-            <h2 class="form-card-title">Participant Registration</h2>
+            <h2 class="form-card-title">Participant Check-In</h2>
             <p class="form-card-desc">For Politeknik Malaysia students attending CAMP21 as design thinking participants. Complete all fields — your team assignment will be generated after submission.</p>
             <form onsubmit="submitForm(event, 'participant')">
               <div class="field-grid">
@@ -300,14 +313,14 @@
                 </div>
               </div>
               <div class="submit-row">
-                <button type="submit" class="btn-register">Submit Registration &rarr;</button>
-                <span class="submit-note">Your team assignment will be sent to your email after processing.</span>
+                <p style="font-size:.82rem;color:#726b82;font-weight:600;line-height:1.5;margin:16px 0;padding:14px 18px;background:#f7f3ed;border-radius:12px;border:1px solid #e9dfd0">By submitting this form, you agree that your information will be used only for CAMP21 registration, attendance, communication, safety, coordination and reporting purposes. Personal information will be handled with care and not shared publicly without permission.</p><button type="submit" class="btn-register">Submit Check-In &rarr;</button>
+                <span class="submit-note">Your check-in record will be processed by the secretariat.</span>
               </div>
             </form>
           </div>
           <div id="success-participant" class="success-panel">
             <div class="success-icon">✅</div>
-            <span class="success-badge">Registration Confirmed</span>
+            <span class="success-badge">Check-In Confirmed</span>
             <h3>You're registered!</h3>
             <p>Your participant record has been logged in the CAMP21 master registry. Check your email for your team assignment details.</p>
             <div class="success-detail" id="success-detail-participant"></div>
@@ -317,7 +330,7 @@
         <!-- ── FACILITATOR FORM ── -->
         <div id="form-facilitator" class="role-form">
           <div class="form-card">
-            <h2 class="form-card-title">Facilitator Registration</h2>
+            <h2 class="form-card-title">Facilitator Check-In</h2>
             <p class="form-card-desc">For Pensyarah Pengiring (accompanying lecturers) who will facilitate teams on-site, guide checkpoints, and support smooth phase movement throughout the camp.</p>
             <form onsubmit="submitForm(event, 'facilitator')">
               <div class="field-grid">
@@ -390,14 +403,14 @@
                 </div>
               </div>
               <div class="submit-row">
-                <button type="submit" class="btn-register">Submit Registration &rarr;</button>
+                <p style="font-size:.82rem;color:#726b82;font-weight:600;line-height:1.5;margin:16px 0;padding:14px 18px;background:#f7f3ed;border-radius:12px;border:1px solid #e9dfd0">By submitting this form, you agree that your information will be used only for CAMP21 registration, attendance, communication, safety, coordination and reporting purposes. Personal information will be handled with care and not shared publicly without permission.</p><button type="submit" class="btn-register">Submit Check-In &rarr;</button>
                 <span class="submit-note">Your record will be logged in the Facilitator Registry.</span>
               </div>
             </form>
           </div>
           <div id="success-facilitator" class="success-panel">
             <div class="success-icon">✅</div>
-            <span class="success-badge">Registration Confirmed</span>
+            <span class="success-badge">Check-In Confirmed</span>
             <h3>Welcome, Facilitator!</h3>
             <p>Your record has been logged in the CAMP21 Facilitator Registry. The secretariat will contact you with your checkpoint assignment schedule.</p>
             <div class="success-detail" id="success-detail-facilitator"></div>
@@ -407,7 +420,7 @@
         <!-- ── TRAINER FORM ── -->
         <div id="form-trainer" class="role-form">
           <div class="form-card">
-            <h2 class="form-card-title">Trainer Registration</h2>
+            <h2 class="form-card-title">Trainer Check-In</h2>
             <p class="form-card-desc">For lead trainers who will deliver AI input sessions, phase briefings, and learning direction throughout the 4-day programme.</p>
             <form onsubmit="submitForm(event, 'trainer')">
               <div class="field-grid">
@@ -464,14 +477,14 @@
                 </div>
               </div>
               <div class="submit-row">
-                <button type="submit" class="btn-register">Submit Registration &rarr;</button>
+                <p style="font-size:.82rem;color:#726b82;font-weight:600;line-height:1.5;margin:16px 0;padding:14px 18px;background:#f7f3ed;border-radius:12px;border:1px solid #e9dfd0">By submitting this form, you agree that your information will be used only for CAMP21 registration, attendance, communication, safety, coordination and reporting purposes. Personal information will be handled with care and not shared publicly without permission.</p><button type="submit" class="btn-register">Submit Check-In &rarr;</button>
                 <span class="submit-note">Your record will be logged in the Trainer Registry.</span>
               </div>
             </form>
           </div>
           <div id="success-trainer" class="success-panel">
             <div class="success-icon">✅</div>
-            <span class="success-badge">Registration Confirmed</span>
+            <span class="success-badge">Check-In Confirmed</span>
             <h3>Welcome, Trainer!</h3>
             <p>Your record has been logged in the CAMP21 Trainer Registry. The secretariat will be in touch with your session briefing pack.</p>
             <div class="success-detail" id="success-detail-trainer"></div>
@@ -481,7 +494,7 @@
         <!-- ── ORGANISER FORM ── -->
         <div id="form-organiser" class="role-form">
           <div class="form-card">
-            <h2 class="form-card-title">Organiser Registration</h2>
+            <h2 class="form-card-title">Organiser Check-In</h2>
             <p class="form-card-desc">For secretariat members and committee coordinators managing camp logistics, updates, and administration.</p>
             <form onsubmit="submitForm(event, 'organiser')">
               <div class="field-grid">
@@ -549,14 +562,14 @@
                 </div>
               </div>
               <div class="submit-row">
-                <button type="submit" class="btn-register">Submit Registration &rarr;</button>
+                <p style="font-size:.82rem;color:#726b82;font-weight:600;line-height:1.5;margin:16px 0;padding:14px 18px;background:#f7f3ed;border-radius:12px;border:1px solid #e9dfd0">By submitting this form, you agree that your information will be used only for CAMP21 registration, attendance, communication, safety, coordination and reporting purposes. Personal information will be handled with care and not shared publicly without permission.</p><button type="submit" class="btn-register">Submit Check-In &rarr;</button>
                 <span class="submit-note">Your record will be logged in the Organiser Registry.</span>
               </div>
             </form>
           </div>
           <div id="success-organiser" class="success-panel">
             <div class="success-icon">✅</div>
-            <span class="success-badge">Registration Confirmed</span>
+            <span class="success-badge">Check-In Confirmed</span>
             <h3>Welcome, Organiser!</h3>
             <p>Your record has been logged in the CAMP21 Organiser Registry. You'll receive your committee briefing pack via email.</p>
             <div class="success-detail" id="success-detail-organiser"></div>
@@ -566,7 +579,7 @@
         <!-- ── JUDGE FORM ── -->
         <div id="form-judge" class="role-form">
           <div class="form-card">
-            <h2 class="form-card-title">Judge Registration</h2>
+            <h2 class="form-card-title">Judge Check-In</h2>
             <p class="form-card-desc">For panel judges who will evaluate team pitches on Day 4 (16 July 2026) using the official CAMP21 rubric framework.</p>
             <form onsubmit="submitForm(event, 'judge')">
               <div class="field-grid">
@@ -625,14 +638,14 @@
                 </div>
               </div>
               <div class="submit-row">
-                <button type="submit" class="btn-register">Submit Registration &rarr;</button>
+                <p style="font-size:.82rem;color:#726b82;font-weight:600;line-height:1.5;margin:16px 0;padding:14px 18px;background:#f7f3ed;border-radius:12px;border:1px solid #e9dfd0">By submitting this form, you agree that your information will be used only for CAMP21 registration, attendance, communication, safety, coordination and reporting purposes. Personal information will be handled with care and not shared publicly without permission.</p><button type="submit" class="btn-register">Submit Check-In &rarr;</button>
                 <span class="submit-note">Your record will be logged in the Panel Judge Registry.</span>
               </div>
             </form>
           </div>
           <div id="success-judge" class="success-panel">
             <div class="success-icon">✅</div>
-            <span class="success-badge">Registration Confirmed</span>
+            <span class="success-badge">Check-In Confirmed</span>
             <h3>Thank you, Judge!</h3>
             <p>Your record has been logged in the CAMP21 Panel Judge Registry. The secretariat will send you the judging rubric and Day 4 briefing schedule.</p>
             <div class="success-detail" id="success-detail-judge"></div>
@@ -658,7 +671,7 @@
           After registration, select your name from the attendance list during camp check-in each day.
         </div>
         <div class="info-card" style="margin-top:1rem; background: rgba(20,16,74,0.05); color: var(--navy);">
-          <h4 style="color: var(--rose);">Registration closes</h4>
+          <h4 style="color: var(--rose);">Pre-registration Deadlines</h4>
           <ul class="info-list" style="color: var(--navy);">
             <li style="border-color: rgba(20,16,74,0.08);"><strong style="color: var(--navy);">Participants</strong>5 July 2026</li>
             <li style="border-color: rgba(20,16,74,0.08);"><strong style="color: var(--navy);">Facilitators & Trainers</strong>1 July 2026</li>
@@ -683,7 +696,7 @@
   </footer>
 
   <script>
-    // Registration time gate — opens 13 July 2026 at 9:00 AM MYT
+    // Registration time gate — opens 13 July 2026 at 8:00 AM MYT
     const REG_OPEN = new Date('2026-07-13T08:00:00+08:00').getTime();
 
     function checkRegGate() {
@@ -727,7 +740,7 @@
 
   <script>
     // ── GOOGLE APPS SCRIPT ENDPOINT ──
-    // Replace this URL with your deployed Apps Script Web App URL
+    // CAMP21 Master Registry endpoint
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzEz02OBBVcGCqjaa6Wk6mHcGt5FnSGVEJJUDKDqjTbVzGDVxN9-FXoe9GT7s7LOMo/exec";
 
     function switchRole(role, tabEl) {
@@ -764,7 +777,7 @@
       })
       .catch(err => {
         console.error(err);
-        btn.textContent = 'Submit Registration →';
+        btn.textContent = 'Submit Check-In →';
         btn.disabled = false;
         alert('Connection error. Please check your internet and try again.');
       });

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,7 +13,7 @@
   <style>
     .gate-container {
       max-width: 550px;
-      margin: 8rem auto;
+      margin: 4rem auto;
       text-align: center;
       padding: 3.5rem 2.5rem;
     }
@@ -42,11 +42,11 @@
     }
     .topbar{position:sticky;top:0;z-index:50;background:rgba(248,242,234,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(32,16,62,.08)}
     .topbar-inner{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px}
-    .topbar .brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-serif,'Playfair Display',serif);font-weight:700;font-size:1.5rem;color:var(--brand-indigo);letter-spacing:-.01em}
+    .topbar .brand{text-decoration:none;display:flex;align-items:center;gap:.55rem;font-family:var(--font-serif,'Playfair Display',serif);font-weight:700;font-size:1.5rem;color:var(--brand-indigo);letter-spacing:-.01em}
     .topbar .brand span{color:var(--brand-pink)}
     .topbar .brand-icon{width:46px;height:46px;border-radius:50%;object-fit:contain}
     .nav-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-    .nav-pill{border:1px solid var(--brand-line);background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(32,16,62,.05);font-size:.92rem;cursor:pointer;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif);color:var(--brand-indigo)}
+    .nav-pill{text-decoration:none;border:1px solid var(--brand-line);background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(32,16,62,.05);font-size:.92rem;cursor:pointer;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif);color:var(--brand-indigo)}
     .nav-pill:hover{border-color:var(--brand-purple);color:var(--brand-purple)}
     .app-pill{border-color:var(--brand-purple);background:var(--brand-purple);color:#fff}
     .app-pill:hover{background:var(--brand-indigo);border-color:var(--brand-indigo);color:#fff}
@@ -57,7 +57,7 @@
     .qa-dropdown{position:absolute;top:calc(100% + 10px);left:0;min-width:260px;background:#fff;border:1px solid var(--brand-line);border-radius:20px;box-shadow:0 24px 56px rgba(32,16,62,.16);padding:8px 0;z-index:60;animation:qaIn .18s ease}
     .qa-group{padding:10px 8px}
     .qa-label{display:block;font-size:.68rem;font-weight:900;color:var(--brand-muted);text-transform:uppercase;letter-spacing:.12em;padding:6px 16px 8px;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
-    .qa-link{display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:var(--brand-indigo);transition:background .15s;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
+    .qa-link{text-decoration:none;display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:var(--brand-indigo);transition:background .15s;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
     .qa-link:hover{background:rgba(90,54,201,.08);color:var(--brand-purple)}
     @keyframes qaIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
     .camp-footer{background:var(--brand-indigo);color:#fff;margin-top:48px;padding:56px 28px 26px}
@@ -66,27 +66,70 @@
     .camp-footer .footer-brand{display:flex;align-items:center;gap:14px;font-family:var(--font-serif,'Playfair Display',serif);font-size:2.2rem;font-weight:700}
     .camp-footer .footer-brand span{color:var(--brand-pink)}
     .camp-footer .footer-col h4{color:var(--brand-gold);margin:0 0 14px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
-    .camp-footer .footer-col p,.camp-footer .footer-col a{display:block;color:rgba(255,255,255,.74);line-height:1.7;font-weight:600;margin:0 0 7px;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
+    .camp-footer .footer-col p,.camp-footer .footer-col a{text-decoration:none;display:block;color:rgba(255,255,255,.74);line-height:1.7;font-weight:600;margin:0 0 7px;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
     .camp-footer .footer-col a:hover{color:var(--brand-lavender)}
     .camp-footer .footer-bottom{border-top:1px solid rgba(255,255,255,.16);margin-top:34px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:rgba(255,255,255,.65);font-weight:700;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
     @media(max-width:980px){.nav-actions{width:100%;justify-content:flex-start;gap:8px}.topbar-inner{align-items:flex-start;flex-direction:column;gap:14px}.camp-footer .footer-grid{grid-template-columns:1fr 1fr}.qa-dropdown{left:-8px;right:-8px;min-width:auto}}
     @media(max-width:560px){.camp-footer .footer-grid{grid-template-columns:1fr}.topbar .brand-icon{width:38px;height:38px}.topbar-inner{padding:14px 18px}.nav-pill{padding:10px 16px;font-size:.82rem}.qa-dropdown{position:fixed;left:12px;right:12px;top:auto;border-radius:18px}}
     @media print{.topbar,.nav-actions,.quick-access{display:none}.camp-footer{display:none}}
+
+    /* ===== Hero insight cards ===== */
+    .hero-insight-wrap{max-width:1440px;margin:auto;display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:center}
+    .hero-insight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .hero-insight-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:24px 26px;box-shadow:0 18px 44px rgba(0,0,0,.08);backdrop-filter:blur(8px)}
+    .hero-insight-value{display:block;font-size:clamp(2rem,4vw,2.9rem);line-height:.9;font-weight:900;color:#FFD24A;font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
+    .hero-insight-label{display:block;margin-top:8px;font-size:.92rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em;color:rgba(255,255,255,.78);font-family:var(--font-sans,'Plus Jakarta Sans',sans-serif)}
+    @media(max-width:900px){.hero-insight-wrap{grid-template-columns:1fr}.hero-insight-grid{max-width:640px}}
+    @media(max-width:560px){.hero-insight-grid{grid-template-columns:1fr}.hero-insight-card{padding:20px}}
+
   </style>
 </head>
 <body>
 
-  <header class="topbar"><div class="topbar-inner">
+  <header class="topbar">
+  <div class="topbar-inner">
     <a class="brand" href="../index.html"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
-    <nav class="nav-actions">
-      <details class="quick-access"><summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
-        <div class="qa-dropdown"><div class="qa-group"><span class="qa-label">CAMP21 Pages</span>
-          <a class="qa-link" href="../index.html">🏠 Home</a><a class="qa-link" href="programme.html">📅 Programme</a><a class="qa-link" href="participants.html">👥 Participants</a><a class="qa-link" href="trainers.html">🧑‍🏫 Trainers</a><a class="qa-link" href="facilitators.html">🤝 Facilitators</a><a class="qa-link" href="resources.html">📚 Resources</a><a class="qa-link" href="contacts.html">📞 Help Desk</a>
-        </div></div>
+    <nav class="nav-actions" aria-label="Primary">
+      <a class="nav-pill" href="programme.html">📅 Programme</a>
+      <a class="nav-pill" href="resources.html">📚 Resources</a>
+      <a class="nav-pill" href="updates.html">📢 Live Updates</a>
+      <details class="quick-access">
+        <summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
+        <div class="qa-dropdown">
+          <div class="qa-group">
+            <span class="qa-label">Role & Operations</span>
+            <a class="qa-link" href="participants.html">👥 Participants</a>
+            <a class="qa-link" href="trainers.html">🧑‍🏫 Trainers</a>
+            <a class="qa-link" href="facilitators.html">🤝 Facilitators</a>
+            <a class="qa-link" href="judges.html">⚖️ Judges</a>
+            <a class="qa-link" href="organiser.html">🗂️ Organiser</a>
+            <a class="qa-link" href="registration.html">📋 Registration</a>
+            <a class="qa-link" href="scan.html">🎥 Scan / QR</a>
+            <a class="qa-link" href="contacts.html">📞 Help Desk</a>
+          </div>
+        </div>
       </details>
-      <a class="nav-pill app-pill" href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App ↗</a>
     </nav>
-  </div></header>
+  </div>
+</header>
+
+  <!-- PAGE HERO -->
+  <section class="hero" style="background:radial-gradient(circle at 82% 10%,rgba(242,79,180,.15),transparent 34%),linear-gradient(120deg,rgba(24,61,112,.72),rgba(37,16,82,.68) 45%,rgba(59,18,76,.65)),url('../assets/images/hero-scan.jpg') center/cover;color:#fff;padding:64px 28px 56px">
+    <div class="hero-insight-wrap">
+      <div>
+        <span class="eyebrow" style="display:inline-flex;border:1px solid rgba(241,191,50,.6);background:rgba(241,191,50,.13);color:#ffe18a;border-radius:999px;padding:9px 18px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem">QR Access Gate</span>
+        <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,6vw,5rem);line-height:.92;margin:30px 0 18px;letter-spacing:-.05em">Scan / QR</h1>
+        <p style="font-size:1.15rem;line-height:1.65;color:rgba(255,255,255,.78);max-width:700px">Automated check-in gate for attendance tracking, session validation, and CAMP21 movement records.</p>
+      </div>
+      <div class="hero-insight-grid" aria-label="Scan QR insights">
+        <div class="hero-insight-card"><span class="hero-insight-value">QR</span><span class="hero-insight-label">Access</span></div>
+        <div class="hero-insight-card"><span class="hero-insight-value">Live</span><span class="hero-insight-label">Sync</span></div>
+        <div class="hero-insight-card"><span class="hero-insight-value">1</span><span class="hero-insight-label">Session</span></div>
+        <div class="hero-insight-card"><span class="hero-insight-value">Gate</span><span class="hero-insight-label">Verified</span></div>
+      </div>
+    </div>
+  </section>
+
 
   <main class="wide">
     <!-- Clean, Open, Free-Flowing Visual Card -->
@@ -130,7 +173,7 @@
         gateVisual.innerText = "❌";
         gateVisual.style.backgroundColor = "rgba(255,81,47,0.1)";
         gateHeader.innerText = "Access Blocked";
-        gateMessage.innerHTML = "No active user identity session found on this device. Please <a href='registration.html' style='color:var(--neo-ultraviolet); text-decoration:underline;'>log into the portal terminal</a> first.";
+        gateMessage.innerHTML = "No active user identity session found on this device. Please <a href='registration.html' style='color:var(--neo-ultraviolet); text-decoration:none;'>log into the portal terminal</a> first.";
         return;
       }
 

@@ -152,24 +152,26 @@
 <header class="topbar">
   <div class="topbar-inner">
     <a class="brand" href="../index.html"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
-    <nav class="nav-actions">
+    <nav class="nav-actions" aria-label="Primary">
+      <a class="nav-pill" href="programme.html">📅 Programme</a>
+      <a class="nav-pill" href="resources.html">📚 Resources</a>
+      <a class="nav-pill" href="updates.html">📢 Live Updates</a>
       <details class="quick-access">
         <summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
         <div class="qa-dropdown">
           <div class="qa-group">
-            <span class="qa-label">CAMP21 Pages</span>
-            <a class="qa-link" href="../index.html">🏠 Home</a>
-            <a class="qa-link" href="programme.html">📅 Programme</a>
+            <span class="qa-label">Role & Operations</span>
             <a class="qa-link" href="participants.html">👥 Participants</a>
             <a class="qa-link" href="trainers.html">🧑‍🏫 Trainers</a>
+            <a class="qa-link" href="facilitators.html">🤝 Facilitators</a>
             <a class="qa-link" href="judges.html">⚖️ Judges</a>
-            <a class="qa-link" href="resources.html">📚 Resources</a>
+            <a class="qa-link" href="organiser.html">🗂️ Organiser</a>
+            <a class="qa-link" href="registration.html">📋 Registration</a>
+            <a class="qa-link" href="scan.html">🎥 Scan / QR</a>
             <a class="qa-link" href="contacts.html">📞 Help Desk</a>
           </div>
         </div>
       </details>
-      <a class="nav-pill app-pill" href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App ↗</a>
-      <button class="nav-pill primary" onclick="window.print()">🖨️ Print PDF</button>
     </nav>
   </div>
 </header>
@@ -454,7 +456,7 @@ const phases=[
   {name:'Prototype',count:2,color:'var(--orange)',tcolor:'#d97706'},
   {name:'Testing',count:2,color:'var(--pink)',tcolor:'#e23c74'}
 ];
-const totalTpl=phases.reduce((a,p)=>a+p.count,0); // should be 13 (T01-T13), T14 is pitch resource
+const totalTpl=phases.reduce((a,p)=>a+p.count,0); // should be 13 (T01–T13 Smart DT Process Templates + T14 Final Pitching Template
 
 // Tracker bar stats
 document.getElementById('trackerBar').innerHTML=phases.map(p=>`<div class="tracker-stat"><b style="color:${p.tcolor}">0<span style="font-size:1rem;color:var(--muted)">/10</span></b><span style="color:${p.tcolor}">${p.name}</span><small>teams done</small></div>`).join('');
