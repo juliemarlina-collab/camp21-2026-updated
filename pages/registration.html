@@ -32,7 +32,7 @@
     .topbar{position:sticky;top:0;z-index:50;background:rgba(255,248,239,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(21,16,68,.08)}
     .topbar-inner{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px}
     .brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-serif);font-weight:700;font-size:1.5rem;color:var(--navy);letter-spacing:-.01em;text-decoration:none}
-    .brand span{color:var(--pink)}
+    .brand span{color:#e23c74}
     .brand-icon{width:46px;height:46px;border-radius:50%;object-fit:contain}
     .nav-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
     .nav-pill{border:1px solid #ddd5c9;background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(21,16,68,.04);font-size:.92rem;cursor:pointer;color:var(--navy);text-decoration:none;font-family:var(--font-sans)}
@@ -241,7 +241,33 @@
 
     .contact-card { background: rgba(226,60,116,0.08); border: 1px solid rgba(226,60,116,0.2); border-radius: 1rem; padding: 1.2rem 1.4rem; margin-top: 1rem; font-size: 0.85rem; color: var(--navy); font-weight: 600; }
     .contact-card a { color: var(--rose); font-weight: 800; }
-  </style>
+  
+
+/* === CAMP21 VISUAL REFRESH: cleaner heroes, no decorative divider borders === */
+.gold-divider{display:none !important}
+.hero{position:relative !important;overflow:hidden !important;background-position:center center !important;background-size:cover !important}
+.hero::after{display:none !important}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,20,66,.76) 0%,rgba(28,16,78,.72) 48%,rgba(58,18,84,.68) 100%);z-index:0;pointer-events:none}
+.hero > *, .hero .hero-inner, .hero .wrap, .hero .wide, .hero .stats, .hero .fac-hero-stats{position:relative;z-index:1}
+.hero h1,.hero h2,.hero p,.hero .eyebrow,.hero .hero-badge,.hero .hero-kicker{text-shadow:0 2px 18px rgba(0,0,0,.22)}
+.hero p{color:rgba(255,255,255,.90)!important}
+.hero .eyebrow,.hero .hero-badge{background:rgba(255,255,255,.10)!important;border-color:rgba(255,255,255,.28)!important;color:#ffe18a!important;backdrop-filter:blur(6px)}
+.fac-stat-card,.stat-card,.hero-stat,.insight-card{background:rgba(255,255,255,.12)!important;border:1px solid rgba(255,255,255,.22)!important;box-shadow:0 18px 40px rgba(0,0,0,.16)!important}
+.fac-stat-card span,.stat-card span,.hero-stat span{color:rgba(255,255,255,.86)!important}
+main img:not(.brand-icon),section img:not(.brand-icon){border:none!important;box-shadow:0 14px 30px rgba(32,16,62,.10)!important;background:transparent!important}
+.hub-use-guide,:where(.card,.doc-card,.judge-card,.support-card,.control-card,.action-card,.trainer-action-card,.fac-action-card,.programme-action-card,.phase-card,.resource-card,.faq-panel,.help-card,.panel,.fac-section,.rubric-card,.step-card,.timeline-card,.info-card){border-color:rgba(217,175,55,.24)!important}
+
+
+/* === CAMP21 BRAND ROSE ALIGNMENT ===
+   Match header and footer CAMP 21 brand number with homepage rose.
+   Bright pink variable remains for phase colours only. */
+.topbar .brand span,
+header .brand span,
+.footer-brand span,
+.footer-brand .brand span,
+.camp-footer .brand span { color: #e23c74 !important; }
+
+</style>
 </head>
 <body>
 
@@ -770,7 +796,7 @@
         <div><div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700">CAMP<span style="color:#FF4FCB">21</span></div><p style="color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:12px 0 0">CAMP21 Digital Hub 2026<br>13–16 July 2026<br>Kompleks Kraf Kuala Lumpur</p><p style="color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:8px 0 0">AI-Powered Design Thinking for Sustainable Cultural Heritage</p></div>
         <div><h4 style="color:#FFC83D;margin:0 0 14px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em">Explore</h4><a href="programme.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Programme</a><a href="resources.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Resources</a><a href="updates.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Live Updates</a><a href="contacts.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Help</a></div>
         <div><h4 style="color:#FFC83D;margin:0 0 14px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em">Stakeholders</h4><a href="participants.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Participants Hub</a><a href="trainers.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Trainers</a><a href="facilitators.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Facilitators</a></div>
-        <div><h4 style="color:#FFC83D;margin:0 0 14px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em">Support</h4><a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Smart DT App ↗</a><a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Telegram Community ↗</a><a href="contacts.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Help Desk</a></div>
+        <div><h4 style="color:#FFC83D;margin:0 0 14px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em">Support</h4><a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Smart DT Guide & Template Hub ↗</a><a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Telegram Community ↗</a><a href="contacts.html" style="display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px;text-decoration:none">Help Desk</a></div>
       </div>
       <div style="border-top:1px solid rgba(255,255,255,.14);margin-top:34px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:rgba(255,255,255,.65);font-weight:700"><span>© 2026 CAMP21 Digital Hub.</span><span>Created and developed by Julie Marlina binti Hasan, Politeknik Port Dickson.</span></div>
     </div>
