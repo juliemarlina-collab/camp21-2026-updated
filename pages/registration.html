@@ -15,21 +15,59 @@
       --rose: #e23c74;
       --gold: #c8952c;
       --cream: #fff8ef;
+      --line:#e9dfd0;
+      --muted:#726b82;
+      --pink:#FF4FCB;
+      --violet:#6B4DFF;
+      --font-serif:'Cormorant Garamond',serif;
+      --font-sans:'Plus Jakarta Sans',sans-serif;
     }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cream);color:var(--navy);font-family:var(--font-sans)}
+    a{text-decoration:none;color:inherit}
+
+    /* STANDARD CAMP21 HEADER */
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,248,239,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(21,16,68,.08)}
+    .topbar-inner{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px}
+    .brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-serif);font-weight:700;font-size:1.5rem;color:var(--navy);letter-spacing:-.01em;text-decoration:none}
+    .brand span{color:var(--pink)}
+    .brand-icon{width:46px;height:46px;border-radius:50%;object-fit:contain}
+    .nav-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav-pill{border:1px solid #ddd5c9;background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(21,16,68,.04);font-size:.92rem;cursor:pointer;color:var(--navy);text-decoration:none;font-family:var(--font-sans)}
+    .nav-pill:hover{border-color:var(--violet);color:var(--violet)}
+    .quick-access{position:relative}
+    .qa-trigger{cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px;list-style:none}
+    .qa-trigger::-webkit-details-marker{display:none}
+    .qa-chev{transition:.25s;display:inline-block;font-size:.7em}
+    .quick-access[open] .qa-chev{transform:rotate(180deg)}
+    .qa-dropdown{position:absolute;top:calc(100% + 10px);left:0;min-width:260px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 56px rgba(21,16,68,.14);padding:8px 0;z-index:60;animation:qaIn .18s ease}
+    .qa-group{padding:10px 8px}
+    .qa-label{display:block;font-size:.68rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;padding:6px 16px 8px}
+    .qa-link{display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:var(--navy);transition:background .15s;text-decoration:none}
+    .qa-link:hover{background:rgba(109,70,238,.07);color:var(--violet)}
+    @keyframes qaIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
 
     /* ── PAGE LAYOUT ── */
     .reg-hero {
-      background: var(--navy);
-      padding: 3.5rem 0 2.5rem;
+      background: radial-gradient(circle at 82% 10%,rgba(255,79,203,.16),transparent 34%),linear-gradient(120deg,rgba(24,61,112,.82),rgba(37,16,82,.82) 45%,rgba(59,18,76,.78));
+      padding: 58px 28px 50px;
       color: #fff;
     }
-    .reg-hero .wide { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    .reg-hero .wide { max-width: 1440px; margin: 0 auto; padding: 0; display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center; }
     .reg-eyebrow { font-size: 0.72rem; font-weight: 900; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
     .reg-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 600; line-height: 1.05; margin-bottom: 0.8rem; }
-    .reg-sub { font-size: 1rem; color: rgba(255,255,255,0.65); max-width: 520px; font-weight: 500; line-height: 1.6; }
+    .reg-sub { font-size: 1.05rem; color: rgba(255,255,255,0.76); max-width: 680px; font-weight: 500; line-height: 1.6; }
+    .reg-insight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .reg-insight-card{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.09);backdrop-filter:blur(8px);border-radius:22px;padding:24px;box-shadow:0 18px 45px rgba(21,16,68,.08)}
+    .reg-insight-card b{display:block;font-size:2.5rem;color:#FFC83D;line-height:1;font-weight:900}
+    .reg-insight-card span{display:block;margin-top:4px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.78);font-size:.8rem}
+    @media(max-width:980px){.reg-hero .wide{grid-template-columns:1fr}.reg-insight-grid{max-width:640px}.role-tabs-wrap{top:0}}
+    @media(max-width:560px){.reg-insight-grid{grid-template-columns:1fr}}
 
     /* ── ROLE TABS ── */
-    .role-tabs-wrap { background: var(--cream); border-bottom: 1px solid rgba(20,16,74,0.1); position: sticky; top: 74px; z-index: 40; }
+    .role-tabs-wrap { background: var(--cream); border-bottom: 1px solid rgba(20,16,74,0.1); position: sticky; top: 82px; z-index: 40; }
     .role-tabs { display: flex; gap: 0; max-width: 900px; margin: 0 auto; padding: 0 1.5rem; overflow-x: auto; }
     .role-tab {
       padding: 1rem 1.4rem;
@@ -135,6 +173,44 @@
     .btn-register:disabled { background: #ccc; cursor: not-allowed; transform: none; }
     .submit-note { font-size: 0.78rem; color: #999; font-weight: 500; }
 
+
+    .already-checked-panel {
+      background: #fff;
+      border: 1px solid rgba(20,16,74,0.10);
+      border-radius: 1.25rem;
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(20,16,74,0.05);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .already-checked-panel .lock-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .already-checked-panel h2 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--navy);
+      font-size: 2.1rem;
+      margin: 0 0 .6rem;
+    }
+    .already-checked-panel p {
+      color: #666;
+      font-weight: 600;
+      line-height: 1.6;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .already-checked-panel .checked-meta {
+      display: inline-block;
+      margin-top: 1.2rem;
+      background: rgba(226,60,116,0.08);
+      color: var(--navy);
+      font-weight: 800;
+      padding: .65rem 1rem;
+      border-radius: 999px;
+      font-size: .85rem;
+    }
+
     /* ── SUCCESS PANEL ── */
     .success-panel {
       display: none;
@@ -196,28 +272,25 @@
   </div>
 </header>
 
-  <!-- TIME GATE -->
-  <div id="regGate" style="display:none;min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 28px;background:linear-gradient(135deg,#251052,#3b124c)">
-    <div style="max-width:500px">
-      <div style="font-size:4rem;margin-bottom:20px">🔒</div>
-      <h1 style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:#fff;margin:0 0 16px">On-site Check-In Opens Soon</h1>
-      <p style="color:rgba(255,255,255,.7);font-weight:600;line-height:1.6;margin:0 0 30px">On-site check-in opens on <strong style="color:#FFC83D">13 July 2026 at 8:00 AM</strong> at Kompleks Kraf Kuala Lumpur.</p>
-      <div id="countdown" style="display:flex;gap:12px;justify-content:center;margin-bottom:30px"></div>
-      <p style="color:rgba(255,255,255,.5);font-weight:700;font-size:.85rem">📍 Kompleks Kraf Kuala Lumpur · Jalan Conlay, 50450 KL</p>
-    </div>
-  </div>
-
-  <!-- HERO (hidden until gate opens) -->
-  <div class="reg-hero" id="regHero" style="display:none">
+  <!-- HERO -->
+  <div class="reg-hero" id="regHero">
     <div class="wide">
-      <p class="reg-eyebrow">CAMP21 · 13–16 July 2026</p>
-      <h1 class="reg-title">On-site Check-In</h1>
-      <p class="reg-sub">Select your role below and complete the on-site check-in form. All submissions are recorded in the CAMP21 master registry.</p>
+      <div>
+        <p class="reg-eyebrow">CAMP21 · On-site Registry</p>
+        <h1 class="reg-title">On-site Check-In</h1>
+        <p class="reg-sub">Select your role and complete the check-in form. Records will be saved in the CAMP21 master registry for attendance, coordination, safety and reporting purposes.</p>
+      </div>
+      <div class="reg-insight-grid">
+        <div class="reg-insight-card"><b>5</b><span>Role Forms</span></div>
+        <div class="reg-insight-card"><b>13</b><span>July · 8:30 AM</span></div>
+        <div class="reg-insight-card"><b>10</b><span>Teams</span></div>
+        <div class="reg-insight-card"><b>Live</b><span>Registry Sync</span></div>
+      </div>
     </div>
   </div>
 
   <!-- ROLE TABS (hidden until gate opens) -->
-  <div class="role-tabs-wrap" id="regTabs" style="display:none">
+  <div class="role-tabs-wrap" id="regTabs">
     <div class="role-tabs">
       <button class="role-tab active" onclick="switchRole('participant', this)">Participant</button>
       <button class="role-tab" onclick="switchRole('facilitator', this)">Facilitator</button>
@@ -227,7 +300,15 @@
     </div>
   </div>
 
-  <div class="reg-body" id="regBody" style="display:none">
+  
+    <div id="alreadyCheckedPanel" class="already-checked-panel" style="display:none">
+      <div class="lock-icon">✅</div>
+      <h2>Check-In Already Recorded</h2>
+      <p>Your on-site check-in has already been submitted from this device. Each person may check in once only. If you need help, please report to the registration desk.</p>
+      <div class="checked-meta" id="checkedMeta">CAMP21 Check-In Confirmed</div>
+    </div>
+
+  <div class="reg-body" id="regBody">
     <div class="reg-layout">
 
       <!-- FORMS COLUMN -->
@@ -659,7 +740,7 @@
         <div class="info-card">
           <h4>Camp Details</h4>
           <ul class="info-list">
-            <li><strong>Dates</strong>13–16 July 2026</li>
+            <li><strong>Dates</strong>13–16 July 2026</li><li><strong>On-site Check-In</strong>Opens 13 July 2026, 8:30 AM</li>
             <li><strong>Venue</strong>Kompleks Kraf Kuala Lumpur, Jalan Conlay, KL</li>
             <li><strong>Format</strong>4-day residential programme</li>
             <li><strong>Teams</strong>10 teams, Politeknik Malaysia</li>
@@ -668,14 +749,14 @@
         </div>
         <div class="contact-card" style="margin-top:1rem;">
           <strong style="font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:0.4rem;">Attendance</strong>
-          After registration, select your name from the attendance list during camp check-in each day.
+          On-site check-in opens on 13 July 2026 at 8:30 AM before the official 9:00 AM programme starts. Each person may check in once only.
         </div>
         <div class="info-card" style="margin-top:1rem; background: rgba(20,16,74,0.05); color: var(--navy);">
-          <h4 style="color: var(--rose);">Pre-registration Deadlines</h4>
+          <h4 style="color: var(--rose);">Check-In Reminder</h4>
           <ul class="info-list" style="color: var(--navy);">
-            <li style="border-color: rgba(20,16,74,0.08);"><strong style="color: var(--navy);">Participants</strong>5 July 2026</li>
-            <li style="border-color: rgba(20,16,74,0.08);"><strong style="color: var(--navy);">Facilitators & Trainers</strong>1 July 2026</li>
-            <li><strong style="color: var(--navy);">Judges & Organisers</strong>8 July 2026</li>
+            <li style="border-color: rgba(20,16,74,0.08);"><strong style="color: var(--navy);">On-site Opening</strong>13 July 2026 · 8:30 AM</li>
+            <li style="border-color: rgba(20,16,74,0.08);"><strong style="color: var(--navy);">Required</strong>Complete according to your role</li>
+            <li><strong style="color: var(--navy);">Support</strong>Refer to Help Desk if your details cannot be submitted</li>
           </ul>
         </div>
       </aside>
@@ -694,51 +775,49 @@
       <div style="border-top:1px solid rgba(255,255,255,.14);margin-top:34px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:rgba(255,255,255,.65);font-weight:700"><span>© 2026 CAMP21 Digital Hub.</span><span>Created and developed by Julie Marlina binti Hasan, Politeknik Port Dickson.</span></div>
     </div>
   </footer>
+<script>
+    // Quick Access dropdown close
+    document.addEventListener('click',e=>{const qa=document.querySelector('.quick-access');if(qa&&!qa.contains(e.target))qa.removeAttribute('open')});
+    document.querySelectorAll('.qa-link').forEach(a=>a.addEventListener('click',()=>{document.querySelector('.quick-access')?.removeAttribute('open')}));
+  </script>
 
   <script>
-    // Registration time gate — opens 13 July 2026 at 8:00 AM MYT
-    const REG_OPEN = new Date('2026-07-13T08:00:00+08:00').getTime();
 
-    function checkRegGate() {
-      const now = Date.now();
-      const gate = document.getElementById('regGate');
-      const hero = document.getElementById('regHero');
-      const tabs = document.getElementById('regTabs');
-      const body = document.getElementById('regBody');
+    const CHECKIN_LOCK_KEY = "camp21_on_site_checkin_completed";
 
-      if (now >= REG_OPEN) {
-        gate.style.display = 'none';
-        hero.style.display = '';
-        tabs.style.display = '';
-        body.style.display = '';
+    function enforceSingleCheckIn() {
+      const saved = localStorage.getItem(CHECKIN_LOCK_KEY);
+      const panel = document.getElementById('alreadyCheckedPanel');
+      const layout = document.querySelector('.reg-layout');
+      const meta = document.getElementById('checkedMeta');
+
+      if (!panel || !layout) return;
+
+      if (saved) {
+        try {
+          const data = JSON.parse(saved);
+          meta.textContent = `Checked in as ${data.role || 'CAMP21 member'} · ${data.fullName || 'Name recorded'} · ${data.time || ''}`;
+        } catch (e) {
+          meta.textContent = 'CAMP21 Check-In Confirmed';
+        }
+        panel.style.display = 'block';
+        layout.style.display = 'none';
       } else {
-        gate.style.display = 'flex';
-        hero.style.display = 'none';
-        tabs.style.display = 'none';
-        body.style.display = 'none';
-        updateCountdown(REG_OPEN - now);
+        panel.style.display = 'none';
+        layout.style.display = '';
       }
     }
 
-    function updateCountdown(diff) {
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-      const box = (val, label) => `<div style="background:rgba(255,255,255,.1);border-radius:14px;padding:16px 20px;min-width:70px"><div style="font-size:2rem;font-weight:900;color:#FFC83D">${val}</div><div style="font-size:.7rem;font-weight:900;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">${label}</div></div>`;
-      document.getElementById('countdown').innerHTML = box(d,'Days') + box(h,'Hours') + box(m,'Min') + box(s,'Sec');
+    function lockCheckIn(role, data) {
+      localStorage.setItem(CHECKIN_LOCK_KEY, JSON.stringify({
+        role: role.charAt(0).toUpperCase() + role.slice(1),
+        fullName: data.fullName || '',
+        email: data.email || '',
+        time: new Date().toLocaleString('en-MY')
+      }));
+      enforceSingleCheckIn();
     }
 
-    checkRegGate();
-    setInterval(checkRegGate, 1000);
-  </script>
-
-  <script>
-    // Quick Access dropdown close
-    document.addEventListener('click',e=>{const qa=document.querySelector('.quick-access');if(qa&&!qa.contains(e.target))qa.removeAttribute('open')});
-  </script>
-
-  <script>
     // ── GOOGLE APPS SCRIPT ENDPOINT ──
     // CAMP21 Master Registry endpoint
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzEz02OBBVcGCqjaa6Wk6mHcGt5FnSGVEJJUDKDqjTbVzGDVxN9-FXoe9GT7s7LOMo/exec";
@@ -773,6 +852,7 @@
       .then(() => {
         // no-cors returns opaque response — treat as success
         showSuccess(role, data);
+        lockCheckIn(role, data);
         btn.textContent = 'Submitted ✓';
       })
       .catch(err => {
