@@ -102,6 +102,21 @@ header .brand span,
 .footer-min-links a{color:rgba(255,255,255,.78);font-weight:700;text-decoration:none}
 .footer-min-links a:hover{color:#F05AA6}
 .footer-min-bottom{max-width:1440px;margin:34px auto 0;border-top:1px solid rgba(255,255,255,.14);padding-top:20px;color:rgba(255,255,255,.55);font-weight:600;font-size:.85rem}
+
+/* Footer brand matches header */
+.camp-footer .footer-brand{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;letter-spacing:-.01em;color:#fff}
+.camp-footer .footer-brand span{color:#F05AA6}
+
+/* === Collapsible resource panels === */
+.res-panel{margin:18px 0;background:var(--paper);border:1px solid var(--line);border-radius:28px;box-shadow:0 18px 44px rgba(32,16,62,.08);overflow:hidden}
+.res-panel>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;background:radial-gradient(circle at 92% 10%,rgba(240,90,166,.18),transparent 34%),linear-gradient(120deg,#20103E 0%,#2B1454 45%,#3B1D6D 100%);color:#fff}
+.res-panel>summary::-webkit-details-marker{display:none}
+.res-panel>summary h2{margin:0;font-family:var(--font-serif);font-size:1.7rem;line-height:1.05}
+.res-panel>summary p{margin:6px 0 0;color:rgba(255,255,255,.75);font-size:.92rem;font-weight:600}
+.res-chevron{font-size:1.2rem;transition:transform .25s;flex:0 0 auto}
+.res-panel[open] .res-chevron{transform:rotate(180deg)}
+.res-panel-body{padding:28px}
+@media(max-width:620px){.res-panel-body{padding:20px}.res-panel>summary h2{font-size:1.35rem}}
 </style>
 </head>
 <body>
@@ -150,7 +165,6 @@ header .brand span,
 </div></section>
 <img src="../assets/decors/gold-divider.png" class="gold-divider" alt="" style="display:block;width:min(400px,60%);height:auto;margin:28px auto;opacity:.5">
 <main class="wrap">
-<section class="schedule-master-note" aria-label="Programme tentative alignment note"><strong>Programme tentative alignment:</strong> The daily programme flow follows the detailed CAMP21 Programme Tentatives master schedule. Template references remain aligned with the agreed CAMP21 structure: T01–T13 Smart DT Process Templates and T14 Final Pitching Template.</section>
 
 
 
@@ -183,10 +197,11 @@ header .brand span,
 <a href="contacts.html">Help</a>
     </div>
   </section>
-<section class="s-gap" id="documentPackets">
+<details class="res-panel" id="documentPackets" open>
+<summary><div><h2>Authorized Document Packets</h2><p>Official rubrics, drive folders and the Smart DT workspace.</p></div><span class="res-chevron">⌄</span></summary>
+<div class="res-panel-body">
   <div class="res-layout">
     <div>
-      <div class="section-head"><h2>Authorized Document Packets</h2><p>These documents are officially approved for CAMP21 participants and faculty.</p></div>
       <div class="doc-list">
         <a class="doc-card" href="https://drive.google.com/drive/folders/1VuIoJBKhBlQUIxKZ4NkcuBI2Ss5XhAf3?usp=sharing" target="_blank" rel="noopener">
           <div class="doc-icon" style="background:var(--rose)">PDF</div>
@@ -220,17 +235,21 @@ header .brand span,
       </div>
     </aside>
   </div>
-</section>
+</div>
+</details>
 
-<section class="s-gap" id="phaseResourceSection">
-  <div style="background:#fff4da;border:1px solid #f4d98f;border-radius:18px;padding:20px 24px;margin-bottom:28px;color:#5c4520;font-weight:700;line-height:1.6">CAMP21 uses 14 templates in total: 13 Smart DT Process Templates (T01–T13) + 1 Final Pitching Template (T14). Templates T01–T13 guide participants through the Smart Design Thinking process, while T14 Final Pitching Template supports the final group presentation. The Final Pitch is assessed separately as 100% by Judges, while the TikTok Reflection Challenge is assessed separately as 100% by Trainers through three daily videos: Day 1 Empathy + Define, Day 2 Ideate + Prototype Plan, and Day 3 Prototype Outcome + Test & Reflect + Pitch Preparation.</div>
-  <div class="section-head"><h2>Phase Resources</h2><p>Templates and guides unlock automatically when each phase begins. Check back during camp for live access.</p></div>
+<details class="res-panel" id="phaseResourceSection">
+<summary><div><h2>Phase Resources · T01–T13</h2><p>Templates and Drive folders unlock automatically when each phase begins.</p></div><span class="res-chevron">⌄</span></summary>
+<div class="res-panel-body">
   <div style="background:#f7f3ff;border:1px solid rgba(88,58,174,.18);border-radius:18px;padding:18px 22px;margin-bottom:24px;color:#251052;font-weight:700;line-height:1.65">💡 <strong>Insight Checkpoint:</strong> The <strong>Define folder</strong> includes <strong>T06 User Insight & Needs Statement / Design Statement</strong>. This is the key bridge from empathy evidence to the final design challenge.</div>
   <div id="phaseResources"></div>
   <div style="display:flex;align-items:center;gap:12px;margin-top:16px;color:var(--muted);font-weight:700;font-size:.88rem"><span>🔒 Locked — not yet available</span><span style="margin-left:16px">🔓 Unlocked — phase is live or completed</span></div>
-</section>
+</div>
+</details>
 
-<section class="s-gap" id="templateSection">
+<details class="res-panel" id="templateSection">
+<summary><div><h2>Pitching Resource · T14</h2><p>Final Pitching Template and the 8-slide framework for Day 3–4.</p></div><span class="res-chevron">⌄</span></summary>
+<div class="res-panel-body">
   <div class="pitch-section">
     <div class="pitch-head">
       <h3>Pitching Resource</h3>
@@ -252,9 +271,12 @@ header .brand span,
       <span class="slide-pill">Slide 8: Call to Action & Closing</span>
     </div>
   </div>
-</section>
+</div>
+</details>
 
-<section class="s-gap" id="rubricSection">
+<details class="res-panel" id="rubricSection">
+<summary><div><h2>Evaluation Rubrics</h2><p>Final Pitch (Judges) and TikTok Reflection (Trainers) — two separate 100% scores.</p></div><span class="res-chevron">⌄</span></summary>
+<div class="res-panel-body">
   <div style="background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:32px;margin-bottom:2rem">
     <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px"><h3 style="font-family:var(--font-serif);font-size:1.8rem;margin:0">TikTok Reflection Challenge Rubric</h3><span style="display:inline-flex;background:var(--teal);color:var(--ink);border-radius:999px;padding:5px 14px;font-size:.68rem;font-weight:900;text-transform:uppercase">50 raw marks × 2 = 100%</span></div>
     <p style="color:#444;font-weight:600;line-height:1.6;margin:0 0 20px">Each team submits daily TikTok-style reflection videos for Day 1, Day 2 and Day 3. This is separate from Final Pitch 100%. Trainers evaluate 10 scoring criteria worth 5 marks each.</p>
@@ -271,8 +293,6 @@ header .brand span,
       <div style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;font-weight:800;font-size:.85rem"><strong style="color:var(--rose)">Day 3</strong><br>Prototype Outcome + Test & Reflect + Pitch Prep</div>
     </div>
   </div>
-</section>
-<section class="s-gap">
   <div style="background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:32px;margin-bottom:2rem">
     <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px"><h3 style="font-family:var(--font-serif);font-size:1.8rem;margin:0">Final Pitch Rubric</h3><span style="display:inline-flex;background:var(--violet);color:#fff;border-radius:999px;padding:5px 14px;font-size:.68rem;font-weight:900;text-transform:uppercase">50 raw marks × 2 = 100%</span></div>
     <p style="color:#444;font-weight:600;line-height:1.6;margin:0 0 20px">The Final Pitch is evaluated separately as 100% by Judges. Groups use T14 Final Pitching Template. Duration: 8–10 min + 3 min Q&amp;A. This is separate from TikTok 100%. Pitching uses 10 scoring criteria × 5 marks = 50 raw marks; Pitching Score = Raw Score × 2 = /100.</p>
@@ -285,8 +305,12 @@ header .brand span,
       <div style="display:grid;grid-template-columns:1fr auto;padding:14px 18px;background:var(--indigo);border-radius:14px;font-weight:900;color:#fff;align-items:center"><span>10 scoring criteria × 5 marks = 50 raw marks</span><span style="font-size:1.1rem">Raw × 2 = 100%</span></div>
     </div>
   </div>
-</section>
-<section class="s-gap">
+</div>
+</details>
+
+<details class="res-panel" id="guidesSection">
+<summary><div><h2>Mahjong Paper & Submission Guides</h2><p>Required physical outcomes per phase and what to submit, when and to whom.</p></div><span class="res-chevron">⌄</span></summary>
+<div class="res-panel-body">
   <div style="background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:32px;margin-bottom:2rem">
     <h3 style="font-family:var(--font-serif);font-size:1.8rem;margin:0 0 8px">Mahjong Paper Outcome Guide</h3>
     <p style="color:#726b82;font-weight:600;margin:0 0 18px;line-height:1.5">Mahjong Paper Outcomes are selected group activity outputs used for discussion, trainer review and pitch preparation.</p>
@@ -298,9 +322,8 @@ header .brand span,
       <div style="display:grid;grid-template-columns:120px 100px 1fr;gap:12px;padding:12px 16px;background:#fff;border-radius:14px;border:1px solid #e9dfd0;font-weight:800;font-size:.88rem"><span style="color:#F05AA6">Test</span><span style="color:#6B4DFF">T12</span><span>User Feedback Form</span></div>
     </div>
   </div>
-</section>
-<section class="s-gap">
-  <div style="background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:32px;margin-bottom:2rem">
+
+  <div style="background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:32px">
     <h3 style="font-family:var(--font-serif);font-size:1.8rem;margin:0 0 8px">Submission Guide</h3>
     <p style="color:#726b82;font-weight:600;margin:0 0 18px;line-height:1.5">What to submit, when and to whom.</p>
     <div style="display:grid;gap:8px">
@@ -312,7 +335,8 @@ header .brand span,
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;padding:14px 18px;background:#fff;border-radius:14px;border:1px solid #e9dfd0;font-weight:700;font-size:.88rem"><span>Prototype / Evidence Photos</span><span>Day 3–4</span><span>Display at Gallery Walk</span></div>
     </div>
   </div>
-</section>
+</div>
+</details>
 </main>
 
 <img src="../assets/decors/gold-divider.png" class="gold-divider" alt="" style="display:block;width:min(400px,60%);height:auto;margin:28px auto;opacity:.5">
@@ -399,6 +423,8 @@ renderPhaseResources();
 setInterval(renderPhaseResources,5*60*1000);
 
 document.addEventListener('click',e=>{const qa=document.querySelector('.quick-access');if(qa&&!qa.contains(e.target))qa.removeAttribute('open')});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{const d=document.querySelector(a.getAttribute('href'));if(d&&d.tagName==='DETAILS')d.open=true}));
+if(location.hash){const d=document.querySelector(location.hash);if(d&&d.tagName==='DETAILS')d.open=true}
 document.querySelectorAll('.qa-link').forEach(a=>a.addEventListener('click',()=>{document.querySelector('.quick-access').removeAttribute('open')}));
 </script>
 </body>
