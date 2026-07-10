@@ -40,10 +40,10 @@
       border-bottom: 1px solid var(--border); padding: 0.85rem 0;
     }
     .nav-wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .brand { display: flex; align-items: center; gap: 0.55rem; font-family: var(--font-serif); font-weight: 700; font-size: 1.5rem; color: var(--navy); letter-spacing: -0.01em; }
+    .brand { text-decoration: none; display: flex; align-items: center; gap: 0.55rem; font-family: var(--font-serif); font-weight: 700; font-size: 1.5rem; color: var(--navy); letter-spacing: -0.01em; }
     .brand-icon { width: 46px; height: 46px; border-radius: 50%; object-fit: contain; }
     .brand span { color: var(--rose); }
-    .nav-links { display: flex; gap: 1.6rem; align-items: center; }
+    .nav-links { display: flex !important; gap: 12px; align-items: center; flex-wrap: wrap; }
     .nav-links a { font-weight: 700; font-size: 0.9rem; color: var(--ink); transition: color 0.25s; }
     .nav-links a:hover { color: var(--rose); }
     .btn-nav { background: var(--rose); color: #fff !important; padding: 0.65rem 1.3rem; border-radius: 999px; font-weight: 900; font-size: 0.88rem; display: inline-flex; align-items: center; gap: 0.3rem; transition: background 0.25s, transform 0.25s; }
@@ -200,7 +200,7 @@
     /* ── FOOTER ── */
     footer { background: var(--navy); color: #fff; padding: 3.5rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.08); }
     .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 2.4rem; margin-bottom: 2.8rem; }
-    .footer-brand .brand { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; }
+    .footer-brand .brand { text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 0.8rem; }
     .footer-brand .brand span { color: var(--rose); }
     .footer-brand p { color: rgba(255,248,239,0.6); font-size: 0.9rem; line-height: 1.55; max-width: 240px; }
     .footer-col h4 { color: var(--gold); font-size: 0.75rem; font-weight: 900; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 1.1rem; }
@@ -223,8 +223,8 @@
       .footer-grid { grid-template-columns: repeat(2,1fr); }
     }
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .menu-btn { display: block; }
+      .nav-links { display: flex; flex-wrap: wrap; }
+      .menu-btn { display: none; }
       .qa-home{width:100%}.qa-h-drop{left:0!important;right:0!important;min-width:auto!important}
       .hero { padding: 6.5rem 0 3rem; }
       .portals-grid { grid-template-columns: 1fr; }
@@ -234,7 +234,44 @@
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
-  </style>
+  
+/* Heritage Decor */
+body::before{content:'';position:fixed;inset:0;z-index:-1;background:url('assets/decors/songket-pattern.png') repeat center/400px;opacity:.025;pointer-events:none}
+.camp-footer::before{content:'';position:absolute;top:-60px;right:40px;width:160px;height:160px;background:url('assets/decors/hibiscus-line-art.png') no-repeat center/contain;opacity:.08;pointer-events:none}
+@media(max-width:768px){body::before{background-size:250px}}
+  
+
+/* === CAMP21 VISUAL REFRESH: stronger hero visibility + cleaner section styling === */
+.gold-divider{display:none !important}
+.hero{position:relative;overflow:hidden}
+.hero::after{display:none !important}
+.quick-facts{position:relative;background:linear-gradient(180deg,#fffdf9 0%,#fff8ef 100%)!important}
+.quick-facts::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 10% 15%,rgba(255,200,61,.12),transparent 28%),radial-gradient(circle at 90% 85%,rgba(240,90,166,.10),transparent 24%);pointer-events:none}
+.programme{position:relative;background:linear-gradient(180deg,#fff8ef 0%,#ffffff 100%)!important}
+.programme::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,16,74,.03),transparent 32%);pointer-events:none}
+.framework{position:relative;background:linear-gradient(180deg,#ffffff 0%,#fff8ef 100%)!important}
+.framework::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 82% 10%,rgba(33,212,194,.10),transparent 24%);pointer-events:none}
+.cta-strip{position:relative;background:linear-gradient(180deg,#fff8ef 0%,#fffdf9 100%)!important}
+.cta-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 18% 50%,rgba(255,200,61,.09),transparent 26%);pointer-events:none}
+.pillars-section{position:relative;padding-top:3rem!important;padding-bottom:3rem!important;background:linear-gradient(180deg,#fffdf9 0%,#fff8ef 100%)!important}
+.pillars-section::before{content:'';position:absolute;inset:0;background:url('assets/decors/songket-pattern.png') center/360px repeat;opacity:.018;pointer-events:none}
+.logos{position:relative;background:linear-gradient(180deg,#14104a 0%,#201058 100%)!important}
+.logos::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 18%,rgba(255,200,61,.12),transparent 18%),radial-gradient(circle at 84% 24%,rgba(240,90,166,.10),transparent 20%);pointer-events:none}
+.logo-tile{border:0!important;box-shadow:0 18px 36px rgba(0,0,0,.18)!important}
+.hero-visual,.hero-copy,.hero-grid,.hero > .wide,.hero > *{position:relative;z-index:1}
+.hero-img-wrap{border:none!important;box-shadow:0 28px 60px rgba(20,16,74,.22)!important}
+
+
+/* === CAMP21 BRAND ROSE ALIGNMENT ===
+   Match header and footer CAMP 21 brand number with homepage rose.
+   Bright pink variable remains for phase colours only. */
+.topbar .brand span,
+header .brand span,
+.footer-brand span,
+.footer-brand .brand span,
+.camp-footer .brand span { color: #e23c74 !important; }
+
+</style>
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
@@ -281,10 +318,10 @@
           AI-Powered Design Thinking
         </div>
         <h1>CAMP21:<br><em>Synergising</em> Literacies 2026</h1>
-        <p class="hero-desc">A national creative experience where Politeknik Malaysia students explore Malaysian craft heritage, use AI with purpose, and design meaningful solutions at Kompleks Kraf Kuala Lumpur.</p>
+        <p class="hero-desc">A national creative experience where Politeknik Malaysia and Community Colleges students explore Malaysian craft heritage, use AI with purpose, and design meaningful solutions at Kompleks Kraf Kuala Lumpur.</p>
         <div class="hero-actions">
           <a href="pages/registration.html" class="btn-primary">Register now &rarr;</a>
-          <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener" class="btn-outline">Open Smart DT App &#8599;</a>
+          <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener" class="btn-outline">Open Smart DT Guide & Template Hub &#8599;</a>
         </div>
       </div>
       <div class="hero-visual reveal" style="transition-delay:0.15s;">
@@ -482,7 +519,7 @@
               <div class="dt-dot">03</div>
               <div class="dt-info">
                 <span class="dt-phase-name">Ideate</span>
-                <span class="dt-phase-sub">SCAMPER · Mind map · Concept sketch</span>
+                <span class="dt-phase-sub">SCAMPER · 3D Circle Challenge · Idea Prioritisation</span>
               </div>
             </div>
             <div class="dt-arrow">↓</div>
@@ -498,7 +535,7 @@
               <div class="dt-dot">05</div>
               <div class="dt-info">
                 <span class="dt-phase-name">Test</span>
-                <span class="dt-phase-sub">Feedback grid · Gallery walk · Final pitch</span>
+                <span class="dt-phase-sub">User Feedback Form · Improvement Plan · Final Pitch</span>
               </div>
             </div>
           </div>
@@ -521,14 +558,14 @@
               <span class="ai-chip-sub">AI transcription of artisan interview recordings</span>
             </div>
             <div class="ai-chip">
-              <span class="ai-chip-day">Day 2</span>
-              <span class="ai-chip-label">T06 — User Insight &amp; Needs Statement</span>
+              <span class="ai-chip-day">Day 1</span>
+              <span class="ai-chip-label">T06 — User Insight, Needs &amp; Design Statement</span>
               <span class="ai-chip-sub">Synthesising findings into actionable insights</span>
             </div>
             <div class="ai-chip">
-              <span class="ai-chip-day">Day 3</span>
-              <span class="ai-chip-label">T07 — Ideation &amp; Mind Map</span>
-              <span class="ai-chip-sub">AI-assisted idea branching from design challenge</span>
+              <span class="ai-chip-day">Day 2</span>
+              <span class="ai-chip-label">T07 — 3D Circle Challenge</span>
+              <span class="ai-chip-sub">Creative idea generation from design challenge</span>
             </div>
           </div>
         </div>
@@ -548,12 +585,7 @@
               </div>
             </div>
             <div class="sdg-row">
-              <div class="sdg-badge" style="background:#FD6925;"><span class="sdg-badge-num">9</span></div>
-              <div class="sdg-row-text">
-                <span class="sdg-row-emoji">⚙️</span>
-                <span class="sdg-row-name">SDG 9</span>
-                <span class="sdg-row-sub">Industry &amp; Innovation</span>
-              </div>
+              <div class="sdg-badge" style="background:#DD1367;"><span class="sdg-badge-num">17</span></div>
             </div>
             <div class="sdg-row">
               <div class="sdg-badge" style="background:#FD9D24;"><span class="sdg-badge-num">11</span></div>
@@ -601,7 +633,7 @@
         <div class="cta-box-left">
           <p class="cta-eyebrow">Start here</p>
           <h2>Ready for CAMP21?</h2>
-          <p>Register, check your role portal, and use the Smart DT App as your main guide throughout the programme.</p>
+          <p>Register, check your role portal, and use the Smart DT Guide & Template Hub as your main guide throughout the programme.</p>
         </div>
         <a href="pages/registration.html" class="btn-primary">Register now &rarr;</a>
       </div>
@@ -642,6 +674,7 @@
   </section>
 
   <!-- FOOTER -->
+  <img src="assets/decors/gold-divider.png" class="gold-divider" alt="" style="display:block;width:min(400px,60%);height:auto;margin:28px auto;opacity:.5">
   <footer>
     <div class="wide">
       <div class="footer-grid">
@@ -671,7 +704,7 @@
         <div class="footer-col">
           <h4>Support</h4>
           <ul>
-            <li><a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT App ↗</a></li>
+            <li><a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT Guide & Template Hub ↗</a></li>
             <li><a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener">Telegram Community ↗</a></li>
             <li><a href="pages/contacts.html">Help Desk</a></li>
           </ul>
@@ -690,12 +723,7 @@
     }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    menuBtn.addEventListener('click', () => {
-      const open = navLinks.style.display === 'flex';
-      navLinks.style.cssText = open ? '' : 'display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:var(--cream);padding:1.5rem 2rem;gap:1rem;z-index:99;box-shadow:0 12px 30px rgba(20,16,74,0.12);';
-    });
+    
     // Quick Access dropdown close on outside click
     document.addEventListener('click',e=>{const qa=document.querySelector('.qa-home');if(qa&&!qa.contains(e.target))qa.removeAttribute('open')});
   </script>
