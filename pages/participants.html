@@ -152,285 +152,229 @@ header .brand span,
 .footer-brand .brand span,
 .camp-footer .brand span { color: #e23c74 !important; }
 
-</style>
-</head>
-<body>
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="../index.html"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
-    <nav class="nav-actions" aria-label="Primary">
-      <a class="nav-pill" href="programme.html">📅 Programme</a>
-      <a class="nav-pill" href="resources.html">📚 Resources</a>
-      <a class="nav-pill" href="updates.html">📢 Live Updates</a>
-      <details class="quick-access">
-        <summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
-        <div class="qa-dropdown">
-          <div class="qa-group">
-            <span class="qa-label">Role & Operations</span>
-            <a class="qa-link" href="participants.html">👥 Participants</a>
-            <a class="qa-link" href="trainers.html">🧑‍🏫 Trainers</a>
-            <a class="qa-link" href="facilitators.html">🤝 Facilitators</a>
-            <a class="qa-link" href="judges.html">⚖️ Judges</a>
-            <a class="qa-link" href="organiser.html">🗂️ Organiser</a>
-            <a class="qa-link" href="registration.html">📋 Registration</a>
-            <a class="qa-link" href="scan.html">🎥 Scan / QR</a>
-            <a class="qa-link" href="contacts.html">📞 Help Desk</a>
+
+
+/* === CAMP21 CLEAN PARTICIPANTS DASHBOARD === */
+.student-dashboard{max-width:1440px;margin:auto;padding:42px 28px 80px}
+.student-quick-hero{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:stretch;margin-bottom:28px}
+.student-hero-card{border-radius:28px;padding:30px;background:linear-gradient(135deg,#20103E,#4d2aa6);color:#fff;box-shadow:0 22px 55px rgba(32,16,62,.18);position:relative;overflow:hidden}
+.student-hero-card::after{content:'';position:absolute;right:-70px;bottom:-90px;width:240px;height:240px;border-radius:50%;background:rgba(217,175,55,.18)}
+.student-kicker{display:inline-flex;padding:8px 14px;border-radius:999px;background:rgba(217,175,55,.17);border:1px solid rgba(217,175,55,.45);color:#FFE38A;font-size:.74rem;font-weight:1000;letter-spacing:.1em;text-transform:uppercase}
+.student-hero-card h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3.4rem);line-height:1;margin:18px 0 12px;color:#fff}
+.student-hero-card p{max-width:680px;color:rgba(255,255,255,.86);line-height:1.6;font-weight:650;margin:0}
+.student-hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.student-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:999px;background:#fff;color:#20103E;font-weight:1000;border:1px solid rgba(255,255,255,.25);box-shadow:0 10px 22px rgba(0,0,0,.10)}
+.student-btn.secondary{background:rgba(255,255,255,.12);color:#fff}
+.today-card{border-radius:28px;padding:24px;background:#fffdf9;border:1px solid rgba(217,175,55,.35);box-shadow:0 18px 40px rgba(32,16,62,.08)}
+.today-card h3{margin:0 0 14px;font-size:1.25rem;color:#20103E}
+.today-list{display:grid;gap:10px}
+.today-item{display:grid;grid-template-columns:42px 1fr;gap:12px;align-items:start;padding:12px;border-radius:18px;background:#fff8ef;border:1px solid rgba(32,16,62,.08)}
+.today-icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:#20103E;color:#FFC83D;font-size:1.15rem}
+.today-item b{display:block;color:#20103E;margin-bottom:2px;font-size:.94rem}
+.today-item span{display:block;color:#6d6376;font-size:.84rem;line-height:1.4;font-weight:650}
+.section-mini-head{display:flex;align-items:end;justify-content
+<main class="student-dashboard">
+
+  <section class="student-quick-hero" aria-label="Participants dashboard overview">
+    <div class="student-hero-card">
+      <span class="student-kicker">Participants Hub</span>
+      <h2>Your CAMP21 Student Dashboard</h2>
+      <p>Use this page to know what to complete each day: templates, TikTok reflection, final pitch preparation and team support.</p>
+      <div class="student-hero-actions">
+        <a class="student-btn" href="resources.html">📚 Open Templates</a>
+        <a class="student-btn secondary" href="programme.html">📅 View Programme</a>
+        <a class="student-btn secondary" href="contacts.html">📞 Get Help</a>
+      </div>
+    </div>
+
+    <aside class="today-card" aria-label="Quick actions">
+      <h3>Start Here</h3>
+      <div class="today-list">
+        <div class="today-item"><div class="today-icon">1</div><div><b>Check your day task</b><span>Follow the 4-day journey below.</span></div></div>
+        <div class="today-item"><div class="today-icon">2</div><div><b>Complete templates</b><span>Use Smart DT Guide & Template Hub as your working space.</span></div></div>
+        <div class="today-item"><div class="today-icon">3</div><div><b>Record reflection</b><span>Prepare daily TikTok reflection for Day 1, Day 2 and Day 3.</span></div></div>
+        <div class="today-item"><div class="today-icon">4</div><div><b>Prepare final pitch</b><span>Use evidence from templates, prototype and user feedback.</span></div></div>
+      </div>
+    </aside>
+  </section>
+
+  <section aria-label="Four day student journey">
+    <div class="section-mini-head">
+      <div>
+        <h2>4-Day Student Journey</h2>
+        <p>Simple daily checklist for participants. Detailed tentative schedule is available on the Programme page.</p>
+      </div>
+    </div>
+    <div class="day-journey-grid">
+      <article class="day-card" data-day="01">
+        <span class="day-pill">Day 1 · Empathise & Define</span>
+        <h3>Discover the user problem</h3>
+        <ul>
+          <li>Complete T01–T06</li>
+          <li>Build empathy evidence</li>
+          <li>Record Day 1 TikTok</li>
+        </ul>
+      </article>
+      <article class="day-card" data-day="02">
+        <span class="day-pill">Day 2 · Ideate</span>
+        <h3>Generate and select ideas</h3>
+        <ul>
+          <li>Complete T07–T10</li>
+          <li>Get T10 trainer sign-off</li>
+          <li>Record Day 2 TikTok</li>
+        </ul>
+      </article>
+      <article class="day-card" data-day="03">
+        <span class="day-pill">Day 3 · Prototype & Test</span>
+        <h3>Build, test and improve</h3>
+        <ul>
+          <li>Complete T11–T13</li>
+          <li>Draft T14 pitch</li>
+          <li>Record Day 3 TikTok</li>
+        </ul>
+      </article>
+      <article class="day-card" data-day="04">
+        <span class="day-pill">Day 4 · Pitch</span>
+        <h3>Present your final solution</h3>
+        <ul>
+          <li>Final pitch presentation</li>
+          <li>Prototype showcase</li>
+          <li>Q&A with judges</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="dashboard-grid" aria-label="Templates and scores">
+    <div>
+      <div class="section-mini-head">
+        <div>
+          <h2>Templates to Complete</h2>
+          <p>Keep this list short and practical. Open Resources for full template links.</p>
+        </div>
+      </div>
+      <div class="clean-panel">
+        <div class="clean-panel-head">
+          <h3>Smart DT Process Templates</h3>
+          <p>T01–T13 support your design thinking process. T14 supports the final pitch.</p>
+        </div>
+        <div class="clean-panel-body">
+          <div class="template-compact">
+            <div class="template-chip"><span>T01</span>Observation Framework</div>
+            <div class="template-chip"><span>T02</span>Interview Guide</div>
+            <div class="template-chip"><span>T03</span>Audio-to-Text</div>
+            <div class="template-chip"><span>T04</span>Empathy Map</div>
+            <div class="template-chip"><span>T05</span>User Persona</div>
+            <div class="template-chip"><span>T06</span>Insight & Needs Statement</div>
+            <div class="template-chip"><span>T07</span>3D Circle Challenge</div>
+            <div class="template-chip"><span>T08</span>SCAMPER</div>
+            <div class="template-chip"><span>T09</span>Idea Matrix</div>
+            <div class="template-chip"><span>T10</span>Prototype Direction</div>
+            <div class="template-chip"><span>T11</span>Prototype Outcome</div>
+            <div class="template-chip"><span>T12</span>User Feedback</div>
+            <div class="template-chip"><span>T13</span>Improvement Plan</div>
+            <div class="template-chip"><span>T14</span>Final Pitch</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-mini-head">
+        <div>
+          <h2>Final Evaluation</h2>
+          <p>Participant version only. Full rubrics are on the Resources and Judges pages.</p>
+        </div>
+      </div>
+      <div class="clean-panel">
+        <div class="clean-panel-head">
+          <h3>What will be evaluated?</h3>
+          <p>Prepare both components seriously.</p>
+        </div>
+        <div class="clean-panel-body">
+          <div class="simple-score">
+            <div class="score-box"><b>100%</b><span>Final Pitch</span><small>10 criteria × 5 marks = 50 raw × 2</small></div>
+            <div class="score-box"><b>100%</b><span>TikTok Reflection</span><small>10 criteria × 5 marks = 50 raw × 2</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Details accordion">
+    <div class="section-mini-head">
+      <div>
+        <h2>Details When You Need Them</h2>
+        <p>Open only the section you need. This keeps the page simple during the programme.</p>
+      </div>
+    </div>
+
+    <div class="accordion-wrap">
+      <details class="student-accordion">
+        <summary>🎥 TikTok Reflection Challenge</summary>
+        <div class="accordion-content">
+          <p>Record one short group reflection video at the end of Day 1, Day 2 and Day 3.</p>
+          <ul>
+            <li>Day 1: Empathise + Define</li>
+            <li>Day 2: Ideate + Prototype Direction</li>
+            <li>Day 3: Prototype Outcome + Test & Reflect + Pitch Preparation</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="student-accordion">
+        <summary>🎤 Final Pitch Guide</summary>
+        <div class="accordion-content">
+          <p>Use T14 to prepare a clear 8–10 minute pitch with prototype evidence and confident Q&A.</p>
+          <div class="pitch-slides">
+            <span>1. Opening</span>
+            <span>2. User Problem</span>
+            <span>3. Evidence</span>
+            <span>4. Idea</span>
+            <span>5. Prototype</span>
+            <span>6. Feedback</span>
+            <span>7. Impact</span>
+            <span>8. Closing</span>
           </div>
         </div>
       </details>
-    </nav>
-  </div>
-</header>
 
-<section class="hero">
-  <div class="hero-inner">
+      <details class="student-accordion">
+        <summary>🏅 Badge Tracker</summary>
+        <div class="accordion-content">
+          <ul>
+            <li>Empathy Explorer: T01–T04 complete</li>
+            <li>Insight Builder: T05–T06 complete</li>
+            <li>Idea Innovator: T07–T09 complete</li>
+            <li>Prototype Maker: T10–T11 complete</li>
+            <li>Feedback Champion: T12–T13 complete</li>
+            <li>Pitch Ready: T14 complete</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="student-accordion">
+        <summary>👥 Team Roster</summary>
+        <div class="accordion-content">
+          <p>Check your group name, team members and team role assignment through the organiser / Smart DT Hub. Ask facilitators if your group information is missing.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="help-strip" aria-label="Help and support">
     <div>
-      <span class="eyebrow">Innovator Hub</span>
-      <h1>Participants<br>Live Workspace</h1>
-      <p>Track each team's Smart DT Guide progress from Empathy to Pitch, including template submissions, phase badges, daily TikTok reflection challenge and final evaluation readiness.</p>
+      <h3>Need help during CAMP21?</h3>
+      <p>Ask your facilitator first, then refer to Resources, Programme or Help Desk.</p>
     </div>
-    <div class="stats">
-      <div class="stat-card"><b>10</b><span>Teams</span></div>
-      <div class="stat-card"><b>14</b><span>Templates</span></div>
-      <div class="stat-card"><b>5</b><span>DT Phases</span></div>
-      <div class="stat-card"><b>1</b><span>Final Pitch</span></div>
-    </div>
-  </div>
-</section>
-<img src="../assets/decors/gold-divider.png" class="gold-divider" alt="" style="display:block;width:min(400px,60%);height:auto;margin:28px auto;opacity:.5">
-<main class="wrap">
-<section class="schedule-master-note" aria-label="Programme tentative alignment note"><strong>Programme tentative alignment:</strong> The daily programme flow follows the detailed CAMP21 Programme Tentatives master schedule. Template references remain aligned with the agreed CAMP21 structure: T01–T13 Smart DT Process Templates and T14 Final Pitching Template.</section>
-
-  
-
-  <!-- CAMP21 HUB UPGRADE: HOW TO USE THIS HUB -->
-  <section class="hub-use-guide" id="how-to-use-this-hub" aria-label="How to use this hub">
-    <div class="hub-guide-head">
-      <div>
-        <span class="hub-guide-kicker">How to Use This Hub</span>
-        <h2>Navigate Participants Hub Smoothly</h2>
-        <p>This hub is designed to help you navigate CAMP21 smoothly. Start by reviewing the page overview, then use the quick sections below to access schedules, roles, templates, rubrics, updates and support information relevant to your role.</p>
-      </div>
-      <div class="hub-guide-badge"><b>GUIDE</b><span>Quick Start</span></div>
-    </div>
-    <div class="hub-guide-grid">
-      <article class="hub-guide-card" data-step="1"><h3>Start with schedule</h3><p>Confirm the daily CAMP21 flow and identify which DT phase your team is working on.</p></article>
-<article class="hub-guide-card" data-step="2"><h3>Open templates</h3><p>Use T01-T13 as Smart DT Process Templates and T14 as the Final Pitching Template.</p></article>
-<article class="hub-guide-card" data-step="3"><h3>Track submissions</h3><p>Check template progress, TikTok tasks and pitch readiness before each deadline.</p></article>
-<article class="hub-guide-card" data-step="4"><h3>Ask for help</h3><p>Use Help Desk, trainers and facilitators when your team is stuck or needs clarification.</p></article>
-    </div>
-    <div class="hub-guide-focus">
-      <div class="focus-icon">★</div>
-      <div><h3>Page Focus</h3><p>Check schedule, templates, submission flow, TikTok Reflection requirements and final pitch preparation from one participant-friendly workspace.</p></div>
-    </div>
-    <div class="hub-quick-map" aria-label="Quick links for this hub">
-      <a href="#student-action-checklist">Schedule</a>
-<a href="#template-submission">Templates</a>
-<a href="#tiktok-reflection">TikTok</a>
-<a href="#final-pitch-requirement">Pitch</a>
-<a href="contacts.html">Help</a>
-    </div>
-  </section>
-<section class="control-panel" aria-label="Pre-event status">
-    <div class="control-card"><div class="label">Programme Mode</div><div class="value status-waiting"><span class="status-dot"></span>Pre-Event</div></div>
-    <div class="control-card"><div class="label">Activation Date</div><div class="value">13/07/2026</div></div>
-    <div class="control-card"><div class="label">Template Progress</div><div class="value">0 / 14</div></div>
-    <div class="control-card"><div class="label">Team Status</div><div class="value">Not Started</div></div>
-  </section>
-
-
-  <section class="student-action-journey" aria-label="Student action alert">
-    <div class="action-journey-head">
-      <div>
-        <span class="action-kicker">Student Action Alert</span>
-        <h2>Your CAMP21 Action Journey</h2>
-        <p>Use these quick cards as your daily checklist before opening the detailed trackers below.</p>
-      </div>
-      <div class="action-alert-note">Final Pitch = 50×2 · TikTok = 50×2</div>
-    </div>
-
-    <div class="action-card-grid">
-      <article class="action-card" data-day="1">
-        <span class="action-pill">Day 1 · 13 Jul</span>
-        <h3>Empathise &amp; Define</h3>
-        <ul>
-          <li>Complete T01–T06</li>
-          <li>Prepare Day 1 TikTok Reflection</li>
-          <li>Keep interview and empathy evidence clear</li>
-        </ul>
-      </article>
-      <article class="action-card" data-day="2">
-        <span class="action-pill">Day 2 · 14 Jul</span>
-        <h3>Ideate &amp; Prototype Plan</h3>
-        <ul>
-          <li>Complete T07–T10</li>
-          <li>Prepare Day 2 TikTok Reflection</li>
-          <li>Finalise prototype direction</li>
-        </ul>
-      </article>
-      <article class="action-card" data-day="3">
-        <span class="action-pill">Day 3 · 15 Jul</span>
-        <h3>Prototype, Test &amp; Pitch Prep</h3>
-        <ul>
-          <li>Complete T11–T13 and draft T14</li>
-          <li>Prepare Day 3 TikTok Reflection</li>
-          <li>Finalise prototype, feedback and pitch evidence</li>
-        </ul>
-      </article>
-      <article class="action-card" data-day="4">
-        <span class="action-pill">Day 4 · 16 Jul</span>
-        <h3>Pitch &amp; Impact</h3>
-        <ul>
-          <li>Present Final Pitch</li>
-          <li>Prepare for Q&amp;A</li>
-          <li>Ensure all materials are ready</li>
-        </ul>
-      </article>
+    <div class="student-hero-actions" style="margin:0">
+      <a class="student-btn" href="resources.html">Open Resources</a>
+      <a class="student-btn secondary" href="contacts.html">Help Desk</a>
     </div>
   </section>
 
-  <nav class="quick-jump" aria-label="Quick page links">
-    <a href="#template-submission">📋 Template Tracker</a>
-    <a href="#tiktok-reflection">🎥 TikTok Reflection Challenge</a>
-    <a href="#final-pitch-requirement">🎤 Final Pitch Guide</a>
-    <a href="#evaluation-overview">📊 Marks Overview</a>
-  </nav>
-
-
-  <details class="section" id="student-action-checklist" open>
-    <summary>
-      <div class="summary-left"><div class="section-icon">✅</div><div><h2>Student Action Checklist</h2><p class="section-sub">Use this checklist to confirm what your team must complete, submit and prepare during CAMP21.</p></div></div>
-      <div class="chev">⌄</div>
-    </summary>
-    <div class="section-body">
-      <div class="checklist-grid">
-        <div class="checklist-item"><span class="checklist-tick">1</span><div><strong>SMART DT Template Submission</strong><br>All team work progress by day, phase and template. All indicators remain Not Started until 13 July 2026.</div></div>
-        <div class="checklist-item"><span class="checklist-tick">2</span><div><strong>DT Phase Badge Tracker</strong><br>Track team milestone badges from Empathy to Final Pitch. Badges unlock when required templates are completed.</div></div>
-        <div class="checklist-item"><span class="checklist-tick">3</span><div><strong>TikTok Reflection Challenge</strong><br>Daily team reflection challenge linked to completed work for Day 1, Day 2 and Day 3.</div></div>
-        <div class="checklist-item"><span class="checklist-tick">4</span><div><strong>Final Pitch Requirement &amp; 8-Slide Guide</strong><br>Prepare your Day 4 presentation using your Smart DT evidence, prototype outcome and testing feedback.</div></div>
-        <div class="checklist-item"><span class="checklist-tick">5</span><div><strong>Full Marks Overview — Please Read Before Submission</strong><br>Important scoring information for participants. Final Pitch and TikTok Reflection Challenge are separate 100% evaluations.</div></div>
-      </div>
-      <div class="checklist-note">Reminder: Use the section order below as your main CAMP21 participation flow. TikTok Reflection Challenge and Final Pitch are two separate assessment components. Each has its own 100% rubric.</div>
-    </div>
-  </details>
-  <details class="section" id="template-submission" open>
-    <summary>
-      <div class="summary-left"><div class="section-icon">📋</div><div><h2>SMART DT Template Submission</h2><p class="section-sub">All team work progress by day, phase and template. All indicators remain Not Started until 13 July 2026.</p></div></div>
-      <div class="chev">⌄</div>
-    </summary>
-    <div class="section-body">
-      <div class="info-note">Students can refer to this section to see exactly what work must be completed each day. Mahjong paper activities are included under the relevant phase.</div>
-      <div class="tabs" data-tab-group="templates">
-        <button class="tab-btn active" data-tab="day1">Day 1 · Empathy & Define</button>
-        <button class="tab-btn" data-tab="day2ideate">Day 2 · Ideate & Prototype</button>
-        <button class="tab-btn" data-tab="day3submission">Day 3 · Prototype Outcome, Test & Pitch</button>
-        <button class="tab-btn" data-tab="allteams">All 10 Teams Tracker</button>
-      </div>
-
-      <div class="tab-panel active" data-panel="day1">
-        <p class="day-merge-note">Day 1 shows the two starting phases together so participants can track morning and afternoon work without jumping page by page.</p>
-        <div class="phase-card-grid">
-          <article class="phase-info"><div class="phase-head phase-empathy"><div><div class="phase-time">Day 1 AM</div><div class="phase-title">Empathy</div></div><div class="phase-count">0/4</div></div><div class="phase-body"><div class="template-list" id="list-empathy"></div><div class="activity-box"><span>Activity:</span> Mahjong Paper – T04 Empathy Map</div></div></article>
-          <article class="phase-info"><div class="phase-head phase-define"><div><div class="phase-time">Day 1 PM</div><div class="phase-title">Define</div></div><div class="phase-count">0/2</div></div><div class="phase-body"><div class="template-list" id="list-define"></div><div class="activity-box"><span>Activity:</span> Mahjong Paper – T05 User Persona + T06 User Insight & Needs Statement / Design Statement</div></div></article>
-        </div>
-      </div>
-
-      <div class="tab-panel" data-panel="day2ideate">
-        <p class="day-merge-note">Day 2 is focused on idea generation, selection and prototype direction. Teams complete the creativity warm-up, expand ideas using SCAMPER, choose the strongest idea, then plan the prototype format, tools, materials, features and roles before building.</p>
-        <div class="phase-card-grid phase-grid-2col">
-          <article class="phase-info"><div class="phase-head phase-ideate"><div><div class="phase-time">Day 2</div><div class="phase-title">Ideate</div></div><div class="phase-count">0/3</div></div><div class="phase-body"><div class="template-list" id="list-ideate"></div><div class="activity-box"><span>Activity:</span> Mahjong Paper – T08 SCAMPER & T09 Idea Prioritisation Matrix</div></div></article>
-          <article class="phase-info"><div class="phase-head phase-prototype"><div><div class="phase-time">Day 2</div><div class="phase-title">Prototype</div></div><div class="phase-count">0/1</div></div><div class="phase-body"><div class="template-list" id="list-prototype-plan"></div><div class="activity-box"><span>Activity:</span> Prototype Direction Planning before full build begins</div></div></article>
-        </div>
-      </div>
-
-      <div class="tab-panel" data-panel="day3submission">
-        <p class="day-merge-note">Day 3 submission flow: complete the full prototype outcome, collect feedback, plan improvements and prepare the pitch deck before 10.00 PM.</p>
-        <div class="phase-card-grid phase-grid-3col">
-          <article class="phase-info"><div class="phase-head phase-prototype"><div><div class="phase-time">Day 3</div><div class="phase-title">Prototype Outcome</div></div><div class="phase-count">0/1</div></div><div class="phase-body"><div class="template-list" id="list-prototype-outcome"></div><div class="activity-box"><span>Activity:</span> Mahjong Paper / Canva – full prototype outcome for T11</div></div></article>
-          <article class="phase-info"><div class="phase-head phase-test"><div><div class="phase-time">Day 3</div><div class="phase-title">Test</div></div><div class="phase-count">0/2</div></div><div class="phase-body"><div class="template-list" id="list-test"></div><div class="activity-box"><span>Activity:</span> Mahjong Paper – User Feedback Form</div></div></article>
-          <article class="phase-info"><div class="phase-head phase-pitch"><div><div class="phase-time">Day 3</div><div class="phase-title">Pitch</div></div><div class="phase-count">0/1</div></div><div class="phase-body"><div class="template-list" id="list-pitch"></div><div class="activity-box"><span>Activity:</span> 8-Slide Pitch Presentation + Q&A readiness before 10.00 PM</div></div></article>
-        </div>
-      </div>
-
-      <div class="tab-panel" data-panel="allteams">
-        <div class="info-note">All 10 teams are listed here. This is the main tracker for organisers, trainers and participants to see what has not been completed yet.</div>
-        <div class="table-scroll"><table class="progress-table" id="team-template-table"><thead><tr><th>Team</th><th>Day 1<br>Empathy 0/4</th><th>Day 1<br>Define 0/2</th><th>Day 2<br>Ideate 0/3</th><th>Day 2–3<br>Prototype 0/2</th><th>Day 3<br>Test 0/2</th><th>Day 3<br>Pitch 0/1</th><th>Total<br>0/14</th><th>Need To Do</th></tr></thead><tbody></tbody></table></div>
-        <p class="section-clean-note">Status will remain Not Started until live activation on 13 July 2026.</p>
-      </div>
-    </div>
-  </details>
-  <details class="section" id="badges-completion">
-    <summary>
-      <div class="summary-left"><div class="section-icon">🏅</div><div><h2>DT Phase Badge Tracker</h2><p class="section-sub">Track team milestone badges from Empathy to Final Pitch. Badges unlock when required templates are completed.</p></div></div>
-      <div class="chev">⌄</div>
-    </summary>
-    <div class="section-body">
-      <div class="info-note">Badges help teams monitor milestone completion. They show which DT phase evidence has been completed and which tasks are still locked before programme activation.</div>
-      <div class="badge-grid" id="badge-grid"></div>
-      <div class="table-scroll"><table class="progress-table badge-team-table" id="badge-table"><thead><tr><th>Team</th><th>DT Explorer</th><th>Empathy Champion</th><th>Problem Framer</th><th>Idea Generator</th><th>Prototype Builder</th><th>User Tester</th><th>Pitch Presenter</th><th>Full Completion</th><th>Total</th></tr></thead><tbody></tbody></table></div>
-    </div>
-  </details>
-  <details class="section" id="tiktok-reflection">
-    <summary>
-      <div class="summary-left"><div class="section-icon">🎥</div><div><h2>TikTok Reflection Challenge</h2><p class="section-sub">Daily team reflection challenge linked to completed work for Day 1, Day 2 and Day 3.</p></div></div>
-      <div class="chev">⌄</div>
-    </summary>
-    <div class="section-body">
-      <div class="tiktok-brief">
-        <div class="tiktok-brief-head">
-          <div>
-            <span class="tiktok-kicker">🎥 Daily Team Challenge</span>
-            <h3>TikTok Reflection Format</h3>
-            <p>Each team creates one short reflection video for Day 1, Day 2 and Day 3. The video should clearly show the team’s Design Thinking progress, key learning and completed evidence for the day.</p>
-          </div>
-          <div class="tiktok-score-badge"><b>100%</b><span>TikTok Reflection Challenge</span></div>
-        </div>
-
-        <div class="tiktok-info-grid">
-          <div class="tiktok-info-card"><div class="mini-label">Duration</div><strong>1–3 minutes per video</strong></div>
-          <div class="tiktok-info-card"><div class="mini-label">Video Size</div><strong>Vertical TikTok format · 9:16</strong></div>
-          <div class="tiktok-info-card"><div class="mini-label">Language</div><strong>English or bilingual English–Malay</strong></div>
-          <div class="tiktok-info-card"><div class="mini-label">Style</div><strong>Creative, clear, respectful and educational</strong></div>
-          <div class="tiktok-info-card"><div class="mini-label">Submission</div><strong>Upload the TikTok video link through the official submission platform</strong></div>
-          <div class="tiktok-info-card"><div class="mini-label">Daily Output</div><strong>Day 1 + Day 2 + Day 3 reflection videos</strong></div>
-        </div>
-
-        <div class="hashtag-row" aria-label="Official TikTok hashtags">
-          <span>#CAMP21</span><span>#SmartDT</span><span>#HeritageInnovation</span><span>#DesignThinking</span><span>#PoliteknikMalaysia</span>
-        </div>
-
-        <div class="tiktok-steps" style="margin-top:18px">
-          <div class="tiktok-panel">
-            <h4>Suggested Video Structure</h4>
-            <ol class="tiktok-step-list">
-              <li><span>1</span><div>Introduce team name and daily focus.</div></li>
-              <li><span>2</span><div>Show short clips of team discussion, activity or prototype work.</div></li>
-              <li><span>3</span><div>Explain the main insight, idea or learning of the day.</div></li>
-              <li><span>4</span><div>Show evidence of completed templates or prototype progress.</div></li>
-              <li><span>5</span><div>End with one reflection: “Today, our team learned that…”</div></li>
-            </ol>
-          </div>
-          <div class="tiktok-panel tiktok-reminder">
-            <h4>Recording Reminder</h4>
-            <p>Please record respectfully. Get permission before recording faces, interviews, artisans or public activities. Avoid inappropriate music, captions or content.</p>
-          </div>
-        </div>
-      </div>
-      <div class="reflection-card-grid">
-        <article class="reflection-card"><h3>Day 1 Reflection</h3><p>Focus: Empathy + Define. Teams reflect on observation framework, interview insights, empathy map and problem direction.</p><span class="pill waiting">Waiting · T01–T06</span></article>
-        <article class="reflection-card"><h3>Day 2 Reflection</h3><p>Focus: Ideate + Prototype planning. Teams reflect on 3D Circle Challenge, SCAMPER, Idea Prioritisation Matrix and prototype direction.</p><span class="pill waiting">Waiting · T07–T10</span></article>
-        <article class="reflection-card"><h3>Day 3 Reflection</h3><p>Focus: Prototype outcome, testing + pitch preparation. Teams reflect on full prototype, feedback capture, improvement plan and pitch preparation.</p><span class="pill waiting">Waiting · T11–T13 + T14 Draft</span></article>
-      </div>
-      <div class="table-scroll"><table class="progress-table" id="tiktok-table"><thead><tr><th>Team</th><th>Day 1 Reflection<br>Empathy & Define</th><th>Day 2 Reflection<br>Ideate & Prototype</th><th>Day 3 Reflection<br>Test & Reflect & Pitch</th><th>Total</th><th>Need To Do</th></tr></thead><tbody></tbody></table></div>
-    </div>
-  </details>
-  <details class="section" id="final-pitch-requirement">
-    <summary>
-      <div class="summary-left"><div class="section-icon">🎤</div><div><h2>Final Pitch Requirement &amp; 8-Slide Guide</h2><p class="section-sub">Prepare your Day 4 presentation using your Smart DT evidence, prototype outcome and testing feedback.</p></div></div>
-      <div class="chev">⌄</div>
-    </summary>
-    <div class="section-body">
-      <div class="final-pitch-alert" id="final-pitch-alert">
+</main>
+-alert">
         <div class="pitch-alert-head">
           <div>
             <span class="pitch-kicker">🎤 Final Pitch Alert</span>
