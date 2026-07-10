@@ -12,16 +12,26 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font-sans)}a{text-decoration:none;color:inherit}
 .topbar{position:sticky;top:0;z-index:50;background:rgba(255,248,239,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(21,16,68,.08)}.topbar-inner{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px}.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-serif);font-weight:700;font-size:1.5rem;color:var(--ink);letter-spacing:-.01em}.brand span{color:var(--pink)}.brand-icon{width:46px;height:46px;border-radius:50%;object-fit:contain}.nav-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.nav-pill{border:1px solid #ddd5c9;background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(21,16,68,.04);font-size:.92rem;cursor:pointer}.nav-pill:hover{border-color:var(--violet)}.nav-pill.primary{background:var(--violet);color:#fff;border-color:var(--violet)}.app-pill{border-color:var(--teal);color:var(--ink)}.app-pill:hover{background:var(--teal);color:#fff}
 .quick-access{position:relative}.qa-trigger{cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px}.qa-chev{transition:.25s;display:inline-block;font-size:.7em}.quick-access[open] .qa-chev{transform:rotate(180deg)}.qa-dropdown{position:absolute;top:calc(100% + 10px);left:0;min-width:260px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 56px rgba(21,16,68,.14);padding:8px 0;z-index:60;animation:qaIn .18s ease}.qa-group{padding:10px 8px}.qa-label{display:block;font-size:.68rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;padding:6px 16px 8px}.qa-link{display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:var(--ink);transition:background .15s}.qa-link:hover{background:rgba(109,70,238,.07);color:var(--violet)}@keyframes qaIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-.hero{background:radial-gradient(circle at 82% 10%,rgba(33,212,194,.15),transparent 34%),linear-gradient(120deg,rgba(24,61,112,.72),rgba(37,16,82,.68) 45%,rgba(59,18,76,.65)),url('../assets/images/hero-contacts.jpg') center/cover;color:#fff;padding:58px 28px 50px}.hero-inner{max-width:1440px;margin:auto}.hero-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:48px;align-items:center}.hero-copy{min-width:0}.hero-insights{display:grid;grid-template-columns:1fr 1fr;gap:16px}.insight-card{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:22px;padding:24px 22px;backdrop-filter:blur(8px)}.insight-card .num{display:block;color:var(--gold);font-size:2.5rem;line-height:1;font-weight:900;letter-spacing:-.04em}.insight-card .label{display:block;margin-top:8px;text-transform:uppercase;letter-spacing:.05em;font-size:.9rem;font-weight:900;color:rgba(255,255,255,.78)}.eyebrow{display:inline-flex;border:1px solid rgba(241,191,50,.6);background:rgba(241,191,50,.13);color:#ffe18a;border-radius:999px;padding:9px 18px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}.hero h1{font-family:var(--font-serif);font-size:clamp(3.2rem,6vw,5rem);line-height:.92;margin:30px 0 18px;letter-spacing:-.05em}.hero p{font-size:1.15rem;line-height:1.65;color:rgba(255,255,255,.78);max-width:700px}
-.wrap{max-width:1440px;margin:auto;padding:48px 28px 80px}.section-head{margin-bottom:2rem}.section-head h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);margin:0 0 .5rem}.section-head p{color:var(--muted);font-size:1.05rem;line-height:1.55;max-width:720px}
-.help-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start}
-.faq-item{border-bottom:1px solid var(--line);padding:20px 0}.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:1.05rem;gap:12px}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary .faq-chev{transition:.25s;font-size:1.2rem}.faq-item[open] .faq-chev{transform:rotate(45deg)}.faq-answer{margin-top:12px;color:#444;font-weight:600;line-height:1.6;font-size:.95rem;padding-right:2rem}
-.contact-aside{background:#fff;border-radius:22px;padding:32px 28px;box-shadow:0 15px 45px rgba(0,0,0,.02)}.contact-aside h3{font-family:var(--font-serif);font-size:1.4rem;margin:0 0 14px}.contact-aside p{color:#333;font-weight:600;line-height:1.7;margin:0 0 8px}.divider{border:0;border-top:1px dashed var(--line);margin:20px 0}.pic-item{margin:0 0 10px}.pic-item strong{display:block;font-size:1rem}.pic-meta{color:var(--muted);font-size:.85rem;font-weight:600}
-.action-btn{display:block;text-align:center;font-weight:900;border-radius:14px;padding:16px;font-size:1rem;margin-top:10px}.wa-btn{background:var(--teal);color:var(--ink)}.tg-btn{background:var(--violet);color:#fff}
-.quick-contacts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}.qc-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center}.qc-card .qc-icon{font-size:1.8rem;margin-bottom:8px}.qc-card h4{margin:0 0 4px;font-size:.92rem;font-weight:900}.qc-card p{margin:0;color:var(--muted);font-weight:600;font-size:.82rem}
+.hero{background:radial-gradient(circle at 82% 10%,rgba(255,79,203,.20),transparent 32%),radial-gradient(circle at 18% 88%,rgba(255,200,61,.14),transparent 28%),linear-gradient(120deg,rgba(24,61,112,.82),rgba(37,16,82,.78) 45%,rgba(59,18,76,.78)),url('../assets/images/hero-contacts.jpg') center/cover;color:#fff;padding:64px 28px 58px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;inset:auto -10% -42% -10%;height:55%;background:radial-gradient(ellipse at center,rgba(255,200,61,.11),transparent 62%);pointer-events:none}.hero-inner{max-width:1440px;margin:auto;position:relative;z-index:1}.hero-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:52px;align-items:center}.hero-copy{min-width:0}.hero-insights{display:grid;grid-template-columns:1fr 1fr;gap:16px}.insight-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.20);border-radius:24px;padding:26px 24px;backdrop-filter:blur(10px);box-shadow:0 20px 44px rgba(21,16,68,.18);position:relative;overflow:hidden}.insight-card:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.10),transparent 55%);pointer-events:none}.insight-card .num{display:block;color:var(--gold);font-size:2.75rem;line-height:1;font-weight:900;letter-spacing:-.04em}.insight-card .label{display:block;margin-top:9px;text-transform:uppercase;letter-spacing:.06em;font-size:.86rem;font-weight:900;color:rgba(255,255,255,.80)}.eyebrow{display:inline-flex;border:1px solid rgba(241,191,50,.6);background:rgba(241,191,50,.13);color:#ffe18a;border-radius:999px;padding:9px 18px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}.hero h1{font-family:var(--font-serif);font-size:clamp(3.4rem,6vw,5.4rem);line-height:.9;margin:30px 0 18px;letter-spacing:-.05em}.hero p{font-size:1.16rem;line-height:1.65;color:rgba(255,255,255,.80);max-width:720px}
+.wrap{max-width:1440px;margin:auto;padding:56px 28px 88px}.section-head{margin-bottom:2rem}.section-head h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);margin:0 0 .5rem;color:var(--ink)}.section-head p{color:var(--muted);font-size:1.05rem;line-height:1.55;max-width:720px}
+
+.support-overview{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:38px}.support-card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:24px 22px;box-shadow:0 16px 38px rgba(21,16,68,.06);position:relative;overflow:hidden;min-height:190px}.support-card:before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:linear-gradient(90deg,var(--gold),var(--pink),var(--teal))}.support-card:after{content:"";position:absolute;right:-28px;bottom:-28px;width:96px;height:96px;border-radius:999px;background:rgba(107,77,255,.08)}.support-card .icon{width:56px;height:56px;border-radius:18px;background:linear-gradient(135deg,rgba(37,16,82,.08),rgba(226,60,116,.12));display:grid;place-items:center;font-size:1.7rem;margin-bottom:16px}.support-card h3{font-size:1.04rem;margin:0 0 8px;font-weight:900;color:var(--ink)}.support-card p{margin:0;color:var(--muted);font-weight:700;line-height:1.55;font-size:.88rem}.support-card .mini-label{display:inline-flex;margin-top:16px;border-radius:999px;background:#fff8ef;border:1px solid var(--line);padding:7px 10px;color:var(--rose);font-size:.72rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+
+.help-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(390px,.95fr);gap:46px;align-items:start}
+.faq-panel{background:linear-gradient(180deg,#fffdf9,#fff9f1);border:1px solid var(--line);border-radius:30px;padding:34px;box-shadow:0 18px 46px rgba(21,16,68,.06);position:relative;overflow:hidden}.faq-panel:before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:linear-gradient(90deg,var(--gold),var(--pink),var(--violet))}.faq-panel .section-head{margin-top:6px}
+.faq-item{border:1px solid var(--line);border-radius:18px;background:#fff;margin-bottom:12px;overflow:hidden}.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:900;font-size:1rem;gap:12px;padding:18px 20px}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary .faq-chev{transition:.25s;font-size:1.2rem;color:var(--rose)}.faq-item[open] .faq-chev{transform:rotate(45deg)}.faq-answer{border-top:1px solid var(--line);background:#fffaf3;margin:0;color:#4e485d;font-weight:650;line-height:1.65;font-size:.93rem;padding:16px 20px}
+
+.contact-aside{background:#fff;border:1px solid var(--line);border-radius:30px;padding:0;box-shadow:0 22px 54px rgba(21,16,68,.10);overflow:hidden;position:sticky;top:108px}.contact-aside-header{background:radial-gradient(circle at 86% 10%,rgba(255,79,203,.22),transparent 32%),radial-gradient(circle at 12% 88%,rgba(255,200,61,.18),transparent 30%),linear-gradient(135deg,#100824 0%,#1c0f45 42%,#2f1568 100%);color:#fff;padding:30px;position:relative}.contact-aside-header:after{content:"";position:absolute;right:24px;top:24px;width:54px;height:54px;border-radius:18px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.10)}.contact-aside-header h3{font-family:var(--font-serif);font-size:2.1rem;line-height:1;margin:0 0 8px}.contact-aside-header p{margin:0;color:rgba(255,255,255,.76);font-weight:650;line-height:1.55;max-width:360px}.contact-aside-body{padding:28px;background:linear-gradient(180deg,#fff,#fffaf3)}.info-block{background:#fffaf3;border:1px solid var(--line);border-radius:20px;padding:18px;margin-bottom:16px}.info-block h4{font-family:var(--font-serif);font-size:1.35rem;margin:0 0 12px;color:var(--ink)}.info-block p{color:#332d42;font-weight:700;line-height:1.65;margin:0 0 10px}.info-line{display:flex;gap:10px;align-items:flex-start;margin:10px 0;color:#332d42;font-weight:700;line-height:1.5}.info-line .mini-icon{width:28px;height:28px;border-radius:999px;background:rgba(226,60,116,.10);display:grid;place-items:center;flex:0 0 28px}
+
+.pic-grid{display:grid;gap:12px}.pic-card{border:1px solid var(--line);border-radius:18px;background:#fff;padding:15px 16px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center}.pic-card strong{display:block;font-size:.98rem;color:var(--ink)}.pic-card .role{display:block;color:var(--muted);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-top:2px}.pic-card a{font-weight:900;color:var(--rose);font-size:.95rem}.pic-card .phone-pill{background:rgba(226,60,116,.08);border-radius:999px;padding:8px 10px;white-space:nowrap}
+
+.pickup-list{display:grid;gap:10px}.pickup-item{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px;font-weight:800;color:var(--ink)}.pickup-item .num{background:var(--gold);color:var(--ink);width:28px;height:28px;border-radius:999px;display:grid;place-items:center;font-size:.82rem;font-weight:900}
+
+.action-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.action-btn{display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;border-radius:16px;padding:15px 12px;font-size:.95rem;text-decoration:none}.wa-btn{background:var(--teal);color:var(--ink)}.tg-btn{background:var(--violet);color:#fff}
+.quick-contacts{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:38px}.qc-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;text-align:center;box-shadow:0 14px 34px rgba(21,16,68,.06);position:relative;overflow:hidden}.qc-card:before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--teal),var(--violet))}.qc-card .qc-icon{width:54px;height:54px;margin:0 auto 12px;border-radius:18px;background:#fff8ef;display:grid;place-items:center;font-size:1.7rem}.qc-card h4{margin:0 0 6px;font-size:1rem;font-weight:900}.qc-card p{margin:0;color:var(--muted);font-weight:700;font-size:.84rem;line-height:1.5}
 .camp-footer{background:#251052;color:#fff;margin-top:48px;padding:56px 28px 26px}.footer-inner{max-width:1440px;margin:auto}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}.footer-brand{font-family:var(--font-serif);font-size:2.2rem;font-weight:700}.footer-brand span{color:var(--pink)}.footer-col h4{color:var(--gold);margin:0 0 14px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em}.footer-col p,.footer-col a{display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px}.footer-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:34px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:rgba(255,255,255,.65);font-weight:700}
-@media(max-width:980px){.help-layout{grid-template-columns:1fr}.hero-grid{grid-template-columns:1fr}.hero-insights{max-width:680px}.nav-actions{width:100%;justify-content:flex-start;gap:8px}.topbar-inner{align-items:flex-start;flex-direction:column;gap:14px}.footer-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:3.6rem}.qa-dropdown{left:-8px;right:-8px;min-width:auto}}
-@media(max-width:560px){.footer-grid,.quick-contacts,.hero-insights{grid-template-columns:1fr}.hero,.wrap{padding-left:18px;padding-right:18px}.brand-icon{width:38px;height:38px}.hero h1{font-size:3rem}.topbar-inner{padding:14px 18px}.nav-pill{padding:10px 16px;font-size:.82rem}.qa-dropdown{position:fixed;left:12px;right:12px;top:auto;border-radius:18px}}
+@media(max-width:980px){.help-layout{grid-template-columns:1fr}.contact-aside{position:static}.support-overview,.quick-contacts{grid-template-columns:1fr 1fr}.hero-grid{grid-template-columns:1fr}.hero-insights{max-width:680px}.nav-actions{width:100%;justify-content:flex-start;gap:8px}.topbar-inner{align-items:flex-start;flex-direction:column;gap:14px}.footer-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:3.6rem}.qa-dropdown{left:-8px;right:-8px;min-width:auto}}
+@media(max-width:560px){.footer-grid,.quick-contacts,.hero-insights,.support-overview,.action-row{grid-template-columns:1fr}.hero,.wrap{padding-left:18px;padding-right:18px}.brand-icon{width:38px;height:38px}.hero h1{font-size:3rem}.topbar-inner{padding:14px 18px}.nav-pill{padding:10px 16px;font-size:.82rem}.qa-dropdown{position:fixed;left:12px;right:12px;top:auto;border-radius:18px}.faq-panel{padding:22px}.pic-card{grid-template-columns:1fr}.pic-card .phone-pill{width:fit-content}}
 @media print{.topbar,.nav-actions,.quick-access{display:none}.hero{background:#fff!important;color:#111!important}.camp-footer{display:none}body{background:#fff}}
 </style>
 </head>
@@ -59,7 +69,7 @@
     <div class="hero-copy">
       <span class="eyebrow">Support Desk</span>
       <h1>Help & Support</h1>
-      <p>Contact the secretariat, join the Telegram community, or access the Smart DT App for any camp-related queries.</p>
+      <p>Your central help desk for venue guidance, secretariat contacts, transport support, technical assistance and emergency coordination throughout CAMP21.</p>
     </div>
     <div class="hero-insights" aria-label="Help desk insights">
       <div class="insight-card"><span class="num">4</span><span class="label">Contact PICs</span></div>
@@ -72,9 +82,17 @@
 
 <main class="wrap">
 <section>
+  <div class="section-head"><h2>Support at a Glance</h2><p>Everything participants, trainers, facilitators and organisers need for quick assistance during CAMP21.</p></div>
+  <div class="support-overview" aria-label="Support overview">
+    <div class="support-card"><div class="icon">📍</div><h3>Venue & Direction</h3><p>Kompleks Kraf KL, MRT Conlay and nearby accommodation guidance.</p><span class="mini-label">Location</span></div>
+    <div class="support-card"><div class="icon">☎️</div><h3>Secretariat PIC</h3><p>Direct contacts for general information, registration and accommodation.</p><span class="mini-label">Contact</span></div>
+    <div class="support-card"><div class="icon">🚌</div><h3>Transport Support</h3><p>Pick-up points and movement reminders for participants and staff.</p><span class="mini-label">Movement</span></div>
+    <div class="support-card"><div class="icon">🛠️</div><h3>On-site Help</h3><p>Welfare, printing, technical and Smart DT App support channels.</p><span class="mini-label">Support</span></div>
+  </div>
+
   <div class="help-layout">
-    <div>
-      <div class="section-head"><h2>Frequently Asked Questions</h2></div>
+    <div class="faq-panel">
+      <div class="section-head"><h2>Frequently Asked Questions</h2><p>Quick answers for participants, trainers, facilitators and support teams during CAMP21.</p></div>
 
       <details class="faq-item"><summary>⏰ When is the hard deadline for pitch deck submission? <span class="faq-chev">＋</span></summary><div class="faq-answer">All final pitch presentations must be completed and trainer-reviewed by Day 3 evening. Pitch duration is 8–10 minutes + 3 minutes Q&A (2 questions max).</div></details>
 
@@ -86,7 +104,7 @@
 
       <details class="faq-item"><summary>🎥 What is the TikTok Reflection Challenge? <span class="faq-chev">＋</span></summary><div class="faq-answer">Each team creates daily TikTok-style reflection videos for Day 1, Day 2 and Day 3 — covering Empathise, Define, Ideate, Prototype and Test/Reflect phases. This is evaluated separately by trainers (4 criteria × 25% = 100%). It's about genuine reflection, not perfect editing.</div></details>
 
-      <details class="faq-item"><summary>📋 Does Does T10 Prototype Direction Plan need trainer sign-off? <span class="faq-chev">＋</span></summary><div class="faq-answer">Yes. T10 must be reviewed and signed off by your assigned phase trainer before any prototype build work begins. This is a mandatory checkpoint.</div></details>
+      <details class="faq-item"><summary>📋 Does T10 Prototype Direction Plan need trainer sign-off? <span class="faq-chev">＋</span></summary><div class="faq-answer">Yes. T10 must be reviewed and signed off by your assigned phase trainer before any prototype build work begins. This is a mandatory checkpoint.</div></details>
 
       <details class="faq-item"><summary>👔 What is the attire guideline? <span class="faq-chev">＋</span></summary><div class="faq-answer">Workshop days: Smart-casual. Closing Ceremony (Thursday): Batik. Don't forget to bring outerwear for the Hop-On Hop-Off night activity on Day 1.</div></details>
 
@@ -94,29 +112,47 @@
     </div>
 
     <aside class="contact-aside">
-      <h3>📍 Headquarters</h3>
-      <p><strong>Kompleks Kraf Kuala Lumpur</strong><br>Jalan Conlay, 50450 Kuala Lumpur</p>
-      <p><strong>Accommodation:</strong><br>Royale Chulan KL (0.2 km from venue)</p>
-      <p><strong>Transport:</strong><br>MRT Conlay Station (opposite Kompleks Kraf)</p>
+      <div class="contact-aside-header">
+        <h3>Help Desk Directory</h3>
+        <p>Use this panel to contact the correct PIC quickly during CAMP21.</p>
+      </div>
+      <div class="contact-aside-body">
+        <div class="info-block">
+          <h4>📍 Headquarters</h4>
+          <div class="info-line"><span class="mini-icon">🏛️</span><span><strong>Kompleks Kraf Kuala Lumpur</strong><br>Jalan Conlay, 50450 Kuala Lumpur</span></div>
+          <div class="info-line"><span class="mini-icon">🏨</span><span><strong>Accommodation</strong><br>Royale Chulan KL · 0.2 km from venue</span></div>
+          <div class="info-line"><span class="mini-icon">🚇</span><span><strong>Transport</strong><br>MRT Conlay Station opposite Kompleks Kraf</span></div>
+        </div>
 
-      <hr class="divider">
-      <h3>📞 Contact PIC</h3>
-      <div class="pic-item"><strong>Pn. Jasmine</strong> 012-6224979<br><span class="pic-meta">General info about Camp 21</span></div>
-      <div class="pic-item"><strong>Pn. Radhiah</strong> 013-3393001<br><span class="pic-meta">General info about Camp 21</span></div>
-      <div class="pic-item"><strong>Pn. Herlina</strong> 013-8465354<br><span class="pic-meta">Registration</span></div>
-      <div class="pic-item"><strong>Ustaz Alif</strong> 014-8392936<br><span class="pic-meta">Accommodation</span></div>
+        <div class="info-block">
+          <h4>☎️ Contact PIC</h4>
+          <div class="pic-grid">
+            <div class="pic-card"><div><strong>Pn. Jasmine</strong><span class="role">General Info</span></div><a class="phone-pill" href="tel:+60126224979">012-6224979</a></div>
+            <div class="pic-card"><div><strong>Pn. Radhiah</strong><span class="role">General Info</span></div><a class="phone-pill" href="tel:+60133393001">013-3393001</a></div>
+            <div class="pic-card"><div><strong>Pn. Herlina</strong><span class="role">Registration</span></div><a class="phone-pill" href="tel:+60138465354">013-8465354</a></div>
+            <div class="pic-card"><div><strong>Ustaz Alif</strong><span class="role">Accommodation</span></div><a class="phone-pill" href="tel:+60148392936">014-8392936</a></div>
+          </div>
+        </div>
 
-      <hr class="divider">
-      <h3>🚌 Pick-up Points</h3>
-      <p>1. PMKL<br>2. Avenue K Drop-Off Bay (Jalan Ampang)<br>3. Pavilion KL Bus / Coach Bay</p>
+        <div class="info-block">
+          <h4>🚌 Pick-up Points</h4>
+          <div class="pickup-list">
+            <div class="pickup-item"><span class="num">1</span><span>PMKL</span></div>
+            <div class="pickup-item"><span class="num">2</span><span>Avenue K Drop-Off Bay · Jalan Ampang</span></div>
+            <div class="pickup-item"><span class="num">3</span><span>Pavilion KL Bus / Coach Bay</span></div>
+          </div>
+        </div>
 
-      <hr class="divider">
-      <a class="action-btn wa-btn" href="https://wa.me/60126224979" target="_blank" rel="noopener">💬 WhatsApp Help Desk</a>
-      <a class="action-btn tg-btn" href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener">📢 Telegram Community</a>
+        <div class="action-row">
+          <a class="action-btn wa-btn" href="https://wa.me/60126224979" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a class="action-btn tg-btn" href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener">📢 Telegram</a>
+        </div>
+      </div>
     </aside>
   </div>
 
-  <div class="quick-contacts" style="margin-top:3rem">
+  <div class="section-head" style="margin-top:3.2rem"><h2>On-site Service Support</h2><p>Fast routing for welfare, printing, technical and transport-related needs.</p></div>
+  <div class="quick-contacts">
     <div class="qc-card"><div class="qc-icon">🏥</div><h4>Welfare</h4><p>Report to secretariat table immediately</p></div>
     <div class="qc-card"><div class="qc-icon">🖨️</div><h4>Printing</h4><p>Request via facilitator on duty</p></div>
     <div class="qc-card"><div class="qc-icon">🔌</div><h4>Technical</h4><p>Smart DT App issues — contact trainer</p></div>
