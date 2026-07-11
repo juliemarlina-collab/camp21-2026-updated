@@ -6,13 +6,13 @@
 <title>CAMP21 Programme</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#151044;--indigo:#251052;--cream:#F8F2EA;--paper:#fffdf9;--muted:#726b82;--line:#e9dfd0;--gold:#D9AF37;--pink:#FF4FCB;--teal:#21D4C2;--violet:#6B4DFF;--green:#8DFF3F;--blue:#3D63FF;--rose:#F05AA6;--olive:#8a7a2a;--brown:#7a3d1e;--font-serif:'Playfair Display',serif;--font-sans:'Plus Jakarta Sans',sans-serif}
+:root{--ink:#151044;--indigo:#251052;--cream:#F8F2EA;--paper:#fffdf9;--muted:#726b82;--line:#e9dfd0;--gold:#D9AF37;--pink:#FF4FCB;--teal:#21D4C2;--violet:#6B4DFF;--green:#8DFF3F;--blue:#3D63FF;--rose:#e23c74;--olive:#8a7a2a;--brown:#7a3d1e;--font-serif:'Cormorant Garamond',serif;--font-sans:'Plus Jakarta Sans',sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font-sans)}a{text-decoration:none;color:inherit}
-.topbar{position:sticky;top:0;z-index:50;background:rgba(255,248,239,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(21,16,68,.08)}.topbar-inner{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px}.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--font-serif);font-weight:700;font-size:1.5rem;color:var(--ink);letter-spacing:-.01em}.brand span{color:var(--pink)}.brand-icon{width:46px;height:46px;border-radius:50%;object-fit:contain}.nav-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.nav-pill{border:1px solid #ddd5c9;background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(21,16,68,.04);font-size:.92rem;cursor:pointer}.nav-pill:hover{border-color:var(--violet)}.nav-pill.primary{background:var(--violet);color:#fff;border-color:var(--violet)}.app-pill{border-color:var(--teal);color:var(--ink)}.app-pill:hover{background:var(--teal);color:#fff}
-.quick-access{position:relative}.qa-trigger{cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px}.qa-chev{transition:.25s;display:inline-block;font-size:.7em}.quick-access[open] .qa-chev{transform:rotate(180deg)}.qa-dropdown{position:absolute;top:calc(100% + 10px);left:0;min-width:260px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 56px rgba(21,16,68,.14);padding:8px 0;z-index:60;animation:qaIn .18s ease}.qa-group{padding:10px 8px}.qa-label{display:block;font-size:.68rem;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;padding:6px 16px 8px}.qa-link{display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:var(--ink);transition:background .15s}.qa-link:hover{background:rgba(109,70,238,.07);color:var(--violet)}@keyframes qaIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-.hero{background:radial-gradient(circle at 82% 10%,rgba(255,199,61,.15),transparent 34%),linear-gradient(120deg,rgba(24,61,112,.72),rgba(37,16,82,.68) 45%,rgba(59,18,76,.65)),url('../assets/images/hero-programme.jpg') center/cover;color:#fff;padding:58px 28px 50px}.hero-inner{max-width:1440px;margin:auto}.eyebrow{display:inline-flex;border:1px solid rgba(241,191,50,.6);background:rgba(241,191,50,.13);color:#ffe18a;border-radius:999px;padding:9px 18px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}.hero h1{font-family:var(--font-serif);font-size:clamp(3.6rem,7vw,6rem);line-height:.88;margin:30px 0 18px;letter-spacing:-.055em;font-style:italic}.hero p{font-size:1.15rem;line-height:1.65;color:rgba(255,255,255,.78);max-width:780px}
+.wide{width:min(100% - 48px,1200px);margin-inline:auto}header{position:sticky;top:0;z-index:100;background:rgba(255,248,239,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:.85rem 0}.nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}.brand{text-decoration:none;display:flex;align-items:center;gap:.55rem;font-family:var(--font-serif);font-weight:700;font-size:1.5rem;color:var(--ink);letter-spacing:-.01em}.brand-icon{width:46px;height:46px;border-radius:50%;object-fit:contain}.brand span{color:var(--rose)}.nav-links{display:flex!important;gap:12px;align-items:center;flex-wrap:wrap}.nav-pill-holder{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;justify-content:flex-end}.nav-pill-link,.qa-pill-home{display:inline-flex;align-items:center;gap:.45rem;padding:.82rem 1.15rem;border-radius:999px;background:rgba(255,255,255,.96);border:1px solid var(--line);box-shadow:0 8px 18px rgba(20,16,74,.05);font-size:.92rem;font-weight:900;color:var(--ink);transition:.22s ease}.nav-pill-link:hover,.qa-pill-home:hover{transform:translateY(-1px);border-color:rgba(79,59,171,.28);box-shadow:0 12px 24px rgba(20,16,74,.08)}.nav-pill-link.active{background:#20103E;color:#fff;border-color:#20103E}.qa-pill-home{background:linear-gradient(135deg,#22105d,#4c30bf);color:#fff;border-color:transparent;box-shadow:0 14px 28px rgba(55,38,140,.22)}.qa-home summary::-webkit-details-marker{display:none}.qa-home[open] .qa-h-chev{transform:rotate(180deg)}.qa-h-drop a:hover{background:rgba(226,60,116,.06);color:var(--rose)}@media(max-width:980px){.nav-pill-holder{justify-content:flex-start}.nav-wrap{flex-wrap:wrap}}@media(max-width:560px){.brand-icon{width:38px;height:38px}.nav-pill-link,.qa-pill-home{padding:.6rem .85rem;font-size:.82rem}}
+
+.hero{background:radial-gradient(circle at 82% 10%,rgba(255,199,61,.15),transparent 34%),linear-gradient(120deg,rgba(24,61,112,.72),rgba(37,16,82,.68) 45%,rgba(59,18,76,.65)),url('../assets/images/hero-programme.jpg') center/cover;color:#fff;padding:58px 28px 50px}.hero-inner{max-width:1440px;margin:auto}.eyebrow{display:inline-flex;border:1px solid rgba(241,191,50,.6);background:rgba(241,191,50,.13);color:#ffe18a;border-radius:999px;padding:9px 18px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}.hero h1{font-family:var(--font-serif);font-weight:600;font-size:clamp(3.6rem,7vw,6rem);line-height:.92;margin:30px 0 18px;letter-spacing:-.01em;font-style:italic}.hero p{font-size:1.15rem;line-height:1.65;color:rgba(255,255,255,.78);max-width:780px}
 
 /* PROGRAMME HERO STATS */
 .hero-inner{display:grid;grid-template-columns:1.25fr .9fr;gap:40px;align-items:center}
@@ -24,12 +24,12 @@
 @media(max-width:980px){.hero-inner{grid-template-columns:1fr}.programme-hero-stats{max-width:620px}}
 @media(max-width:560px){.programme-hero-stats{grid-template-columns:1fr}}
 
-.wrap{max-width:1440px;margin:auto;padding:48px 28px 80px}.section-head{margin-bottom:2rem}.section-head h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);margin:0 0 .5rem}.section-head p{color:var(--muted);font-size:1.05rem;line-height:1.55;max-width:720px}.s-gap{margin-bottom:4rem}
-.overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;border-radius:22px;overflow:hidden;margin-bottom:1.2rem}.ov-card{padding:32px 28px;color:#fff;position:relative;overflow:hidden;min-height:220px;display:flex;flex-direction:column;justify-content:flex-start}.ov-card .day-label{font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;opacity:.8}.ov-card .day-theme{font-family:var(--font-serif);font-size:1.65rem;margin:8px 0 10px}.ov-card .day-desc{position:relative;z-index:1;margin:0 0 14px;color:rgba(255,255,255,.78);font-weight:650;line-height:1.5;max-width:560px}.ov-card .day-checks{position:relative;z-index:1;display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.ov-card .day-checks span{display:inline-flex;background:#f4ead8;border:1px solid rgba(21,16,68,.16);border-radius:999px;padding:7px 12px;font-size:.72rem;font-weight:900;white-space:nowrap;color:#151044;box-shadow:0 6px 14px rgba(21,16,68,.08)}.ov-card .day-num{position:absolute;bottom:-10px;right:14px;font-family:var(--font-serif);font-size:5rem;font-weight:700;opacity:.12}.ov1{background:var(--indigo)}.ov2{background:var(--pink)}.ov3{background:var(--olive)}.ov4{background:var(--rose)}
+.wrap{max-width:1440px;margin:auto;padding:48px 28px 80px}.section-head{margin-bottom:2rem}.section-head h2{font-family:var(--font-serif);font-weight:600;font-size:clamp(2rem,4vw,3rem);margin:0 0 .5rem;letter-spacing:-.01em}.section-head p{color:var(--muted);font-size:1.05rem;line-height:1.55;max-width:720px}.s-gap{margin-bottom:4rem}
+.overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;border-radius:22px;overflow:hidden;margin-bottom:1.2rem}.ov-card{padding:32px 28px;color:#fff;position:relative;overflow:hidden;min-height:220px;display:flex;flex-direction:column;justify-content:flex-start}.ov-card .day-label{font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;opacity:.8}.ov-card .day-theme{font-family:var(--font-serif);font-weight:600;font-size:1.65rem;margin:8px 0 10px;letter-spacing:-.01em}.ov-card .day-desc{position:relative;z-index:1;margin:0 0 14px;color:rgba(255,255,255,.78);font-weight:650;line-height:1.5;max-width:560px}.ov-card .day-checks{position:relative;z-index:1;display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.ov-card .day-checks span{display:inline-flex;background:#f4ead8;border:1px solid rgba(21,16,68,.16);border-radius:999px;padding:7px 12px;font-size:.72rem;font-weight:900;white-space:nowrap;color:#151044;box-shadow:0 6px 14px rgba(21,16,68,.08)}.ov-card .day-num{position:absolute;bottom:-10px;right:14px;font-family:var(--font-serif);font-size:5rem;font-weight:700;opacity:.12}.ov1{background:var(--indigo)}.ov2{background:var(--pink)}.ov3{background:var(--olive)}.ov4{background:var(--rose)}
 .day-tabs{display:flex;gap:0;border-bottom:2px solid var(--line);margin-bottom:28px;flex-wrap:wrap}.day-tab{padding:14px 24px;font-weight:900;font-size:.95rem;cursor:pointer;border-bottom:3px solid transparent;transition:.2s}.day-tab:hover{color:var(--violet)}.day-tab.active{color:var(--violet);border-bottom-color:var(--violet)}
 .day-panel{display:none}.day-panel.active{display:block}
 .day-header{background:var(--indigo);border-radius:22px;padding:32px;color:#fff;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center}.day-header h3{font-family:var(--font-serif);font-size:2rem;margin:0}.day-header .dh-date{font-family:var(--font-serif);font-size:3rem;font-weight:700;text-align:right;line-height:1}.day-header .dh-date small{display:block;font-size:.82rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;opacity:.6}.day-header .dh-eyebrow{font-size:.72rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}.day-header .dh-sub{font-family:var(--font-serif);font-style:italic;opacity:.78;margin-top:4px;font-size:1.1rem}
-.day-overview{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px;margin-bottom:28px}.day-overview h4{font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}.day-overview p{margin:0 0 12px;line-height:1.6;color:#444;font-weight:600}.day-overview .focus{background:rgba(107,77,255,.08);border-left:4px solid var(--violet);padding:12px 18px;border-radius:0 12px 12px 0;font-weight:800;color:var(--ink);margin:12px 0}
+.day-overview{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px;margin-bottom:28px}.day-overview h4{font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}.day-overview p{margin:0 0 12px;line-height:1.6;color:#444;font-weight:600}.day-overview .overview-list{margin:0 0 12px;padding-left:20px;line-height:1.6;color:#444;font-weight:600}.day-overview .overview-list li{margin-bottom:5px}.day-overview .focus{background:rgba(107,77,255,.08);border-left:4px solid var(--violet);padding:12px 18px;border-radius:0 12px 12px 0;font-weight:800;color:var(--ink);margin:12px 0}
 .session-label{font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--indigo);margin:28px 0 12px;display:flex;align-items:center;gap:8px}.session-label::before{content:'';width:12px;height:12px;border-radius:50%;background:var(--indigo)}
 .sched-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;margin-bottom:8px;overflow:hidden}.sched-row{display:grid;grid-template-columns:100px 1fr;gap:0}.sched-time{padding:18px 16px;font-weight:900;font-size:.92rem;color:var(--violet);border-right:1px solid var(--line);display:flex;align-items:flex-start}.sched-content{padding:18px 20px}.sched-content h4{margin:0 0 4px;font-weight:900;font-size:1rem}.sched-content p{margin:0;color:#555;font-weight:600;font-size:.92rem}.sched-tag{display:inline-flex;background:var(--gold);color:var(--ink);border-radius:999px;padding:4px 12px;font-size:.68rem;font-weight:900;margin-top:8px}.sched-tag.dt{background:var(--violet);color:#fff}.sched-tag.field{background:var(--teal);color:#fff}.sched-tag.prayer{background:var(--rose);color:#fff}.sched-tag.city{background:var(--blue);color:#fff}.sched-tag.pitch{background:var(--pink);color:#fff}
 .tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
@@ -37,7 +37,7 @@
 .outputs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.output-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}.output-card .oc-icon{font-size:1.6rem;margin-bottom:8px}.output-card p{margin:0;font-weight:700;color:#333;font-size:.88rem;line-height:1.4}
 .reflection-box{background:var(--pink);border-radius:22px;overflow:hidden;margin:28px 0;color:#fff}.reflection-header{padding:22px 28px;display:flex;justify-content:space-between;align-items:center}.reflection-header h4{margin:0;font-weight:900;font-size:1.1rem}.reflection-header .dur{background:rgba(255,255,255,.2);border-radius:999px;padding:5px 14px;font-size:.78rem;font-weight:900}.reflection-body{background:var(--paper);color:var(--ink);padding:24px 28px;border-radius:22px 22px 0 0;margin-top:0}.reflection-body p.intro{font-style:italic;color:#444;font-weight:600;margin:0 0 18px;line-height:1.6}.ref-q{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line)}.ref-q:last-child{border-bottom:0}.ref-num{width:28px;height:28px;border-radius:50%;background:var(--violet);color:#fff;display:grid;place-items:center;font-weight:900;font-size:.78rem;flex-shrink:0}.ref-q p{margin:0;font-weight:700;line-height:1.5}
 .day-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;margin-top:20px;border-top:1px solid var(--line)}.day-nav a{font-weight:900;color:var(--violet);font-size:1rem}.day-dots{display:flex;gap:8px}.day-dot{width:12px;height:12px;border-radius:50%;background:var(--line)}.day-dot.active{background:var(--indigo)}
-.camp-footer{background:#251052;color:#fff;margin-top:48px;padding:56px 28px 26px}.footer-inner{max-width:1440px;margin:auto}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}.footer-brand{display:flex;align-items:center;gap:14px;font-family:var(--font-serif);font-size:2.2rem;font-weight:700}.footer-brand span{color:var(--pink)}.footer-col h4{color:var(--gold);margin:0 0 14px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em}.footer-col p,.footer-col a{display:block;color:rgba(255,255,255,.72);line-height:1.7;font-weight:600;margin:0 0 7px}.footer-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:34px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:rgba(255,255,255,.65);font-weight:700}
+.camp-footer{position:relative;overflow:hidden;background:linear-gradient(135deg,#11072d 0%,#211054 45%,#3a1770 75%,#5a1f87 100%);color:#fff;margin-top:48px}.camp-footer::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(240,90,166,.18),transparent 22%),radial-gradient(circle at 10% 100%,rgba(106,71,232,.18),transparent 26%);pointer-events:none}.footer-shell{position:relative;z-index:1;max-width:1440px;margin:auto;display:flex;flex-direction:column;gap:16px;padding:2.6rem 28px 1.6rem}.footer-main{display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap}.footer-brand-block strong.footer-brand-line{font-family:var(--font-serif);font-weight:700;font-size:1.5rem;color:#fff;display:block;margin-bottom:.4rem;letter-spacing:-.01em}.footer-brand-line span{color:var(--rose)}.footer-brand-block p{color:rgba(255,255,255,.72);line-height:1.6;font-weight:600;margin:2px 0 0;max-width:440px}.footer-links-clean{display:flex;justify-content:center;align-items:center;gap:14px 34px;flex-wrap:wrap;padding-top:14px}.footer-links-clean a{color:rgba(255,255,255,.85);font-weight:800;text-decoration:none;font-size:.95rem}.footer-links-clean a:hover{color:#e23c74}.footer-min-bottom{position:relative;z-index:1;display:flex;justify-content:space-between;gap:10px 26px;flex-wrap:wrap;color:rgba(255,255,255,.6);font-weight:600;font-size:.86rem;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;margin:16px 28px 0;max-width:1440px;margin-left:auto;margin-right:auto;text-align:left}.brand-21{color:var(--rose)}@media(max-width:560px){.footer-shell{padding:2.2rem 18px 1.4rem}.footer-min-bottom{margin-left:18px;margin-right:18px}}
 
 /* STANDARDISED PROGRAMME ALIGNMENT */
 .programme-action-alert{margin:0 0 30px}
@@ -51,7 +51,7 @@
 .programme-action-card:nth-child(1){background:linear-gradient(135deg,#160d45,#251052)}
 .programme-action-card:nth-child(2){background:linear-gradient(135deg,#d62f75,#ff4fcb)}
 .programme-action-card:nth-child(3){background:linear-gradient(135deg,#7a3d1e,#8a7a2a)}
-.programme-action-card:nth-child(4){background:linear-gradient(135deg,#F05AA6,#6B4DFF)}
+.programme-action-card:nth-child(4){background:linear-gradient(135deg,#e23c74,#6B4DFF)}
 .programme-action-card::after{content:attr(data-day);position:absolute;right:14px;bottom:-22px;font-family:var(--font-serif);font-size:5.6rem;font-weight:700;line-height:1;color:rgba(255,255,255,.16)}
 .programme-action-pill{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.14);border-radius:999px;padding:8px 14px;font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em}
 .programme-action-card h3{position:relative;z-index:1;margin:18px 0 10px;font-size:1.15rem;color:inherit}
@@ -71,20 +71,20 @@
 
 @media(max-width:980px){.overview-grid{grid-template-columns:1fr}.outputs-grid{grid-template-columns:1fr 1fr}.nav-actions{width:100%;justify-content:flex-start;gap:8px}.topbar-inner{align-items:flex-start;flex-direction:column;gap:14px}.footer-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:4rem}.qa-dropdown{left:-8px;right:-8px;min-width:auto}.sched-row{grid-template-columns:80px 1fr}.day-header{flex-direction:column;gap:16px;text-align:left}}
 @media(max-width:560px){.outputs-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.hero,.wrap{padding-left:18px;padding-right:18px}.brand-icon{width:38px;height:38px}.hero h1{font-size:3.2rem}.topbar-inner{padding:14px 18px}.nav-pill{padding:10px 16px;font-size:.82rem}.qa-dropdown{position:fixed;left:12px;right:12px;top:auto;border-radius:18px}.day-tabs{gap:0}.day-tab{padding:12px 14px;font-size:.82rem}}
-@media print{.topbar,.nav-actions,.quick-access,.day-tabs{display:none}.day-panel{display:block!important}.hero{background:#fff!important;color:#111!important}.hero p{color:#333}.camp-footer{display:none}body{background:#fff}}
+@media print{header,.qa-home,.day-tabs{display:none}.day-panel{display:block!important}.hero{background:#fff!important;color:#111!important}.hero p{color:#333}.camp-footer{display:none}body{background:#fff}}
 
 /* === CAMP21 Hub Guide === */
 .hub-use-guide{position:relative;margin:clamp(24px,4vw,46px) 0;padding:clamp(22px,3vw,34px);border-radius:28px;background:linear-gradient(135deg,rgba(255,253,249,.98),rgba(248,242,234,.96));border:1px solid rgba(217,175,55,.42);box-shadow:0 22px 55px rgba(32,16,62,.10);overflow:hidden;isolation:isolate}
 .hub-use-guide:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 15%,rgba(217,175,55,.20),transparent 32%),radial-gradient(circle at 88% 5%,rgba(240,90,166,.14),transparent 30%),linear-gradient(90deg,rgba(32,16,62,.05),transparent 55%);z-index:-1}
 .hub-guide-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:22px}
 .hub-guide-kicker{display:inline-flex;align-items:center;gap:8px;background:#20103E;color:#fff;border:1px solid rgba(217,175,55,.45);border-radius:999px;padding:8px 14px;font-size:.76rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 10px 24px rgba(32,16,62,.16)}
-.hub-guide-head h2{margin:12px 0 8px;font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,2.7rem);line-height:.95;color:#20103E;letter-spacing:-.03em}
+.hub-guide-head h2{margin:12px 0 8px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.9rem,3.5vw,2.7rem);line-height:.95;color:#20103E;letter-spacing:-.01em}
 .hub-guide-head p{max-width:820px;margin:0;color:#5f5870;font-weight:650;line-height:1.65}
 .hub-guide-badge{flex:0 0 auto;background:linear-gradient(135deg,#20103E,#5A36C9);color:#fff;border:1px solid rgba(217,175,55,.55);border-radius:22px;padding:14px 18px;text-align:center;min-width:150px;box-shadow:0 14px 34px rgba(32,16,62,.18)}
 .hub-guide-badge b{display:block;color:#D9AF37;font-size:1.35rem;line-height:1}.hub-guide-badge span{font-size:.72rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.78)}
 .hub-guide-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0}
 .hub-guide-card{position:relative;background:#fffdf9;border:1px solid rgba(217,175,55,.34);border-radius:22px;padding:18px 16px 16px;box-shadow:0 16px 34px rgba(32,16,62,.08);min-height:146px;overflow:hidden}
-.hub-guide-card:before{content:attr(data-step);position:absolute;right:14px;top:12px;width:32px;height:32px;border-radius:12px;background:linear-gradient(135deg,#D9AF37,#F05AA6);display:grid;place-items:center;color:#20103E;font-weight:1000;font-size:.9rem}
+.hub-guide-card:before{content:attr(data-step);position:absolute;right:14px;top:12px;width:32px;height:32px;border-radius:12px;background:linear-gradient(135deg,#D9AF37,#e23c74);display:grid;place-items:center;color:#20103E;font-weight:1000;font-size:.9rem}
 .hub-guide-card h3{margin:0 42px 8px 0;color:#20103E;font-size:1rem;line-height:1.2}.hub-guide-card p{margin:0;color:#5f5870;font-size:.88rem;line-height:1.55;font-weight:600}
 .hub-guide-focus{display:flex;gap:12px;align-items:flex-start;margin-top:18px;padding:16px 18px;border-radius:22px;background:linear-gradient(135deg,rgba(32,16,62,.96),rgba(90,54,201,.94));color:#fff;border:1px solid rgba(217,175,55,.46);box-shadow:0 18px 38px rgba(32,16,62,.18)}
 .hub-guide-focus .focus-icon{width:42px;height:42px;border-radius:16px;display:grid;place-items:center;background:#D9AF37;color:#20103E;font-weight:1000;flex:0 0 auto}.hub-guide-focus h3{margin:0 0 5px;color:#D9AF37;font-size:1.02rem}.hub-guide-focus p{margin:0;color:rgba(255,255,255,.84);line-height:1.55;font-weight:600;font-size:.9rem}
@@ -96,15 +96,15 @@
 /* === Slim header nav === */
 .nav-link{font-weight:800;font-size:.95rem;color:#20103E;text-decoration:none;padding:8px 2px;border-bottom:2px solid transparent;transition:color .2s}
 .nav-link:hover{color:#5A36C9}
-.nav-link.active{color:#5A36C9;border-bottom-color:#F05AA6}
+.nav-link.active{color:#5A36C9;border-bottom-color:#e23c74}
 
 /* === Minimal footer === */
-.footer-min{max-width:1440px;margin:auto;display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap}
-.footer-min-brand p{color:rgba(255,255,255,.65);line-height:1.6;font-weight:600;margin:10px 0 0;max-width:440px}
-.footer-min-links{display:flex;gap:10px 26px;flex-wrap:wrap;align-items:center;padding-top:14px}
-.footer-min-links a{color:rgba(255,255,255,.78);font-weight:700;text-decoration:none}
-.footer-min-links a:hover{color:#F05AA6}
-.footer-min-bottom{max-width:1440px;margin:34px auto 0;border-top:1px solid rgba(255,255,255,.14);padding-top:20px;color:rgba(255,255,255,.55);font-weight:600;font-size:.85rem}
+
+
+
+
+
+
 
 /* === Outputs checklist === */
 .outputs-check{background:#fff;border:1px solid #e9dfd0;border-radius:22px;padding:8px 22px;margin-bottom:10px;box-shadow:0 12px 30px rgba(21,16,68,.05)}
@@ -116,11 +116,11 @@
 @media(max-width:620px){.outputs-check li{flex-wrap:wrap}.out-chip{margin-left:38px}}
 
 /* Footer brand matches header */
-.camp-footer .footer-brand{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;letter-spacing:-.01em;color:#fff}
-.camp-footer .footer-brand span{color:#F05AA6}
+.camp-footer .footer-brand{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;letter-spacing:0;color:#fff}
+.camp-footer .footer-brand span{color:inherit}
 
 /* Pill nav with active state */
-.nav-pill.active{border-color:#5A36C9;color:#5A36C9;box-shadow:0 8px 18px rgba(90,54,201,.12)}
+
 
 /* === CAMP21 refined type scale: calmer display sizes === */
 .hero h1, .page-hero-title{font-size:clamp(2.2rem,4vw,3.4rem)!important;line-height:1.05!important;letter-spacing:-.02em!important}
@@ -134,37 +134,80 @@
 summary.qa-trigger, .quick-access > summary, .qa-home > summary{background:linear-gradient(135deg,#20103E,#5A36C9)!important;color:#fff!important;border:none!important;border-radius:999px!important}
 summary.qa-trigger .qa-chev, .qa-home .qa-h-chev{color:#fff!important}
 
-.footer-min-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px 24px;flex-wrap:wrap;text-align:left}
+
+</style>
+<style id="camp21-standard-components">
+:root{--ink:#151044;--rose:#e23c74;--gold:#D9AF37;--font-serif:'Cormorant Garamond',serif;--font-sans:'Plus Jakarta Sans',sans-serif}
+.wide{width:min(100% - 48px,1200px)!important;margin-inline:auto!important}
+header{min-height:94px!important;padding:.75rem 0!important}
+.nav-wrap{min-height:68px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:1.25rem!important}
+.brand{font-family:var(--font-serif)!important;font-weight:600!important;font-size:1.75rem!important;letter-spacing:-.015em!important;white-space:nowrap!important}
+.brand-icon{width:68px!important;height:68px!important;flex:0 0 68px!important;border-radius:50%!important;object-fit:contain!important}
+.brand span,.footer-brand-line span,.brand-21{color:#e23c74!important;-webkit-text-fill-color:#e23c74!important}
+.nav-links,.nav-pill-holder{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:12px!important;flex-wrap:wrap!important}
+.nav-pill-link,.qa-pill-home{width:auto!important;min-width:0!important;max-width:none!important;height:46px!important;padding:0 1.15rem!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;border-radius:999px!important;box-sizing:border-box!important;white-space:nowrap!important;font-family:var(--font-sans)!important;font-size:.88rem!important;font-weight:800!important}
+.qa-home,.qa-home>.qa-pill-home{width:auto!important;min-width:0!important;max-width:none!important}
+.qa-pill-home{background:linear-gradient(135deg,#22105d,#5a36c9)!important;color:#fff!important;border-color:transparent!important}
+.hub-use-guide{position:relative!important;isolation:isolate!important;width:100%!important;max-width:1200px!important;margin:clamp(2rem,4vw,3rem) auto!important;padding:clamp(1.5rem,3vw,2.25rem)!important;border:1px solid rgba(217,175,55,.42)!important;border-radius:30px!important;background:linear-gradient(112deg,#fff9e9 0%,#fffdf9 50%,#fff0f4 100%)!important;box-shadow:0 22px 55px rgba(21,16,68,.10)!important;overflow:hidden!important}
+.hub-use-guide:before{content:''!important;display:block!important;position:absolute!important;inset:0!important;background:radial-gradient(circle at 10% 10%,rgba(217,175,55,.14),transparent 28%),radial-gradient(circle at 92% 8%,rgba(226,60,116,.09),transparent 26%)!important;pointer-events:none!important;z-index:-1!important}
+.hub-use-guide:after{display:none!important}
+.hub-guide-head{display:grid!important;grid-template-columns:minmax(0,1fr) 150px!important;gap:2rem!important;align-items:start!important;margin-bottom:1.4rem!important}
+.hub-guide-head h2{font-family:var(--font-serif)!important;font-weight:600!important;font-size:clamp(2rem,3.5vw,3rem)!important;line-height:1.02!important;letter-spacing:-.015em!important;color:#151044!important}
+.hub-guide-head p{max-width:78ch!important;color:#655e78!important;font-weight:650!important;line-height:1.65!important}
+.hub-guide-badge{width:150px!important;min-width:150px!important;padding:1rem .8rem!important;border-radius:21px!important;background:linear-gradient(135deg,#2a145c,#6841d1)!important;border:1px solid rgba(217,175,55,.6)!important;box-shadow:0 14px 28px rgba(47,27,111,.18)!important}
+.hub-guide-badge b{color:#e5bd29!important;font-size:1.6rem!important}
+.hub-guide-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important;margin-bottom:1rem!important}
+.hub-guide-card{min-height:150px!important;height:100%!important;padding:1.2rem 1rem!important;border-radius:22px!important;background:#fffdfa!important;border:1px solid rgba(217,175,55,.42)!important;box-shadow:0 12px 26px rgba(21,16,68,.06)!important}
+.hub-guide-card h3{font-family:var(--font-serif)!important;font-weight:600!important;font-size:1.15rem!important;letter-spacing:-.015em!important}
+.hub-guide-card p{color:#686079!important;font-weight:650!important;line-height:1.55!important}
+.hub-guide-focus{width:100%!important;margin:0 0 1rem!important;padding:1rem 1.2rem!important;border-radius:22px!important;background:linear-gradient(120deg,#2a1458,#7043dc)!important}
+.hub-guide-focus h3{color:#e5bd29!important}
+.hub-quick-map{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:12px!important;margin:0!important}
+.hub-quick-map a{min-height:46px!important;border-radius:15px!important;background:#fff!important;border:1px solid rgba(21,16,68,.10)!important;color:#151044!important;font-weight:800!important}
+.camp-footer{background:linear-gradient(135deg,#11072d,#211054 45%,#3a1770 75%,#5a1f87)!important;color:#fff!important}
+.footer-shell,.footer-min-bottom{width:min(100% - 48px,1200px)!important;max-width:1200px!important;margin-left:auto!important;margin-right:auto!important}
+.footer-shell{padding:3rem 0 1.4rem!important}
+.footer-main{display:grid!important;grid-template-columns:minmax(340px,1fr) auto!important;gap:3rem!important;align-items:start!important}
+.footer-brand-line{font-family:var(--font-serif)!important;font-weight:600!important;font-size:2rem!important;letter-spacing:-.015em!important;color:#fff!important}
+.footer-brand-block p{margin:.25rem 0 0!important;max-width:520px!important;color:rgba(255,255,255,.72)!important;line-height:1.55!important}
+.footer-links-clean{display:flex!important;justify-content:flex-end!important;align-items:flex-start!important;gap:.7rem!important;flex-wrap:wrap!important;padding-top:.2rem!important}
+.footer-links-clean a{min-height:44px!important;padding:0 1rem!important;display:inline-flex!important;align-items:center!important;border-radius:999px!important;background:rgba(255,255,255,.07)!important;border:1px solid rgba(255,255,255,.14)!important;color:#fff!important}
+.footer-min-bottom{box-sizing:border-box!important;padding:1.2rem 0 1.6rem!important;border-top:1px solid rgba(255,255,255,.12)!important;color:rgba(255,255,255,.68)!important}
+@media(max-width:980px){.brand-icon{width:60px!important;height:60px!important;flex-basis:60px!important}header{min-height:auto!important}.nav-wrap{align-items:flex-start!important;flex-wrap:wrap!important}.nav-links,.nav-pill-holder{width:100%!important;justify-content:flex-start!important}.hub-guide-head{grid-template-columns:1fr!important}.hub-guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.hub-quick-map{grid-template-columns:repeat(2,minmax(0,1fr))!important}.footer-main{grid-template-columns:1fr!important}.footer-links-clean{justify-content:flex-start!important}}
+@media(max-width:560px){.wide,.footer-shell,.footer-min-bottom{width:min(100% - 32px,1200px)!important}.brand-icon{width:52px!important;height:52px!important;flex-basis:52px!important}.brand{font-size:1.55rem!important}.nav-links,.nav-pill-holder{display:grid!important;grid-template-columns:1fr!important;width:100%!important}.nav-pill-link,.qa-home,.qa-home>.qa-pill-home{width:100%!important;max-width:100%!important}.nav-pill-link,.qa-pill-home{height:50px!important}.hub-use-guide{padding:1.25rem 1rem!important;border-radius:24px!important}.hub-guide-grid,.hub-quick-map{grid-template-columns:1fr!important}.hub-guide-badge{width:150px!important}.footer-shell{padding-top:2.3rem!important}}
 </style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="../index.html"><img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">CAMP<span>21</span></a>
-    <nav class="nav-actions" aria-label="Primary">
-      <a class="nav-pill active" href="programme.html">Programme</a>
-      <a class="nav-pill" href="resources.html">Resources</a>
-      <a class="nav-pill" href="updates.html">Live Updates</a>
-      <details class="quick-access">
-        <summary class="nav-pill qa-trigger">⚡ Quick Access <span class="qa-chev">▾</span></summary>
-        <div class="qa-dropdown">
-          <div class="qa-group">
-            <span class="qa-label">Role & Operations</span>
-            <a class="qa-link" href="participants.html">👥 Participants</a>
-            <a class="qa-link" href="trainers.html">🧑‍🏫 Trainers</a>
-            <a class="qa-link" href="facilitators.html">🤝 Facilitators</a>
-            <a class="qa-link" href="judges.html">⚖️ Judges</a>
-            <a class="qa-link" href="organiser.html">🗂️ Organiser</a>
-            <a class="qa-link" href="registration.html">📋 Registration</a>
-            <a class="qa-link" href="scan.html">🎥 Scan / QR</a>
-            <a class="qa-link" href="contacts.html">📞 Help Desk</a>
+<header>
+    <div class="wide nav-wrap">
+      <a href="../index.html" class="brand">
+        <img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">
+        CAMP<span>21</span>
+      </a>
+      <nav class="nav-links nav-pill-holder" aria-label="Primary">
+        <a class="nav-pill-link active" href="programme.html">📅 Programme</a>
+        <a class="nav-pill-link" href="resources.html">📚 Resources</a>
+        <a class="nav-pill-link" href="updates.html">📢 Live Updates</a>
+        <details class="qa-home" style="position:relative">
+          <summary class="qa-pill-home" style="cursor:pointer;display:flex;align-items:center;gap:6px;list-style:none;">⚡ Quick Access <span class="qa-h-chev" style="transition:.25s;display:inline-block;font-size:.7em">▾</span></summary>
+          <div class="qa-h-drop" style="position:absolute;top:calc(100% + 14px);right:0;min-width:280px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 56px rgba(21,16,68,.14);padding:8px 0;z-index:120">
+            <div style="padding:10px 8px">
+              <span style="display:block;font-size:.68rem;font-weight:900;color:#726b82;text-transform:uppercase;letter-spacing:.12em;padding:6px 16px 8px">Role &amp; Operations</span>
+              <a href="participants.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">👥 Participants</a>
+              <a href="trainers.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">🧑‍🏫 Trainers</a>
+              <a href="facilitators.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">🤝 Facilitators</a>
+              <a href="judges.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">⚖️ Judges</a>
+              <a href="organiser.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">🗂️ Organiser</a>
+              <a href="registration.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">📋 Registration</a>
+              <a href="scan.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">🎥 Scan / QR</a>
+              <a href="contacts.html" style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;font-weight:700;font-size:.92rem;color:#151044;text-decoration:none">📞 Help Desk</a>
+            </div>
           </div>
-        </div>
-      </details>
-    </nav>
-  </div>
-</header>
+        </details>
+      </nav>
+    </div>
+  </header>
 
 <section class="hero"><div class="hero-inner">
   <div class="programme-hero-copy">
@@ -262,24 +305,29 @@ summary.qa-trigger .qa-chev, .qa-home .qa-h-chev{color:#fff!important}
 </main>
 
 <footer class="camp-footer">
-  <div class="footer-min">
-    <div class="footer-min-brand">
-      <div class="footer-brand">CAMP<span>21</span></div>
-      <p>AI-Powered Design Thinking for Sustainable Cultural Heritage<br>13–16 July 2026 · Kompleks Kraf Kuala Lumpur</p>
+  <div class="wide footer-shell">
+    <div class="footer-main">
+      <div class="footer-brand-block">
+        <strong class="footer-brand-line">CAMP <span>21</span></strong>
+        <p>AI-Powered Design Thinking for Sustainable Cultural Heritage<br>13–16 July 2026 · Kompleks Kraf Kuala Lumpur</p>
+      </div>
+      <nav class="footer-links-clean" aria-label="Footer support links">
+        <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT Guide &amp; Template Hub ↗</a>
+        <a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener">Telegram Community ↗</a>
+        <a href="registration.html">Registration</a>
+        <a href="contacts.html">Help Desk</a>
+      </nav>
     </div>
-    <nav class="footer-min-links" aria-label="Footer">
-      <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT Guide &amp; Template Hub ↗</a>
-      <a href="https://t.me/+vTPGEFIaXMs5Mjhl" target="_blank" rel="noopener">Telegram Community ↗</a>
-      <a href="registration.html">Registration</a>
-      <a href="contacts.html">Help Desk</a>
-    </nav>
   </div>
-  <div class="footer-min-bottom"><span>© 2026 CAMP<span style="color:#F05AA6">21</span> Digital Hub ·</span><span>Created and developed by Julie Marlina binti Hasan, Politeknik Port Dickson.</span></div>
+  <div class="footer-min-bottom">
+    <span>© 2026 CAMP<span class="brand-21">21</span> Digital Hub.</span>
+    <span>Created and developed by Julie Marlina binti Hasan, Politeknik Port Dickson.</span>
+  </div>
 </footer>
 
 <script>
 const days=[
-{num:1,date:'13',month:'July 2026',title:'Heritage Immersion',sub:'Empathy & Define · KL Exploration',focus:'Phase 1 — Empathy & Phase 2 — Define',overview:'Day 1 launches the CAMP21 journey through heritage immersion, Design Thinking orientation, and group exploration. Participants begin with briefing and ice-breaking, then move directly into the Design Thinking process. Guided craft gallery tours, motif exploration, and artisan interviews anchor the empathy stage. By afternoon, groups frame their initial problem statements. The day closes with KL Exploration and a short group video reflection.',color:'var(--indigo)',tags:['Design Thinking','Kompleks Kraf KL','Hop-On Hop-Off','TikTok Reflection Challenge'],
+{num:1,date:'13',month:'July 2026',title:'Heritage Immersion',sub:'Empathy & Define · KL Exploration',focus:'Phase 1 — Empathy & Phase 2 — Define',overview:{intro:'Day 1 launches the CAMP21 journey through heritage immersion, Design Thinking orientation and group exploration.',points:['Briefing and ice-breaking to open the Design Thinking process','Guided craft gallery tours, motif exploration and artisan interviews anchor the empathy stage','Groups frame their initial problem statement by afternoon','Closes with KL Exploration and a group video reflection']},color:'var(--indigo)',tags:['Design Thinking','Kompleks Kraf KL','Hop-On Hop-Off','TikTok Reflection Challenge'],
 sessions:[
 {label:'Morning — Orientation',items:[
 {time:'7:00 am',title:'Pick-up of participants',venue:'Pick Up 1: PMKL · Pick Up 2: Avenue K · Pick Up 3: Pavilion',tag:''},
@@ -299,7 +347,7 @@ sessions:[
 outputs:['Group formation & role assignment','POEMS observation notes from craft gallery & motif exploration','Interview questions for artisan engagement','T04 Empathy Map — Mahjong Paper outcome','T05 User Persona + T06 User Insight & Needs Statement / Design Statement — Mahjong Paper outcome','Identified insights & needs — draft design challenge','Group video reflection — Day 1 close'],
 reflection:{title:'Day 1 Video Reflection',sub:'Exploration · Empathy · Define Phase',qs:['What cultural heritage element did you discover today?','What issue or challenge did your group observe?','What did you learn from the artisan or gallery exploration?','How did your group work together today?','What is one insight that can help define your Design Thinking challenge?']}},
 
-{num:2,date:'14',month:'July 2026',title:'Creative Sprint',sub:'Ideate & Prototype Plan',focus:'Phase 3 — Ideate & Phase 4 — Prototype Plan',overview:'Day 2 shifts into idea generation and prototype planning. Teams complete ideation activities, expand ideas through SCAMPER, prioritise the strongest idea and prepare the prototype direction before the full build.',color:'var(--olive)',tags:['Design Thinking','Ideate','Mind Mapping','Mentor Sprint'],
+{num:2,date:'14',month:'July 2026',title:'Creative Sprint',sub:'Ideate & Prototype Plan',focus:'Phase 3 — Ideate & Phase 4 — Prototype Plan',overview:{intro:'Day 2 shifts into idea generation and prototype planning.',points:['Ideation activities to generate creative ideas','Expand ideas through SCAMPER','Prioritise the strongest idea','Prepare the prototype direction before the full build']},color:'var(--olive)',tags:['Design Thinking','Ideate','Mind Mapping','Mentor Sprint'],
 sessions:[
 {label:'Morning — Ideate (DT Phase 3)',pic:'Nurfarhanah binti Omar',assist:'Katherine Livan Khing binti Abdullah, Nur Salina binti Saywalludin',items:[
 {time:'7:00 am',title:'Pick-up of participants',venue:'Pick Up 1: PMKL · Pick Up 2: Avenue K · Pick Up 3: Pavilion',tag:''},
@@ -318,7 +366,7 @@ sessions:[
 outputs:['T07 3D Circle Challenge completed','T08 SCAMPER — Mahjong Paper outcome','T09 Idea Prioritisation Matrix — Mahjong Paper outcome','T10 Prototype Direction Plan — trainer signed','T11 Full Prototype Outcome (optional format: Mahjong Paper / Canva / PPT / Storyboard)','Group video reflection — Day 2 close'],
 reflection:{title:'Day 2 Video Reflection',sub:'Ideate & Prototype Phase',qs:['What creative technique worked best for your team today?','How did your team narrow down from many ideas to one?','What is your prototype concept and how does it connect to heritage?','What was the biggest challenge in planning your prototype?','What will your team focus on building tomorrow?']}},
 
-{num:3,date:'15',month:'July 2026',title:'Prototype & Refine',sub:'Prototype, Test & Pitch Prep',focus:'Phase 4 — Prototype, Phase 5 — Testing & Pitch Prep',overview:'Day 3 focuses on prototype outcome, testing, improvement and pitch preparation. Teams complete prototype evidence, gather feedback, plan improvements and prepare for the Day 4 final pitch.',color:'var(--brown)',tags:['Prototyping','Tie Dye Workshop','Peer Testing','Pitch Dry Run'],
+{num:3,date:'15',month:'July 2026',title:'Prototype & Refine',sub:'Prototype, Test & Pitch Prep',focus:'Phase 4 — Prototype, Phase 5 — Testing & Pitch Prep',overview:{intro:'Day 3 focuses on prototype outcome, testing, improvement and pitch preparation.',points:['Complete prototype evidence','Gather feedback through peer testing','Plan improvements based on feedback','Prepare for the Day 4 final pitch']},color:'var(--brown)',tags:['Prototyping','Tie Dye Workshop','Peer Testing','Pitch Dry Run'],
 sessions:[
 {label:'Morning — Prototype Build (DT Phase 4)',pic:'Ts. Mohammed Farid bin Ishak',assist:'Sara Ruran Fabian, Muhammad Zaki bin Yahya',items:[
 {time:'7:00 am',title:'Pick-up of participants',venue:'Pick Up Points',tag:''},
@@ -336,7 +384,7 @@ sessions:[
 outputs:['T11 Full Prototype Outcome completed','T12 User Feedback Form — Mahjong Paper outcome','T13 Improvement Plan completed','T14 Final Pitching Template drafted & trainer-reviewed','Physical prototype ready for display','Group TikTok reflection — Day 3: Prototype Outcome + Testing + Pitch Preparation'],
 reflection:{title:'Day 3 Video Reflection',sub:'Test & Refine Phase',qs:['What feedback did your team receive during testing?','How did you improve your prototype based on feedback?','What is the strongest part of your pitch?','How does your solution preserve or promote cultural heritage?','What final preparation does your team need for tomorrow?']}},
 
-{num:4,date:'16',month:'July 2026',title:'Pitch Day',sub:'Pitching & Closing Ceremony',focus:'Final Presentations & Closing Celebration',overview:'Day 4 is the culmination of CAMP21. Teams deliver their pitch presentations to the judging panel (8-10 minutes + 3 minutes Q&A, 2 questions max). Panel feedback follows the sessions. The day closes with the Closing Ceremony and Prize Giving at Laman Wau.',color:'var(--rose)',tags:['Pitching','Evaluation','Panel Feedback','Awards Ceremony'],
+{num:4,date:'16',month:'July 2026',title:'Pitch Day',sub:'Pitching & Closing Ceremony',focus:'Final Presentations & Closing Celebration',overview:{intro:'Day 4 is the culmination of CAMP21.',points:['Deliver pitch presentations to the judging panel (8–10 min + 3 min Q&A, max 2 questions)','Panel feedback follows each session','Closes with the Closing Ceremony and Prize Giving at Laman Wau']},color:'var(--rose)',tags:['Pitching','Evaluation','Panel Feedback','Awards Ceremony'],
 sessions:[
 {label:'Morning — Preparation',items:[
 {time:'7:00 am',title:'Pick-up of participants',venue:'Pick Up 1: PMKL · Pick Up 2: Avenue K · Pick Up 3: Pavilion',tag:''},
@@ -360,7 +408,7 @@ document.getElementById('dayTabs').innerHTML=days.map(d=>`<div class="day-tab${d
 document.getElementById('dayPanels').innerHTML=days.map(d=>{
   let html=`<div class="day-panel${d.num===1?' active':''}" id="day${d.num}">`;
   html+=`<div class="day-header" style="background:${d.color}"><div><div class="dh-eyebrow">CAMP21 · Day ${d.num} of 4</div><h3>${d.title}</h3><div class="dh-sub">${d.sub}</div><div class="tag-row">${d.tags.map(t=>`<span class="sched-tag">${t}</span>`).join('')}</div></div><div class="dh-date">${d.date}<small>${d.month}</small></div></div>`;
-  html+=`<div class="day-overview"><h4>Overview</h4><p>${d.overview}</p><div class="focus">Learning focus: ${d.focus}</div></div>`;
+  html+=`<div class="day-overview"><h4>Overview</h4><p>${d.overview.intro}</p><ul class="overview-list">${d.overview.points.map(p=>`<li>${p}</li>`).join('')}</ul><div class="focus">Learning focus: ${d.focus}</div></div>`;
   d.sessions.forEach(s=>{
     html+=`<div class="session-label">${s.label}</div>`;
     if(s.pic)html+=`<div style="margin:-6px 0 12px 20px;font-size:.88rem"><strong style="color:var(--violet)">PIC:</strong> <strong>${s.pic}</strong> <span style="color:var(--muted);font-weight:600">· Assisted by: ${s.assist}</span></div>`;
@@ -405,8 +453,8 @@ function jumpToDaySection(n,section){
   if(target) window.scrollTo({top:target.offsetTop-95,behavior:'smooth'});
 }
 
-document.addEventListener('click',e=>{const qa=document.querySelector('.quick-access');if(qa&&!qa.contains(e.target))qa.removeAttribute('open')});
-document.querySelectorAll('.qa-link').forEach(a=>a.addEventListener('click',()=>{document.querySelector('.quick-access').removeAttribute('open')}));
+document.addEventListener('click',e=>{const qa=document.querySelector('.qa-home');if(qa&&!qa.contains(e.target))qa.removeAttribute('open')});
+document.querySelectorAll('.qa-h-drop a').forEach(a=>a.addEventListener('click',()=>{document.querySelector('.qa-home').removeAttribute('open')}));
 </script>
 </body>
 </html>
