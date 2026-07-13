@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAMP21 Submissions Portal</title>
+  <meta name="description" content="Submit Design Thinking phase templates and daily TikTok reflection videos for CAMP21: Synergising Literacies 2026." />
+  <link rel="icon" type="image/png" href="../assets/logos/logo-camp21.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#151044; --indigo:#251052; --cream:#F8F2EA; --paper:#fffdf9; --muted:#726b82; --line:#e9dfd0;
+      --gold:#D9AF37; --pink:#FF4FCB; --teal:#21D4C2; --violet:#6B4DFF; --green:#8DFF3F; --blue:#3D63FF; --orange:#f2a13a;
+      --shadow:0 18px 45px rgba(21,16,68,.08); --radius:24px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--cream);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,sans-serif} a{text-decoration:none;color:inherit}
+
+    /* ───── HEADER ───── */
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,248,239,.92);backdrop-filter:blur(18px);border-bottom:1px solid rgba(21,16,68,.08)}
+    .topbar-inner{max-width:1440px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 28px}
+    .brand{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-weight:700;font-size:1.5rem;color:var(--ink);letter-spacing:-.01em}
+    .brand span{color:#F05AA6}
+    .brand-icon{width:46px;height:46px;border-radius:50%;object-fit:contain}
+    .nav-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+    .nav-pill{border:1px solid #ddd5c9;background:#fff;border-radius:999px;padding:13px 22px;font-weight:900;box-shadow:0 8px 18px rgba(21,16,68,.04);font-size:.92rem;cursor:pointer;color:var(--ink);text-decoration:none}
+    .nav-pill:hover{border-color:var(--violet);color:var(--violet)}
+
+    /* ───── HERO SECTION ───── */
+    .hero{background:linear-gradient(120deg,rgba(24,61,112,.72),rgba(37,16,82,.68) 45%,rgba(59,18,76,.65));color:#fff;padding:58px 28px 50px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,20,66,.76) 0%,rgba(28,16,78,.72) 48%,rgba(58,18,84,.68) 100%);z-index:0;pointer-events:none}
+    .hero-inner{position:relative;z-index:1;max-width:1440px;margin:auto;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+    .eyebrow{display:inline-flex;border:1px solid rgba(241,191,50,.6);background:rgba(241,191,50,.13);color:#ffe18a;border-radius:999px;padding:9px 18px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.6rem,7vw,7rem);line-height:.88;margin:0 0 22px;letter-spacing:-.055em;text-shadow:0 2px 18px rgba(0,0,0,.22)}
+    .hero p{font-size:clamp(1.05rem,2vw,1.35rem);line-height:1.65;color:rgba(255,255,255,.90);max-width:780px;text-shadow:0 2px 12px rgba(0,0,0,.18)}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .stat-card{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);border-radius:22px;padding:24px;box-shadow:0 18px 40px rgba(0,0,0,.16)}
+    .stat-card b{display:block;font-size:2.5rem;color:var(--gold);line-height:1}
+    .stat-card span{font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.86)}
+
+    /* ───── WRAP & SECTIONS ───── */
+    .wrap{max-width:1440px;margin:auto;padding:36px 28px 80px}
+    .form-section{background:#fffdf9;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:34px;margin:34px 0}
+    .form-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--ink);margin:0 0 1rem;font-weight:600;line-height:1.1}
+    .form-section p{color:var(--muted);font-weight:600;margin:0 0 2rem;line-height:1.6}
+
+    /* ───── TABS ───── */
+    .submission-tabs{display:flex;gap:12px;margin-bottom:2rem;flex-wrap:wrap;border-bottom:2px solid var(--line);padding-bottom:1rem}
+    .tab-btn{background:transparent;border:2px solid transparent;padding:12px 20px;border-radius:999px;font-weight:900;font-size:.95rem;cursor:pointer;color:var(--muted);transition:all .2s;text-transform:uppercase;letter-spacing:.08em}
+    .tab-btn:hover{color:var(--violet);border-bottom-color:var(--violet)}
+    .tab-btn.active{color:#fff;background:linear-gradient(135deg,var(--violet),var(--pink));border-color:transparent;box-shadow:0 8px 20px rgba(107,77,255,.25)}
+    
+    .tab-content{display:none}
+    .tab-content.active{display:block;animation:fadeIn .3s ease}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ───── FORM ───── */
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+    .form-grid.full{grid-template-columns:1fr}
+    
+    .field-group{display:flex;flex-direction:column;gap:.5rem}
+    .field-group label{font-size:.75rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;color:var(--ink)}
+    .field-group label .req{color:var(--pink)}
+    .field-group .hint{font-size:.8rem;color:var(--muted);font-weight:600;margin-top:.3rem}
+
+    .sub-input,.sub-select{width:100%;padding:.95rem 1.2rem;border-radius:.85rem;border:1.5px solid rgba(21,16,68,.15);background:#fafafa;font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;font-weight:600;color:var(--ink);transition:all .2s}
+    .sub-input:focus,.sub-select:focus{outline:none;border-color:var(--violet);background:#fff;box-shadow:0 0 0 3px rgba(107,77,255,.1)}
+    .sub-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23151044' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1.2rem center;padding-right:2.8rem}
+
+    /* ───── BUTTONS ───── */
+    .form-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(21,16,68,.08)}
+    .btn-submit{background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;padding:1rem 2rem;border-radius:999px;border:none;font-weight:900;font-size:.95rem;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;transition:all .2s;box-shadow:0 8px 20px rgba(107,77,255,.25);font-family:'Plus Jakarta Sans',sans-serif;display:flex;align-items:center;gap:.5rem}
+    .btn-submit:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(107,77,255,.35)}
+    .btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+    .btn-clear{background:#fff;color:var(--ink);border:1.5px solid var(--line);padding:1rem 2rem;border-radius:999px;font-weight:900;cursor:pointer;transition:.2s}
+    .btn-clear:hover{border-color:var(--violet);color:var(--violet)}
+
+    /* ───── STATUS MESSAGES ───── */
+    .status-message{padding:1.2rem 1.5rem;border-radius:1rem;margin-bottom:1.5rem;font-weight:600;display:flex;align-items:center;gap:.8rem;opacity:0;transform:translateY(-10px);transition:opacity .3s, transform .3s}
+    .status-message.show{opacity:1;transform:translateY(0)}
+    .status-message.success{background:rgba(34,197,94,.12);color:#16a34a;border:1px solid rgba(34,197,94,.3)}
+    .status-message.error{background:rgba(239,68,68,.12);color:#dc2626;border:1px solid rgba(239,68,68,.3)}
+    .status-message::before{font-size:1.3rem}
+    .status-message.success::before{content:'✓'}
+    .status-message.error::before{content:'✗'}
+
+    /* ───── FOOTER ───── */
+    .camp-footer{background:linear-gradient(135deg,#11072d,#211054 45%,#3a1770 75%,#5a1f87);color:#fff;margin-top:48px;padding:0}
+    .footer-min{max-width:1440px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap;padding:3rem 0 1.4rem;width:min(100% - 48px,1440px);box-sizing:border-box}
+    .footer-min-brand .footer-brand{font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;line-height:1;color:#fff;margin-bottom:1rem}
+    .footer-min-brand .footer-brand span{color:#F05AA6}
+    .footer-min-brand p{margin:0;max-width:520px;color:rgba(255,255,255,.72);font-weight:600;line-height:1.6}
+    .footer-min-links{display:flex;justify-content:flex-end;align-items:flex-start;gap:.7rem;flex-wrap:wrap;padding:.2rem 0 0}
+    .footer-min-links a{min-height:44px;padding:0 1rem;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;font-weight:800;text-decoration:none;transition:all .2s ease}
+    .footer-min-links a:hover{background:rgba(255,255,255,.15);border-color:rgba(226,60,116,.55);transform:translateY(-1px)}
+    .footer-min-bottom{width:min(100% - 48px,1440px);max-width:1440px;margin:0 auto;padding:1.2rem 0 1.6rem;display:flex;justify-content:space-between;gap:10px 26px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.68);font-weight:600;font-size:.85rem;box-sizing:border-box}
+
+    /* ───── RESPONSIVE ───── */
+    @media(max-width:980px){
+      .hero-inner{grid-template-columns:1fr}
+      .form-grid{grid-template-columns:1fr}
+      .topbar-inner{align-items:flex-start;flex-direction:column;gap:14px}
+      .nav-actions{width:100%;justify-content:flex-start}
+    }
+
+    @media(max-width:620px){
+      .hero{padding:42px 18px 38px}
+      .wrap{padding:20px 18px 60px}
+      .form-section{padding:20px 16px;border-radius:20px}
+      .stats{grid-template-columns:1fr}
+      .hero h1{font-size:2.4rem}
+      .btn-submit,.btn-clear{width:100%}
+      .submission-tabs{gap:8px;padding-bottom:.5rem}
+      .tab-btn{padding:10px 14px;font-size:.8rem}
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ───── HEADER ───── -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="../index.html">
+      <img src="../assets/logos/logo-camp21.png" alt="CAMP21 logo" class="brand-icon" onerror="this.style.display='none'">
+      CAMP<span>21</span>
+    </a>
+    <nav class="nav-actions" aria-label="Primary">
+      <a class="nav-pill" href="programme.html">Programme</a>
+      <a class="nav-pill" href="resources.html">Resources</a>
+      <a class="nav-pill" href="participants.html">Participants</a>
+      <a class="nav-pill" href="../index.html">← Back</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ───── HERO SECTION ───── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">📤 Submit Your Work</span>
+      <h1>CAMP21 Dual<br>Submission Portal</h1>
+      <p>Submit Design Thinking phase templates and daily TikTok reflection videos. Real-time tracking for all submissions during CAMP21 2026.</p>
+    </div>
+    <div class="stats">
+      <div class="stat-card"><b>10</b><span>Groups</span></div>
+      <div class="stat-card"><b>14</b><span>Templates</span></div>
+      <div class="stat-card"><b>3</b><span>Reflections</span></div>
+      <div class="stat-card"><b>4</b><span>Days</span></div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <!-- ───── DUAL SUBMISSION PORTAL ───── -->
+  <section class="form-section">
+    <h2>📋 Submit Your Work & Reflections</h2>
+    <p>Choose what you're submitting: Phase Templates or Daily TikTok Reflections.</p>
+
+    <div id="statusMessage" class="status-message"></div>
+
+    <!-- ===== TABS ===== -->
+    <div class="submission-tabs">
+      <button class="tab-btn active" data-tab="templates">📄 Phase Templates</button>
+      <button class="tab-btn" data-tab="reflections">🎬 TikTok Reflections</button>
+    </div>
+
+    <!-- ===== TAB 1: PHASE TEMPLATES ===== -->
+    <div id="templates" class="tab-content active">
+      <p style="color:var(--muted);font-weight:600;margin-bottom:1.5rem">Submit Design Thinking phase deliverables (T01–T14). One template at a time.</p>
+
+      <form id="templateForm">
+        <div class="form-grid">
+          <!-- Group -->
+          <div class="field-group">
+            <label>Your Group <span class="req">*</span></label>
+            <select id="templateGroup" class="sub-select" required>
+              <option value="">Select your group</option>
+              <option value="Group 1">Group 1</option>
+              <option value="Group 2">Group 2</option>
+              <option value="Group 3">Group 3</option>
+              <option value="Group 4">Group 4</option>
+              <option value="Group 5">Group 5</option>
+              <option value="Group 6">Group 6</option>
+              <option value="Group 7">Group 7</option>
+              <option value="Group 8">Group 8</option>
+              <option value="Group 9">Group 9</option>
+              <option value="Group 10">Group 10</option>
+            </select>
+          </div>
+
+          <!-- Phase -->
+          <div class="field-group">
+            <label>Phase <span class="req">*</span></label>
+            <select id="templatePhase" class="sub-select" required>
+              <option value="">Select phase</option>
+              <option value="Empathise">1️⃣ Empathise (Day 1)</option>
+              <option value="Define">2️⃣ Define (Day 1–2)</option>
+              <option value="Ideate">3️⃣ Ideate (Day 2–3)</option>
+              <option value="Prototype">4️⃣ Prototype (Day 3)</option>
+              <option value="Test">5️⃣ Test (Day 3–4)</option>
+            </select>
+            <div class="hint">Which phase is this template for?</div>
+          </div>
+
+          <!-- Template -->
+          <div class="field-group">
+            <label>Template Code <span class="req">*</span></label>
+            <select id="templateCode" class="sub-select" required>
+              <option value="">Select template</option>
+              <optgroup label="Empathise (T01–T04)">
+                <option value="T01">T01 - Observation Framework</option>
+                <option value="T02">T02 - Interview Guide & Notes</option>
+                <option value="T03">T03 - Audio-to-Text Transcription</option>
+                <option value="T04">T04 - Empathy Map</option>
+              </optgroup>
+              <optgroup label="Define (T05–T06)">
+                <option value="T05">T05 - User Persona Template</option>
+                <option value="T06">T06 - User Insight & Needs Statement</option>
+              </optgroup>
+              <optgroup label="Ideate (T07–T09)">
+                <option value="T07">T07 - 3D Circle Challenge</option>
+                <option value="T08">T08 - SCAMPER</option>
+                <option value="T09">T09 - Idea Prioritisation Matrix</option>
+              </optgroup>
+              <optgroup label="Prototype (T10–T11)">
+                <option value="T10">T10 - Prototype Direction Plan</option>
+                <option value="T11">T11 - Full Prototype Outcome</option>
+              </optgroup>
+              <optgroup label="Test (T12–T13)">
+                <option value="T12">T12 - User Feedback Form</option>
+                <option value="T13">T13 - Improvement Plan</option>
+              </optgroup>
+              <optgroup label="Final Pitch (T14)">
+                <option value="T14">T14 - Final Pitching Template</option>
+              </optgroup>
+            </select>
+            <div class="hint">Which template are you submitting?</div>
+          </div>
+
+          <!-- Format -->
+          <div class="field-group">
+            <label>Format <span class="req">*</span></label>
+            <select id="templateFormat" class="sub-select" required>
+              <option value="">Choose format</option>
+              <option value="Document Link">📄 Document Link (Google Doc, Canva)</option>
+              <option value="Presentation">🎨 Presentation (Canva, PowerPoint)</option>
+              <option value="File">📁 File or Photo Upload</option>
+            </select>
+            <div class="hint">How are you submitting this template?</div>
+          </div>
+
+          <!-- Link -->
+          <div class="field-group form-grid full">
+            <label>Work Link <span class="req">*</span></label>
+            <input 
+              type="url" 
+              id="templateLink" 
+              class="sub-input" 
+              placeholder="https://docs.google.com/... OR https://canva.com/..."
+              required
+            >
+            <div class="hint">Paste the shareable link to your template</div>
+          </div>
+
+          <!-- Name -->
+          <div class="field-group">
+            <label>Your Name <span class="req">*</span></label>
+            <input type="text" id="templateName" class="sub-input" placeholder="Full name" required>
+          </div>
+
+          <!-- Contact -->
+          <div class="field-group">
+            <label>Phone Number</label>
+            <input type="tel" id="templatePhone" class="sub-input" placeholder="01X-XXXXXXX">
+          </div>
+
+          <!-- Notes -->
+          <div class="field-group form-grid full">
+            <label>Notes (Optional)</label>
+            <textarea id="templateNotes" class="sub-input" placeholder="Any notes about this submission?"></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">📤 Submit Template</button>
+          <button type="reset" class="btn-clear">Clear</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- ===== TAB 2: TIKTOK REFLECTIONS ===== -->
+    <div id="reflections" class="tab-content">
+      <p style="color:var(--muted);font-weight:600;margin-bottom:1.5rem">Submit daily TikTok-style reflection videos (Day 1, 2, 3). Deadline: 8:00 PM each day.</p>
+
+      <form id="reflectionForm">
+        <div class="form-grid">
+          <!-- Group -->
+          <div class="field-group">
+            <label>Your Group <span class="req">*</span></label>
+            <select id="reflectionGroup" class="sub-select" required>
+              <option value="">Select your group</option>
+              <option value="Group 1">Group 1</option>
+              <option value="Group 2">Group 2</option>
+              <option value="Group 3">Group 3</option>
+              <option value="Group 4">Group 4</option>
+              <option value="Group 5">Group 5</option>
+              <option value="Group 6">Group 6</option>
+              <option value="Group 7">Group 7</option>
+              <option value="Group 8">Group 8</option>
+              <option value="Group 9">Group 9</option>
+              <option value="Group 10">Group 10</option>
+            </select>
+          </div>
+
+          <!-- Day -->
+          <div class="field-group">
+            <label>Reflection Day <span class="req">*</span></label>
+            <select id="reflectionDay" class="sub-select" required>
+              <option value="">Select day</option>
+              <option value="Day 1">📍 Day 1: Empathy + Define</option>
+              <option value="Day 2">💡 Day 2: Ideate + Prototype Plan</option>
+              <option value="Day 3">🛠 Day 3: Prototype + Testing + Pitch Prep</option>
+            </select>
+            <div class="hint">Which day's reflection is this?</div>
+          </div>
+
+          <!-- Format (Fixed) -->
+          <div class="field-group form-grid full">
+            <label>Format</label>
+            <div style="padding:1rem;background:#f0f8f7;border-radius:.85rem;border:1.5px solid var(--teal);color:var(--teal);font-weight:700">
+              🎬 TikTok Video (15–60 seconds, vertical)
+            </div>
+            <div class="hint">Submit on: TikTok, Instagram Reels, YouTube Shorts, or Google Drive</div>
+          </div>
+
+          <!-- Video Link -->
+          <div class="field-group form-grid full">
+            <label>Video Link <span class="req">*</span></label>
+            <input 
+              type="url" 
+              id="reflectionLink" 
+              class="sub-input" 
+              placeholder="https://www.tiktok.com/@... OR https://instagram.com/p/... OR https://youtu.be/..."
+              required
+            >
+            <div class="hint">Paste the shareable link to your TikTok reflection video</div>
+          </div>
+
+          <!-- Name -->
+          <div class="field-group">
+            <label>Your Name <span class="req">*</span></label>
+            <input type="text" id="reflectionName" class="sub-input" placeholder="Full name" required>
+          </div>
+
+          <!-- Contact -->
+          <div class="field-group">
+            <label>Phone Number</label>
+            <input type="tel" id="reflectionPhone" class="sub-input" placeholder="01X-XXXXXXX">
+          </div>
+
+          <!-- Notes -->
+          <div class="field-group form-grid full">
+            <label>Notes (Optional)</label>
+            <textarea id="reflectionNotes" class="sub-input" placeholder="Anything to note about this video?"></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">🎬 Submit Reflection Video</button>
+          <button type="reset" class="btn-clear">Clear</button>
+        </div>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- ===== INFO SECTIONS ===== -->
+  <section class="form-section">
+    <h2>📋 Phase Templates Reference</h2>
+    <div class="form-grid" style="grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem">
+      <div style="background:#f7f3ed;border-left:5px solid var(--teal);border-radius:18px;padding:16px">
+        <h4 style="margin:0 0 8px;color:var(--ink);font-weight:800;font-size:.95rem">📍 Empathise (T01–T04)</h4>
+        <p style="margin:0;color:var(--muted);font-weight:600;font-size:.85rem">Research, interviews, empathy maps, user personas</p>
+      </div>
+      <div style="background:#f7f3ed;border-left:5px solid var(--violet);border-radius:18px;padding:16px">
+        <h4 style="margin:0 0 8px;color:var(--ink);font-weight:800;font-size:.95rem">🎯 Define (T05–T06)</h4>
+        <p style="margin:0;color:var(--muted);font-weight:600;font-size:.85rem">Problem statements, design statements, insights</p>
+      </div>
+      <div style="background:#f7f3ed;border-left:5px solid var(--pink);border-radius:18px;padding:16px">
+        <h4 style="margin:0 0 8px;color:var(--ink);font-weight:800;font-size:.95rem">💡 Ideate (T07–T09)</h4>
+        <p style="margin:0;color:var(--muted);font-weight:600;font-size:.85rem">Brainstorms, SCAMPER, idea prioritisation</p>
+      </div>
+      <div style="background:#f7f3ed;border-left:5px solid var(--gold);border-radius:18px;padding:16px">
+        <h4 style="margin:0 0 8px;color:var(--ink);font-weight:800;font-size:.95rem">🛠 Prototype (T10–T11)</h4>
+        <p style="margin:0;color:var(--muted);font-weight:600;font-size:.85rem">Prototype plans, mockups, physical models</p>
+      </div>
+      <div style="background:#f7f3ed;border-left:5px solid var(--green);border-radius:18px;padding:16px">
+        <h4 style="margin:0 0 8px;color:var(--ink);font-weight:800;font-size:.95rem">✓ Test (T12–T13)</h4>
+        <p style="margin:0;color:var(--muted);font-weight:600;font-size:.85rem">User feedback forms, improvement plans</p>
+      </div>
+      <div style="background:#f7f3ed;border-left:5px solid var(--blue);border-radius:18px;padding:16px">
+        <h4 style="margin:0 0 8px;color:var(--ink);font-weight:800;font-size:.95rem">🎤 Pitch (T14)</h4>
+        <p style="margin:0;color:var(--muted);font-weight:600;font-size:.85rem">Final pitch deck, presentation ready</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section" style="background:linear-gradient(135deg,rgba(242,79,203,.08),rgba(33,212,194,.06))">
+    <h2>🎬 TikTok Reflection Challenge</h2>
+    <p><strong>Submit daily TikTok-style reflection videos for Day 1, Day 2, and Day 3.</strong> Focus on genuine reflection, daily learning, team progress and Design Thinking evidence.</p>
+
+    <div class="form-grid" style="margin-top:2rem">
+      <div style="background:#fff;border:2px solid var(--teal);border-radius:18px;padding:20px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:.5rem">📍</div>
+        <h4 style="margin:0 0 8px;color:var(--ink);font-weight:800">Day 1</h4>
+        <p style="margin:0;color:var(--muted);font-weight:600;font-size:.9rem"><strong>Empathy + Define</strong><br>Show user research & problem</p>
+      </div>
+      <div style="background:#fff;border:2px solid var(--violet);border-radius:18px;padding:20px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:.5rem">💡</div>
+        <h4 style="margin:0 0 8px;color:var(--ink);font-weight:800">Day 2</h4>
+        <p style="margin:0;color:var(--muted);font-weight:600;font-size:.9rem"><strong>Ideate + Prototype</strong><br>Show ideas & prototype direction</p>
+      </div>
+      <div style="background:#fff;border:2px solid var(--pink);border-radius:18px;padding:20px;text-align:center">
+        <div style="font-size:2rem;margin-bottom:.5rem">🛠</div>
+        <h4 style="margin:0 0 8px;color:var(--ink);font-weight:800">Day 3</h4>
+        <p style="margin:0;color:var(--muted);font-weight:600;font-size:.9rem"><strong>Prototype + Test</strong><br>Show solution & refinements</p>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:2rem">
+      <table style="width:100%;border-collapse:collapse">
+        <tr style="background:rgba(107,77,255,.1)">
+          <th style="padding:16px;text-align:left;font-weight:900;color:var(--ink);border-bottom:1px solid var(--line)">Rubric Criteria</th>
+          <th style="padding:16px;text-align:center;font-weight:900;color:var(--ink);border-bottom:1px solid var(--line)">Marks</th>
+        </tr>
+        <tr style="border-bottom:1px solid var(--line)">
+          <td style="padding:16px;color:var(--ink);font-weight:700">Daily Design Thinking Reflection</td>
+          <td style="padding:16px;text-align:center;font-weight:900;color:var(--violet)">25%</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--line)">
+          <td style="padding:16px;color:var(--ink);font-weight:700">Learning, Insight & Evidence</td>
+          <td style="padding:16px;text-align:center;font-weight:900;color:var(--teal)">25%</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--line)">
+          <td style="padding:16px;color:var(--ink);font-weight:700">Teamwork, Communication & Clarity</td>
+          <td style="padding:16px;text-align:center;font-weight:900;color:var(--pink)">25%</td>
+        </tr>
+        <tr>
+          <td style="padding:16px;color:var(--ink);font-weight:700">Creativity, Ethics & TikTok Presentation</td>
+          <td style="padding:16px;text-align:center;font-weight:900;color:var(--gold)">25%</td>
+        </tr>
+      </table>
+    </div>
+
+    <div style="background:#fff9e9;border:1px solid #f4d98f;border-radius:18px;padding:14px 16px;margin-top:16px;color:#5c4520;font-weight:700;font-size:.9rem">
+      ⚠️ <strong>Important:</strong> TikTok Reflections (100%) is <strong>SEPARATE from Final Pitch (100%).</strong> Both are scored independently.
+    </div>
+  </section>
+
+</main>
+
+<!-- ───── FOOTER ───── -->
+<footer class="camp-footer">
+  <div class="footer-min">
+    <div class="footer-min-brand">
+      <div class="footer-brand">CAMP<span>21</span></div>
+      <p>AI-Powered Design Thinking for Sustainable Cultural Heritage<br>13–16 July 2026 · Kompleks Kraf Kuala Lumpur</p>
+    </div>
+    <nav class="footer-min-links" aria-label="Footer">
+      <a href="https://smart-dt-project.netlify.app/welcome.html" target="_blank" rel="noopener">Smart DT Guide ↗</a>
+      <a href="participants.html">Track Progress</a>
+      <a href="contacts.html">Help Desk</a>
+    </nav>
+  </div>
+  <div class="footer-min-bottom">
+    <span>© 2026 CAMP<span style="color:#F05AA6">21</span> Digital Hub ·</span>
+    <span>Created by Julie Marlina binti Hasan, Politeknik Port Dickson.</span>
+  </div>
+</footer>
+
+<script>
+// ─── TAB SWITCHING ───
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const tabName = btn.dataset.tab;
+    
+    // Remove active from all
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    
+    // Add active to clicked
+    btn.classList.add('active');
+    document.getElementById(tabName).classList.add('active');
+  });
+});
+
+// ─── SUBMISSION HANDLING ───
+const statusMessage = document.getElementById('statusMessage');
+const templateForm = document.getElementById('templateForm');
+const reflectionForm = document.getElementById('reflectionForm');
+
+const APPS_SCRIPT_URL = "https://script.google.com/macros/d/YOUR_DEPLOYMENT_ID/userweb?v=1";
+
+function showStatus(message, type) {
+  statusMessage.textContent = message;
+  statusMessage.className = `status-message ${type} show`;
+  setTimeout(() => statusMessage.classList.remove('show'), 5000);
+}
+
+// ─── TEMPLATE FORM SUBMISSION ───
+templateForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const data = {
+    submissionType: 'Phase_Template',
+    group: document.getElementById('templateGroup').value,
+    phase: document.getElementById('templatePhase').value,
+    template: document.getElementById('templateCode').value,
+    format: document.getElementById('templateFormat').value,
+    link: document.getElementById('templateLink').value,
+    submittedBy: document.getElementById('templateName').value,
+    contact: document.getElementById('templatePhone').value,
+    notes: document.getElementById('templateNotes').value,
+    timestamp: new Date().toLocaleString('en-MY', { 
+      timeZone: 'Asia/Kuala_Lumpur',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    })
+  };
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    
+    showStatus('✓ Template submitted successfully!', 'success');
+    templateForm.reset();
+  } catch (error) {
+    showStatus('✗ Submission failed. Check your internet.', 'error');
+  }
+});
+
+// ─── REFLECTION FORM SUBMISSION ───
+reflectionForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const data = {
+    submissionType: 'TikTok_Reflection',
+    group: document.getElementById('reflectionGroup').value,
+    day: document.getElementById('reflectionDay').value,
+    videoLink: document.getElementById('reflectionLink').value,
+    submittedBy: document.getElementById('reflectionName').value,
+    contact: document.getElementById('reflectionPhone').value,
+    notes: document.getElementById('reflectionNotes').value,
+    timestamp: new Date().toLocaleString('en-MY', { 
+      timeZone: 'Asia/Kuala_Lumpur',
+      year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', second: '2-digit'
+    })
+  };
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    
+    showStatus('✓ Reflection video submitted successfully!', 'success');
+    reflectionForm.reset();
+  } catch (error) {
+    showStatus('✗ Submission failed. Check your internet.', 'error');
+  }
+});
+</script>
+
+</body>
+</html>
